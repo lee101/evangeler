@@ -1,0 +1,74 @@
+{% import "gameon/templates/templates.jinja2" as gameon %}
+{% import "templates/macros.jinja2" as macros with context %}
+{% import "templates/views.jinja2" as views with context %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Multiplication Master - Maths Madness</title>
+    <meta name="description"
+          content="Multiplication Master, An Utterly Addicting Multiplication Game, Packed With Maths Madness! Train your brain while having a blast!">
+
+    <meta name="keywords"
+          content="multiplication games, maths games, number games, puzzle games, learning games for kids">
+    <meta property="og:title" content="Multiplication Master - Maths Madness">
+    <meta property="og:url" content="http://www.multiplicationmaster.com">
+    <meta property="og:image"
+          content="http://www.multiplicationmaster.com/static/img/multiplication-master-promo-sq-bg256.png">
+    <meta property="og:description"
+          content="Play Multiplication Master For Free! An Utterly Addicting Multiplication Game, Packed With Maths Madness!">
+    <meta property="og:type" content="game">
+    <meta property="og:site_name" content="Multiplication Master">
+    <meta property="fb:admins" content="337972272904903">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ macros.headers() }}
+
+    {{ gameon.cssheaders() }}
+    {{ macros.cssheaders() }}
+
+    {{ gameon.jsheaders() }}
+
+    {{ macros.jsvars() }}
+    {{ macros.jsheaders() }}
+
+    <script id="start" type="text/html">
+        {{ views.start() }}
+    </script>
+    <script id="difficulties" type="text/html">
+        {{ views.difficulties() }}
+    </script>
+    <script id="levels" type="text/html">
+        {{ views.levels() }}
+    </script>
+    <script id="level" type="text/html">
+        {{ views.level() }}
+    </script>
+    <script id="options" type="text/html">
+        {{ views.options() }}
+    </script>
+    <script id="donelevel" type="text/html">
+        {{ views.donelevel() }}
+    </script>
+</head>
+<body>
+{{ gameon.templates() }}
+<div class="mm-like">
+    <div class="fb-like" data-href="http://www.multiplicationmaster.com" data-width="400px"
+         data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+</div>
+<div class="mm-background">
+    {{ views.start() }}
+</div>
+{% if not noads %}
+    <div class="mm-responsivead-bottom navbar-fixed-bottom">
+        <button class="mm-hide-btn btn btn-info btn-lg">Hide</button>
+        {{ macros.responsiveAd() }}
+    </div>
+    <div class="mm-responsivead-right navbar-fixed-bottom">
+        {{ macros.responsiveAd() }}
+    </div>
+{% endif %}
+
+</body>
+</html>

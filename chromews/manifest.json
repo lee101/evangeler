@@ -1,0 +1,22 @@
+{
+    "name": "Multiplication Master",
+    "description": "Find numbers which work! Multiplication Master makes math fun! Beat the clock in this battle of the brains or create crazy combos! Multiplication Master Means Maths Madness!",
+    "version": "1",
+    "manifest_version": 2,
+    "app": {
+        "urls": [
+            "*://www.multiplicationmaster.com/"
+        ],
+        "launch": {
+            "web_url": "http://www.multiplicationmaster.com/"
+        }
+    },
+    "icons": {
+        "64": "cross-icon-multiplication-master-no-bg64.png",
+        "128": "icon_128.png"
+    },
+    "permissions": [
+        "unlimitedStorage",
+        "notifications"
+    ]
+}
