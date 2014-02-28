@@ -37,8 +37,8 @@ handlers:
   static_files: transient/robots.txt
   upload: transient/robots.txt
 
-- url: /gameon/static/*
-  static_dir: gameon/static
+- url: /lib/static/*
+  static_dir: lib/static
   http_headers:
     Vary: Accept-Encoding
 - url: .*

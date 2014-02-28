@@ -1,7 +1,7 @@
 var mainTheme = 'mm-theme';
-gameon.loadSound(mainTheme, '/gameon/static/music/multiplication-master-theme1.mp3');
-gameon.loadSound('score', '/gameon/static/music/star.mp3');
-gameon.loadSound('win', '/gameon/static/music/winning-level.mp3');
+gameon.loadSound(mainTheme, '/lib/static/music/multiplication-master-theme1.mp3');
+gameon.loadSound('score', '/lib/static/music/star.mp3');
+gameon.loadSound('win', '/lib/static/music/winning-level.mp3');
 
 
 var views = new (function () {
@@ -287,7 +287,7 @@ var views = new (function () {
                     $('.mm-end-condition').html('<p>Moves: ' + endSelf.moves + '</p>');
                 }
                 else {
-                    $('.mm-end-condition').html('<p>Time: <span class="gameon-clock"></span></p>');
+                    $('.mm-end-condition').html('<p>Time: <span class="lib-clock"></span></p>');
                 }
             };
             endSelf.setMoves = function (moves) {
@@ -330,7 +330,7 @@ var views = new (function () {
         var MainTile = function (n) {
             var self = this;
 
-            self.number = gameon.math.precisionRound(n, level.precision);//gameon.math.numberBetween(1, 9);
+            self.number = gameon.math.precisionRound(n, level.precision);//lib.math.numberBetween(1, 9);
             self.selected = false;
 
             self.click = function () {

@@ -2,13 +2,13 @@
 import json
 
 from Models import *
-from gameon import gameon
+from lib import gameon
 from ws import ws
 import os
 import webapp2
 import jinja2
 import fixtures
-from gameon.gameon_utils import GameOnUtils
+from lib.gameon_utils import GameOnUtils
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),

@@ -1,4 +1,4 @@
-{% import "gameon/templates/templates.jinja2" as gameon with context %}
+{% import "lib/templates/templates.jinja2" as gameon with context %}
 {% import "templates/macros.jinja2" as macros with context %}
 {% import "templates/views.jinja2" as views with context %}
 <!DOCTYPE HTML>
@@ -7,15 +7,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Jasmine Spec Runner v2.0.0</title>
 
-    <link rel="shortcut icon" type="image/png" href="/gameon/static/js/lib/jasmine-2.0.0/jasmine_favicon.png">
-    <link rel="stylesheet" type="text/css" href="/gameon/static/js/lib/jasmine-2.0.0/jasmine.css">
+    <link rel="shortcut icon" type="image/png" href="/lib/static/js/lib/jasmine-2.0.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="/lib/static/js/lib/jasmine-2.0.0/jasmine.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{ macros.headers() }}
-    <script type="text/javascript" src="/gameon/static/js/lib/jasmine-2.0.0/jasmine.js"></script>
-    <script type="text/javascript" src="/gameon/static/js/lib/jasmine-2.0.0/jasmine-html.js"></script>
-    <script type="text/javascript" src="/gameon/static/js/lib/jasmine-2.0.0/boot.js"></script>
+    <script type="text/javascript" src="/lib/static/js/lib/jasmine-2.0.0/jasmine.js"></script>
+    <script type="text/javascript" src="/lib/static/js/lib/jasmine-2.0.0/jasmine-html.js"></script>
+    <script type="text/javascript" src="/lib/static/js/lib/jasmine-2.0.0/boot.js"></script>
     {{ gameon.cssheaders() }}
     {{ macros.cssheaders() }}
 
@@ -25,7 +25,7 @@
     {{ macros.jsheaders() }}
 
 
-    <script type="text/javascript" src="/gameon/static/js/spec/SpecHelper.js"></script>
+    <script type="text/javascript" src="/lib/static/js/spec/SpecHelper.js"></script>
     <script type="text/javascript" src="/static/js/gamespec.js"></script>
 
     <script id="start" type="text/html">
