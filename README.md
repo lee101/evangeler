@@ -1,7 +1,7 @@
-[Multiplication Master](https://www.multiplicationmaster.com "Multiplication Master Maths Game")
+[Evangeler](https://www.evangeler.com "Evangeler Maths Game")
 ====================
 
-[Multiplication Master](https://www.multiplicationmaster.com "Multiplication Master Maths Game")
+[Evangeler](https://www.evangeler.com "Evangeler Maths Game")
 
 
 

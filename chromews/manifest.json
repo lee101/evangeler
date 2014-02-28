@@ -1,14 +1,14 @@
 {
-    "name": "Multiplication Master",
-    "description": "Find numbers which work! Multiplication Master makes math fun! Beat the clock in this battle of the brains or create crazy combos! Multiplication Master Means Maths Madness!",
+    "name": "Evangeler",
+    "description": "Find numbers which work! Evangeler makes math fun! Beat the clock in this battle of the brains or create crazy combos! Evangeler Means Maths Madness!",
     "version": "1",
     "manifest_version": 2,
     "app": {
         "urls": [
-            "*://www.multiplicationmaster.com/"
+            "*://www.evangeler.com/"
         ],
         "launch": {
-            "web_url": "http://www.multiplicationmaster.com/"
+            "web_url": "http://www.evangeler.com/"
         }
     },
     "icons": {

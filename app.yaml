@@ -60,10 +60,10 @@ automatic_scaling:
 pagespeed:
 
   url_blacklist:
-  - http://www.multiplicationmaster.com/music/*
-  - http://www.multiplicationmaster.com/sitemap
-  - http://www.multiplicationmaster.com/manifest.webapp
-  - https://multiplicationmaster.appspot.com/buy
+  - http://www.evangeler.com/music/*
+  - http://www.evangeler.com/sitemap
+  - http://www.evangeler.com/manifest.webapp
+  - https://evangeler.appspot.com/buy
   enabled_rewriters:
   - CollapseWhitespace
   - CombineHeads

@@ -207,8 +207,8 @@ class BuyHandler(BaseHandler):
     def get(self):
         # paymentAmount = "3.99"
         # CURRENCYCODE = "USD"
-        # RETURNURL = "https://multiplicationmaster.appspot.com/buy"
-        # CANCELURL = "https://multiplicationmaster.appspot.com/buy"
+        # RETURNURL = "https://evangeler.appspot.com/buy"
+        # CANCELURL = "https://evangeler.appspot.com/buy"
 
         self.render('buy.jinja2')
 
