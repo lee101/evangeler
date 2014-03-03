@@ -1,6 +1,7 @@
 {% import "lib/templates/templates.jinja2" as gameon %}
 {% import "templates/macros.jinja2" as macros with context %}
 {% import "templates/views.jinja2" as views with context %}
+{% import "templates/shared/views.jinja2" as shared with context %}
 <!doctype html>
 <html>
 <head>
@@ -14,7 +15,7 @@
     <meta property="og:title" content="Evangeler - Maths Madness">
     <meta property="og:url" content="http://www.evangeler.com">
     <meta property="og:image"
-          content="http://www.evangeler.com/static/img/multiplication-master-promo-sq-bg256.png">
+          content="http://www.evangeler.com/static/img/evangeler-logo256.png">
     <meta property="og:description"
           content="Play Evangeler For Free! An Utterly Addicting Multiplication Game, Packed With Maths Madness!">
     <meta property="og:type" content="game">
@@ -60,15 +61,6 @@
 <div class="mm-background">
     {{ views.start() }}
 </div>
-{% if not noads %}
-    <div class="mm-responsivead-bottom navbar-fixed-bottom">
-        <button class="mm-hide-btn btn btn-info btn-lg">Hide</button>
-        {{ macros.responsiveAd() }}
-    </div>
-    <div class="mm-responsivead-right navbar-fixed-bottom">
-        {{ macros.responsiveAd() }}
-    </div>
-{% endif %}
 
 </body>
 </html>

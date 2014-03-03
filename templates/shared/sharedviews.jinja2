@@ -1,0 +1,145 @@
+{% macro backbtn() -%}
+    <button type="button" class="back-btn gameon-btn-hg btn btn-info btn-lg"><span
+            class="glyphicon glyphicon-arrow-left"></span></button>
+{%- endmacro %}
+{% macro logo() -%}
+    <a href="/" title="Evangeler - Maths Madness!" onclick="return gameon.gotoLink(this)" target="_blank">
+        <img src="/static/img/multiplication-master-logo.png" class="mm-logo__image img-responsive"
+             alt="Evangeler">
+    </a>
+{%- endmacro %}
+
+{% macro start() -%}
+    <div class="mm-logo">
+        {{ logo() }}
+    </div>
+    <div class="mm-play-btn">
+        <button type="button" class="gameon-btn-hg btn btn-success btn-lg" onclick="views.difficulties()">Play Now!
+        </button>
+    </div>
+    <div class="mm-options-btn">
+        <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
+    </div>
+{%- endmacro %}
+
+
+{% macro difficulties() -%}
+
+    {{ backbtn() }}
+    <div class="mm-logo">
+        {{ logo() }}
+    </div>
+    <div class="mm-difficulty mm-difficulty--{{ fixtures.EASY }}">
+        <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+                onclick="views.levels(EASY)">Easy
+        </button>
+    </div>
+    <div class="mm-difficulty mm-difficulty--{{ fixtures.MEDIUM }}">
+        <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+                onclick="views.levels(MEDIUM)"
+                disabled="disabled"><span
+                class="glyphicon glyphicon-lock"></span>Medium
+        </button>
+    </div>
+    <div class="mm-difficulty mm-difficulty--{{ fixtures.HARD }}">
+        <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+                onclick="views.levels(HARD)"
+                disabled="disabled"><span
+                class="glyphicon glyphicon-lock"></span>Hard
+        </button>
+    </div>
+    <div class="mm-difficulty mm-difficulty--{{ fixtures.EXPERT }}">
+        <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+                onclick="views.levels(EXPERT)"
+                disabled="disabled"><span
+                class="glyphicon glyphicon-lock"></span>Expert
+        </button>
+    </div>
+{%- endmacro %}
+
+
+{% macro levels() -%}
+    {{ backbtn() }}
+    <div class="mm-logo">
+        {{ logo() }}
+    </div>
+    <div class="mm-levels gameon-board">
+
+    </div>
+{%- endmacro %}
+
+{% macro level() -%}
+    {{ backbtn() }}
+    <div class="mm-logo">
+        <div class="mm-level-controls">
+            <div class="mm-end-condition">
+                <p>Time: <span class="gameon-clock"></span></p>
+            </div>
+            <div class="mm-volume">
+
+            </div>
+            <div class="clear"></div>
+            <div class="mm-starbar">
+
+            </div>
+        </div>
+    </div>
+    <div class="mm-level gameon-board">
+
+    </div>
+    <div class="mm-equation gameon-board">
+
+    </div>
+{%- endmacro %}
+
+{% macro donelevel() -%}
+    <div class="mm-logo">
+        <div class="mm-starbar mm-starbar--center">
+
+        </div>
+        <div class="mm-end-message">
+            <p>Excellent!</p>
+        </div>
+        <div class="mm-level-controls">
+            <div class="left">
+                <button id="mm-replay" type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+                        >Replay
+                </button>
+            </div>
+            <div class="right">
+                <button id="mm-next-level" type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+                        disabled="disabled"><span
+                        class="glyphicon glyphicon-lock"></span>Next
+                </button>
+            </div>
+            <div class="clear"></div>
+            <div class="text-center">
+                <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+                        onclick="views.difficulties()"
+                        >Menu
+                </button>
+            </div>
+        </div>
+    </div>
+{%- endmacro %}
+
+
+{% macro options() -%}
+
+    {{ backbtn() }}
+    <div class="mm-logo">
+        {{ logo() }}
+    </div>
+    <div class="mm-difficulty">
+        <a href="/terms" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+           onclick="return gameon.gotoLink(this)" target="_blank">
+            Terms
+        </a>
+    </div>
+    <div class="mm-difficulty">
+        <a href="/privacy" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
+           onclick="return gameon.gotoLink(this)" target="_blank">
+            Privacy
+        </a>
+    </div>
+{%- endmacro %}
