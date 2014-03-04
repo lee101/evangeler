@@ -230,12 +230,10 @@
         }
     </script>
 {%- endmacro %}
+
 {%- macro footer() %}
     <div class="footer">
         <p>
-            {% if not url.endswith('learn-english') %}
-                <a class="footer__link" href="/learn-english" title="Learn English">Learn English</a>
-            {% endif %}
             {% if '/contact' in url %}
                 <span>Contact</span>
             {% else %}
@@ -244,7 +242,7 @@
             {% if '/about' in url %}
                 <span>About Us</span>
             {% else %}
-                <a class="footer__link" href="/about" title="About Evangeler">About Us</a>
+                <a class="footer__link" href="/about" title="About Evangeler">About</a>
             {% endif %}
             {% if '/terms' in url %}
                 <span>Terms &amp; Conditions</span>
@@ -254,55 +252,40 @@
             {% if '/privacy-policy' in url %}
                 <span>Privacy Policy</span>
             {% else %}
-                <a class="footer__link" href="/privacy-policy" title="Privacy Policy">Privacy Policy</a>
+                <a class="footer__link" href="/privacy" title="Privacy">Privacy</a>
             {% endif %}
 
-            <span>© 2013 <a class="footer__link" href="http://www.addictingwordgames.com" title="Addicting Word Games"
-                            target="_blank">Addicting Word Games</a></span>
+            <span>© 2013 <a class="footer__link" href="http://www.evangeler.com" title="Evangeler"
+                            target="_blank">Evangeler</a></span>
             <a href="http://www.facebook.com/evangeler" title="Evangeler on Facebook" target="_blank">
-                <img src="/static/img/facebook.jpg" alt="Evangeler on Facebook" width="144px" height="44px">
+                <img src="/static/img/facebook.jpg" alt="Evangeler on Facebook" width="144" height="44" />
             </a>
 
-        <div class="g-plus" data-href="//plus.google.com/116949277834973226564" data-rel="publisher"></div>
+            <div class="g-plus" data-href="//plus.google.com/116949277834973226564" data-rel="publisher"></div>
 
-        <!-- Place this tag after the last badge tag. -->
-        <script type="text/javascript">
-            (function () {
-                var po = document.createElement('script');
-                po.type = 'text/javascript';
-                po.async = true;
-                po.src = 'https://apis.google.com/js/plusone.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(po, s);
-            })();
-        </script>
-        <br/>
-        <a href="https://twitter.com/evangeler" class="twitter-follow-button" data-show-count="false" data-size="large">Follow
-            @evangeler</a>
-        <script>!function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');</script>
+            <!-- Place this tag after the last badge tag. -->
+            <script type="text/javascript">
+                (function () {
+                    var po = document.createElement('script');
+                    po.type = 'text/javascript';
+                    po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(po, s);
+                })();
+            </script>
+            <br/>
+            <a href="https://twitter.com/evangeler" class="twitter-follow-button" data-show-count="false" data-size="large">Follow
+                @evangeler</a>
+            <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');</script>
         </p>
     </div>
 {%- endmacro %}
-
-{%- macro iframefooter() %}
-    <div class="footer">
-        <p>
-            <a class="footer__link" href="/contact" title="Contact Us" target="_blank">Contact</a>
-            <a class="footer__link" href="/about" title="About Evangeler" target="_blank">About Us</a>
-            <a class="footer__link" href="/terms" title="Terms &amp; Conditions" target="_blank">Terms &amp;
-                Conditions</a>
-            <a class="footer__link" href="/privacy-policy" title="Privacy Policy" target="_blank">Privacy Policy</a>
-            <span>© 2013 <a class="footer__link" href="http://www.addictingwordgames.com" title="Addicting Word Games"
-                            target="_blank">Addicting Word Games</a></span>
-        </p>
-    </div>
-{%- endmacro %}
-

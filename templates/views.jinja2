@@ -167,3 +167,37 @@
     </ul>
 {%- endmacro %}
 
+{% macro footer() -%}
+    <div id="footer">
+        <p>
+            {% if '/contact' in url %}
+                <span>Contact</span>
+            {% else %}
+                <a href="/contact" title="Contact Us">Contact</a>
+            {% endif %}
+
+            {% if '/about' in url %}
+                <span>About Us</span>
+            {% else %}
+                <a href="/about" title="About Evangeler">About Us</a>
+            {% endif %}
+
+            {% if '/terms' in url %}
+                <span>Terms &amp; Conditions</span>
+            {% else %}
+                <a href="/terms" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
+            {% endif %}
+
+            {% if '/privacy-policy' in url %}
+                <span>Privacy Policy</span>
+            {% else %}
+                <a href="/privacy" title="Privacy Policy">Privacy Policy</a>
+            {% endif %}
+
+            <span>© 2013 Evangeler</span>
+            <!-- <a href="http://www.facebook.com/evangeler" title="Evangeler on Facebook" target="_blank">
+            <img src="/img/facebook.jpg" alt="Evangeler on Facebook" width="144px" height="44px">
+        </a> -->
+        </p>
+    </div>
+{%- endmacro %}
