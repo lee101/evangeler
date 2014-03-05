@@ -2,24 +2,89 @@
     <button type="button" class="back-btn gameon-btn-hg btn btn-info btn-lg"><span
             class="glyphicon glyphicon-arrow-left"></span></button>
 {%- endmacro %}
+
 {% macro logo() -%}
-    <a href="/" title="Evangeler - Social Marketing For The Masses!" onclick="return gameon.gotoLink(this)" target="_blank">
-        <img src="/static/img/evangeler-logo64.png" class="mm-logo__image img-responsive"
-             alt="Evangeler"><h1 class="mm-logo__text">Evangeler</h1>
+    <a href="/" class="mm-logo__link" title="Evangeler - Social Marketing For The Masses!"
+       onclick="return gameon.gotoLink(this)" target="_blank">
+        <img src="/static/img/evangeler-logo64.png" class="mm-logo__image" width="64" height="64"
+             alt="Evangeler">
+
+        <h1 class="mm-logo__text">Evangeler</h1>
     </a>
+{%- endmacro %}
+
+
+{%- macro footer() %}
+    <div class="footer">
+        <p>
+            {% if '/contact' in url %}
+                <span>Contact</span>
+            {% else %}
+                <a class="footer__link" href="/contact" title="Contact Us">Contact</a>
+            {% endif %}
+            {% if '/about' in url %}
+                <span>About Us</span>
+            {% else %}
+                <a class="footer__link" href="/about" title="About Evangeler">About</a>
+            {% endif %}
+            {% if '/terms' in url %}
+                <span>Terms &amp; Conditions</span>
+            {% else %}
+                <a class="footer__link" href="/terms" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
+            {% endif %}
+            {% if '/privacy-policy' in url %}
+                <span>Privacy Policy</span>
+            {% else %}
+                <a class="footer__link" href="/privacy" title="Privacy">Privacy</a>
+            {% endif %}
+
+            <span>© 2013 <a class="footer__link" href="http://www.evangeler.com" title="Evangeler"
+                            target="_blank">Evangeler</a></span>
+            <a href="http://www.facebook.com/evangeler" title="Evangeler on Facebook" target="_blank">
+                <img src="/static/img/facebook.jpg" alt="Evangeler on Facebook" width="144" height="44"/>
+            </a>
+
+        <div class="g-plus" data-href="//plus.google.com/116949277834973226564" data-rel="publisher"></div>
+
+        <!-- Place this tag after the last badge tag. -->
+        <script type="text/javascript">
+            (function () {
+                var po = document.createElement('script');
+                po.type = 'text/javascript';
+                po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+            })();
+        </script>
+        <br/>
+        <a href="https://twitter.com/evangeler" class="twitter-follow-button" data-show-count="false" data-size="large">Follow
+            @evangeler</a>
+        <script>!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + '://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'twitter-wjs');</script>
+        </p>
+    </div>
 {%- endmacro %}
 
 {% macro start() -%}
     <div class="mm-logo">
         {{ logo() }}
     </div>
-    <div class="mm-play-btn">
+    <div class="mm-hero">
         <button type="button" class="gameon-btn-hg btn btn-success btn-lg" onclick="views.difficulties()">Play Now!
         </button>
     </div>
-    <div class="mm-options-btn">
+    <div class="mm-secondary">
         <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
     </div>
+    {{ footer() }}
 {%- endmacro %}
 
 
