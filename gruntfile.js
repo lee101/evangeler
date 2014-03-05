@@ -22,11 +22,11 @@ module.exports = function (grunt) {
         less: {
             dist: {
                 files: {
-                    '/css/style.css': ['/less/main.less']
+                    'static/css/style.css': ['static/less/main.less']
                 },
                 options: {
                     sourceMap: true,
-                    sourceMapFilename: '/styles/main.css.map',
+                    sourceMapFilename: 'static/css/main.css.map',
                     sourceMapBasepath: '/',
                     sourceMapRootpath: '/'
                 }
@@ -34,6 +34,7 @@ module.exports = function (grunt) {
         }
     });
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-nunjucks');
 
     grunt.registerTask('compile', [
