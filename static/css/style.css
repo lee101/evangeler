@@ -5,8 +5,6 @@ body {
   position: relative;
 }
 .mm-background {
-  padding-top: 60px;
-  padding-bottom: 90px;
   text-align: center;
 }
 .mm-logo {
@@ -25,9 +23,17 @@ body {
   font-family: gesta, sans-serif;
   font-weight: bold;
   font-size: 30px;
-  color: #3B5997;
+  color: #3b5997;
   display: inline;
   margin-left: 10px;
+}
+.mm-logo__link:focus,
+.mm-logo__link:hover {
+  text-decoration: none;
+}
+.mm-logo__link:focus .mm-logo__text,
+.mm-logo__link:hover .mm-logo__text {
+  color: #4098fd;
 }
 .mm-hero {
   background-color: #3B5997;
@@ -189,4 +195,4 @@ body {
     display: none;
   }
 }
-/*# sourceMappingURL=/static/css/main.css.map */
+/*# sourceMappingURL=/static/css/style.css.map */

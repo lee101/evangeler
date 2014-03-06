@@ -17,6 +17,10 @@ module.exports = function (grunt) {
             nunjucks: {
                 files: 'templates/shared/*',
                 tasks: ['nunjucks']
+            },
+            less: {
+                files: "static/less/*",
+                tasks: ["less"]
             }
         },
         less: {
@@ -26,7 +30,7 @@ module.exports = function (grunt) {
                 },
                 options: {
                     sourceMap: true,
-                    sourceMapFilename: 'static/css/main.css.map',
+                    sourceMapFilename: 'static/css/style.css.map',
                     sourceMapBasepath: '/',
                     sourceMapRootpath: '/'
                 }

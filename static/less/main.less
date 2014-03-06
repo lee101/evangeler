@@ -1,4 +1,4 @@
-
+@import "variables";
 body {
     background-repeat: repeat;
     background-position: center 12px;
@@ -7,8 +7,6 @@ body {
 }
 
 .mm-background {
-    padding-top: 60px;
-    padding-bottom: 90px;
     text-align: center;
 }
 
@@ -31,9 +29,17 @@ body {
     font-family: gesta, sans-serif;
     font-weight: bold;
     font-size: 30px;
-    color: #3B5997;
+    color: @facebook-blue;
     display: inline;
     margin-left: 10px;
+}
+.mm-logo__link:focus,
+.mm-logo__link:hover,
+{
+    .mm-logo__text {
+        color: @twitter-blue;
+    }
+    text-decoration: none;
 }
 
 .mm-hero {
