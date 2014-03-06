@@ -1,4 +1,6 @@
 @import "variables";
+@import "defaults";
+
 body {
     background-repeat: repeat;
     background-position: center 12px;
@@ -8,6 +10,11 @@ body {
 
 .mm-background {
     text-align: center;
+}
+
+.mm-header {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .mm-logo {
@@ -33,6 +40,7 @@ body {
     display: inline;
     margin-left: 10px;
 }
+
 .mm-logo__link:focus,
 .mm-logo__link:hover,
 {
@@ -43,9 +51,32 @@ body {
 }
 
 .mm-hero {
-    background-color: #3B5997;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: @facebook-blue;
 }
+.mm-hero--secondary {
+    background-color: @twitter-blue;
+}
+.mm-hero--third {
+    background-color: @google-plus-red;
+}
+.mm-hero--light {
+    background-color: white;
+}
+.mm-marketing-text {
+    -webkit-font-smoothing: subpixel-antialiased;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    display: block;
+    font-family: gesta, sans-serif;
+    font-size: @base-font-size * 3;
+    font-weight: normal;
+}
+.mm-marketing-text--smaller {
+    font-size: @base-font-size * 2.5;
 
+}
 .back-btn {
     position: absolute;
     top: 10px;
@@ -237,4 +268,9 @@ and (min-height: 750px) {
     .mm-like {
         display: none;
     }
+}
+
+
+.btn-danger {
+    background-color: @google-plus-red;
 }

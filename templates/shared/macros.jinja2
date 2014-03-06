@@ -14,74 +14,54 @@
 {%- endmacro %}
 
 
-{%- macro footer() %}
-    <div class="footer">
-        <p>
-            {% if '/contact' in url %}
-                <span>Contact</span>
-            {% else %}
-                <a class="footer__link" href="/contact" title="Contact Us">Contact</a>
-            {% endif %}
-            {% if '/about' in url %}
-                <span>About Us</span>
-            {% else %}
-                <a class="footer__link" href="/about" title="About Evangeler">About</a>
-            {% endif %}
-            {% if '/terms' in url %}
-                <span>Terms &amp; Conditions</span>
-            {% else %}
-                <a class="footer__link" href="/terms" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
-            {% endif %}
-            {% if '/privacy-policy' in url %}
-                <span>Privacy Policy</span>
-            {% else %}
-                <a class="footer__link" href="/privacy" title="Privacy">Privacy</a>
-            {% endif %}
-
-            <span>© 2013 <a class="footer__link" href="http://www.evangeler.com" title="Evangeler"
-                            target="_blank">Evangeler</a></span>
-            <a href="http://www.facebook.com/evangeler" title="Evangeler on Facebook" target="_blank">
-                <img src="/static/img/facebook.jpg" alt="Evangeler on Facebook" width="144" height="44"/>
-            </a>
-
-        <div class="g-plus" data-href="//plus.google.com/116949277834973226564" data-rel="publisher"></div>
-
-        <!-- Place this tag after the last badge tag. -->
-        <script type="text/javascript">
-            (function () {
-                var po = document.createElement('script');
-                po.type = 'text/javascript';
-                po.async = true;
-                po.src = 'https://apis.google.com/js/plusone.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(po, s);
-            })();
-        </script>
-        <br/>
-        <a href="https://twitter.com/evangeler" class="twitter-follow-button" data-show-count="false" data-size="large">Follow
-            @evangeler</a>
-        <script>!function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');</script>
-        </p>
-    </div>
-{%- endmacro %}
 
 {% macro start() -%}
-    <div class="mm-logo">
-        {{ logo() }}
+    <div class="mm-header">
+        <div class="mm-logo">
+            {{ logo() }}
+        </div>
     </div>
     <div class="mm-hero">
-        <button type="button" class="gameon-btn-hg btn btn-success btn-lg" onclick="views.difficulties()">Play Now!
+        <p class="mm-marketing-text">
+            Promote your product with the power of the people!
+        </p>
+
+        <p class="mm-marketing-text mm-marketing-text--smaller">
+            Create viral marketing campaigns and appeal to the masses!
+        </p>
+        <button type="button" class="gameon-btn-hg btn btn-success btn-lg">Get Started Now!
         </button>
     </div>
-    <div class="mm-secondary">
+    <div class="mm-hero mm-hero--light">
+        <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
+    </div>
+    <div class="mm-hero mm-hero--secondary">
+        <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
+    </div>
+    {{ footer() }}
+{%- endmacro %}
+
+{% macro howitworks() -%}
+    <div class="mm-header">
+        <div class="mm-logo">
+            {{ logo() }}
+        </div>
+    </div>
+    <div class="mm-hero">
+        <p class="mm-marketing-text">
+            Promote your product with the power of the people!
+        </p>
+
+        <p class="mm-marketing-text mm-marketing-text--smaller">
+            Create viral marketing campaigns and appeal to the masses!
+        </p>
+        <button type="button" class="gameon-btn-hg btn btn-success btn-lg">Get Started Now!
+        </button>
+    </div>
+    <div class="mm-hero mm-hero--light">
+        <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
+    </div>
+    <div class="mm-hero mm-hero--secondary">
         <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
     </div>
     {{ footer() }}
@@ -206,5 +186,48 @@
            onclick="return gameon.gotoLink(this)" target="_blank">
             Privacy
         </a>
+    </div>
+{%- endmacro %}
+
+
+
+{%- macro footer() %}
+    <div class="mm-footer">
+        <p>
+            {% if '/contact' in url %}
+                <span>Contact</span>
+            {% else %}
+                <a class="footer__link" href="/contact" title="Contact Us">Contact</a>
+            {% endif %}
+            {% if '/about' in url %}
+                <span>About Us</span>
+            {% else %}
+                <a class="footer__link" href="/about" title="About Evangeler">About</a>
+            {% endif %}
+
+            <br/>
+
+            <div class="mm-tc pull-left">
+
+                <span>© 2013 Evangeler</span>
+                {% if '/terms' in url %}
+                    <span>Terms &amp; Conditions</span>
+                {% else %}
+                    <a class="footer__link" href="/terms" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
+                {% endif %}
+                {% if '/privacy-policy' in url %}
+                    <span>Privacy</span>
+                {% else %}
+                    <a class="footer__link" href="/privacy" title="Privacy">Privacy</a>
+                {% endif %}
+            </div>
+            <a href="http://www.facebook.com/evangeler" title="Evangeler on Facebook" target="_blank">
+                <img src="/static/img/facebook.jpg" alt="Evangeler on Facebook" width="144" height="44"/>
+            </a>
+        </p>
+
+        <a href="https://twitter.com/evangelersays" class="twitter-follow-button" data-show-count="false"
+           data-size="large">Follow
+            @evangelersays</a>
     </div>
 {%- endmacro %}

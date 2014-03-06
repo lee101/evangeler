@@ -1,4 +1,10 @@
 body {
+  font-size: 18px;
+}
+a {
+  color: #3b5997;
+}
+body {
   background-repeat: repeat;
   background-position: center 12px;
   background-color: white;
@@ -6,6 +12,10 @@ body {
 }
 .mm-background {
   text-align: center;
+}
+.mm-header {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .mm-logo {
   /*margin: 300px;*/
@@ -36,7 +46,30 @@ body {
   color: #4098fd;
 }
 .mm-hero {
-  background-color: #3B5997;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #3b5997;
+}
+.mm-hero--secondary {
+  background-color: #4098fd;
+}
+.mm-hero--third {
+  background-color: #ed142e;
+}
+.mm-hero--light {
+  background-color: white;
+}
+.mm-marketing-text {
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
+  font-family: gesta, sans-serif;
+  font-size: 54px;
+  font-weight: normal;
+}
+.mm-marketing-text--smaller {
+  font-size: 45px;
 }
 .back-btn {
   position: absolute;
@@ -194,5 +227,8 @@ body {
   .mm-like {
     display: none;
   }
+}
+.btn-danger {
+  background-color: #ed142e;
 }
 /*# sourceMappingURL=/static/css/style.css.map */
