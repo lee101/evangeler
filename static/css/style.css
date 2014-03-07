@@ -9,6 +9,15 @@ a:focus {
   color: #4098fd;
   text-decoration: none;
 }
+.btn-danger {
+  background-color: #ed142e;
+}
+.btn-warning {
+  background-color: #ed9c28;
+}
+.btn-warning:hover {
+  background-color: #f0ad4e;
+}
 body {
   background-repeat: repeat;
   background-position: center 12px;
@@ -75,6 +84,9 @@ body {
 }
 .mm-marketing-text--smaller {
   font-size: 45px;
+}
+.mm-marketing-text--black {
+  color: #363636;
 }
 .mm-tc {
   margin: 20px;
@@ -246,8 +258,5 @@ body {
   .mm-like {
     display: none;
   }
-}
-.btn-danger {
-  background-color: #ed142e;
 }
 /*# sourceMappingURL=/static/css/style.css.map */

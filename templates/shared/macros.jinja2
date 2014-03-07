@@ -4,8 +4,7 @@
 {%- endmacro %}
 
 {% macro logo() -%}
-    <a href="/" class="mm-logo__link" title="Evangeler - Social Marketing For The Masses!"
-       onclick="return gameon.gotoLink(this)" target="_blank">
+    <a href="/" class="mm-logo__link" title="Evangeler - Social Marketing For The Masses!">
         <img src="/static/img/evangeler-logo64.png" class="mm-logo__image" width="64" height="64"
              alt="Evangeler">
 
@@ -20,49 +19,86 @@
         <div class="mm-logo">
             {{ logo() }}
         </div>
+        <div class="mm-header__nav">
+            <a class="mm-header__link" href="/how-it-works" title="How It Works">
+                How It Works
+            </a>
+        </div>
     </div>
     <div class="mm-hero">
-        <p class="mm-marketing-text">
+        <h2 class="mm-marketing-text">
             Promote your product with the power of the people!
-        </p>
+        </h2>
 
-        <p class="mm-marketing-text mm-marketing-text--smaller">
+        <h3 class="mm-marketing-text mm-marketing-text--smaller">
             Create viral marketing campaigns and appeal to the masses!
-        </p>
-        <button type="button" class="gameon-btn-hg btn btn-success btn-lg">Get Started Now!
+        </h3>
+        <button type="button" class="gameon-btn-hg btn btn-warning btn-lg">Get Started Now!
         </button>
     </div>
     <div class="mm-hero mm-hero--light">
-        <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
+        <h2 class="mm-marketing-text mm-marketing-text--black">
+            Become an Evangeler!
+        </h2>
+
+        <h3 class="mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black">
+            Make Money talking about products you love!
+        </h3>
+        <button type="button" class="gameon-btn-hg btn btn-success btn-lg">Browse Contests
+        </button>
     </div>
     <div class="mm-hero mm-hero--secondary">
-        <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
+        <h2 class="mm-marketing-text">
+            Run an Evangeler contest Free!
+        </h2>
+
+        <h3 class="mm-marketing-text mm-marketing-text--smaller">
+            Only For A Limited Time!
+        </h3>
+        <button type="button" class="gameon-btn-hg btn btn-warning btn-lg">Get Started Now!
+        </button>
     </div>
     {{ footer() }}
 {%- endmacro %}
 
-{% macro howitworks() -%}
+{% macro how_it_works() -%}
     <div class="mm-header">
         <div class="mm-logo">
             {{ logo() }}
         </div>
     </div>
     <div class="mm-hero">
-        <p class="mm-marketing-text">
-            Promote your product with the power of the people!
-        </p>
+        <h2 class="mm-marketing-text">
+            1: Sign up with facebook!
+        </h2>
 
-        <p class="mm-marketing-text mm-marketing-text--smaller">
-            Create viral marketing campaigns and appeal to the masses!
-        </p>
-        <button type="button" class="gameon-btn-hg btn btn-success btn-lg">Get Started Now!
+        <h3 class="mm-marketing-text mm-marketing-text--smaller">
+            We'll create a page for you business on Evangeler.com!
+        </h3>
+        <button type="button" class="gameon-btn-hg btn btn-warning btn-lg">Get Started Now!
         </button>
     </div>
     <div class="mm-hero mm-hero--light">
-        <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
+        <h2 class="mm-marketing-text mm-marketing-text--black">
+            2: Pick &amp; run a viral marketing contest you like!
+        </h2>
+
+        <h3 class="mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black">
+            Evangelers from all over the world compete to promote your product and win cash prizes
+        </h3>
+        <button type="button" class="gameon-btn-hg btn btn-success btn-lg">Browse Contests
+        </button>
     </div>
     <div class="mm-hero mm-hero--secondary">
-        <button type="button" class="gameon-btn-hg btn btn-info btn-lg" onclick="views.options()">Options</button>
+        <h2 class="mm-marketing-text">
+            3: Award a winner!
+        </h2>
+
+        <h3 class="mm-marketing-text mm-marketing-text--smaller">
+            Only For A Limited Time!
+        </h3>
+        <button type="button" class="gameon-btn-hg btn btn-warning btn-lg">Get Started Now!
+        </button>
     </div>
     {{ footer() }}
 {%- endmacro %}

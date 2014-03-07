@@ -1,0 +1,66 @@
+{% import "lib/templates/templates.jinja2" as gameon %}
+{% import "templates/macros.jinja2" as macros with context %}
+{% import "templates/views.jinja2" as views with context %}
+{% import "templates/shared/macros.jinja2" as shared with context %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Evangeler - Social Marketing For The Masses!</title>
+    <meta name="description"
+          content="Evangeler, An Utterly Addicting Multiplication Game, Packed With Maths Madness! Train your brain while having a blast!">
+
+    <meta name="keywords"
+          content="crowdsourcing marketing, viral marketing, facebook marketing, marketing, social marketing">
+    <meta property="og:title" content="Evangeler - Social Marketing For The Masses!">
+    <meta property="og:url" content="http://www.evangeler.com">
+    <meta property="og:image"
+          content="http://www.evangeler.com/static/img/evangeler-logo128.png">
+    <meta property="og:description"
+          content="Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! Free For A Limited Time!">
+    <meta property="og:type" content="game">
+    <meta property="og:site_name" content="Evangeler">
+    <meta property="fb:admins" content="337972272904903">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ macros.headers() }}
+
+    {{ gameon.cssheaders() }}
+    {{ macros.cssheaders() }}
+
+    {{ gameon.jsheaders() }}
+
+    {{ macros.jsvars() }}
+    {{ macros.jsheaders() }}
+
+    {#    <script id="start" type="text/html">#}
+    {#        {{ views.start() }}#}
+    {#    </script>#}
+    {#    <script id="difficulties" type="text/html">#}
+    {#        {{ views.difficulties() }}#}
+    {#    </script>#}
+    {#    <script id="levels" type="text/html">#}
+    {#        {{ views.levels() }}#}
+    {#    </script>#}
+    {#    <script id="level" type="text/html">#}
+    {#        {{ views.level() }}#}
+    {#    </script>#}
+    {#    <script id="options" type="text/html">#}
+    {#        {{ views.options() }}#}
+    {#    </script>#}
+    {#    <script id="donelevel" type="text/html">#}
+    {#        {{ views.donelevel() }}#}
+    {#    </script>#}
+</head>
+<body>
+{{ gameon.templates() }}
+{#<div class="mm-like">#}
+{#    <div class="fb-like" data-href="http://www.evangeler.com" data-width="400px"#}
+{#         data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>#}
+{#</div>#}
+<div class="mm-background">
+    {{ shared.contact() }}
+</div>
+
+</body>
+</html>
