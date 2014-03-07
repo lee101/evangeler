@@ -159,43 +159,43 @@ function (kwargs) {
 frame = frame.push();
 kwargs = kwargs || {};
 var output= "";
-output += "\n    <div class=\"mm-footer\">\n        <p>\n            ";
+output += "\n    <div class=\"mm-footer\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <div class=\"mm-footer__section\">\n\n                    <h4 class=\"mm-footer__heading\">Company</h4>\n                    ";
 if("/contact" undefined runtime.contextOrFrameLookup(context, frame, "url")) {
-output += "\n                <span>Contact</span>\n            ";
+output += "\n                        <span>Contact</span>\n                    ";
 ;
 }
 else {
-output += "\n                <a class=\"footer__link\" href=\"/contact\" title=\"Contact Us\">Contact</a>\n            ";
+output += "\n                        <a class=\"footer__link\" href=\"/contact\" title=\"Contact Us\">Contact</a>\n                    ";
 ;
 }
-output += "\n            ";
+output += "\n                    ";
 if("/about" undefined runtime.contextOrFrameLookup(context, frame, "url")) {
-output += "\n                <span>About Us</span>\n            ";
+output += "\n                        <span>About Us</span>\n                    ";
 ;
 }
 else {
-output += "\n                <a class=\"footer__link\" href=\"/about\" title=\"About Evangeler\">About</a>\n            ";
+output += "\n                        <a class=\"footer__link\" href=\"/about\" title=\"About Evangeler\">About</a>\n                    ";
 ;
 }
-output += "\n\n            <br/>\n\n            <div class=\"mm-tc pull-left\">\n\n                <span>© 2013 Evangeler</span>\n                ";
+output += "\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <div class=\"mm-footer__section\">\n\n                    <h4 class=\"mm-footer__heading\">Social</h4>\n                    <a class=\"footer__link\" href=\"http://www.facebook.com/evangeler\" title=\"Evangeler on Facebook\" target=\"_blank\">\n                        <span class=\"fa fa-facebook-square mm-share-btn mm-share-btn--facebook\"></span><span\n                            class=\"footer__social-link-text\"> Facebook</span>\n                    </a>\n                    <a class=\"footer__link\" href=\"http://www.twitter.com/evangeler\" title=\"Evangeler on Twitter\" target=\"_blank\">\n                        <span class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></span><span\n                            class=\"footer__social-link-text\"> Twitter</span>\n                    </a>\n                    <a class=\"footer__link\" href=\"http://www.pinterest.com/evangeler\" title=\"Evangeler on Pinterest\" target=\"_blank\">\n                        <span class=\"fa fa-pinterest-square mm-share-btn mm-share-btn--pinterest\"></span><span\n                            class=\"footer__social-link-text\"> Pinterest</span>\n                    </a>\n                    <a class=\"footer__link\" href=\"https://plus.google.com/104379684009420242235\" rel=\"publisher\" title=\"Evangeler on Google Plus\" target=\"_blank\">\n                        <span class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></span><span\n                            class=\"footer__social-link-text\"> Google+</span>\n                    </a>\n                </div>\n            </div>\n        </div>\n        <br/>\n\n        <div class=\"mm-tc pull-left\">\n            <span>© 2014 Evangeler</span>\n            ";
 if("/terms" undefined runtime.contextOrFrameLookup(context, frame, "url")) {
-output += "\n                    <span>Terms &amp; Conditions</span>\n                ";
+output += "\n                <span>Terms &amp; Conditions</span>\n            ";
 ;
 }
 else {
-output += "\n                    <a class=\"footer__link\" href=\"/terms\" title=\"Terms &amp; Conditions\">Terms &amp; Conditions</a>\n                ";
+output += "\n                <a href=\"/terms\" title=\"Terms &amp; Conditions\">Terms &amp; Conditions</a>\n            ";
 ;
 }
-output += "\n                ";
+output += "\n            |\n\n            ";
 if("/privacy-policy" undefined runtime.contextOrFrameLookup(context, frame, "url")) {
-output += "\n                    <span>Privacy</span>\n                ";
+output += "\n                <span>Privacy</span>\n            ";
 ;
 }
 else {
-output += "\n                    <a class=\"footer__link\" href=\"/privacy\" title=\"Privacy\">Privacy</a>\n                ";
+output += "\n                <a href=\"/privacy\" title=\"Privacy\">Privacy</a>\n            ";
 ;
 }
-output += "\n            </div>\n            <a href=\"http://www.facebook.com/evangeler\" title=\"Evangeler on Facebook\" target=\"_blank\">\n                <img src=\"/static/img/facebook.jpg\" alt=\"Evangeler on Facebook\" width=\"144\" height=\"44\"/>\n            </a>\n        </p>\n\n        <a href=\"https://twitter.com/evangelersays\" class=\"twitter-follow-button\" data-show-count=\"false\"\n           data-size=\"large\">Follow\n            @evangelersays</a>\n    </div>";
+output += "\n        </div>\n\n    </div>";
 frame = frame.pop();
 return new runtime.SafeString(output);
 });

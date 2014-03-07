@@ -193,41 +193,63 @@
 
 {%- macro footer() %}
     <div class="mm-footer">
-        <p>
-            {% if '/contact' in url %}
-                <span>Contact</span>
-            {% else %}
-                <a class="footer__link" href="/contact" title="Contact Us">Contact</a>
-            {% endif %}
-            {% if '/about' in url %}
-                <span>About Us</span>
-            {% else %}
-                <a class="footer__link" href="/about" title="About Evangeler">About</a>
-            {% endif %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mm-footer__section">
 
-            <br/>
-
-            <div class="mm-tc pull-left">
-
-                <span>© 2013 Evangeler</span>
-                {% if '/terms' in url %}
-                    <span>Terms &amp; Conditions</span>
-                {% else %}
-                    <a class="footer__link" href="/terms" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
-                {% endif %}
-                {% if '/privacy-policy' in url %}
-                    <span>Privacy</span>
-                {% else %}
-                    <a class="footer__link" href="/privacy" title="Privacy">Privacy</a>
-                {% endif %}
+                    <h4 class="mm-footer__heading">Company</h4>
+                    {% if '/contact' in url %}
+                        <span>Contact</span>
+                    {% else %}
+                        <a class="footer__link" href="/contact" title="Contact Us">Contact</a>
+                    {% endif %}
+                    {% if '/about' in url %}
+                        <span>About Us</span>
+                    {% else %}
+                        <a class="footer__link" href="/about" title="About Evangeler">About</a>
+                    {% endif %}
+                </div>
             </div>
-            <a href="http://www.facebook.com/evangeler" title="Evangeler on Facebook" target="_blank">
-                <img src="/static/img/facebook.jpg" alt="Evangeler on Facebook" width="144" height="44"/>
-            </a>
-        </p>
+            <div class="col-md-6">
+                <div class="mm-footer__section">
 
-        <a href="https://twitter.com/evangelersays" class="twitter-follow-button" data-show-count="false"
-           data-size="large">Follow
-            @evangelersays</a>
+                    <h4 class="mm-footer__heading">Social</h4>
+                    <a class="footer__link" href="http://www.facebook.com/evangeler" title="Evangeler on Facebook" target="_blank">
+                        <span class="fa fa-facebook-square mm-share-btn mm-share-btn--facebook"></span><span
+                            class="footer__social-link-text"> Facebook</span>
+                    </a>
+                    <a class="footer__link" href="http://www.twitter.com/evangeler" title="Evangeler on Twitter" target="_blank">
+                        <span class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></span><span
+                            class="footer__social-link-text"> Twitter</span>
+                    </a>
+                    <a class="footer__link" href="http://www.pinterest.com/evangeler" title="Evangeler on Pinterest" target="_blank">
+                        <span class="fa fa-pinterest-square mm-share-btn mm-share-btn--pinterest"></span><span
+                            class="footer__social-link-text"> Pinterest</span>
+                    </a>
+                    <a class="footer__link" href="https://plus.google.com/104379684009420242235" rel="publisher" title="Evangeler on Google Plus" target="_blank">
+                        <span class="fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus"></span><span
+                            class="footer__social-link-text"> Google+</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br/>
+
+        <div class="mm-tc pull-left">
+            <span>© 2014 Evangeler</span>
+            {% if '/terms' in url %}
+                <span>Terms &amp; Conditions</span>
+            {% else %}
+                <a href="/terms" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
+            {% endif %}
+            |
+
+            {% if '/privacy-policy' in url %}
+                <span>Privacy</span>
+            {% else %}
+                <a href="/privacy" title="Privacy">Privacy</a>
+            {% endif %}
+        </div>
+
     </div>
 {%- endmacro %}
