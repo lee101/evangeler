@@ -47,10 +47,6 @@ window.fbAsyncInit = function () {
                 if (loginModalIsOpen) {
                     modal.close();
                 }
-                {%
-                    if 'buy' in url or
-                    'campaign' in url %
-                }
                 //only for buy page
 
                 //window.location.reload();
@@ -84,9 +80,6 @@ window.fbAsyncInit = function () {
                         }
                     }
                 });
-                {%
-                    endif %
-                }
 
             });
 
@@ -156,30 +149,5 @@ function fb_logout() {
             fb_login();
         }
     });
-    // if (access_token){
-    //   window.location.href = 'https://www.facebook.com/logout.php?next=
-    {
-        {
-            url
-        }
-    }
-&
-    access_token = '+access_token;
-    // }
-    // else {
-    //   window.location.href = 'https://www.facebook.com/logout.php?next=
-    {
-        {
-            url
-        }
-    }
-&
-    access_token =
-    {
-    {
-        current_user.access_token
-    }
-}
-';
-// }
+
 }
