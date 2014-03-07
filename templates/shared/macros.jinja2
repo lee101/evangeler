@@ -12,9 +12,7 @@
     </a>
 {%- endmacro %}
 
-
-
-{% macro start() -%}
+{% macro header() -%}
     <div class="mm-header">
         <div class="mm-logo">
             {{ logo() }}
@@ -25,6 +23,12 @@
             </a>
         </div>
     </div>
+{%- endmacro %}
+
+
+
+{% macro start() -%}
+    {{ header() }}
     <div class="mm-hero">
         <h2 class="mm-marketing-text">
             Promote your product with the power of the people!
@@ -62,20 +66,16 @@
 {%- endmacro %}
 
 {% macro how_it_works() -%}
-    <div class="mm-header">
-        <div class="mm-logo">
-            {{ logo() }}
-        </div>
-    </div>
+    {{ header() }}
     <div class="mm-hero">
         <h2 class="mm-marketing-text">
-            1: Sign up with facebook!
+            1: Sign up with Facebook!
         </h2>
 
         <h3 class="mm-marketing-text mm-marketing-text--smaller">
             We'll create a page for you business on Evangeler.com!
         </h3>
-        <button type="button" class="gameon-btn-hg btn btn-warning btn-lg">Get Started Now!
+        <button type="button" class="gameon-btn-hg btn btn-warning btn-lg">Login With Facebook
         </button>
     </div>
     <div class="mm-hero mm-hero--light">
@@ -86,7 +86,7 @@
         <h3 class="mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black">
             Evangelers from all over the world compete to promote your product and win cash prizes
         </h3>
-        <button type="button" class="gameon-btn-hg btn btn-success btn-lg">Browse Contests
+        <button type="button" class="gameon-btn-hg btn btn-success btn-lg">Browse Categories
         </button>
     </div>
     <div class="mm-hero mm-hero--secondary">
@@ -95,136 +95,11 @@
         </h2>
 
         <h3 class="mm-marketing-text mm-marketing-text--smaller">
-            Only For A Limited Time!
+            For best results share your contest at every stage!
         </h3>
-        <button type="button" class="gameon-btn-hg btn btn-warning btn-lg">Get Started Now!
-        </button>
     </div>
     {{ footer() }}
 {%- endmacro %}
-
-
-{% macro difficulties() -%}
-
-    {{ backbtn() }}
-    <div class="mm-logo">
-        {{ logo() }}
-    </div>
-    <div class="mm-difficulty mm-difficulty--{{ fixtures.EASY }}">
-        <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-                onclick="views.levels(EASY)">Easy
-        </button>
-    </div>
-    <div class="mm-difficulty mm-difficulty--{{ fixtures.MEDIUM }}">
-        <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-                onclick="views.levels(MEDIUM)"
-                disabled="disabled"><span
-                class="glyphicon glyphicon-lock"></span>Medium
-        </button>
-    </div>
-    <div class="mm-difficulty mm-difficulty--{{ fixtures.HARD }}">
-        <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-                onclick="views.levels(HARD)"
-                disabled="disabled"><span
-                class="glyphicon glyphicon-lock"></span>Hard
-        </button>
-    </div>
-    <div class="mm-difficulty mm-difficulty--{{ fixtures.EXPERT }}">
-        <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-                onclick="views.levels(EXPERT)"
-                disabled="disabled"><span
-                class="glyphicon glyphicon-lock"></span>Expert
-        </button>
-    </div>
-{%- endmacro %}
-
-
-{% macro levels() -%}
-    {{ backbtn() }}
-    <div class="mm-logo">
-        {{ logo() }}
-    </div>
-    <div class="mm-levels gameon-board">
-
-    </div>
-{%- endmacro %}
-
-{% macro level() -%}
-    {{ backbtn() }}
-    <div class="mm-logo">
-        <div class="mm-level-controls">
-            <div class="mm-end-condition">
-                <p>Time: <span class="gameon-clock"></span></p>
-            </div>
-            <div class="mm-volume">
-
-            </div>
-            <div class="clear"></div>
-            <div class="mm-starbar">
-
-            </div>
-        </div>
-    </div>
-    <div class="mm-level gameon-board">
-
-    </div>
-    <div class="mm-equation gameon-board">
-
-    </div>
-{%- endmacro %}
-
-{% macro donelevel() -%}
-    <div class="mm-logo">
-        <div class="mm-starbar mm-starbar--center">
-
-        </div>
-        <div class="mm-end-message">
-            <p>Excellent!</p>
-        </div>
-        <div class="mm-level-controls">
-            <div class="left">
-                <button id="mm-replay" type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-                        >Replay
-                </button>
-            </div>
-            <div class="right">
-                <button id="mm-next-level" type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-                        disabled="disabled"><span
-                        class="glyphicon glyphicon-lock"></span>Next
-                </button>
-            </div>
-            <div class="clear"></div>
-            <div class="text-center">
-                <button type="button" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-                        onclick="views.difficulties()"
-                        >Menu
-                </button>
-            </div>
-        </div>
-    </div>
-{%- endmacro %}
-
-
-{% macro options() -%}
-
-    {{ backbtn() }}
-    <div class="mm-logo">
-        {{ logo() }}
-    </div>
-    <div class="mm-difficulty">
-        <a href="/terms" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-           onclick="return gameon.gotoLink(this)" target="_blank">
-            Terms
-        </a>
-    </div>
-    <div class="mm-difficulty">
-        <a href="/privacy" class="mm-difficulty__btn gameon-btn-hg btn btn-success btn-lg"
-           onclick="return gameon.gotoLink(this)" target="_blank">
-            Privacy
-        </a>
-    </div>
-{%- endmacro %}
-
 
 
 {%- macro footer() %}

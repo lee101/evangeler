@@ -30,14 +30,18 @@ body {
 .mm-header {
   margin-bottom: 20px;
   margin-top: 20px;
+  text-align: left;
+}
+.mm-header__nav {
+  display: inline;
 }
 .mm-logo {
-  /*margin: 300px;*/
-  display: block;
-  text-align: center;
+  display: inline;
+  text-align: left;
+  margin-left: 30px;
 }
 .mm-logo__link {
-  display: block;
+  display: inline;
 }
 .mm-logo__image {
   margin: 0 auto;
@@ -62,6 +66,8 @@ body {
 .mm-hero {
   padding-top: 40px;
   padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
   background-color: #3b5997;
 }
 .mm-hero--secondary {

@@ -60,6 +60,11 @@ class TermsHandler(BaseHandler):
         self.render('templates/terms.jinja2')
 
 
+class HowHandler(BaseHandler):
+    def get(self):
+        self.render('templates/how-it-works.jinja2')
+
+
 class SitemapHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/xml'
@@ -74,6 +79,7 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/tests', TestHandler),
                                                ('/privacy', PrivacyHandler),
                                                ('/terms', TermsHandler),
+                                               ('/how-it-works', HowHandler),
                                                # ('/about', AboutHandler),
                                                # ('/contact', ContactHandler),
                                                ('/sitemap', SitemapHandler),

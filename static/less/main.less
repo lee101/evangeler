@@ -15,16 +15,21 @@ body {
 .mm-header {
     margin-bottom: 20px;
     margin-top: 20px;
+    text-align: left;
+}
+
+.mm-header__nav {
+    display: inline;
 }
 
 .mm-logo {
-    /*margin: 300px;*/
-    display: block;
-    text-align: center;
+    display: inline;
+    text-align: left;
+    margin-left: 30px;
 }
 
 .mm-logo__link {
-    display: block;
+    display: inline;
 }
 
 .mm-logo__image {
@@ -53,17 +58,23 @@ body {
 .mm-hero {
     padding-top: 40px;
     padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
     background-color: @facebook-blue;
 }
+
 .mm-hero--secondary {
     background-color: @twitter-blue;
 }
+
 .mm-hero--third {
     background-color: @google-plus-red;
 }
+
 .mm-hero--light {
     background-color: white;
 }
+
 .mm-marketing-text {
     -webkit-font-smoothing: subpixel-antialiased;
     box-sizing: border-box;
@@ -73,9 +84,11 @@ body {
     font-size: @base-font-size * 3;
     font-weight: normal;
 }
+
 .mm-marketing-text--smaller {
     font-size: @base-font-size * 2.5;
 }
+
 .mm-marketing-text--black {
     color: rgb(54, 54, 54);
 }
@@ -83,8 +96,10 @@ body {
 .mm-tc {
     margin: 20px;
 }
+
 .mm-footer {
 }
+
 .mm-footer__heading {
     font-size: @base-font-size *1.4;
     text-align: left;
@@ -92,16 +107,18 @@ body {
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
+
 .mm-footer__section {
     margin: 40px 80px 0px 80px;
     text-align: left;
 }
+
 .footer__link {
     display: block;
 }
 
 .footer__social-link-text {
-//    vertical-align: 50%;
+    //    vertical-align: 50%;
 }
 
 .mm-share-btn {
@@ -120,36 +137,6 @@ body {
 .mm-share-btn--pinterest {
     color: @pinterest-red;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media (min-width: 961px) and (max-width: 1280px)
 and (min-height: 750px) {
