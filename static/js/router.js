@@ -1,37 +1,40 @@
 (function () {
     "use strict";
     window.APP = window.APP || {Routers: {}, Collections: {}, Models: {}, Views: {}};
-
+    APP.routerViews = {};
 
     var Router = Backbone.Router.extend({
         // Define routes
-        routes: {
+        'routes': {
             "": "home",
-            "services": "services"
+            "how-it-works": "howitworks"
         },
         // These callbacks get called when navigate is called with
         // trigger = true
-        services: function () {
+        'howitworks': function () {
             this.removeView();
 
-            ISS.Var.routerCurrentPage = 'services';
-            ISS.ViewInstances.SearchPanelView = new ISS.Views.SearchPanelView();
-            ISS.Var.routerViews[ISS.Var.routerCurrentPage] = ISS.ViewInstances.SearchPanelView;
+            APP.routerCurrentPage = 'howitworks';
+            var currentView = new APP.Views.HowItWorks();
+            APP.routerViews[APP.routerCurrentPage] = currentView;
+
+            $('.mm-background').html(currentView.render().el);
         },
-        home: function () {
+        'home': function () {
             this.removeView();
 
-            var reRender = ISS.Var.routerCurrentPage !== 'Home';
-            ISS.Var.routerCurrentPage = 'Home';
-            ISS.ViewInstances.HomeView = new ISS.Views.HomeView({'reRender': reRender});
-            ISS.Var.routerViews[ISS.Var.routerCurrentPage] = ISS.ViewInstances.HomeView;
+            var reRender = APP.routerCurrentPage !== 'Home';
+            APP.routerCurrentPage = 'Home';
+            var currentView = new APP.Views.Home();
+            APP.routerViews[APP.routerCurrentPage] = currentView;
+            $('.mm-background').html(currentView.render().el);
         },
-        removeView: function () {
-            if (!ISS.Var.routerViews) {
-                ISS.Var.routerViews = {};
+        'removeView': function () {
+            if (!APP.routerViews) {
+                APP.routerViews = {};
                 return;
             }
-            var view = ISS.Var.routerViews[ISS.Var.routerCurrentPage];
+            var view = APP.routerViews[APP.routerCurrentPage];
             if (typeof view !== 'undefined' && typeof view.remove === 'function') {
                 view.remove();
             }
@@ -41,7 +44,8 @@
     $(document).ready(function () {
         APP.router = new Router();
         Backbone.history.start({
-            pushState: true
+            pushState: true,
+            silent: true
         });
     });
 }());

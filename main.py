@@ -24,13 +24,11 @@ class BaseHandler(webapp2.RequestHandler):
             'ws': ws,
             'json': json,
             'GameOnUtils': GameOnUtils,
+            'path': self.request.path,
+            'url':self.request.uri,
             # 'facebook_app_id': FACEBOOK_APP_ID,
-            # 'MEDIUM':MEDIUM,
-            # 'EASY':EASY,
-            # 'HARD':HARD,
             # 'glogin_url': users.create_login_url(self.request.uri),
             # 'glogout_url': users.create_logout_url(self.request.uri),
-            # 'url':self.request.uri,
             # 'num_levels': len(LEVELS)
         }
         template_values.update(extraParams)
