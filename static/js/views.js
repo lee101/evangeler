@@ -78,6 +78,18 @@
             return this;
         }
     });
+    APP.Views.Refunds = Backbone.View.extend({
+        // the constructor
+        initialize: function (options) {
+//            this.note = options.note;
+        },
+
+        // populate the html to the dom
+        render: function () {
+            this.$el.html( nunjucks.render('templates/shared/refunds.jinja2'));
+            return this;
+        }
+    });
 
     APP.Views.Header = Backbone.View.extend({
         // the constructor

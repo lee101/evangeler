@@ -62,6 +62,13 @@
         {% else %}
             <a href="/privacy" title="Privacy" onclick="return APP.goto('privacy')">Privacy</a>
         {% endif %}
+        |
+
+        {% if '/refunds' == path %}
+            <span>Refunds</span>
+        {% else %}
+            <a href="/refunds" title="Money Back Guarantee" onclick="return APP.goto('refunds')">Refunds</a>
+        {% endif %}
     </div>
 
 </div>

@@ -39,7 +39,8 @@
             "about": "about",
             "contact": "contact",
             "terms": "terms",
-            "privacy": "privacy"
+            "privacy": "privacy",
+            "refunds": "refunds"
         },
         'home': function () {
             this.view(new APP.Views.Home());
@@ -58,6 +59,9 @@
         },
         'privacy': function () {
             this.view(new APP.Views.Privacy());
+        },
+        'refunds': function () {
+            this.view(new APP.Views.Refunds());
         },
         'view': function(currentView) {
             refresh();

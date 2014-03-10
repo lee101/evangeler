@@ -71,6 +71,10 @@ class ContactHandler(BaseHandler):
     def get(self):
         self.render('templates/contact.jinja2')
 
+class RefundsHandler(BaseHandler):
+    def get(self):
+        self.render('templates/refunds.jinja2')
+
 
 class SitemapHandler(webapp2.RequestHandler):
     def get(self):
@@ -89,6 +93,7 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/how-it-works', HowHandler),
                                                ('/about', AboutHandler),
                                                ('/contact', ContactHandler),
+                                               ('/refunds', RefundsHandler),
                                                ('/sitemap', SitemapHandler),
 
                                            ] + gameon.routes, debug=ws.debug, config=config))
