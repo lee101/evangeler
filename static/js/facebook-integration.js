@@ -9,7 +9,7 @@ function testAPI() {
 
 window.fbAsyncInit = function () {
     FB.init({
-        appId: '138831849632195',                        // App ID from the app dashboard
+        appId: '816673458359972',                        // App ID from the app dashboard
         channelUrl: '//evangeler.appspot.com/channel.html', // Channel file for x-domain comms
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
@@ -124,7 +124,7 @@ function fb_login() {
 
         }
     }, {
-        scope: 'publish_stream,email'
+        scope: 'publish_stream,email,m'
     });
 }
 function fb_logout() {
@@ -135,12 +135,7 @@ function fb_logout() {
             FB.logout(function (response) {
                 // user is now logged out
                 $('#loginlogout').html('<button class="btn btn-danger" onclick="loginmodal()" type="button">Log In</button>');
-                //only for buy page
-                $('#logintobuy').html('Log in with Facebook or Google!<br/><br/>' +
-                    '<a style="margin:10px;" href="{{ glogin_url }}" title="Login With Google"><img src="/img/google-icon-64.png" alt="Google Login"/></a>' +
-                    '<a href="#" onclick="fb_login();return false" title="Login With Facebook"><img src="/img/facebook-icon-64.png" alt="Facebook Login"/></a><br/><br/>' +
-                    'Your purchase will be asscociated with your account.<br/><br/>');
-                $('#buybutton').prop('disabled', true);
+
 
             });
         } else {
