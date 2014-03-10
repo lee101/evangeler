@@ -1,0 +1,45 @@
+{% import "lib/templates/templates.jinja2" as lib %}
+{% import "templates/macros.jinja2" as macros with context %}
+{% import "templates/views.jinja2" as views with context %}
+{% import "templates/shared/macros.jinja2" as shared with context %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    {% block headers %}
+
+    {% endblock %}
+
+    {{ macros.headers() }}
+
+    {{ lib.cssheaders() }}
+    {{ macros.cssheaders() }}
+
+    {{ lib.jsheaders() }}
+
+    {{ macros.jsvars() }}
+    {{ macros.jsheaders() }}
+
+</head>
+<body>
+{{ macros.fbstuff() }}
+<div class="mm-background">
+    <div id="headerbody">
+        {% include "/templates/shared/header.jinja2" %}
+    </div>
+
+    <div id="mainbody">
+        {% block mainbody %}
+
+        {% endblock %}
+    </div>
+
+    <div id="footerbody">
+        {% include "/templates/shared/footer.jinja2" %}
+    </div>
+
+</div>
+
+</body>
+</html>

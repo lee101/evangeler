@@ -1,11 +1,7 @@
-{% import "lib/templates/templates.jinja2" as lib %}
-{% import "templates/macros.jinja2" as macros with context %}
-{% import "templates/views.jinja2" as views with context %}
-{% import "templates/shared/macros.jinja2" as shared with context %}
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
+
+{% extends 'templates/base.jinja2' %}
+
+{% block headers %}
     <title>Evangeler Social Marketing - How It Works</title>
     <meta name="description"
           content="Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! Free For A Limited Time!">
@@ -13,32 +9,13 @@
     <meta name="keywords"
           content="crowdsourcing marketing, viral marketing, facebook marketing, marketing, social marketing">
     <meta property="og:title" content="Evangeler - Social Marketing For The Masses!">
-    <meta property="og:url" content="http://www.evangeler.com">
+    <meta property="og:url" content="{{ url }}">
     <meta property="og:image"
           content="http://www.evangeler.com/static/img/evangeler-logo128.png">
     <meta property="og:description"
           content="Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! Free For A Limited Time!">
-    <meta property="og:type" content="site">
-    <meta property="og:site_name" content="Evangeler">
-    <meta property="fb:admins" content="337972272904903">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
 
-    {{ macros.headers() }}
-
-    {{ lib.cssheaders() }}
-    {{ macros.cssheaders() }}
-
-    {{ lib.jsheaders() }}
-
-    {{ macros.jsvars() }}
-    {{ macros.jsheaders() }}
-
-</head>
-<body>
-{{ macros.fbstuff() }}
-<div class="mm-background">
+{% block mainbody %}
     {% include "/templates/shared/how-it-works.jinja2" %}
-</div>
-
-</body>
-</html>
+{% endblock %}

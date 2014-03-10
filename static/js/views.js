@@ -27,5 +27,30 @@
             return this;
         }
     });
+    APP.Views.Header = Backbone.View.extend({
+        // the constructor
+        initialize: function (options) {
+            this.path = options.path;
+        },
+
+        // populate the html to the dom
+        render: function () {
+            this.$el.html(nunjucks.render('templates/shared/header.jinja2', {'path':this.path}));
+
+            return this;
+        }
+    });
+    APP.Views.Footer = Backbone.View.extend({
+        // the constructor
+        initialize: function (options) {
+            this.path = options.path;
+        },
+
+        // populate the html to the dom
+        render: function () {
+            this.$el.html( nunjucks.render('templates/shared/footer.jinja2', {'path': this.path}));
+            return this;
+        }
+    });
 
 }());

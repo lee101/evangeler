@@ -10,9 +10,15 @@
         </a>
     </div>
     <div class="mm-header__nav">
-        <a class="mm-header__link" href="/how-it-works" title="How It Works"
-           onclick="APP.router.navigate('how-it-works', {trigger: true});return false">
-            How It Works
-        </a>
+        {% if path == '/how-it-works' %}
+            <span class="mm-header__link active">
+                How It Works
+            </span>
+        {% else %}
+            <a class="mm-header__link" href="/how-it-works" title="How It Works"
+               onclick="return APP.goto('how-it-works')">
+                How It Works
+            </a>
+        {% endif %}
     </div>
 </div>
