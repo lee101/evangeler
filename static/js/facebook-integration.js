@@ -124,7 +124,7 @@ function fb_login() {
 
         }
     }, {
-        scope: 'publish_stream,email,m'
+        scope: 'publish_stream,email,publish_actions,manage_pages'
     });
 }
 function fb_logout() {
