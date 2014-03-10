@@ -2,18 +2,6 @@
     "use strict";
     window.APP = window.APP || {Routers: {}, Collections: {}, Models: {}, Views: {}};
 
-    APP.Views.HowItWorks = Backbone.View.extend({
-        // the constructor
-        initialize: function (options) {
-//            this.note = options.note;
-        },
-
-        // populate the html to the dom
-        render: function () {
-            this.$el.html( nunjucks.render('templates/shared/how-it-works.jinja2'));
-            return this;
-        }
-    });
     APP.Views.Home = Backbone.View.extend({
         // the constructor
         initialize: function (options) {
@@ -27,6 +15,70 @@
             return this;
         }
     });
+
+    APP.Views.HowItWorks = Backbone.View.extend({
+        // the constructor
+        initialize: function (options) {
+//            this.note = options.note;
+        },
+
+        // populate the html to the dom
+        render: function () {
+            this.$el.html( nunjucks.render('templates/shared/how-it-works.jinja2'));
+            return this;
+        }
+    });
+
+    APP.Views.Contact = Backbone.View.extend({
+        // the constructor
+        initialize: function (options) {
+//            this.note = options.note;
+        },
+
+        // populate the html to the dom
+        render: function () {
+            this.$el.html( nunjucks.render('templates/shared/contact.jinja2'));
+            return this;
+        }
+    });
+
+    APP.Views.About = Backbone.View.extend({
+        // the constructor
+        initialize: function (options) {
+//            this.note = options.note;
+        },
+
+        // populate the html to the dom
+        render: function () {
+            this.$el.html( nunjucks.render('templates/shared/about.jinja2'));
+            return this;
+        }
+    });
+    APP.Views.Terms = Backbone.View.extend({
+        // the constructor
+        initialize: function (options) {
+//            this.note = options.note;
+        },
+
+        // populate the html to the dom
+        render: function () {
+            this.$el.html( nunjucks.render('templates/shared/terms.jinja2'));
+            return this;
+        }
+    });
+    APP.Views.Privacy = Backbone.View.extend({
+        // the constructor
+        initialize: function (options) {
+//            this.note = options.note;
+        },
+
+        // populate the html to the dom
+        render: function () {
+            this.$el.html( nunjucks.render('templates/shared/privacy.jinja2'));
+            return this;
+        }
+    });
+
     APP.Views.Header = Backbone.View.extend({
         // the constructor
         initialize: function (options) {
@@ -40,6 +92,7 @@
             return this;
         }
     });
+
     APP.Views.Footer = Backbone.View.extend({
         // the constructor
         initialize: function (options) {

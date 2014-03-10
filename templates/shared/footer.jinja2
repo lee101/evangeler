@@ -8,12 +8,14 @@
                 {% if '/contact' == path %}
                     <span>Contact</span>
                 {% else %}
-                    <a class="footer__link" href="/contact" title="Contact Us">Contact</a>
+                    <a class="footer__link" href="/contact" title="Contact Us"
+                       onclick="return APP.goto('contact')">Contact</a>
                 {% endif %}
                 {% if '/about' == path %}
                     <span>About Us</span>
                 {% else %}
-                    <a class="footer__link" href="/about" title="About Evangeler">About</a>
+                    <a class="footer__link" href="/about" title="About Evangeler"
+                       onclick="return APP.goto('about')">About</a>
                 {% endif %}
             </div>
         </div>
@@ -26,7 +28,7 @@
                     <span class="fa fa-facebook-square mm-share-btn mm-share-btn--facebook"></span><span
                         class="footer__social-link-text"> Facebook</span>
                 </a>
-                <a class="footer__link" href="http://www.twitter.com/evangeler" title="Evangeler on Twitter"
+                <a class="footer__link" href="http://www.twitter.com/evangelersays" title="Evangeler on Twitter"
                    target="_blank">
                     <span class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></span><span
                         class="footer__social-link-text"> Twitter</span>
@@ -51,14 +53,14 @@
         {% if '/terms' == path %}
             <span>Terms &amp; Conditions</span>
         {% else %}
-            <a href="/terms" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
+            <a href="/terms" title="Terms &amp; Conditions" onclick="return APP.goto('terms')">Terms &amp; Conditions</a>
         {% endif %}
         |
 
         {% if '/privacy' == path %}
             <span>Privacy</span>
         {% else %}
-            <a href="/privacy" title="Privacy">Privacy</a>
+            <a href="/privacy" title="Privacy" onclick="return APP.goto('privacy')">Privacy</a>
         {% endif %}
     </div>
 

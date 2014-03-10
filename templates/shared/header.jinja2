@@ -2,12 +2,23 @@
 
 <div class="mm-header">
     <div class="mm-logo">
-        <a href="/" class="mm-logo__link" title="Evangeler - Social Marketing For The Masses!">
+        {% if path == '/' %}
+            <span class="mm-logo__link" title="Evangeler - Social Marketing For The Masses!"
+               onclick="return APP.goto('')">
+                <img src="/static/img/evangeler-logo64.png" class="mm-logo__image" width="64" height="64"
+                     alt="Evangeler">
+
+                <h1 class="mm-logo__text">Evangeler</h1>
+            </span>
+        {% else %}
+        <a href="/" class="mm-logo__link" title="Evangeler - Social Marketing For The Masses!"
+           onclick="return APP.goto('')">
             <img src="/static/img/evangeler-logo64.png" class="mm-logo__image" width="64" height="64"
                  alt="Evangeler">
 
             <h1 class="mm-logo__text">Evangeler</h1>
         </a>
+        {% endif %}
     </div>
     <div class="mm-header__nav">
         {% if path == '/how-it-works' %}

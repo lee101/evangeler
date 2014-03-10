@@ -35,39 +35,35 @@
         // Define routes
         'routes': {
             "": "home",
-            "how-it-works": "howitworks"
-        },
-        // These callbacks get called when navigate is called with
-        // trigger = true
-        'howitworks': function () {
-//            this.removeView();
-
-            APP.routerCurrentPage = 'howitworks';
-            var currentView = new APP.Views.HowItWorks();
-            APP.routerViews[APP.routerCurrentPage] = currentView;
-            refresh();
-            animateTo(currentView.render().el);
+            "how-it-works": "howitworks",
+            "about": "about",
+            "contact": "contact",
+            "terms": "terms",
+            "privacy": "privacy"
         },
         'home': function () {
-//            this.removeView();
-
-            var reRender = APP.routerCurrentPage !== 'Home';
-            APP.routerCurrentPage = 'Home';
-            var currentView = new APP.Views.Home();
-            APP.routerViews[APP.routerCurrentPage] = currentView;
+            this.view(new APP.Views.Home());
+        },
+        'howitworks': function () {
+            this.view(new APP.Views.HowItWorks());
+        },
+        'about': function () {
+            this.view(new APP.Views.About());
+        },
+        'contact': function () {
+            this.view(new APP.Views.Contact());
+        },
+        'terms': function () {
+            this.view(new APP.Views.Terms());
+        },
+        'privacy': function () {
+            this.view(new APP.Views.Privacy());
+        },
+        'view': function(currentView) {
             refresh();
             animateTo(currentView.render().el);
-        },
-        'removeView': function () {
-            if (!APP.routerViews) {
-                APP.routerViews = {};
-                return;
-            }
-            var view = APP.routerViews[APP.routerCurrentPage];
-            if (typeof view !== 'undefined' && typeof view.remove === 'function') {
-                view.remove();
-            }
         }
+
     });
 
     $(document).ready(function () {

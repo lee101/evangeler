@@ -1,121 +1,21 @@
-{% import "macros.jinja2" as macros with context %}
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>About Evangeler - Fun and Free Word Puzzle Game</title>
+{% extends 'templates/base.jinja2' %}
+
+{% block headers %}
+    <title>Evangeler Social Marketing - About</title>
+    {% set desc = 'Evangeler Helps Companies Create Viral Marketing Campaigns! Evangelers compete on Evangeler.com to win prizes!' -%}
     <meta name="description"
-          content="All About Evangeler, The Addicting and Fun Word Game. Play This Addicting New Word Puzzle, Now For Free!">
+          content="{{ desc }}">
 
-    <meta name="keywords" content="puzzle games, word finder rules, crossword, game rules, word puzzle game">
-    <meta property="og:title" content="About Evangeler The Maths Madness">
-    <meta property="og:url" content="http://www.evangeler.com">
-    <meta property="og:image" content="http://www.evangeler.com/img/evangeler_logo.png">
+    <meta name="keywords"
+          content="crowdsourcing marketing, viral marketing, facebook marketing, marketing, social marketing, about evangeler">
+    <meta property="og:title" content="Evangeler Social Marketing For The Masses! - About">
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:image"
+          content="http://www.evangeler.com/static/img/evangeler-logo128.png">
     <meta property="og:description"
-          content="About Evangeler. Learn how to play the addicting new puzzle game. Find Strategies, Rules and More.">
-    <meta property="og:type" content="game">
-    <meta property="og:site_name" content="Evangeler">
-    <meta property="fb:admins" content="337972272904903">
+          content="{{ desc }}">
+{% endblock %}
 
-    {{ macros.headers(ws, highscores, achievements, blocked_spaces) }}
-
-</head>
-<body>
-  {{ macros.fbstuff() }}
-<div id="pagebody">
-    <div id="container">
-        <div id="main">
-        	<div id="logo">
-                <a href="/" title="Evangeler Word Puzzle Game">
-                    <img src="/static/img/evangeler_logo.png" alt="Evangeler" title="Evangeler" width="250" height="184"/>
-                </a>
-                <div id="login">
-                    {{ macros.loginoutbutton() }}
-                    {{ macros.jplayer() }}
-			    </div>
-	        </div>
-
-            <table id="gametable" border="1">
-                <tr>
-                    <td>
-
-                    </td>
-
-                </tr>
-            </table>
-            <div class="fb-like" data-href="https://www.facebook.com/evangeler" data-send="true" data-width="450" data-show-faces="true"></div>
-            {{ macros.shareBtnsHorizontal() }}
-            <div id="showscore0">
-                <button style="display: none"></button>
-            </div>
-            <div id="showscore1">
-                <button style="display: none"></button>
-            </div>
-            <div id="showscore2">
-                <button style="display: none"></button>
-            </div>
-            <div id="showscore3">
-                <button style="display: none"></button>
-            </div>
-        </div>
-        <div id="gameoptions">
-            {{ macros.standardgameoptions() }}
-        </div>
-        <div id="bannerAdd">
-            <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-7026363262140448";
-            /* word game vert */
-            google_ad_slot = "3713734958";
-            google_ad_width = 160;
-            google_ad_height = 600;
-            //-->
-            </script>
-            <script type="text/javascript"
-                    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-            </script>
-
-        </div>
-
-        <div id="instructions">
-
-            <h1>About Evangeler</h1>
-            <p class="lead">Evangeler is a brand new, free online word search puzzle. It offers free addicting fun for the whole family. Be puzzled and build your brain today by playing Evangeler. </p>
-            <p class="lead"><b>Instructions:</b><br/>
-            	Make Words for points and to clear space!<br/>
-            	Click a letter and click on an empty space to move it there.<br/>
-            	You will only be able to move if there is a clear path.<br/>
-            	Every turn three new letters will grow into the game.<br/>
-            	Its game over when the board is filled with letters!<br/>
-            	Get two words in one turn and get combos by making words every turn for bonus points.<br/>
-            	On Easy You can make words with 2 or more letters.<br/>
-            	On Medium You can make words with 3 or more letters.<br/>
-            	On Hard You can only make words with 4 or more letters!<br/>
-            	Some place names and peoples names do not count as words.
-            	</p>
-        </div>
-        <div class="clear"></div>
-        <div id="btm">
-            <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-7026363262140448";
-            /* big h default */
-            google_ad_slot = "3155331752";
-            google_ad_width = 728;
-            google_ad_height = 90;
-            //-->
-            </script>
-            <script type="text/javascript"
-                    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-            </script>
-
-
-        </div>
-    </div>
-
-    <div class="clear">
-    </div>
-    {{ macros.footer() }}
-	<div class="clear">
-	</div>
-</div>
-</body>
-</html>
+{% block mainbody %}
+    {% include "/templates/shared/about.jinja2" %}
+{% endblock %}

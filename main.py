@@ -25,7 +25,7 @@ class BaseHandler(webapp2.RequestHandler):
             'json': json,
             'GameOnUtils': GameOnUtils,
             'path': self.request.path,
-            'url':self.request.uri,
+            'url': self.request.uri,
             # 'facebook_app_id': FACEBOOK_APP_ID,
             # 'glogin_url': users.create_login_url(self.request.uri),
             # 'glogout_url': users.create_logout_url(self.request.uri),
@@ -63,6 +63,15 @@ class HowHandler(BaseHandler):
         self.render('templates/how-it-works.jinja2')
 
 
+class AboutHandler(BaseHandler):
+    def get(self):
+        self.render('templates/about.jinja2')
+
+class ContactHandler(BaseHandler):
+    def get(self):
+        self.render('templates/contact.jinja2')
+
+
 class SitemapHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/xml'
@@ -78,8 +87,8 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/privacy', PrivacyHandler),
                                                ('/terms', TermsHandler),
                                                ('/how-it-works', HowHandler),
-                                               # ('/about', AboutHandler),
-                                               # ('/contact', ContactHandler),
+                                               ('/about', AboutHandler),
+                                               ('/contact', ContactHandler),
                                                ('/sitemap', SitemapHandler),
 
                                            ] + gameon.routes, debug=ws.debug, config=config))
