@@ -155,6 +155,10 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+.mm-article-theme p {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 @media (max-width: 600px) {
   .mm-article-theme {
     font-size: 18px;
