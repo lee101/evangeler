@@ -31,5 +31,8 @@
                 How It Works
             </a>
         {% endif %}
+        {% if user.access_token %}
+        <img src="https://graph.facebook.com/{{  }}/picture" width="50" height="50">
+        {% endif %}
     </div>
 </div>

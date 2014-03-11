@@ -116,6 +116,9 @@ function fb_login() {
 
             FB.api('/me', function (response) {
                 user_email = response.email; //get user email
+                models.getUser(function(user) {
+                    user.cook
+                })
             });
 
         } else {

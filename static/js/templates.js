@@ -117,7 +117,7 @@ else {
 output += "\n            <a class=\"mm-header__link\" href=\"/how-it-works\" title=\"How It Works\"\n               onclick=\"return APP.goto('how-it-works')\">\n                How It Works\n            </a>\n        ";
 ;
 }
-output += "\n    </div>\n</div>\n";
+output += "\n        \n    </div>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
