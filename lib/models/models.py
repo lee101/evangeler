@@ -31,9 +31,9 @@ class Company(BaseModel):
     description = ndb.StringProperty()
     facebook_link = ndb.StringProperty()
     website_link = ndb.StringProperty()
-    tags = ndb.IntegerProperty(repeated=True)
+    # tags = ndb.IntegerProperty(repeated=True)
 
-    pages = ndb.StructuredProperty(Contest, repeated=True)
+    # contests = ndb.StructuredProperty(Contest, repeated=True)
 
 
 class User(BaseModel):
