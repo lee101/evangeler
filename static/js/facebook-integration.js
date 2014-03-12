@@ -8,11 +8,17 @@ window.fbAsyncInit = function () {
     });
 };
 
-window.facebookWrapper = (function () {
+window.facebookWrapper = new (function () {
     "use strict";
     var self = this;
     self.facebook_access_token = 0;
-    self.fb_login = function () {
+
+
+    self.fb_login = function (callback) {
+        if (typeof callback == 'undefined') {
+            callback = function (data) {
+            }
+        }
         FB.login(function (response) {
 
             if (response.authResponse) {
@@ -35,13 +41,15 @@ window.facebookWrapper = (function () {
                                 'facebook_profile_url': facebook_profile_url,
                                 'email': email,
                                 'name': name
-                            }, function(user) {
+                            }, function (user) {
                                 APP.refresh();
-
+                                callback(user);
                             });
                         }
                         else {
+                            APP.refresh();
                             user.saveAccessToken(self.facebook_access_token);
+                            callback(user);
                         }
                     })
                 });
@@ -63,7 +71,10 @@ window.facebookWrapper = (function () {
                 //they were authed so do the logout
                 FB.logout(function (response) {
                     // user is now logged out
-                    $('#loginlogout').html('<button class="btn btn-danger" onclick="loginmodal()" type="button">Log In</button>');
+                    APP.delete_cookie('evangelerloggedin');
+                    //TODO better way would to be use a default user.
+                    delete models.user
+                    APP.refresh();
 
 
                 });

@@ -13,6 +13,17 @@ class Post(BaseModel):
     link = ndb.StringProperty()
 
 
+class Company(BaseModel):
+    name = ndb.StringProperty()
+    title = ndb.StringProperty()
+    description = ndb.StringProperty()
+    facebook_link = ndb.StringProperty()
+    website_link = ndb.StringProperty()
+    tags = ndb.IntegerProperty(repeated=True)
+
+    # contests = ndb.StructuredProperty(Contest, repeated=True)
+
+
 class Contest(BaseModel):
     name = ndb.StringProperty()
     title = ndb.StringProperty()
@@ -27,17 +38,6 @@ class Contest(BaseModel):
     tags = ndb.IntegerProperty(repeated=True)
 
     company_key = ndb.KeyProperty(kind=Company)
-
-
-class Company(BaseModel):
-    name = ndb.StringProperty()
-    title = ndb.StringProperty()
-    description = ndb.StringProperty()
-    facebook_link = ndb.StringProperty()
-    website_link = ndb.StringProperty()
-    tags = ndb.IntegerProperty(repeated=True)
-
-    # contests = ndb.StructuredProperty(Contest, repeated=True)
 
 
 class User(BaseModel):

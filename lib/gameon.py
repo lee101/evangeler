@@ -86,7 +86,7 @@ class BaseHandler(webapp2.RequestHandler):
 
 class GetUserHandler(BaseHandler):
     def get(self):
-        currentUser = self.current_user
+        currentUser = self.current_user()
         if not currentUser:
             currentUser = User()
         self.response.headers['Content-Type'] = 'application/json'
@@ -127,8 +127,17 @@ class GetOrCreateUserHandler(BaseHandler):
 
 class IsGoldHandler(BaseHandler):
     def get(self):
-        currentUser = self.current_user
+        currentUser = self.current_user()
         if currentUser.gold:
+            self.response.out.write('success')
+
+
+class SaveAccessTokenHandler(BaseHandler):
+    def get(self):
+        currentUser = self.current_user()
+        if currentUser:
+            currentUser.facebook_access_token = self.request.get('facebook_access_token')
+            currentUser.put()
             self.response.out.write('success')
 
 
@@ -145,12 +154,6 @@ class BuyHandler(BaseHandler):
         self.render('buy.jinja2')
 
 
-class LogoutHandler(BaseHandler):
-    def get(self):
-        if self.current_user is not None:
-            self.session['user'] = None
-
-
 class TestsHandler(BaseHandler):
     def get(self):
         try:
@@ -161,6 +164,8 @@ class TestsHandler(BaseHandler):
 
 routes = [
     ('/lib/getuser', GetUserHandler),
+    ('/lib/getorcreatenewuser', GetOrCreateUserHandler),
+    ('/lib/saveaccesstoken', SaveAccessTokenHandler),
     ('/lib/isgold', IsGoldHandler),
     ('/lib/tests', TestsHandler),
 

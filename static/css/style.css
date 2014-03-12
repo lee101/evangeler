@@ -45,14 +45,13 @@ body {
   vertical-align: top;
   padding: 41px;
 }
+.mm-header__profile-link {
+  padding-top: 23px;
+}
 .mm-header__link:focus,
 .mm-header__link:hover,
 .mm-header__link.active {
-  display: inline-block;
-  height: 103px;
   background-color: #eeeeee;
-  vertical-align: top;
-  padding: 41px;
 }
 .mm-logo {
   padding-bottom: 20px;

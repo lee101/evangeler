@@ -101,7 +101,7 @@
         render: function () {
             var self = this;
             models.getUser(function(user){
-                self.$el.html(nunjucks.render('templates/shared/header.jinja2', {'path': self.path, 'user': user}));
+                self.$el.html(nunjucks.render('templates/shared/header.jinja2', {'path': self.path, 'user': user, 'window':true}));
 
             });
 
