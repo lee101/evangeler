@@ -99,9 +99,13 @@
 
         // populate the html to the dom
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/header.jinja2', {'path':this.path}));
+            var self = this;
+            models.getUser(function(user){
+                self.$el.html(nunjucks.render('templates/shared/header.jinja2', {'path': self.path, 'user': user}));
 
-            return this;
+            });
+
+            return self;
         }
     });
 

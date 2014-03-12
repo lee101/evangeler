@@ -28,89 +28,18 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 
 class BaseHandler(webapp2.RequestHandler):
-    """Provides access to the active Facebook user in self.current_user
 
-    The property is lazy-loaded on first access, using the cookie saved
-    by the Facebook JavaScript SDK to determine the user ID of the active
-    user. See http://developers.facebook.com/docs/authentication/ for
-    more information.
-    """
-
-    @property
     def current_user(self):
-        #===== Google Auth
-        user = users.get_current_user()
-        if user:
-            dbUser = User.byId(user.user_id())
-            if dbUser:
-                return dbUser
-            else:
 
-                dbUser = User()
-                dbUser.id = user.user_id()
-                dbUser.name = user.nickname()
-                dbUser.email = user.email().lower()
-                dbUser.put()
-                return dbUser
-
-        #===== FACEBOOK Auth
-        if self.session.get("user"):
-            # User is logged in
-            return User.byId(self.session.get("user")["id"])
-        else:
-            # Either used just logged in or just saw the first page
-            # We'll see here
-            fbcookie = facebook.get_user_from_cookie(self.request.cookies,
-                                                     FACEBOOK_APP_ID,
-                                                     FACEBOOK_APP_SECRET)
-            if fbcookie:
-                # Okay so user logged in.
-                # Now, check to see if existing user
-                user = User.byId(fbcookie["uid"])
-                if not user:
-                    # Not an existing user so get user info
-                    graph = facebook.GraphAPI(fbcookie["access_token"])
-                    profile = graph.get_object("me")
-                    user = User(
-                        key_name=str(profile["id"]),
-                        id=str(profile["id"]),
-                        name=profile["name"],
-                        profile_url=profile["link"],
-                        access_token=fbcookie["access_token"]
-                    )
-                    user.put()
-                elif user.access_token != fbcookie["access_token"]:
-                    user.access_token = fbcookie["access_token"]
-                    user.put()
-                    # User is now logged in
-                self.session["user"] = dict(
-                    name=user.name,
-                    profile_url=user.profile_url,
-                    id=user.id,
-                    access_token=user.access_token
-                )
-                return user
-                #======== use session cookie user
-        anonymous_cookie = self.request.cookies.get('wsuser', None)
+        anonymous_cookie = self.request.cookies.get('evangelerloggedin', None)
         if anonymous_cookie is None:
-            cookie_value = utils.random_string()
-            self.response.set_cookie('wsuser', cookie_value, max_age=15724800)
-            anon_user = User()
-            anon_user.cookie_user = 1
-            anon_user.id = cookie_value
-            anon_user.put()
-            return anon_user
+            return None
         else:
-            anon_user = User.byId(anonymous_cookie)
-            if anon_user:
-                return anon_user
-            cookie_value = utils.random_string()
-            self.response.set_cookie('wsuser', cookie_value, max_age=15724800)
-            anon_user = User()
-            anon_user.cookie_user = 1
-            anon_user.id = cookie_value
-            anon_user.put()
-            return anon_user
+            user = User.byId(anonymous_cookie)
+            if user:
+                return user
+            return None
+
 
     def render(self, view_name, extraParams={}):
 
@@ -159,6 +88,50 @@ class BaseHandler(webapp2.RequestHandler):
 class GetUserHandler(BaseHandler):
     def get(self):
         currentUser = self.current_user
+        if not currentUser:
+            currentUser = User()
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps(currentUser.to_dict(), cls=GameOnUtils.MyEncoder))
+
+
+
+class GetOrCreateUserHandler(BaseHandler):
+    def get(self):
+
+        facebook_id = self.request.get('facebook_id')
+        facebook_access_token = self.request.get('facebook_access_token')
+        facebook_profile_url = self.request.get('facebook_profile_url')
+        email = self.request.get('email')
+        name = self.request.get('name')
+
+        def get_or_create_user():
+            user = User.byFacebookId(facebook_id)
+            if user:
+                self.response.set_cookie('evangelerloggedin', user.cookie_id, max_age=15724800)
+                return user
+
+            cookie_value = utils.random_string()
+            self.response.set_cookie('evangelerloggedin', cookie_value, max_age=15724800)
+            user = User()
+            user.cookie_id = cookie_value
+            user.facebook_id = facebook_id
+            user.facebook_access_token = facebook_access_token
+            user.facebook_profile_url = facebook_profile_url
+            user.email = email
+            user.name = name
+            user.put()
+            return user
+
+        # anonymous_cookie = self.request.cookies.get('evangelerloggedin', None)
+        # if anonymous_cookie is None:
+        #     return get_or_create_user()
+        # else:
+        user = User.byId(anonymous_cookie)
+        if user:
+            return user
+        return get_or_create_user()
+
+
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(currentUser.to_dict(), cls=GameOnUtils.MyEncoder))
 

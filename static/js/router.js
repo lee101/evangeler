@@ -24,7 +24,7 @@
         });
     }
 
-    function refresh() {
+    APP.refresh = function() {
         APP.footer.path = location.pathname;
         APP.header.path = location.pathname;
         $('#headerbody').html(APP.header.render().el);
@@ -64,7 +64,7 @@
             this.view(new APP.Views.Refunds());
         },
         'view': function(currentView) {
-            refresh();
+            APP.refresh();
             animateTo(currentView.render().el);
         }
 
