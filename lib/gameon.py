@@ -28,7 +28,6 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 
 class BaseHandler(webapp2.RequestHandler):
-
     def current_user(self):
 
         anonymous_cookie = self.request.cookies.get('evangelerloggedin', None)
@@ -94,10 +93,8 @@ class GetUserHandler(BaseHandler):
         self.response.out.write(json.dumps(currentUser.to_dict(), cls=GameOnUtils.MyEncoder))
 
 
-
 class GetOrCreateUserHandler(BaseHandler):
     def get(self):
-
         facebook_id = self.request.get('facebook_id')
         facebook_access_token = self.request.get('facebook_access_token')
         facebook_profile_url = self.request.get('facebook_profile_url')
@@ -122,20 +119,10 @@ class GetOrCreateUserHandler(BaseHandler):
             user.put()
             return user
 
-        # anonymous_cookie = self.request.cookies.get('evangelerloggedin', None)
-        # if anonymous_cookie is None:
-        #     return get_or_create_user()
-        # else:
-        user = User.byId(anonymous_cookie)
-        if user:
-            return user
-        return get_or_create_user()
-
+        user = get_or_create_user()
 
         self.response.headers['Content-Type'] = 'application/json'
-        self.response.out.write(json.dumps(currentUser.to_dict(), cls=GameOnUtils.MyEncoder))
-
-
+        self.response.out.write(json.dumps(user.to_dict(), cls=GameOnUtils.MyEncoder))
 
 
 class IsGoldHandler(BaseHandler):
