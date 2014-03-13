@@ -25,52 +25,56 @@
             $mainbody.css({left: width});
             $mainbody.animate({left: 0}, speed)
         });
+        //scroll to top
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     }
 
-    APP.refresh = function() {
+    APP.refresh = function () {
         APP.footer.path = location.pathname;
         APP.header.path = location.pathname;
         $('#headerbody').html(APP.header.render().el);
         $('#footerbody').html(APP.footer.render().el);
     }
+    APP.currentView = location.pathname;
+    function defaultHandler(pathname) {
+        return function () {
+            if (APP.currentView == pathname && prerenderedPages[APP.currentView]) {
+                return;
+            }
+            APP.currentView = pathname;
+            APP.refresh();
+            animateTo(new APP.Views[pathname]().render().el);
+        }
+    }
+
+    var prerenderedPages = {
+        "/": "home",
+        "/how-it-works": "how-it-works",
+        "/about": "about",
+        "/contact": "contact",
+        "/terms": "terms",
+        "/privacy": "privacy",
+        "/refunds": "refunds"
+    };
+    var routes = {};
+    $.each(prerenderedPages, function (key, value) {
+        routes[key.substring(1)] = value;
+    });
+    jQuery.extend(routes, {
+        'account': 'account'
+    });
 
     var Router = Backbone.Router.extend({
         // Define routes
-        'routes': {
-            "": "home",
-            "how-it-works": "howitworks",
-            "about": "about",
-            "contact": "contact",
-            "terms": "terms",
-            "privacy": "privacy",
-            "refunds": "refunds"
-        },
-        'home': function () {
-            this.view(new APP.Views.Home());
-        },
-        'howitworks': function () {
-            this.view(new APP.Views.HowItWorks());
-        },
-        'about': function () {
-            this.view(new APP.Views.About());
-        },
-        'contact': function () {
-            this.view(new APP.Views.Contact());
-        },
-        'terms': function () {
-            this.view(new APP.Views.Terms());
-        },
-        'privacy': function () {
-            this.view(new APP.Views.Privacy());
-        },
-        'refunds': function () {
-            this.view(new APP.Views.Refunds());
-        },
-        'view': function(currentView) {
-            APP.refresh();
-            animateTo(currentView.render().el);
-        }
-
+        'routes': routes,
+        'home': defaultHandler('/'),
+        'how-it-works': defaultHandler('/how-it-works'),
+        'about': defaultHandler('/about'),
+        'contact': defaultHandler('/contact'),
+        'terms': defaultHandler('/terms'),
+        'privacy': defaultHandler('/privacy'),
+        'refunds': defaultHandler('/refunds'),
+        'account': defaultHandler('/account')
     });
 
     $(document).ready(function () {
@@ -78,8 +82,8 @@
         APP.header = new APP.Views.Header({path: location.pathname});
         APP.footer = new APP.Views.Footer({path: location.pathname});
         Backbone.history.start({
-            pushState: true,
-            silent: true
+            pushState: true
+//            silent: true
         });
     });
 }());
