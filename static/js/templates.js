@@ -15,6 +15,23 @@ root: root
 };
 })();
 })();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/account.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"mm-hero\">\n    <h2 class=\"mm-marketing-text\">\n        Evangeler Helps Companies Create Viral and Social Marketing Campaigns.\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Companies offer cash prizes on evangeler.com in exchange for people promoting there products\n    </h3>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--black\">\n        Social Marketing Helps Business!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Evangeler gives businesses direct access to millions of marketers!\n    </h3>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-success btn-lg\">Browse Marketing Categories\n    </button>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h2 class=\"mm-marketing-text\">\n        Social Marketing Helps People!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Win cash prizes for promoting products you love!\n    </h3>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\">Browse Marketing Contests\n    </button>\n</div>\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
 (function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/contact.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;
@@ -147,36 +164,6 @@ var colno = null;
 var output = "";
 try {
 output += "\n<div class=\"mm-hero\">\n    <h2 class=\"mm-marketing-text\">\n        1: Sign up with Facebook!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        We'll create a page for your business on Evangeler.com!\n    </h3>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\" onclick=\"window.facebookWrapper.fb_login();return false\">Login With Facebook\n    </button>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--black\">\n        2: Pick &amp; run a viral marketing contest you like!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Evangelers from all over the world compete to promote your product and win cash prizes!\n    </h3>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-success btn-lg\">Browse Categories\n    </button>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h2 class=\"mm-marketing-text\">\n        3: Award a winner!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        For best results share your contest at every stage!\n    </h3>\n</div>\n";
-cb(null, output);
-;
-} catch (e) {
-  cb(runtime.handleError(e, lineno, colno));
-}
-}
-return {
-root: root
-};
-})();
-})();
-(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/macros.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
-var lineno = null;
-var colno = null;
-var output = "";
-try {
-output += "\n\n";
-var macro_t_1 = runtime.makeMacro(
-[], 
-[], 
-function (kwargs) {
-frame = frame.push();
-kwargs = kwargs || {};
-var output= "";
-frame = frame.pop();
-return new runtime.SafeString(output);
-});
-context.addExport("start");
-context.setVariable("start", macro_t_1);
-output += "\n";
 cb(null, output);
 ;
 } catch (e) {

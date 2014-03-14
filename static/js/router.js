@@ -41,6 +41,14 @@
             if (APP.currentView == pathname && prerenderedPages[APP.currentView]) {
                 return;
             }
+            //if its not prerendered it requires login
+            if (! prerenderedPages[APP.currentView]) {
+                facebookWrapper.ifLoggedInElse(function(){
+                    APP.currentView = pathname;
+                    APP.refresh();
+                    animateTo(new APP.Views[pathname]().render().el);
+                });
+            }
             APP.currentView = pathname;
             APP.refresh();
             animateTo(new APP.Views[pathname]().render().el);

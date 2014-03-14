@@ -14,6 +14,7 @@ class Post(BaseModel):
 
 
 class Company(BaseModel):
+    facebook_id = ndb.StringProperty()
     name = ndb.StringProperty()
     title = ndb.StringProperty()
     description = ndb.StringProperty()
@@ -25,11 +26,14 @@ class Company(BaseModel):
 
 
 class Contest(BaseModel):
+    url_key = ndb.StringProperty()
+
     name = ndb.StringProperty()
     title = ndb.StringProperty()
     description = ndb.StringProperty()
 
     type = ndb.IntegerProperty()
+    is_live = ndb.IntegerProperty()
 
     website_link = ndb.StringProperty()
 
@@ -39,6 +43,8 @@ class Contest(BaseModel):
 
     company_key = ndb.KeyProperty(kind=Company)
 
+    created = ndb.DateTimeProperty(auto_now_add=True)
+    updated = ndb.DateTimeProperty(auto_now=True)
 
 class User(BaseModel):
     cookie_id = ndb.StringProperty(required=True)

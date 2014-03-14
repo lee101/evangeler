@@ -69,6 +69,20 @@
             return this;
         }
     });
+    APP.Views['/account'] = Backbone.View.extend({
+        initialize: function (options) {
+        },
+
+        render: function () {
+
+            var self = this;
+            models.getUser(function (user) {
+                self.$el.html(nunjucks.render('templates/shared/account.jinja2', {'user': user, 'window': true}));
+
+            });
+            return self;
+        }
+    });
 
     APP.Views.Header = Backbone.View.extend({
         initialize: function (options) {
