@@ -1,12 +1,3 @@
-window.fbAsyncInit = function () {
-    FB.init({
-        appId: '816673458359972',                        // App ID from the app dashboard
-        channelUrl: '//evangeler.appspot.com/channel.html', // Channel file for x-domain comms
-        status: true, // check login status
-        cookie: true, // enable cookies to allow the server to access the session
-        xfbml: true  // parse XFBML
-    });
-};
 
 window.facebookWrapper = new (function () {
     "use strict";
@@ -114,7 +105,16 @@ window.facebookWrapper = new (function () {
             }
         });
     };
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '816673458359972',                        // App ID from the app dashboard
+            channelUrl: '//evangeler.appspot.com/channel.html', // Channel file for x-domain comms
+            status: true, // check login status
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true  // parse XFBML
+        });
+        FB.getLoginStatus(self.login_func);
+    };
 
-    FB.getLoginStatus(self.login_func);
     return self;
 })();
