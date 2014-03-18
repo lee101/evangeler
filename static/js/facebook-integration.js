@@ -1,35 +1,58 @@
-
 window.facebookWrapper = new (function () {
     "use strict";
     var self = this;
     self.facebook_access_token = 0;
 
-
-
-    self.ifLoggedInElse = function(is, isnt) {
-        //default is to keep trying to log in
-        if (typeof isnt == 'undefined') {
-            isnt = function () {
-                self.fb_login(is);
-            }
+    self.loadedfuncs = [];
+    self.onEverythingLoaded = function (callback) {
+        if (self.everythingIsLoaded) {
+            callback();
         }
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
-                // the user is logged in and has authenticated your
-                // app, and response.authResponse supplies
-                // the user's ID, a valid access token, a signed
-                // request, and the time the access token
-                // and signed request each expire
-                is();
-            } else if (response.status === 'not_authorized') {
-                // the user is logged in to Facebook,
-                // but has not authenticated your app
-                isnt();
-            } else {
-                // the user isn't logged in to Facebook.
-                isnt();
+        else {
+            self.loadedfuncs.push(callback);
+        }
+    };
+
+    self.everythingIsLoaded = false;
+
+    self.everythingHasLoaded = function () {
+        if (self.everythingIsLoaded) {
+            return;
+        }
+        self.everythingIsLoaded = true;
+        for (var i = 0; i < self.loadedfuncs.length; i++) {
+            self.loadedfuncs[i]();
+        }
+    };
+
+    self.ifLoggedInElse = function (is, isnt) {
+        self.onEverythingLoaded(function () {
+
+            //default is to keep trying to log in
+            if (typeof isnt == 'undefined') {
+                isnt = function () {
+                    self.fb_login(is);
+                }
             }
-        });
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    // the user is logged in and has authenticated your
+                    // app, and response.authResponse supplies
+                    // the user's ID, a valid access token, a signed
+                    // request, and the time the access token
+                    // and signed request each expire
+                    is();
+                } else if (response.status === 'not_authorized') {
+                    // the user is logged in to Facebook,
+                    // but has not authenticated your app
+                    isnt();
+                } else {
+                    // the user isn't logged in to Facebook.
+                    isnt();
+                }
+            });
+        })
+
     };
 
     self.login_func = function (response) {
@@ -56,13 +79,13 @@ window.facebookWrapper = new (function () {
                             'name': name
                         }, function (user) {
                             APP.refresh();
-                            callback(user);
+                            self.logincallback(user);
                         });
                     }
                     else {
                         APP.refresh();
                         user.saveAccessToken(self.facebook_access_token);
-                        callback(user);
+                        self.logincallback(user);
                     }
                 })
             });
@@ -72,12 +95,17 @@ window.facebookWrapper = new (function () {
             console.log('User cancelled login or did not fully authorize.');
 
         }
-    }
+    };
+    self.logincallback = function (data) {
+    };
 
-    self.fb_login = function (callback) {
-        if (typeof callback == 'undefined') {
-            callback = function (data) {
+    self.fb_login = function (logincallback) {
+        if (typeof logincallback == 'undefined') {
+            self.logincallback = function (data) {
             }
+        }
+        else {
+            self.logincallback = logincallback;
         }
         FB.login(self.login_func, {
             scope: 'publish_stream,email,manage_pages'//,publish_actions
@@ -114,7 +142,49 @@ window.facebookWrapper = new (function () {
             xfbml: true  // parse XFBML
         });
         FB.getLoginStatus(self.login_func);
+        $(document).ready(function () {
+            self.everythingHasLoaded();
+        });
     };
+
+    self.getFaceBookPages = function (callback) {
+        var fqlRequest = "SELECT page_id,name,access_token,about,description,categories,keywords,pic,website  FROM page" +
+            " WHERE page_id IN (SELECT page_id FROM page_admin WHERE uid = me())";
+        FB.api("/fql", {q: fqlRequest}, function (response) {
+            callback(response);
+        })
+    };
+
+    self.postAsPage = function (pageid, successCallback) {
+        FB.ui({
+            method: 'feed',
+            link: 'https://developers.facebook.com/docs/dialogs/',
+            caption: 'An example caption',
+            from: pageid
+        }, function (response) {
+            if (response && response.post_id) {
+                successCallback(response);
+            }
+            else {
+
+            }
+        });
+    };
+
+    self.getPosts = function(pageid, callback) {
+        FB.api(
+            "/{page-id}/posts",
+            function (response) {
+                if (response && !response.error) {
+                    /* handle the result */
+                    callback(response)
+                }
+                else {
+
+                }
+            }
+        );
+    }
 
     return self;
 })();
