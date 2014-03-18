@@ -97,5 +97,6 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/sitemap', SitemapHandler),
                                                # non prerendered pages
                                                ('/account', MainHandler),
+                                               ('/new-page', MainHandler),
 
                                            ] + gameon.routes, debug=ws.debug, config=config))

@@ -120,7 +120,6 @@ window.facebookWrapper = new (function () {
                 FB.logout(function (response) {
                     // user is now logged out
                     APP.delete_cookie('evangelerloggedin');
-                    //TODO better way would to be use a default user.
                     delete models.user;
                     APP.refresh();
 
@@ -155,12 +154,12 @@ window.facebookWrapper = new (function () {
         })
     };
 
-    self.postAsPage = function (pageid, successCallback) {
+    self.postAsPage = function (pageid, link, caption, successCallback) {
         FB.ui({
-            method: 'feed',
-            link: 'https://developers.facebook.com/docs/dialogs/',
-            caption: 'An example caption',
-            from: pageid
+            'method': 'feed',
+            'link': link,
+            'caption': caption,
+            'from': pageid
         }, function (response) {
             if (response && response.post_id) {
                 successCallback(response);
@@ -171,9 +170,9 @@ window.facebookWrapper = new (function () {
         });
     };
 
-    self.getPosts = function(pageid, callback) {
+    self.getPosts = function (pageid, callback) {
         FB.api(
-            "/{page-id}/posts",
+            "/" + pageid + "/posts",
             function (response) {
                 if (response && !response.error) {
                     /* handle the result */

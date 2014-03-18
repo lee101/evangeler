@@ -1,7 +1,10 @@
-describe("game", function () {
+$(document).ready(function () {
+    "use strict";
 
-    it('should let you login', function (done) {
-        FB.login = function(callback, params){
+    facebookWrapper.onEverythingLoaded(function () {
+        "use strict";
+
+        FB.login = function (callback, params) {
             callback({
                 authResponse: {
                     accessToken: 'test',
@@ -16,16 +19,45 @@ describe("game", function () {
                 link: 'test'
             })
         };
-        facebookWrapper.fb_login(function(user){
-            expect(user.email).toBe('test');
-            done();
-        });
-    });
+        FB.logout = function (callback) {
+            callback({
+                authResponse: {
+                    accessToken: 'test',
+                    userID: 'test'
+                }
+            })
+        };
+        FB.getLoginStatus = function (callback) {
+            callback({
+                authResponse: {
+                    accessToken: 'test',
+                    userID: 'test'
+                }
+            })
+        };
 
-//    it('should let you log out', function (done) {
-//    });
+
+        describe("evangeler", function () {
+
+            it('should let you login', function (done) {
+                facebookWrapper.fb_login(function (user) {
+                    expect(user.email).toBe('test');
+                    done();
+                });
+            });
+            it('should let you log out and back in', function (done) {
+                facebookWrapper.fb_logout(function () {
+                    expect(gameon.user).toBeFalsy();
+                });
+                facebookWrapper.fb_login(function (user) {
+                    expect(user.email).toBe('test');
+                    done();
+                });
+            });
 //
 //    it('should let you unlock levels', function (done) {
 //    });
 
-});
+        });
+    });
+})

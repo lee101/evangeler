@@ -175,6 +175,23 @@ root: root
 };
 })();
 })();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/new-page.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"mm-hero\">\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        New Page\n    </h3>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--black\">\n        Social Marketing Helps Business!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Evangeler gives businesses direct access to millions of marketers!\n    </h3>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-success btn-lg\">Browse Marketing Categories\n    </button>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h2 class=\"mm-marketing-text\">\n        Social Marketing Helps People!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Win cash prizes for promoting products you love!\n    </h3>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\">Browse Marketing Contests\n    </button>\n</div>\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
 (function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/privacy.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;

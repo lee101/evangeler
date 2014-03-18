@@ -85,6 +85,10 @@ body {
     padding-left: 40px;
     padding-right: 40px;
     background-color: @facebook-blue;
+
+    @media (max-width: @phone-max-width) {
+        padding: 20px;
+    }
 }
 
 .mm-hero--secondary {
@@ -107,10 +111,18 @@ body {
     font-family: gesta, sans-serif;
     font-size: @base-font-size * 3;
     font-weight: normal;
+
+    @media (max-width: @phone-max-width) {
+        font-size: @base-font-size * 2;
+    }
 }
 
 .mm-marketing-text--smaller {
     font-size: @base-font-size * 2.5;
+
+    @media (max-width: @phone-max-width) {
+        font-size: @base-font-size * 1.7;
+    }
 }
 
 .mm-marketing-text--black {

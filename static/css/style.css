@@ -91,6 +91,11 @@ body {
   padding-right: 40px;
   background-color: #3b5997;
 }
+@media (max-width: 480px) {
+  .mm-hero {
+    padding: 20px;
+  }
+}
 .mm-hero--secondary {
   background-color: #4098fd;
 }
@@ -109,8 +114,18 @@ body {
   font-size: 54px;
   font-weight: normal;
 }
+@media (max-width: 480px) {
+  .mm-marketing-text {
+    font-size: 36px;
+  }
+}
 .mm-marketing-text--smaller {
   font-size: 45px;
+}
+@media (max-width: 480px) {
+  .mm-marketing-text--smaller {
+    font-size: 30.6px;
+  }
 }
 .mm-marketing-text--black {
   color: #363636;
