@@ -109,19 +109,34 @@ body {
     color: rgb(255, 255, 255);
     display: block;
     font-family: gesta, sans-serif;
-    font-size: @base-font-size * 3;
     font-weight: normal;
 
-    @media (max-width: @phone-max-width) {
-        font-size: @base-font-size * 2;
+    font-size: @base-font-size * 1.9;
+
+    @media (min-width: @small-min-width) {
+        font-size: @base-font-size * 2.4;
+    }
+    @media (min-width: @ipad-landscape-min-width) {
+        font-size: @base-font-size * 2.7;
+    }
+    @media (min-width: @huge-min-width) {
+        font-size: @base-font-size * 3;
+
     }
 }
 
 .mm-marketing-text--smaller {
-    font-size: @base-font-size * 2.5;
+    font-size: @base-font-size * 1.5;
 
-    @media (max-width: @phone-max-width) {
-        font-size: @base-font-size * 1.7;
+    @media (min-width: @small-min-width) {
+        font-size: @base-font-size * 2;
+    }
+    @media (min-width: @ipad-landscape-min-width) {
+        font-size: @base-font-size * 2.3;
+    }
+    @media (min-width: @huge-min-width) {
+        font-size: @base-font-size * 2.5;
+
     }
 }
 
@@ -149,10 +164,10 @@ body {
 }
 
 .mm-grid__section {
-    margin: 40px 80px 0px 80px;
+    margin: 20px 40px 0px 40px;
     text-align: left;
-    @media (max-width: @phone-max-width) {
-        margin: 20px 40px 0px 40px;
+    @media (min-width: @small-min-width) {
+        margin: 40px 80px 0px 80px;
     }
 }
 
@@ -229,6 +244,16 @@ body {
     padding-bottom: 20px;
 }
 
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////
 .mm-responsivead-bottom {
     margin: 0 auto;
     text-align: center;
