@@ -24,22 +24,24 @@ body {
 .mm-header__nav {
     display: inline;
 }
+
 .mm-header__link {
     display: inline-block;
     height: 103px;
     vertical-align: top;
     padding: 41px;
 }
+
 .mm-header__profile-link {
     padding-top: 23px;
 }
+
 .mm-header__link:focus,
 .mm-header__link:hover,
 .mm-header__link.active,
 {
     background-color: @gray-lighter;
 }
-
 
 .mm-logo {
     padding-bottom: 20px;
@@ -130,9 +132,16 @@ body {
     border-bottom-style: solid;
 }
 
+.mm-grid {
+    padding-bottom: 40px;
+}
+
 .mm-grid__section {
     margin: 40px 80px 0px 80px;
     text-align: left;
+    @media (max-width: @phone-max-width) {
+        margin: 20px 40px 0px 40px;
+    }
 }
 
 .footer__link {
@@ -160,10 +169,26 @@ body {
     color: @pinterest-red;
 }
 
+.mm-highlighted-new {
+    text-align: center;
+    border: 3px dashed #008000;
+    display: block;
+}
 
+.mm-highlighted-new:hover {
+    border: 3px dashed orange;
 
+    .mm-highlighted-new__text {
+        color: orange;
+    }
+}
 
-
+.mm-highlighted-new__text {
+    text-align: center;
+    font-size: @base-font-size *1.7;
+    font-weight: bold;
+    color: #008000;
+}
 
 .mm-article-theme {
     background-color: @gray-lighter;

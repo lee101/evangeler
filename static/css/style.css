@@ -125,9 +125,17 @@ body {
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
+.mm-grid {
+  padding-bottom: 40px;
+}
 .mm-grid__section {
   margin: 40px 80px 0px 80px;
   text-align: left;
+}
+@media (max-width: 480px) {
+  .mm-grid__section {
+    margin: 20px 40px 0px 40px;
+  }
 }
 .footer__link {
   display: block;
@@ -144,6 +152,23 @@ body {
 }
 .mm-share-btn--pinterest {
   color: #ca2027;
+}
+.mm-highlighted-new {
+  text-align: center;
+  border: 3px dashed #008000;
+  display: block;
+}
+.mm-highlighted-new:hover {
+  border: 3px dashed orange;
+}
+.mm-highlighted-new:hover .mm-highlighted-new__text {
+  color: orange;
+}
+.mm-highlighted-new__text {
+  text-align: center;
+  font-size: 30.6px;
+  font-weight: bold;
+  color: #008000;
 }
 .mm-article-theme {
   background-color: #eeeeee;
