@@ -23,6 +23,9 @@ class Company(BaseModel):
     tags = ndb.IntegerProperty(repeated=True)
 
     # contests = ndb.StructuredProperty(Contest, repeated=True)
+    @classmethod
+    def getCompaniesByKeys(cls, keys):
+        return cls.query(cls.key.IN(keys)).fetch()
 
 
 class Contest(BaseModel):

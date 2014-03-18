@@ -81,6 +81,8 @@
 {%- endmacro %}
 
 {%- macro fbstuff() %}
+    {% if path == '/tests' %}
+    {% else %}
     <div id="fb-root"></div>
     <script>
         // Load the SDK asynchronously
@@ -96,6 +98,7 @@
             ref.parentNode.insertBefore(js, ref);
         }(document));
     </script>
+    {% endif %}
     <script src="/static/js/facebook-integration.js" type="application/javascript"></script>
 {%- endmacro %}
 
