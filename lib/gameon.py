@@ -125,10 +125,7 @@ class GetOrCreateUserHandler(BaseHandler):
         user_to_dict = user.to_dict()
 
         if len(user.companies) >= 1:
-            try:
-                user_to_dict['companies'] = Company.getCompaniesByKeys(user.companies)
-            except Exception as e:
-                logging.error(e)
+            user_to_dict['companies'] = Company.getCompaniesByKeys(user.companies)
 
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(user_to_dict, cls=GameOnUtils.MyEncoder))

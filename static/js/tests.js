@@ -71,23 +71,12 @@
                     }, function (data) {
                         expect(data).toBe('success');
                         models.getUser(function (user) {
-
-                            expect(user.companies.length).toBe(1)
-                            expect(user.companies[0].facebook_id).toBe('test')
+                            expect(user.companies[0].facebook_id).toBe('test');
                             done()
                         })
 
                     })
                 })
-            });
-            it('should let you log out and back in', function (done) {
-                facebookWrapper.fb_logout(function () {
-                    expect(gameon.user).toBeFalsy();
-                });
-                facebookWrapper.fb_login(function (user) {
-                    expect(user.email).toBe('test');
-                    done();
-                });
             });
 
         });
