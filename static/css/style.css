@@ -229,6 +229,12 @@ body {
   padding-top: 30px;
   padding-bottom: 20px;
 }
+.pistachio {
+  background-color: #1aac8f;
+}
+.morange {
+  background-color: #f0a878;
+}
 .mm-responsivead-bottom {
   margin: 0 auto;
   text-align: center;
