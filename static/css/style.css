@@ -166,6 +166,7 @@ body {
 .mm-grid__section {
   margin: 20px 40px 0px 40px;
   text-align: left;
+  display: block;
 }
 @media (min-width: 481px) {
   .mm-grid__section {
@@ -235,6 +236,9 @@ body {
 .morange {
   background-color: #f0a878;
 }
+.lighter-gray {
+  background-color: #eeeeee;
+}
 .mm-responsivead-bottom {
   margin: 0 auto;
   text-align: center;
@@ -293,5 +297,8 @@ body {
   .mm-like {
     display: none;
   }
+}
+.normal-text {
+  color: #2f2f2f;
 }
 /*# sourceMappingURL=/static/css/style.css.map */

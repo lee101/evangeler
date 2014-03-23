@@ -1,0 +1,25 @@
+{% extends 'templates/base.jinja2' %}
+
+{% block headers %}
+
+    {% set title = 'Evangeler - Social Marketing Contest Categories' -%}
+    {% set desc = 'Create Viral Marketing Campaigns! Browse the effective social, viral and facebook marketing contest categories available on Evangeler!' -%}
+
+    <title>{{ title }}</title>
+
+    <meta name="description"
+          content="{{ desc }}">
+
+    <meta name="keywords"
+          content="crowdsourced marketing, viral marketing, facebook marketing, marketing, social marketing campaigns">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:image"
+          content="http://www.evangeler.com/static/img/evangeler-logo128.png">
+    <meta property="og:description"
+          content="{{ desc }}">
+{% endblock %}
+
+{% block mainbody %}
+    {% include "/templates/shared/categories.jinja2" %}
+{% endblock %}

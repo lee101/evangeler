@@ -42,8 +42,8 @@
                 return;
             }
             //if its not prerendered it requires login
-            if (! prerenderedPages[APP.currentView]) {
-                facebookWrapper.ifLoggedInElse(function(){
+            if (!prerenderedPages[APP.currentView]) {
+                facebookWrapper.ifLoggedInElse(function () {
                     APP.currentView = pathname;
                     APP.refresh();
                     animateTo(new APP.Views[pathname]().render().el);
@@ -58,6 +58,7 @@
     var prerenderedPages = {
         "/": "home",
         "/how-it-works": "how-it-works",
+        "/categories": "categories",
         "/about": "about",
         "/contact": "contact",
         "/terms": "terms",
@@ -77,6 +78,7 @@
         'routes': routes,
         'home': defaultHandler('/'),
         'how-it-works': defaultHandler('/how-it-works'),
+        'categories': defaultHandler('/categories'),
         'about': defaultHandler('/about'),
         'contact': defaultHandler('/contact'),
         'terms': defaultHandler('/terms'),

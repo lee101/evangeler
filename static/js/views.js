@@ -69,6 +69,15 @@
             return this;
         }
     });
+    APP.Views['/categories'] = Backbone.View.extend({
+        initialize: function (options) {
+        },
+
+        render: function () {
+            this.$el.html( nunjucks.render('templates/shared/categories.jinja2'));
+            return this;
+        }
+    });
     APP.Views['/account'] = Backbone.View.extend({
         initialize: function (options) {
         },

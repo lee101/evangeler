@@ -63,13 +63,20 @@ class HowHandler(BaseHandler):
         self.render('templates/how-it-works.jinja2')
 
 
+class CategoriesHandler(BaseHandler):
+    def get(self):
+        self.render('templates/categories.jinja2')
+
+
 class AboutHandler(BaseHandler):
     def get(self):
         self.render('templates/about.jinja2')
 
+
 class ContactHandler(BaseHandler):
     def get(self):
         self.render('templates/contact.jinja2')
+
 
 class RefundsHandler(BaseHandler):
     def get(self):
@@ -91,6 +98,7 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/privacy', PrivacyHandler),
                                                ('/terms', TermsHandler),
                                                ('/how-it-works', HowHandler),
+                                               ('/categories', CategoriesHandler),
                                                ('/about', AboutHandler),
                                                ('/contact', ContactHandler),
                                                ('/refunds', RefundsHandler),

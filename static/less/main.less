@@ -154,7 +154,7 @@ body {
 .mm-footer__heading {
     font-size: @base-font-size *1.4;
     text-align: left;
-    border-bottom-color: #2f2f2f;
+    border-bottom-color: @lighter-black;
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
@@ -166,6 +166,7 @@ body {
 .mm-grid__section {
     margin: 20px 40px 0px 40px;
     text-align: left;
+    display: block;
     @media (min-width: @small-min-width) {
         margin: 40px 80px 0px 80px;
     }
@@ -251,7 +252,9 @@ body {
 .morange {
     background-color: @morange;
 }
-
+.lighter-gray {
+    background-color: @gray-lighter;
+}
 
 
 
@@ -329,5 +332,7 @@ body {
     }
 }
 
-
+.normal-text {
+    color: @lighter-black;
+}
 
