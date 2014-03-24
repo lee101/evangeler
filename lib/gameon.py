@@ -191,6 +191,29 @@ class CreateCompanyHandler(BaseHandler):
         currentUser.put()
         self.response.out.write('success')
 
+class DeleteCompanyHandler(BaseHandler):
+    def get(self):
+        currentUser = self.current_user()
+        if not currentUser:
+            return
+        company = Company()
+
+        company.facebook_id = self.request.get('facebook_id')
+        company.facebook_link = self.request.get('facebook_link')
+
+        company.name = self.request.get('name')
+        company.title = self.request.get('title')
+        company.description = self.request.get('description')
+
+        company.website_link = self.request.get('website_link')
+        company.tags = self.request.get_all('tags')
+
+        company.put()
+
+        currentUser.companies.append(company.key)
+        currentUser.put()
+        self.response.out.write('success')
+
 
 class UpdateCompanyHandler(BaseHandler):
     def get(self):
@@ -222,6 +245,7 @@ routes = [
     ('/lib/isgold', IsGoldHandler),
     ('/lib/tests', TestsHandler),
     ('/lib/createcompany', CreateCompanyHandler),
+    ('/lib/deletecompany', DeleteCompanyHandler),
     ('/lib/updatecompany', UpdateCompanyHandler),
 
 ]

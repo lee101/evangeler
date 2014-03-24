@@ -21,11 +21,16 @@ class Company(BaseModel):
     facebook_link = ndb.StringProperty()
     website_link = ndb.StringProperty()
     tags = ndb.IntegerProperty(repeated=True)
+    status = ndb.IntegerProperty() # draft live deleted
 
     # contests = ndb.StructuredProperty(Contest, repeated=True)
     @classmethod
     def getCompaniesByKeys(cls, keys):
         return cls.query(cls.key.IN(keys)).fetch()
+
+    @classmethod
+    def deleteByFacebookId(cls, id):
+        return cls.query(cls.facebook_id == id).delete()
 
 
 class Contest(BaseModel):
@@ -36,7 +41,7 @@ class Contest(BaseModel):
     description = ndb.StringProperty()
 
     type = ndb.IntegerProperty()
-    is_live = ndb.IntegerProperty()
+    status = ndb.IntegerProperty() # draft live deleted finished
 
     website_link = ndb.StringProperty()
 
