@@ -18,10 +18,12 @@ class Company(BaseModel):
     name = ndb.StringProperty()
     title = ndb.StringProperty()
     description = ndb.StringProperty()
+
     facebook_link = ndb.StringProperty()
     website_link = ndb.StringProperty()
+
     tags = ndb.IntegerProperty(repeated=True)
-    status = ndb.IntegerProperty() # draft live deleted
+    status = ndb.IntegerProperty()  # draft live deleted
 
     # contests = ndb.StructuredProperty(Contest, repeated=True)
     @classmethod
@@ -32,6 +34,10 @@ class Company(BaseModel):
     def deleteByFacebookId(cls, id):
         return cls.query(cls.facebook_id == id).delete()
 
+    @classmethod
+    def getByFbId(cls, id):
+        return cls.query(cls.facebook_id == id).get()
+
 
 class Contest(BaseModel):
     url_key = ndb.StringProperty()
@@ -41,7 +47,7 @@ class Contest(BaseModel):
     description = ndb.StringProperty()
 
     type = ndb.IntegerProperty()
-    status = ndb.IntegerProperty() # draft live deleted finished
+    status = ndb.IntegerProperty()  # draft live deleted finished
 
     website_link = ndb.StringProperty()
 
@@ -53,6 +59,7 @@ class Contest(BaseModel):
 
     created = ndb.DateTimeProperty(auto_now_add=True)
     updated = ndb.DateTimeProperty(auto_now=True)
+
 
 class User(BaseModel):
     cookie_id = ndb.StringProperty(required=True)
@@ -69,11 +76,10 @@ class User(BaseModel):
     facebook_profile_url = ndb.StringProperty()
     facebook_access_token = ndb.StringProperty()
 
-    companies = ndb.KeyProperty(kind=Company, repeated=True)
-
     @classmethod
     def byId(cls, id):
         return cls.query(cls.cookie_id == id).get()
+
     @classmethod
     def byFacebookId(cls, id):
         return cls.query(cls.facebook_id == id).get()
