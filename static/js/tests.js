@@ -85,20 +85,33 @@ describe("lib", function () {
         expect(models.user).toBeTruthy();
 
         models.getUser(function (user) {
+            var page_id = 159201617592591;
 
             user.createCompany({
                 name: 'Word Smashing',
                 description: 'description',
                 title: 'title',
                 facebook_link: 'test',
-                tags: ['test', 'testtags'],
+                tags: [1, 2],
+                status: STATUS.DRAFT,
 
-                facebook_id: 159201617592591
+                page_id: page_id
             }, function (data) {
                 expect(data).toBe('success');
                 models.getUser(function (user) {
-                    expect(user.companies[0].facebook_id).toBe(159201617592591);
-                    done()
+                    user.getCompanies(function(companies) {
+                        expect(companies[0].page_id).toBe(page_id);
+                        user.getUnstartedPages(function (pages) {
+                            var containsWS = false;
+                            _.each(pages, function(page){
+                                if(page.page_id == page_id) {
+                                    containsWS = true
+                                }
+                            });
+                            expect(containsWS).toBeFalsy();
+                            done()
+                        })
+                    });
                 })
             })
 

@@ -14,7 +14,7 @@ class Post(BaseModel):
 
 
 class Company(BaseModel):
-    facebook_id = ndb.StringProperty()
+    page_id = ndb.StringProperty()
     name = ndb.StringProperty()
     title = ndb.StringProperty()
     description = ndb.StringProperty()
@@ -22,21 +22,24 @@ class Company(BaseModel):
     facebook_link = ndb.StringProperty()
     website_link = ndb.StringProperty()
 
-    tags = ndb.IntegerProperty(repeated=True)
+    tags = ndb.StringProperty(repeated=True)
     status = ndb.IntegerProperty()  # draft live deleted
 
     # contests = ndb.StructuredProperty(Contest, repeated=True)
     @classmethod
     def getCompaniesByKeys(cls, keys):
         return cls.query(cls.key.IN(keys)).fetch()
+    @classmethod
+    def getCompaniesByIds(cls, ids):
+        return cls.query(cls.page_id.IN(ids)).fetch()
 
     @classmethod
     def deleteByFacebookId(cls, id):
-        return cls.query(cls.facebook_id == id).delete()
+        return cls.query(cls.page_id == id).delete()
 
     @classmethod
-    def getByFbId(cls, id):
-        return cls.query(cls.facebook_id == id).get()
+    def getByPageId(cls, id):
+        return cls.query(cls.page_id == id).get()
 
 
 class Contest(BaseModel):
@@ -47,13 +50,12 @@ class Contest(BaseModel):
     description = ndb.StringProperty()
 
     type = ndb.IntegerProperty()
+
+    tags = ndb.StringProperty(repeated=True)
     status = ndb.IntegerProperty()  # draft live deleted finished
 
     website_link = ndb.StringProperty()
-
     facebook_post = ndb.StructuredProperty(Post)
-
-    tags = ndb.IntegerProperty(repeated=True)
 
     company_key = ndb.KeyProperty(kind=Company)
 

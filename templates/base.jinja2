@@ -21,7 +21,9 @@
 
     {{ macros.jsvars() }}
     {{ macros.jsheaders() }}
-
+    <script>
+        var STATUS = {{ fixtures.STATUS }};
+    </script>
     {% block js %}
 
     {% endblock %}

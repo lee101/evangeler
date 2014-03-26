@@ -124,9 +124,6 @@ class GetOrCreateUserHandler(BaseHandler):
 
         user_to_dict = user.to_dict()
 
-        if len(user.companies) >= 1:
-            user_to_dict['companies'] = Company.getCompaniesByKeys(user.companies)
-
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(user_to_dict, cls=GameOnUtils.MyEncoder))
 
@@ -172,7 +169,7 @@ class CreateCompanyHandler(BaseHandler):
     def get(self):
         company = Company()
 
-        company.facebook_id = self.request.get('facebook_id')
+        company.page_id = self.request.get('page_id')
         company.facebook_link = self.request.get('facebook_link')
 
         company.name = self.request.get('name')
@@ -180,9 +177,9 @@ class CreateCompanyHandler(BaseHandler):
         company.description = self.request.get('description')
 
         company.website_link = self.request.get('website_link')
-        company.status = self.request.get('status')
+        company.status = int(self.request.get('status', 1))
 
-        company.tags = self.request.get_all('tags')
+        company.tags = self.request.get_all('tags[]')
 
         company.put()
 
@@ -190,9 +187,8 @@ class CreateCompanyHandler(BaseHandler):
 
 class EditCompanyHandler(BaseHandler):
     def get(self):
-        company = Company()
 
-        company = Company.getByFbId(self.request.get('facebook_id'))
+        company = Company.getByPageId(self.request.get('page_id'))
         company.facebook_link = self.request.get('facebook_link')
 
         company.name = self.request.get('name')
@@ -202,13 +198,21 @@ class EditCompanyHandler(BaseHandler):
         company.website_link = self.request.get('website_link')
         company.status = self.request.get('status')
 
-        company.tags = self.request.get_all('tags')
+        company.tags = self.request.get_all('tags[]')
 
         company.put()
 
-        currentUser.companies.append(company.key)
-        currentUser.put()
         self.response.out.write('success')
+
+
+class GetCompanyHandler(BaseHandler):
+    def get(self):
+
+        ids = self.request.get_all('ids[]')
+        companies = Company.getCompaniesByIds(ids)
+
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps(companies, cls=GameOnUtils.MyEncoder))
 
 
 routes = [
@@ -219,5 +223,6 @@ routes = [
     ('/lib/tests', TestsHandler),
     ('/lib/createcompany', CreateCompanyHandler),
     ('/lib/editcompany', EditCompanyHandler),
+    ('/lib/getcompanies', GetCompanyHandler),
 
 ]
