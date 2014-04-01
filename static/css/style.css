@@ -21,6 +21,12 @@ a:focus {
 .row {
   margin: 0;
 }
+.media-body {
+  text-align: left;
+}
+.text-smaller {
+  font-size: 16.2px;
+}
 body {
   background-repeat: repeat;
   background-position: center 12px;

@@ -1,0 +1,36 @@
+<div class="mm-grid">
+    <div class="row">
+
+        {% for company in companies %}
+            <div class="col-md-6">
+                <div class="mm-grid__section">
+
+                    <div class="media">
+
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="{{ company.pic }}" alt="{{ company.name }} Logo" width="100"
+                                 height="100">
+                        </a>
+
+                        <div class="media-body">
+                            <h4 class="media-heading mm-footer__heading">{{ company.name }}</h4>
+
+                            <p class="text-smaller">{{ company.about }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+
+        {% if createcompany %}
+            <div class="col-md-6">
+                <a href="/new-page" class="mm-grid__section mm-highlighted-new"
+                   title="Create a New Page On Evangeler.com"
+                   onclick="return APP.goto('new-page')">
+                    <h4 class="mm-highlighted-new__text">New</h4>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>

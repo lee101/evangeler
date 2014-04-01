@@ -18,6 +18,9 @@ class Company(BaseModel):
     name = ndb.StringProperty()
     title = ndb.StringProperty()
     description = ndb.StringProperty()
+    about = ndb.StringProperty()
+
+    pic = ndb.StringProperty()
 
     facebook_link = ndb.StringProperty()
     website_link = ndb.StringProperty()

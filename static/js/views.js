@@ -87,6 +87,10 @@
             var self = this;
             models.getUser(function (user) {
                 self.$el.html(nunjucks.render('templates/shared/account.jinja2', {'user': user, 'window': true}));
+                user.getCompanies(function(companies){
+                    //TODO HOW TO INSERT AFTER?
+                    self.$el.find('.company-thumbs').html(nunjucks.render('templates/shared/company-thumbs.jinja2', {'companies': companies, 'createcompany': true }));
+                });
 
             });
             return self;

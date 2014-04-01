@@ -20,7 +20,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-hero pistachio\">\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        My Contests.\n    </h2>\n</div>\n<div class=\"mm-grid\">\n\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <div class=\"mm-grid__section\">\n\n                <h4 class=\"mm-footer__heading\">Company</h4>\n            </div>\n        </div>\n        <div class=\"col-md-6\">\n            <div class=\"mm-grid__section\">\n\n                <h4 class=\"mm-footer__heading\">Social</h4>\n            </div>\n        </div>\n        <div class=\"col-md-6\">\n            <a href=\"/categories\" class=\"mm-grid__section mm-highlighted-new\" title=\"Create a New Contest!\"\n               onclick=\"return APP.goto('categories')\">\n                <h4 class=\"mm-highlighted-new__text\">New</h4>\n            </a>\n        </div>\n    </div>\n</div>\n\n<div class=\"mm-hero mm-hero--secondary morange\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        My Pages.\n    </h2>\n</div>\n<div class=\"mm-grid\">\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <div class=\"mm-grid__section\">\n\n                <h4 class=\"mm-footer__heading\">Company</h4>\n            </div>\n        </div>\n\n        <div class=\"col-md-6\">\n            <a href=\"/new-page\" class=\"mm-grid__section mm-highlighted-new\" title=\"Create a New Page On Evangeler.com\"\n               onclick=\"return APP.goto('new-page')\">\n                <h4 class=\"mm-highlighted-new__text\">New</h4>\n            </a>\n        </div>\n    </div>\n</div>\n";
+output += "<div class=\"mm-hero pistachio\">\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        My Contests.\n    </h2>\n</div>\n<div class=\"contest-thumbs\">\n\n</div>\n<div class=\"mm-grid\">\n\n    <div class=\"row\">\n\n        <div class=\"col-md-6\">\n            <a href=\"/categories\" class=\"mm-grid__section mm-highlighted-new\" title=\"Create a New Contest!\"\n               onclick=\"return APP.goto('categories')\">\n                <h4 class=\"mm-highlighted-new__text\">New</h4>\n            </a>\n        </div>\n    </div>\n</div>\n\n<div class=\"mm-hero mm-hero--secondary morange\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        My Pages.\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n\n</div>\n\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -49,12 +49,70 @@ root: root
 };
 })();
 })();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/company-thumbs.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"mm-grid\">\n    <div class=\"row\">\n\n        ";
+frame = frame.push();
+var t_3 = runtime.contextOrFrameLookup(context, frame, "companies");
+if(t_3) {for(var t_1=0; t_1 < t_3.length; t_1++) {
+var t_4 = t_3[t_1];
+frame.set("company", t_4);
+output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"#\">\n                            <img class=\"media-object\" src=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"pic", env.autoesc), env.autoesc);
+output += "\" alt=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <h4 class=\"media-heading mm-footer__heading\">";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "</h4>\n\n                            <p class=\"text-smaller\">";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"about", env.autoesc), env.autoesc);
+output += "</p>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        ";
+;
+}
+}
+frame = frame.pop();
+output += "\n\n        ";
+if(runtime.contextOrFrameLookup(context, frame, "createcompany")) {
+output += "\n            <div class=\"col-md-6\">\n                <a href=\"/new-page\" class=\"mm-grid__section mm-highlighted-new\"\n                   title=\"Create a New Page On Evangeler.com\"\n                   onclick=\"return APP.goto('new-page')\">\n                    <h4 class=\"mm-highlighted-new__text\">New</h4>\n                </a>\n            </div>\n        ";
+;
+}
+output += "\n    </div>\n</div>\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
 (function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/contact.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;
 var output = "";
 try {
 output += "<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        Evangeler Helps Companies Create Viral and Social Marketing Campaigns.\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Give us an email at leepenkman@evangeler.com\n    </h2>\n    <a href=\"mailto:leepenkman@evangeler.com\" type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\">Email Us\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h1 class=\"mm-marketing-text mm-marketing-text--black mm-marketing-text--smaller\">\n        Call us on +61 421 922 842 In Australia<br>\n        Call us on +64 21 296 4467 in New Zealand.\n    </h1>\n\n\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h1 class=\"mm-marketing-text\">\n        Business Address;\n    </h1>\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Unit 507/815 Bourke Street,<br>\n        Docklands,<br>\n        Melbourne<br>\n        Australia.<br>\n        <br>\n        4 Thornlea Drive,<br>\n        Welcome Bay,<br>\n        Tauranga,\n        New Zealand<br>\n    </h2>\n</div>\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/contest-thumbs.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"col-md-6\">\n    <div class=\"mm-grid__section\">\n\n        <h4 class=\"mm-footer__heading\">Social</h4>\n    </div>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {

@@ -167,7 +167,9 @@ class TestsHandler(BaseHandler):
 
 class CreateCompanyHandler(BaseHandler):
     def get(self):
-        company = Company()
+        company = Company.getByPageId(self.request.get('page_id'))
+        if not company:
+            company = Company()
 
         company.page_id = self.request.get('page_id')
         company.facebook_link = self.request.get('facebook_link')
@@ -175,6 +177,9 @@ class CreateCompanyHandler(BaseHandler):
         company.name = self.request.get('name')
         company.title = self.request.get('title')
         company.description = self.request.get('description')
+        company.about = self.request.get('about')
+
+        company.pic = self.request.get('pic')
 
         company.website_link = self.request.get('website_link')
         company.status = int(self.request.get('status', 1))
@@ -194,6 +199,10 @@ class EditCompanyHandler(BaseHandler):
         company.name = self.request.get('name')
         company.title = self.request.get('title')
         company.description = self.request.get('description')
+        company.about = self.request.get('about')
+
+
+        company.pic = self.request.get('pic')
 
         company.website_link = self.request.get('website_link')
         company.status = self.request.get('status')
