@@ -1,7 +1,5 @@
-
-<!-- saved from url=(0063)https://raw.github.com/csshat/lesshat/master/build/lesshat.less -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script></head><body screen_capture_injected="true"><pre style="word-wrap: break-word; white-space: pre-wrap;">//  * =========================================================== * 
-//  &lt;                            LESSHat                          &gt; 
+//  * =========================================================== * 
+//  <                            LESSHat                          > 
 //  * =========================================================== * 
 //
 // Made with Energy drinks in Prague, Czech Republic.
@@ -113,7 +111,7 @@
   @w3c_local: true;
 
   @process: ~`(function(value){return value=value||"stretch"})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_ms: ~`(function(value){return value=value||"stretch","flex-start"==value?value="start":"flex-end"==value?value="end":"space-between"==value?value="justify":"space-around"==value&amp;&amp;(value="distribute"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_ms: ~`(function(value){return value=value||"stretch","flex-start"==value?value="start":"flex-end"==value?value="end":"space-between"==value?value="justify":"space-around"==value&&(value="distribute"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-align-content: @process; }
@@ -140,10 +138,10 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process_olderwebkit: ~`(function(value){return value=value||"stretch","flex-start"==value?value="start":"flex-end"==value&amp;&amp;(value="end"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_moz: ~`(function(value){return value=value||"stretch","flex-start"==value?value="start":"flex-end"==value&amp;&amp;(value="end"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_olderwebkit: ~`(function(value){return value=value||"stretch","flex-start"==value?value="start":"flex-end"==value&&(value="end"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_moz: ~`(function(value){return value=value||"stretch","flex-start"==value?value="start":"flex-end"==value&&(value="end"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
   @process: ~`(function(value){return value=value||"stretch"})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_ms: ~`(function(value){return value=value||"stretch","flex-start"==value?value="start":"flex-end"==value&amp;&amp;(value="end"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_ms: ~`(function(value){return value=value||"stretch","flex-start"==value?value="start":"flex-end"==value&&(value="end"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process_olderwebkit)) and not (iscolor(@process_olderwebkit)) and not (isnumber(@process_olderwebkit)) and not (iskeyword(@process_olderwebkit)) and not (isurl(@process_olderwebkit)) and not (ispixel(@process_olderwebkit)) and not (ispercentage(@process_olderwebkit)) and not (isem(@process_olderwebkit)) { -webkit-box-align: @process_olderwebkit; }
@@ -175,7 +173,7 @@
   @w3c_local: true;
 
   @process: ~`(function(value){return value=value||"auto"})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_ms: ~`(function(value){return value=value||"auto","flex-start"==value?value="start":"flex-end"==value&amp;&amp;(value="end"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_ms: ~`(function(value){return value=value||"auto","flex-start"==value?value="start":"flex-end"==value&&(value="end"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-align-self: @process; }
@@ -201,7 +199,7 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){return value=value||"none",/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){return value=value||"none",/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-animation: @process; }
@@ -230,7 +228,7 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)&gt;10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)>10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-animation-delay: @process; }
@@ -288,7 +286,7 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var valueRegex=/ms|s/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)&gt;10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var valueRegex=/ms|s/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)>10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-animation-duration: @process; }
@@ -546,11 +544,11 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process_ms: ~`(function(value){function base64_encode(data){var o1,o2,o3,h1,h2,h3,h4,bits,b64="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",i=0,ac=0,enc="",tmp_arr=[];if(!data)return data;do o1=data.charCodeAt(i++),o2=data.charCodeAt(i++),o3=data.charCodeAt(i++),bits=o1&lt;&lt;16|o2&lt;&lt;8|o3,h1=63&amp;bits&gt;&gt;18,h2=63&amp;bits&gt;&gt;12,h3=63&amp;bits&gt;&gt;6,h4=63&amp;bits,tmp_arr[ac++]=b64.charAt(h1)+b64.charAt(h2)+b64.charAt(h3)+b64.charAt(h4);while(i&lt;data.length);enc=tmp_arr.join("");var r=data.length%3;return(r?enc.slice(0,r-3):enc)+"===".slice(r||3)}if(value=value||8121991,8121991==value)return value;var gradients=/linear|radial/g.test(value)&amp;&amp;value.split(/,(?=\s*(?:linear|radial|url))/g),svg_gradients=[],values={"to bottom":'x1="0%" y1="0%" x2="0%" y2="100%"',"to left":'x1="100%" y1="0%" x2="0%" y2="0%"',"to top":'x1="0%" y1="100%" x2="0%" y2="0%"',"to right":'x1="0%" y1="0%" x2="100%" y2="0%"',get"top"(){return this["to bottom"]},get"180deg"(){return this["to bottom"]},get"right"(){return this["to left"]},get"270deg"(){return this["to left"]},get"bottom"(){return this["to top"]},get"0deg"(){return this["to top"]},get"left"(){return this["to right"]},get"90deg"(){return this["to right"]},"-45deg":'x1="0%" y1="0%" x2="100%" y2="100%"',"45deg":'x1="0%" y1="100%" x2="100%" y2="0%"',"ellipse at center":'cx="50%" cy="50%" r="75%"'},svg={uri_data:"url(data:image/svg+xml;base64,",xml:'&lt;?xml version="1.0" ?&gt;',svg_start:'&lt;svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1 1" preserveAspectRatio="none"&gt;',linear_gradient_start:'&lt;linearGradient id="lesshat-generated" gradientUnits="userSpaceOnUse"',radial_gradient_start:'&lt;radialGradient id="lesshat-generated" gradientUnits="userSpaceOnUse"',linear_gradient_end:"&lt;/linearGradient&gt;",radial_gradient_end:"&lt;/radialGradient&gt;",rect_linear:'&lt;rect x="0" y="0" width="1" height="1" fill="url(#lesshat-generated)" /&gt;',rect_radial:'&lt;rect x="-50" y="-50" width="101" height="101" fill="url(#lesshat-generated)" /&gt;',svg_end:"&lt;/svg&gt;"};if(gradients.length){gradients.forEach(function(gradient){var obj={};if(Object.keys(values).some(function(inner_val){return gradient.indexOf(inner_val)&gt;=0?(obj.svg_direction=values[inner_val],!0):(obj.svg_direction=!1,void 0)}),/linear/.test(gradient))obj.svg_type="linear";else if(/radial/.test(gradient))obj.svg_type="radial";else if(!/linear/.test(gradient)&amp;&amp;!/radial/.test(gradient))return obj.url=gradient.trim(),obj.svg_type="url",obj.svg_direction=!0,svg_gradients.push(obj),!1;var colors_count=gradient.match(/rgb|#[a-zA-Z0-9]|hsl/g).length;if(obj.svg_stops=[],gradient.match(/#[a-zA-Z0-9]/g)&amp;&amp;gradient.match(/#[a-zA-Z0-9]/g).length==colors_count)if(gradient.match(/#[a-zA-Z0-9]+\s+(\d+%)/g)&amp;&amp;gradient.match(/#[a-zA-Z0-9]+\s+(\d+%)/g).length==colors_count)gradient.match(/#[a-zA-Z0-9]+\s+(\d+%)/g).forEach(function(inner_val){inner_val=inner_val.split(" "),obj.svg_stops.push('&lt;stop offset="'+inner_val[1]+'" stop-color="'+inner_val[0]+'" stop-opacity="1"/&gt;')});else{var shares=Math.floor(100/(gradient.match(/#[a-zA-Z0-9]/g).length-1));gradient.match(/#[a-zA-Z0-9]+/g).forEach(function(inner_val,index){obj.svg_stops.push('&lt;stop offset="'+shares*index+'%" stop-color="'+inner_val+'" stop-opacity="1"/&gt;')})}if(gradient.match(/rgba?\(\d+,\s*\d+,\s*\d+(?:,\s*(0|1|\.\d+|0\.\d+))?\)/g)&amp;&amp;gradient.match(/(?:rgb|rgba)?\(\d+,\s*\d+,\s*\d+(?:,\s*(0|1|\.\d+|0\.\d+))?\)/g).length==colors_count)if(gradient.match(/rgba?\(\d+,\s*\d+,\s*\d+(?:,\s*(0|1|\.\d+|0\.\d+))?\)\s+\d+%+/g)&amp;&amp;gradient.match(/rgba?\(\d+,\s*\d+,\s*\d+(?:,\s*(0|1|\.\d+|0\.\d+))?\)\s+\d+%+/g).length==colors_count)gradient.replace(/rgba?\((\d+,\s*\d+,\s*\d+)(?:,\s*(0|1|\.\d+|0\.\d+))?\)\s+(\d+%)+/g,function(match,sub,sub_2,sub_3){obj.svg_stops.push('&lt;stop offset="'+sub_3+'" stop-color="rgb('+sub+')" stop-opacity="'+(sub_2||1)+'"/&gt;')});else{var shares=Math.floor(100/(gradient.match(/(rgb|rgba)\(/g).length-1));gradient.match(/rgba?\((\d+,\s*\d+,\s*\d+)(?:,\s*(0|1|\.\d+|0\.\d+))?\)/g).forEach(function(element,index){element.replace(/rgba?\((\d+,\s*\d+,\s*\d+)(?:,\s*(0|1|\.\d+|0\.\d+))?\)/g,function(match,sub,sub_2){obj.svg_stops.push('&lt;stop offset="'+shares*index+'%" stop-color="rgb('+sub+')" stop-opacity="'+(sub_2||1)+'"/&gt;')})})}if(gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)/g)&amp;&amp;gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)/g).length==colors_count)if(gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)\s*(\d+%)+/g)&amp;&amp;gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)\s*(\d+%)+/g).length==colors_count)gradient.replace(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)\s*(\d+%)+/g,function(match,sub,sub_2,sub_3){obj.svg_stops.push('&lt;stop offset="'+sub_3+'" stop-color="hsl('+sub+')" stop-opacity="'+(sub_2||1)+'"/&gt;')});else{var shares=Math.floor(100/(gradient.match(/(hsl|hsla)\(/g).length-1));gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)/g).forEach(function(element,index){element.replace(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)/g,function(match,sub,sub_2){obj.svg_stops.push('&lt;stop offset="'+shares*index+'%" stop-color="hsl('+sub+')" stop-opacity="'+(sub_2||1)+'"/&gt;')})})}svg_gradients.push(obj)});var syntax=[],passed=svg_gradients.every(function(element){for(var i in element)if(0==element[i]||0==element[i].length)return!1;return!0});if(!passed)return 8121991;svg_gradients.forEach(function(element,index){("linear"==element.svg_type||"radial"==element.svg_type)&amp;&amp;(syntax[index]=svg.xml+svg.svg_start),"linear"==element.svg_type?(syntax[index]+=svg.linear_gradient_start+" "+element.svg_direction+"&gt;",element.svg_stops.forEach(function(value){syntax[index]+=value}),syntax[index]+=svg.linear_gradient_end,syntax[index]+=svg.rect_linear,syntax[index]+=svg.svg_end):"radial"==element.svg_type?(syntax[index]+=svg.radial_gradient_start+" "+element.svg_direction+"&gt;",element.svg_stops.forEach(function(value){syntax[index]+=value}),syntax[index]+=svg.radial_gradient_end,syntax[index]+=svg.rect_radial,syntax[index]+=svg.svg_end):"url"==element.svg_type&amp;&amp;(syntax[index]=element.url)}),syntax.forEach(function(element,index){/&lt;\?xml version="1.0" \?&gt;/g.test(element)&amp;&amp;(syntax[index]=svg.uri_data+base64_encode(element)+")")}),value=syntax.join(",")}return value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_webkit: ~`(function(value){if(value=value||8121991,8121991==value)return value;var values={"to bottom":"top","to left":"right","to top":"bottom","to right":"left","ellipse at center":"center, ellipse cover","circle closest-side":"center center, circle contain","circle farthest-corner":"center center, circle cover","circle farthest-side":"center center, circle cover","ellipse closest-side":"center center, ellipse contain","ellipse farthest-corner":"center center, ellipse cover","ellipse farthest-side":"center center, ellipse cover"},radial_regexp=/(radial-gradient\()([a-z- ]+)at\s+(\w+)\s*(\w*)/g,values_keys=Object.keys(values);return values_keys.some(function(el){return value.indexOf(el)&gt;=0?(value=value.replace(new RegExp(el+"(?![ a-z0-9])","g"),values[el]),!0):(radial_regexp.test(value)&amp;&amp;(value=value.replace(radial_regexp,function(match,sub,sub2,sub3,sub4){return sub.trim()+sub3.trim()+" "+sub4.trim()+","+sub2.replace(/closest-side/g,"contain").replace(/farthest-corner/g,"cover").trim()})),void 0)}),value=value.replace(/(\d+)\s*deg/g,function(match,sub){return 90-sub+"deg"}).replace(/(linear|radial)-gradient/g,"-webkit-$1-gradient")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_moz: ~`(function(value){if(value=value||8121991,8121991==value)return value;var values={"to bottom":"top","to left":"right","to top":"bottom","to right":"left","ellipse at center":"center, ellipse cover","circle closest-side":"center center, circle contain","circle farthest-corner":"center center, circle cover","circle farthest-side":"center center, circle cover","ellipse closest-side":"center center, ellipse contain","ellipse farthest-corner":"center center, ellipse cover","ellipse farthest-side":"center center, ellipse cover"},radial_regexp=/(radial-gradient\()([a-z- ]+)at\s+(\w+)\s*(\w*)/g,values_keys=Object.keys(values);return values_keys.some(function(el){return value.indexOf(el)&gt;=0?(value=value.replace(new RegExp(el+"(?![ a-z0-9])","g"),values[el]),!0):(radial_regexp.test(value)&amp;&amp;(value=value.replace(radial_regexp,function(match,sub,sub2,sub3,sub4){return sub.trim()+sub3.trim()+" "+sub4.trim()+","+sub2.replace(/closest-side/g,"contain").replace(/farthest-corner/g,"cover").trim()})),void 0)}),value=value.replace(/(\d+)\s*deg/g,function(match,sub){return 90-sub+"deg"}).replace(/(linear|radial)-gradient/g,"-moz-$1-gradient")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_opera: ~`(function(value){if(value=value||8121991,8121991==value)return value;var values={"to bottom":"top","to left":"right","to top":"bottom","to right":"left","ellipse at center":"center, ellipse cover","circle closest-side":"center center, circle contain","circle farthest-corner":"center center, circle cover","circle farthest-side":"center center, circle cover","ellipse closest-side":"center center, ellipse contain","ellipse farthest-corner":"center center, ellipse cover","ellipse farthest-side":"center center, ellipse cover"},radial_regexp=/(radial-gradient\()([a-z- ]+)at\s+(\w+)\s*(\w*)/g,values_keys=Object.keys(values);return values_keys.some(function(el){return value.indexOf(el)&gt;=0?(value=value.replace(new RegExp(el+"(?![ a-z0-9])","g"),values[el]),!0):(radial_regexp.test(value)&amp;&amp;(value=value.replace(radial_regexp,function(match,sub,sub2,sub3,sub4){return sub.trim()+sub3.trim()+" "+sub4.trim()+","+sub2.replace(/closest-side/g,"contain").replace(/farthest-corner/g,"cover").trim()})),void 0)}),value=value.replace(/(\d+)\s*deg/g,function(match,sub){return 90-sub+"deg"}).replace(/(linear|radial)-gradient/g,"-o-$1-gradient")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process: ~`(function(value){if(value=value||8121991,8121991==value)return value;var values={top:"to bottom",right:"to left",bottom:"to top",left:"to right"},values_keys=Object.keys(values);return values_keys.some(function(el){return value.indexOf(el)&gt;=0&amp;&amp;!new RegExp("to\\s+"+el,"g").test(value)?(value=value.replace(new RegExp(el),values[el]),!0):void 0}),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_ms: ~`(function(value){function base64_encode(data){var o1,o2,o3,h1,h2,h3,h4,bits,b64="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",i=0,ac=0,enc="",tmp_arr=[];if(!data)return data;do o1=data.charCodeAt(i++),o2=data.charCodeAt(i++),o3=data.charCodeAt(i++),bits=o1<<16|o2<<8|o3,h1=63&bits>>18,h2=63&bits>>12,h3=63&bits>>6,h4=63&bits,tmp_arr[ac++]=b64.charAt(h1)+b64.charAt(h2)+b64.charAt(h3)+b64.charAt(h4);while(i<data.length);enc=tmp_arr.join("");var r=data.length%3;return(r?enc.slice(0,r-3):enc)+"===".slice(r||3)}if(value=value||8121991,8121991==value)return value;var gradients=/linear|radial/g.test(value)&&value.split(/,(?=\s*(?:linear|radial|url))/g),svg_gradients=[],values={"to bottom":'x1="0%" y1="0%" x2="0%" y2="100%"',"to left":'x1="100%" y1="0%" x2="0%" y2="0%"',"to top":'x1="0%" y1="100%" x2="0%" y2="0%"',"to right":'x1="0%" y1="0%" x2="100%" y2="0%"',get"top"(){return this["to bottom"]},get"180deg"(){return this["to bottom"]},get"right"(){return this["to left"]},get"270deg"(){return this["to left"]},get"bottom"(){return this["to top"]},get"0deg"(){return this["to top"]},get"left"(){return this["to right"]},get"90deg"(){return this["to right"]},"-45deg":'x1="0%" y1="0%" x2="100%" y2="100%"',"45deg":'x1="0%" y1="100%" x2="100%" y2="0%"',"ellipse at center":'cx="50%" cy="50%" r="75%"'},svg={uri_data:"url(data:image/svg+xml;base64,",xml:'<?xml version="1.0" ?>',svg_start:'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1 1" preserveAspectRatio="none">',linear_gradient_start:'<linearGradient id="lesshat-generated" gradientUnits="userSpaceOnUse"',radial_gradient_start:'<radialGradient id="lesshat-generated" gradientUnits="userSpaceOnUse"',linear_gradient_end:"</linearGradient>",radial_gradient_end:"</radialGradient>",rect_linear:'<rect x="0" y="0" width="1" height="1" fill="url(#lesshat-generated)" />',rect_radial:'<rect x="-50" y="-50" width="101" height="101" fill="url(#lesshat-generated)" />',svg_end:"</svg>"};if(gradients.length){gradients.forEach(function(gradient){var obj={};if(Object.keys(values).some(function(inner_val){return gradient.indexOf(inner_val)>=0?(obj.svg_direction=values[inner_val],!0):(obj.svg_direction=!1,void 0)}),/linear/.test(gradient))obj.svg_type="linear";else if(/radial/.test(gradient))obj.svg_type="radial";else if(!/linear/.test(gradient)&&!/radial/.test(gradient))return obj.url=gradient.trim(),obj.svg_type="url",obj.svg_direction=!0,svg_gradients.push(obj),!1;var colors_count=gradient.match(/rgb|#[a-zA-Z0-9]|hsl/g).length;if(obj.svg_stops=[],gradient.match(/#[a-zA-Z0-9]/g)&&gradient.match(/#[a-zA-Z0-9]/g).length==colors_count)if(gradient.match(/#[a-zA-Z0-9]+\s+(\d+%)/g)&&gradient.match(/#[a-zA-Z0-9]+\s+(\d+%)/g).length==colors_count)gradient.match(/#[a-zA-Z0-9]+\s+(\d+%)/g).forEach(function(inner_val){inner_val=inner_val.split(" "),obj.svg_stops.push('<stop offset="'+inner_val[1]+'" stop-color="'+inner_val[0]+'" stop-opacity="1"/>')});else{var shares=Math.floor(100/(gradient.match(/#[a-zA-Z0-9]/g).length-1));gradient.match(/#[a-zA-Z0-9]+/g).forEach(function(inner_val,index){obj.svg_stops.push('<stop offset="'+shares*index+'%" stop-color="'+inner_val+'" stop-opacity="1"/>')})}if(gradient.match(/rgba?\(\d+,\s*\d+,\s*\d+(?:,\s*(0|1|\.\d+|0\.\d+))?\)/g)&&gradient.match(/(?:rgb|rgba)?\(\d+,\s*\d+,\s*\d+(?:,\s*(0|1|\.\d+|0\.\d+))?\)/g).length==colors_count)if(gradient.match(/rgba?\(\d+,\s*\d+,\s*\d+(?:,\s*(0|1|\.\d+|0\.\d+))?\)\s+\d+%+/g)&&gradient.match(/rgba?\(\d+,\s*\d+,\s*\d+(?:,\s*(0|1|\.\d+|0\.\d+))?\)\s+\d+%+/g).length==colors_count)gradient.replace(/rgba?\((\d+,\s*\d+,\s*\d+)(?:,\s*(0|1|\.\d+|0\.\d+))?\)\s+(\d+%)+/g,function(match,sub,sub_2,sub_3){obj.svg_stops.push('<stop offset="'+sub_3+'" stop-color="rgb('+sub+')" stop-opacity="'+(sub_2||1)+'"/>')});else{var shares=Math.floor(100/(gradient.match(/(rgb|rgba)\(/g).length-1));gradient.match(/rgba?\((\d+,\s*\d+,\s*\d+)(?:,\s*(0|1|\.\d+|0\.\d+))?\)/g).forEach(function(element,index){element.replace(/rgba?\((\d+,\s*\d+,\s*\d+)(?:,\s*(0|1|\.\d+|0\.\d+))?\)/g,function(match,sub,sub_2){obj.svg_stops.push('<stop offset="'+shares*index+'%" stop-color="rgb('+sub+')" stop-opacity="'+(sub_2||1)+'"/>')})})}if(gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)/g)&&gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)/g).length==colors_count)if(gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)\s*(\d+%)+/g)&&gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)\s*(\d+%)+/g).length==colors_count)gradient.replace(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)\s*(\d+%)+/g,function(match,sub,sub_2,sub_3){obj.svg_stops.push('<stop offset="'+sub_3+'" stop-color="hsl('+sub+')" stop-opacity="'+(sub_2||1)+'"/>')});else{var shares=Math.floor(100/(gradient.match(/(hsl|hsla)\(/g).length-1));gradient.match(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)/g).forEach(function(element,index){element.replace(/hsla?\((\d+,\s*\d+%,\s*\d+%),\s*(0|1|\.\d+|0\.\d+)\)/g,function(match,sub,sub_2){obj.svg_stops.push('<stop offset="'+shares*index+'%" stop-color="hsl('+sub+')" stop-opacity="'+(sub_2||1)+'"/>')})})}svg_gradients.push(obj)});var syntax=[],passed=svg_gradients.every(function(element){for(var i in element)if(0==element[i]||0==element[i].length)return!1;return!0});if(!passed)return 8121991;svg_gradients.forEach(function(element,index){("linear"==element.svg_type||"radial"==element.svg_type)&&(syntax[index]=svg.xml+svg.svg_start),"linear"==element.svg_type?(syntax[index]+=svg.linear_gradient_start+" "+element.svg_direction+">",element.svg_stops.forEach(function(value){syntax[index]+=value}),syntax[index]+=svg.linear_gradient_end,syntax[index]+=svg.rect_linear,syntax[index]+=svg.svg_end):"radial"==element.svg_type?(syntax[index]+=svg.radial_gradient_start+" "+element.svg_direction+">",element.svg_stops.forEach(function(value){syntax[index]+=value}),syntax[index]+=svg.radial_gradient_end,syntax[index]+=svg.rect_radial,syntax[index]+=svg.svg_end):"url"==element.svg_type&&(syntax[index]=element.url)}),syntax.forEach(function(element,index){/<\?xml version="1.0" \?>/g.test(element)&&(syntax[index]=svg.uri_data+base64_encode(element)+")")}),value=syntax.join(",")}return value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_webkit: ~`(function(value){if(value=value||8121991,8121991==value)return value;var values={"to bottom":"top","to left":"right","to top":"bottom","to right":"left","ellipse at center":"center, ellipse cover","circle closest-side":"center center, circle contain","circle farthest-corner":"center center, circle cover","circle farthest-side":"center center, circle cover","ellipse closest-side":"center center, ellipse contain","ellipse farthest-corner":"center center, ellipse cover","ellipse farthest-side":"center center, ellipse cover"},radial_regexp=/(radial-gradient\()([a-z- ]+)at\s+(\w+)\s*(\w*)/g,values_keys=Object.keys(values);return values_keys.some(function(el){return value.indexOf(el)>=0?(value=value.replace(new RegExp(el+"(?![ a-z0-9])","g"),values[el]),!0):(radial_regexp.test(value)&&(value=value.replace(radial_regexp,function(match,sub,sub2,sub3,sub4){return sub.trim()+sub3.trim()+" "+sub4.trim()+","+sub2.replace(/closest-side/g,"contain").replace(/farthest-corner/g,"cover").trim()})),void 0)}),value=value.replace(/(\d+)\s*deg/g,function(match,sub){return 90-sub+"deg"}).replace(/(linear|radial)-gradient/g,"-webkit-$1-gradient")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_moz: ~`(function(value){if(value=value||8121991,8121991==value)return value;var values={"to bottom":"top","to left":"right","to top":"bottom","to right":"left","ellipse at center":"center, ellipse cover","circle closest-side":"center center, circle contain","circle farthest-corner":"center center, circle cover","circle farthest-side":"center center, circle cover","ellipse closest-side":"center center, ellipse contain","ellipse farthest-corner":"center center, ellipse cover","ellipse farthest-side":"center center, ellipse cover"},radial_regexp=/(radial-gradient\()([a-z- ]+)at\s+(\w+)\s*(\w*)/g,values_keys=Object.keys(values);return values_keys.some(function(el){return value.indexOf(el)>=0?(value=value.replace(new RegExp(el+"(?![ a-z0-9])","g"),values[el]),!0):(radial_regexp.test(value)&&(value=value.replace(radial_regexp,function(match,sub,sub2,sub3,sub4){return sub.trim()+sub3.trim()+" "+sub4.trim()+","+sub2.replace(/closest-side/g,"contain").replace(/farthest-corner/g,"cover").trim()})),void 0)}),value=value.replace(/(\d+)\s*deg/g,function(match,sub){return 90-sub+"deg"}).replace(/(linear|radial)-gradient/g,"-moz-$1-gradient")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_opera: ~`(function(value){if(value=value||8121991,8121991==value)return value;var values={"to bottom":"top","to left":"right","to top":"bottom","to right":"left","ellipse at center":"center, ellipse cover","circle closest-side":"center center, circle contain","circle farthest-corner":"center center, circle cover","circle farthest-side":"center center, circle cover","ellipse closest-side":"center center, ellipse contain","ellipse farthest-corner":"center center, ellipse cover","ellipse farthest-side":"center center, ellipse cover"},radial_regexp=/(radial-gradient\()([a-z- ]+)at\s+(\w+)\s*(\w*)/g,values_keys=Object.keys(values);return values_keys.some(function(el){return value.indexOf(el)>=0?(value=value.replace(new RegExp(el+"(?![ a-z0-9])","g"),values[el]),!0):(radial_regexp.test(value)&&(value=value.replace(radial_regexp,function(match,sub,sub2,sub3,sub4){return sub.trim()+sub3.trim()+" "+sub4.trim()+","+sub2.replace(/closest-side/g,"contain").replace(/farthest-corner/g,"cover").trim()})),void 0)}),value=value.replace(/(\d+)\s*deg/g,function(match,sub){return 90-sub+"deg"}).replace(/(linear|radial)-gradient/g,"-o-$1-gradient")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){if(value=value||8121991,8121991==value)return value;var values={top:"to bottom",right:"to left",bottom:"to top",left:"to right"},values_keys=Object.keys(values);return values_keys.some(function(el){return value.indexOf(el)>=0&&!new RegExp("to\\s+"+el,"g").test(value)?(value=value.replace(new RegExp(el),values[el]),!0):void 0}),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process_ms)) and not (iscolor(@process_ms)) and not (isnumber(@process_ms)) and not (iskeyword(@process_ms)) and not (isurl(@process_ms)) and not (ispixel(@process_ms)) and not (ispercentage(@process_ms)) and not (isem(@process_ms)) { background-image: @process_ms; }
@@ -606,7 +604,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"auto auto";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"auto auto";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-background-size: @process; }
@@ -632,7 +630,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: blur(@process); }
@@ -660,7 +658,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-border-bottom-left-radius: @process; -webkit-background-clip: padding-box;  }
@@ -685,7 +683,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-border-bottom-right-radius: @process; -webkit-background-clip: padding-box;  }
@@ -711,7 +709,7 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){return value=value||8121991,/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){return value=value||8121991,/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-border-image: @process; }
@@ -739,7 +737,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-border-radius: @process; -webkit-background-clip: padding-box;  }
@@ -764,7 +762,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-border-top-left-radius: @process; -webkit-background-clip: padding-box;  }
@@ -789,7 +787,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-border-top-right-radius: @process; -webkit-background-clip: padding-box;  }
@@ -814,7 +812,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-box-shadow: @process; }
@@ -975,7 +973,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"normal";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"normal";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-column-gap: @process; }
@@ -1000,7 +998,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"medium none black";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"medium none black";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-column-rule: @process; }
@@ -1025,7 +1023,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"auto";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"auto";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-column-width: @process; }
@@ -1050,7 +1048,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"auto auto";var numRegex=/^\d+$/;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,""),value=value.split(" ")),numRegex.test(value[0])&amp;&amp;(value[0]=value[0]+"px"),value.join(" ")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"auto auto";var numRegex=/^\d+$/;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,""),value=value.split(" ")),numRegex.test(value[0])&&(value[0]=value[0]+"px"),value.join(" ")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-columns: @process; }
@@ -1076,7 +1074,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"100%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"100%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: ~"contrast(@{process})"; }
@@ -1110,7 +1108,7 @@
   @process_moz: ~`(function(value){return value="flex"==value||"inline-flex"==value?"-moz-box":8121991})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
   @process_webkit: ~`(function(value){return value="flex"==value||"inline-flex"==value?"-webkit-"+value:8121991})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
   @process_ms: ~`(function(value){return value="flex"==value?"-ms-flexbox":"inline-flex"==value?"-ms-inline-flexbox":8121991})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process: ~`(function(value){return"flex"!=value&amp;&amp;"inline-flex"!=value&amp;&amp;(value=8121991),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){return"flex"!=value&&"inline-flex"!=value&&(value=8121991),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process_oldwebkit)) and not (iscolor(@process_oldwebkit)) and not (isnumber(@process_oldwebkit)) and not (iskeyword(@process_oldwebkit)) and not (isurl(@process_oldwebkit)) and not (ispixel(@process_oldwebkit)) and not (ispercentage(@process_oldwebkit)) and not (isem(@process_oldwebkit)) { display: @process_oldwebkit; }
@@ -1142,7 +1140,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){if(value=value||8121991,8121991==value)return value;var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){if(value=value||8121991,8121991==value)return value;var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: drop-shadow(@process); }
@@ -1171,7 +1169,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){return value=value||"none",/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){return value=value||"none",/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: @process; }
@@ -1203,7 +1201,7 @@
 
   @process_olderwebkit: ~`(function(value){return value=value.match(/^\d+/)[0]||"0"})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
   @process_moz: ~`(function(value){return value=value.match(/^\d+/)[0]||"0"})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process: ~`(function(value){return value=value||"0 1 auto",/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){return value=value||"0 1 auto",/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process_olderwebkit)) and not (iscolor(@process_olderwebkit)) and not (isnumber(@process_olderwebkit)) and not (iskeyword(@process_olderwebkit)) and not (isurl(@process_olderwebkit)) and not (ispixel(@process_olderwebkit)) and not (ispercentage(@process_olderwebkit)) and not (isem(@process_olderwebkit)) { -webkit-box-flex: @process_olderwebkit; }
@@ -1233,7 +1231,7 @@
   @webkit_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"auto";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"auto";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-flex-basis: @process; }
@@ -1381,7 +1379,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: grayscale(@process); }
@@ -1410,7 +1408,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: hue-rotate(@process); }
@@ -1468,7 +1466,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"100%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"100%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: invert(@process); }
@@ -1499,8 +1497,8 @@
   @w3c_local: true;
 
   @process: ~`(function(value){return value=value||"flex-start"})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_moz: ~`(function(value){return value=value||"start","flex-start"==value?value="start":"flex-end"==value?value="end":("space-between"==value||"space-around"==value)&amp;&amp;(value="justify"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_ms: ~`(function(value){return value=value||"start","flex-start"==value?value="start":"flex-end"==value?value="end":"space-between"==value?value="justify":"space-around"==value&amp;&amp;(value="distribute"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_moz: ~`(function(value){return value=value||"start","flex-start"==value?value="start":"flex-end"==value?value="end":("space-between"==value||"space-around"==value)&&(value="justify"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_ms: ~`(function(value){return value=value||"start","flex-start"==value?value="start":"flex-end"==value?value="end":"space-between"==value?value="justify":"space-around"==value&&(value="distribute"),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-box-pack: @process; }
@@ -1532,7 +1530,7 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){function syntax(start,selector,prefix){var end="}\n",definition=value_temp.split(/(^[a-zA-Z0-9-]+),/g),keyframes=selector+" "+definition[1]+"{",prefixes=["-webkit-","-moz-","-ms-",""];prefix?prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&amp;&amp;(definition[2]=definition[2].replace(new RegExp(property,"g"),function(match){return prefix+match}))}):definition[2]=definition[2].replace(/{([^}]+)}/g,function(match,sub){var subSplit=sub.split(";");subSplit.forEach(function(css,index){prefixedProperties.forEach(function(property){-1!==css.indexOf(property)&amp;&amp;(subSplit[index]="",prefixes.forEach(function(vendor){subSplit[index]+=css.trim().replace(new RegExp(property,"g"),function(match){return vendor+match})+";"}))})});var temp=subSplit.join(";").replace(/;;/g,";");return match.replace(sub,temp)}),keyframes+=definition[2]+end,"start"==start?value="0; } \n"+keyframes:"startend"==start?value="0; } \n"+keyframes.replace(end,""):value+="end"==start?keyframes.replace(end,""):keyframes}value=value||8121991;var state="@{state}",value_temp=value;if(8121991==value)return value;var prefixedProperties=["animation","transform","filter"];switch(state){case"1":syntax("start","@-webkit-keyframes","-webkit-"),syntax(null,"@-moz-keyframes","-moz-"),syntax(null,"@-o-keyframes","-o-"),syntax("end","@keyframes");break;case"2":syntax("start","@-webkit-keyframes","-webkit-"),syntax(null,"@-moz-keyframes","-moz-"),syntax("end","@keyframes");break;case"3":syntax("start","@-webkit-keyframes","-webkit-"),syntax(null,"@-moz-keyframes","-moz-"),syntax("end","@-o-keyframes","-o-");break;case"4":syntax("start","@-webkit-keyframes","-webkit-"),syntax(null,"@-o-keyframes","-o-"),syntax("end","@keyframes");break;case"5":syntax("start","@-webkit-keyframes","-webkit-"),syntax("end","@-moz-keyframes","-moz-");break;case"6":syntax("start","@-webkit-keyframes","-webkit-"),syntax("end","@-o-keyframes","-o-");break;case"7":syntax("start","@-webkit-keyframes","-webkit-"),syntax("end","@keyframes");break;case"8":syntax("startend","@-webkit-keyframes","-webkit-");break;case"9":syntax("start","@-moz-keyframes","-moz-"),syntax(null,"@-o-keyframes","-o-"),syntax("end","@keyframes");break;case"10":syntax("start","@-moz-keyframes","-moz-"),syntax("end","@-o-keyframes","-o-");break;case"11":syntax("start","@-moz-keyframes","-moz-"),syntax("end","@keyframes");break;case"12":syntax("startend","@-moz-keyframes","-moz-");break;case"13":syntax("start","@-o-keyframes","-o-"),syntax("end","@keyframes");break;case"14":syntax("startend","@-o-keyframes","-o-");break;case"15":syntax("startend","@keyframes")}return value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){function syntax(start,selector,prefix){var end="}\n",definition=value_temp.split(/(^[a-zA-Z0-9-]+),/g),keyframes=selector+" "+definition[1]+"{",prefixes=["-webkit-","-moz-","-ms-",""];prefix?prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&&(definition[2]=definition[2].replace(new RegExp(property,"g"),function(match){return prefix+match}))}):definition[2]=definition[2].replace(/{([^}]+)}/g,function(match,sub){var subSplit=sub.split(";");subSplit.forEach(function(css,index){prefixedProperties.forEach(function(property){-1!==css.indexOf(property)&&(subSplit[index]="",prefixes.forEach(function(vendor){subSplit[index]+=css.trim().replace(new RegExp(property,"g"),function(match){return vendor+match})+";"}))})});var temp=subSplit.join(";").replace(/;;/g,";");return match.replace(sub,temp)}),keyframes+=definition[2]+end,"start"==start?value="0; } \n"+keyframes:"startend"==start?value="0; } \n"+keyframes.replace(end,""):value+="end"==start?keyframes.replace(end,""):keyframes}value=value||8121991;var state="@{state}",value_temp=value;if(8121991==value)return value;var prefixedProperties=["animation","transform","filter"];switch(state){case"1":syntax("start","@-webkit-keyframes","-webkit-"),syntax(null,"@-moz-keyframes","-moz-"),syntax(null,"@-o-keyframes","-o-"),syntax("end","@keyframes");break;case"2":syntax("start","@-webkit-keyframes","-webkit-"),syntax(null,"@-moz-keyframes","-moz-"),syntax("end","@keyframes");break;case"3":syntax("start","@-webkit-keyframes","-webkit-"),syntax(null,"@-moz-keyframes","-moz-"),syntax("end","@-o-keyframes","-o-");break;case"4":syntax("start","@-webkit-keyframes","-webkit-"),syntax(null,"@-o-keyframes","-o-"),syntax("end","@keyframes");break;case"5":syntax("start","@-webkit-keyframes","-webkit-"),syntax("end","@-moz-keyframes","-moz-");break;case"6":syntax("start","@-webkit-keyframes","-webkit-"),syntax("end","@-o-keyframes","-o-");break;case"7":syntax("start","@-webkit-keyframes","-webkit-"),syntax("end","@keyframes");break;case"8":syntax("startend","@-webkit-keyframes","-webkit-");break;case"9":syntax("start","@-moz-keyframes","-moz-"),syntax(null,"@-o-keyframes","-o-"),syntax("end","@keyframes");break;case"10":syntax("start","@-moz-keyframes","-moz-"),syntax("end","@-o-keyframes","-o-");break;case"11":syntax("start","@-moz-keyframes","-moz-"),syntax("end","@keyframes");break;case"12":syntax("startend","@-moz-keyframes","-moz-");break;case"13":syntax("start","@-o-keyframes","-o-"),syntax("end","@keyframes");break;case"14":syntax("startend","@-o-keyframes","-o-");break;case"15":syntax("startend","@keyframes")}return value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   @state: 1; // Default state 1 means all prefixes
 
@@ -1767,7 +1765,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"none";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"none";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-perspective: @process; }
@@ -1792,7 +1790,7 @@
   @moz_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"50% 50%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"50% 50%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-perspective-origin: @process; }
@@ -1811,7 +1809,7 @@
 
 }
 
-.placeholder(@color:#aaa, @element: 08121991) {
+.placeholder(@color:hotpink, @element: 08121991) {
   .inception (@arguments) when not (@element = 08121991) {
     @{element}::-webkit-input-placeholder {
        color: @color;
@@ -1827,16 +1825,16 @@
     }
   }
   .inception (@arguments) when (@element = 08121991) {
-    &amp;::-webkit-input-placeholder {
+    &::-webkit-input-placeholder {
        color: @color;
     }
-    &amp;:-moz-placeholder {
+    &:-moz-placeholder {
        color: @color;  
     }
-    &amp;::-moz-placeholder {
+    &::-moz-placeholder {
        color: @color;  
     }
-    &amp;:-ms-input-placeholder {  
+    &:-ms-input-placeholder {  
        color: @color;  
     }
   }
@@ -1851,7 +1849,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: rotate(@process); }
@@ -1917,7 +1915,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: rotateX(@process); }
@@ -1950,7 +1948,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: rotateY(@process); }
@@ -1983,7 +1981,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: rotateZ(@process); }
@@ -2015,7 +2013,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"100%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"100%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: ~"saturate(@{process})"; }
@@ -2240,7 +2238,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"100%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"100%";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-filter: sepia(@process); }
@@ -2318,7 +2316,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: skew(@process); }
@@ -2351,7 +2349,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: skewX(@process); }
@@ -2384,7 +2382,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"deg"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: skewY(@process); }
@@ -2417,7 +2415,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"none";var functions={translate:"px",rotate:"deg",rotate3d:"deg",skew:"deg"};/^\w*\(?[a-z0-9.]*\)?/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,""));for(var i in functions)value.indexOf(i)&gt;=0&amp;&amp;(value=value.replace(new RegExp(i+"[\\w]?\\([a-z0-9, %]*\\)"),function(match){var regex=/(\d+\.?\d*)(?!\w|%)/g;return"rotate3d"==i&amp;&amp;(regex=/,\s*\d+$/),match.replace(regex,function(innerMatch){return innerMatch+functions[i]})}));return value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"none";var functions={translate:"px",rotate:"deg",rotate3d:"deg",skew:"deg"};/^\w*\(?[a-z0-9.]*\)?/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,""));for(var i in functions)value.indexOf(i)>=0&&(value=value.replace(new RegExp(i+"[\\w]?\\([a-z0-9, %]*\\)"),function(match){var regex=/(\d+\.?\d*)(?!\w|%)/g;return"rotate3d"==i&&(regex=/,\s*\d+$/),match.replace(regex,function(innerMatch){return innerMatch+functions[i]})}));return value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: @process; }
@@ -2450,7 +2448,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"50% 50% 0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"50% 50% 0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"%"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform-origin: @process; }
@@ -2515,10 +2513,10 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process_webkit: ~`(function(value){value=value||"all 0 ease 0";var prefixedProperties=["background-size","border-radius","border-bottom-left-radius","border-bottom-right-radius","border-top-left-radius","border-top-right-radius","box-shadow","column","transform","filter"],prefix="-webkit-",valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&amp;&amp;(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)&gt;10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_moz: ~`(function(value){value=value||"all 0 ease 0";var prefixedProperties=["background-size","box-shadow","column","transform","filter"],prefix="-moz-",valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&amp;&amp;(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)&gt;10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_opera: ~`(function(value){value=value||"all 0 ease 0";var prefixedProperties=["transform"],prefix="-o-",valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%)/gi;return/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,"")),prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&amp;&amp;(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)&gt;10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process: ~`(function(value){value=value||"all 0 ease 0";var prefixes=["-webkit-","-moz-","-o-",""],prefixedProperties=["column","transform","filter"],valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%)/gi;/^[^, ]*,/.test(value)&amp;&amp;(value=value.replace(/(?:,)(?![^(]*\))/g,""));var subSplit=value.split(/(?:,)(?![^(]*\))/g);return subSplit.forEach(function(css,index){prefixedProperties.forEach(function(property){-1!==css.indexOf(property)&amp;&amp;(subSplit[index]="",prefixes.forEach(function(vendor,i){subSplit[index]+=css.trim().replace(new RegExp(property,"g"),function(match){return vendor+match}),i&lt;prefixes.length-1&amp;&amp;(subSplit[index]+=",")}))})}),value=subSplit.join(","),valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)&gt;10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_webkit: ~`(function(value){value=value||"all 0 ease 0";var prefixedProperties=["background-size","border-radius","border-bottom-left-radius","border-bottom-right-radius","border-top-left-radius","border-top-right-radius","box-shadow","column","transform","filter"],prefix="-webkit-",valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&&(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)>10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_moz: ~`(function(value){value=value||"all 0 ease 0";var prefixedProperties=["background-size","box-shadow","column","transform","filter"],prefix="-moz-",valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&&(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)>10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_opera: ~`(function(value){value=value||"all 0 ease 0";var prefixedProperties=["transform"],prefix="-o-",valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%)/gi;return/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,"")),prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&&(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)>10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"all 0 ease 0";var prefixes=["-webkit-","-moz-","-o-",""],prefixedProperties=["column","transform","filter"],valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%)/gi;/^[^, ]*,/.test(value)&&(value=value.replace(/(?:,)(?![^(]*\))/g,""));var subSplit=value.split(/(?:,)(?![^(]*\))/g);return subSplit.forEach(function(css,index){prefixedProperties.forEach(function(property){-1!==css.indexOf(property)&&(subSplit[index]="",prefixes.forEach(function(vendor,i){subSplit[index]+=css.trim().replace(new RegExp(property,"g"),function(match){return vendor+match}),i<prefixes.length-1&&(subSplit[index]+=",")}))})}),value=subSplit.join(","),valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)>10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process_webkit)) and not (iscolor(@process_webkit)) and not (isnumber(@process_webkit)) and not (iskeyword(@process_webkit)) and not (isurl(@process_webkit)) and not (ispixel(@process_webkit)) and not (ispercentage(@process_webkit)) and not (isem(@process_webkit)) { -webkit-transition: @process_webkit; }
@@ -2547,7 +2545,7 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)&gt;10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var valueRegex=/(?:\d)(?:ms|s)/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)>10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transition-delay: @process; }
@@ -2576,7 +2574,7 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var valueRegex=/ms|s/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)&gt;10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var valueRegex=/ms|s/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return valueRegex.test(value)||"0"===value||(value=value.replace(numWithoutValue,function(match){return match+=parseFloat(match,10)>10?"ms":"s"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transition-duration: @process; }
@@ -2605,10 +2603,10 @@
   @opera_local: true;
   @w3c_local: true;
 
-  @process_webkit: ~`(function(value){value=value||"all";var prefixedProperties=["background-size","border-radius","border-bottom-left-radius","border-bottom-right-radius","border-top-left-radius","border-top-right-radius","box-shadow","column","transform","filter"],prefix="-webkit-";return prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&amp;&amp;(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_moz: ~`(function(value){value=value||"all";var prefixedProperties=["background-size","box-shadow","column","transform","filter"],prefix="-moz-";return prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&amp;&amp;(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process_opera: ~`(function(value){value=value||"all";var prefixedProperties=["transform"],prefix="-o-";return prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&amp;&amp;(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
-  @process: ~`(function(value){value=value||"all";var prefixes=["-webkit-","-moz-","-o-",""],prefixedProperties=["column","transform","filter"],subSplit=value.split(/(?:,)(?![^(]*\))/g);return subSplit.forEach(function(css,index){prefixedProperties.forEach(function(property){-1!==css.indexOf(property)&amp;&amp;(subSplit[index]="",prefixes.forEach(function(vendor,i){subSplit[index]+=css.trim().replace(new RegExp(property,"g"),function(match){return vendor+match}),i&lt;prefixes.length-1&amp;&amp;(subSplit[index]+=",")}))})}),value=subSplit.join(",")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_webkit: ~`(function(value){value=value||"all";var prefixedProperties=["background-size","border-radius","border-bottom-left-radius","border-bottom-right-radius","border-top-left-radius","border-top-right-radius","box-shadow","column","transform","filter"],prefix="-webkit-";return prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&&(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_moz: ~`(function(value){value=value||"all";var prefixedProperties=["background-size","box-shadow","column","transform","filter"],prefix="-moz-";return prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&&(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process_opera: ~`(function(value){value=value||"all";var prefixedProperties=["transform"],prefix="-o-";return prefixedProperties.forEach(function(property){-1!==value.indexOf(property)&&(value=value.replace(new RegExp(property,"g"),function(match){return prefix+match}))}),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"all";var prefixes=["-webkit-","-moz-","-o-",""],prefixedProperties=["column","transform","filter"],subSplit=value.split(/(?:,)(?![^(]*\))/g);return subSplit.forEach(function(css,index){prefixedProperties.forEach(function(property){-1!==css.indexOf(property)&&(subSplit[index]="",prefixes.forEach(function(vendor,i){subSplit[index]+=css.trim().replace(new RegExp(property,"g"),function(match){return vendor+match}),i<prefixes.length-1&&(subSplit[index]+=",")}))})}),value=subSplit.join(",")})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process_webkit)) and not (iscolor(@process_webkit)) and not (isnumber(@process_webkit)) and not (iskeyword(@process_webkit)) and not (isurl(@process_webkit)) and not (ispixel(@process_webkit)) and not (ispercentage(@process_webkit)) and not (isem(@process_webkit)) { -webkit-transition-property: @process_webkit; }
@@ -2667,7 +2665,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: translate(@process); }
@@ -2700,7 +2698,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0, 0, 0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0, 0, 0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: translate3d(@process); }
@@ -2733,7 +2731,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: translateX(@process); }
@@ -2766,7 +2764,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: translateY(@process); }
@@ -2799,7 +2797,7 @@
   @ms_local: true;
   @w3c_local: true;
 
-  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&amp;&amp;(value=value.replace(numWithoutValue,function(match){return 0==match&amp;&amp;match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
+  @process: ~`(function(value){value=value||"0";var numRegex=/\d/gi,numWithoutValue=/(?:\s|^)(\.?\d+\.?\d*)(?![^(]*\)|\w|%|\.)/gi;return numRegex.test(value)&&(value=value.replace(numWithoutValue,function(match){return 0==match&&match||match+"px"})),value})((function(){var args="@{arguments}";return args=args.replace(/^\[|\]$/g,"")})())`;
 
   .result (@arguments, @signal, @boolean, @local_boolean) when (@boolean = true) and (@local_boolean = true) {
     .inception (@signal, @arguments) when (@signal = 1) and (isstring(@process)) and not (iscolor(@process)) and not (isnumber(@process)) and not (iskeyword(@process)) and not (isurl(@process)) and not (ispixel(@process)) and not (ispercentage(@process)) and not (isem(@process)) { -webkit-transform: translateZ(@process); }
@@ -2854,4 +2852,3 @@
 }
 
 // This is the nice place for some kind of story or something... Maybe in next version :)
-</pre></body></html>

@@ -91,6 +91,10 @@ class SitemapHandler(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('templates/sitemap.xml')
         self.response.write(template.render(template_values))
 
+class NotFoundHandler(BaseHandler):
+    def get(self):
+        self.response.set_status(404)
+        self.render('templates/404.jinja2')
 
 app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/', MainHandler),
@@ -107,5 +111,6 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/account', MainHandler),
                                                ('/new-page', MainHandler),
                                                ('/launch/reshare', MainHandler),
+                                               ('/.*', NotFoundHandler),
 
                                            ] + gameon.routes, debug=ws.debug, config=config))

@@ -1,14 +1,18 @@
 {% extends 'templates/base.jinja2' %}
 
 {% block headers %}
-    <title>Evangeler Social Marketing - Money Back Guarantee</title>
+
+    {% set title = 'Evangeler Social Marketing - Money Back Guarantee' -%}
     {% set desc = 'Evangeler Helps Companies Create Viral Marketing Campaigns! See our Money Back Guarantee!' -%}
+
+
+    <title>{{ title }}</title>
     <meta name="description"
           content="{{ desc }}">
 
     <meta name="keywords"
-          content="crowdsourcing marketing, viral marketing, facebook marketing, marketing, social marketing, about evangeler">
-    <meta property="og:title" content="Evangeler Social Marketing For The Masses! - Money Back Guarantee">
+          content="crowdsourcing marketing, viral marketing, facebook marketing, marketing, social marketing">
+    <meta property="og:title" content="{{ title }}">
     <meta property="og:url" content="{{ url }}">
     <meta property="og:image"
           content="http://www.evangeler.com/static/img/evangeler-logo128.png">

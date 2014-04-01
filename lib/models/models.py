@@ -29,6 +29,7 @@ class Company(BaseModel):
     @classmethod
     def getCompaniesByKeys(cls, keys):
         return cls.query(cls.key.IN(keys)).fetch()
+
     @classmethod
     def getCompaniesByIds(cls, ids):
         return cls.query(cls.page_id.IN(ids)).fetch()
@@ -62,6 +63,10 @@ class Contest(BaseModel):
     created = ndb.DateTimeProperty(auto_now_add=True)
     updated = ndb.DateTimeProperty(auto_now=True)
 
+
+    @classmethod
+    def getByCompanyKey(cls, id):
+        return cls.query(cls.key == id).fetch()
 
 class User(BaseModel):
     cookie_id = ndb.StringProperty(required=True)

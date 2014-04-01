@@ -2,20 +2,22 @@
 {% extends 'templates/base.jinja2' %}
 
 {% block headers %}
-    <title>Evangeler Social Marketing - How It Works</title>
+
+    {% set title = 'Evangeler Social Marketing - How It Works' -%}
+    {% set desc = 'Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! See How!' -%}
+
+    <title>{{ title }}</title>
     <meta name="description"
-          content="Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! Free For A Limited Time!">
+          content="{{ desc }}">
 
     <meta name="keywords"
           content="crowdsourcing marketing, viral marketing, facebook marketing, marketing, social marketing">
-    <meta property="og:title" content="Evangeler - Social Marketing For The Masses!">
+    <meta property="og:title" content="{{ title }}">
     <meta property="og:url" content="{{ url }}">
     <meta property="og:image"
           content="http://www.evangeler.com/static/img/evangeler-logo128.png">
     <meta property="og:description"
           content="{{ desc }}">
-    <meta property="og:description"
-          content="Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! Free For A Limited Time!">
 {% endblock %}
 
 {% block mainbody %}

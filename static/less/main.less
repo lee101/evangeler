@@ -1,3 +1,4 @@
+@import "lesshat";
 @import "variables";
 @import "defaults";
 
@@ -30,18 +31,21 @@ body {
     height: 103px;
     vertical-align: top;
     padding: 41px;
+    .transition(background-color 0.3s, border-color 0.3s;);
+
+    &:focus,
+    &:hover,
+    &.active,
+    {
+        background-color: @gray-lighter;
+    }
 }
 
 .mm-header__profile-link {
     padding-top: 23px;
 }
 
-.mm-header__link:focus,
-.mm-header__link:hover,
-.mm-header__link.active,
-{
-    background-color: @gray-lighter;
-}
+
 
 .mm-logo {
     padding-bottom: 20px;
