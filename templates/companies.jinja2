@@ -2,8 +2,8 @@
 
 {% block headers %}
 
-    {% set title = 'Evangeler - Social Marketing For The Masses!' -%}
-    {% set desc = 'Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! Free For A Limited Time!' -%}
+    {% set title = 'Evangeler - Companies Already Using Evangeler' -%}
+    {% set desc = 'Evangeler Helps Business By Giving Them Access To Millions of Marketers! The People! Anyone Can Win Prizes On Evangeler!' -%}
 
     <title>{{ title }}</title>
     <meta name="description"
@@ -20,5 +20,7 @@
 {% endblock %}
 
 {% block mainbody %}
-    {% include "/templates/shared/start.jinja2" %}
+
+    <p id="cursor" style="display: none" data-cursor="{{ next_page_cursor }}"></p>
+    {% include "/templates/shared/companies.jinja2" %}
 {% endblock %}

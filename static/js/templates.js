@@ -49,6 +49,69 @@ root: root
 };
 })();
 })();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/companies.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"mm-hero pistachio\">\n\n    <h1 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Businesses On Evangeler\n    </h1>\n</div>\n\n";
+output += "\n<div class=\"mm-grid\">\n    <div class=\"row\">\n\n        ";
+frame = frame.push();
+var t_3 = runtime.contextOrFrameLookup(context, frame, "companies");
+if(t_3) {for(var t_1=0; t_1 < t_3.length; t_1++) {
+var t_4 = t_3[t_1];
+frame.set("company", t_4);
+output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"link", env.autoesc), env.autoesc);
+output += "\">\n                            <img class=\"media-object\" src=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"pic", env.autoesc), env.autoesc);
+output += "\" alt=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\" href=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"link", env.autoesc), env.autoesc);
+output += "\">";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "</a>\n\n                            <p class=\"text-smaller\">";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"about", env.autoesc), env.autoesc);
+output += "</p>\n                            ";
+if(runtime.contextOrFrameLookup(context, frame, "showEditButtons")) {
+output += "\n                                <a class=\"btn\" href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_key", env.autoesc), env.autoesc);
+output += "\" title=\"View ";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_key", env.autoesc), env.autoesc);
+output += "\"\n                                   title=\"Edit ";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "\">Edit</a>\n                                |\n                                <button title=\"Delete ";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "\" type=\"button\" class=\"btn btn-danger\"\n                                        onclick=\"modals.showDeleteCompanyModal(";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"page_id", env.autoesc), env.autoesc);
+output += ")\">\n\n                                </button>\n                            ";
+;
+}
+output += "\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        ";
+;
+}
+}
+frame = frame.pop();
+output += "\n\n        ";
+if(runtime.contextOrFrameLookup(context, frame, "createcompany")) {
+output += "\n            <div class=\"col-md-6\">\n                <a href=\"/new-page\" class=\"mm-grid__section mm-highlighted-new\"\n                   title=\"Create a New Page On Evangeler.com\"\n                   onclick=\"return APP.goto('new-page')\">\n                    <h4 class=\"mm-highlighted-new__text\">New</h4>\n                </a>\n            </div>\n        ";
+;
+}
+output += "\n    </div>\n</div>\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
 (function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/company-thumbs.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;
@@ -60,15 +123,36 @@ var t_3 = runtime.contextOrFrameLookup(context, frame, "companies");
 if(t_3) {for(var t_1=0; t_1 < t_3.length; t_1++) {
 var t_4 = t_3[t_1];
 frame.set("company", t_4);
-output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"#\">\n                            <img class=\"media-object\" src=\"";
+output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"link", env.autoesc), env.autoesc);
+output += "\">\n                            <img class=\"media-object\" src=\"";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"pic", env.autoesc), env.autoesc);
 output += "\" alt=\"";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <h4 class=\"media-heading mm-footer__heading\">";
+output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\" href=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"link", env.autoesc), env.autoesc);
+output += "\">";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "</h4>\n\n                            <p class=\"text-smaller\">";
+output += "</a>\n\n                            <p class=\"text-smaller\">";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"about", env.autoesc), env.autoesc);
-output += "</p>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        ";
+output += "</p>\n                            ";
+if(runtime.contextOrFrameLookup(context, frame, "showEditButtons")) {
+output += "\n                                <a class=\"btn\" href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_key", env.autoesc), env.autoesc);
+output += "\" title=\"View ";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_key", env.autoesc), env.autoesc);
+output += "\" title=\"Edit ";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "\">Edit</a>\n                                |\n                                <button title=\"Delete ";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "\" type=\"button\" class=\"btn btn-danger\" onclick=\"modals.showDeleteCompanyModal(";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"page_id", env.autoesc), env.autoesc);
+output += ")\">\n\n                                </button>\n                            ";
+;
+}
+output += "\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        ";
 ;
 }
 }
@@ -255,7 +339,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-hero\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        New Page\n    </h2>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h1 class=\"mm-marketing-text mm-marketing-text--black\">\n        Social Marketing Helps Business!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Evangeler gives businesses direct access to millions of marketers!\n    </h2>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-success btn-lg\">Browse Marketing Categories\n    </button>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h1 class=\"mm-marketing-text\">\n        Social Marketing Helps People!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Win cash prizes for promoting products you love!\n    </h2>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\">Browse Marketing Contests\n    </button>\n</div>\n";
+output += "<div class=\"mm-hero\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Create a new page on Evangeler from a facebook page you manage\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {

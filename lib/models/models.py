@@ -45,6 +45,10 @@ class Company(BaseModel):
     def getByPageId(cls, id):
         return cls.query(cls.page_id == id).get()
 
+    @classmethod
+    def randomOrder(cls, title):
+        return cls.query()
+
 
 class Contest(BaseModel):
     url_key = ndb.StringProperty()

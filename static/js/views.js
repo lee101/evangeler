@@ -18,7 +18,7 @@
         },
 
         render: function () {
-            this.$el.html( nunjucks.render('templates/shared/how-it-works.jinja2'));
+            this.$el.html(nunjucks.render('templates/shared/how-it-works.jinja2'));
             return this;
         }
     });
@@ -28,7 +28,7 @@
         },
 
         render: function () {
-            this.$el.html( nunjucks.render('templates/shared/contact.jinja2'));
+            this.$el.html(nunjucks.render('templates/shared/contact.jinja2'));
             return this;
         }
     });
@@ -38,7 +38,7 @@
         },
 
         render: function () {
-            this.$el.html( nunjucks.render('templates/shared/about.jinja2'));
+            this.$el.html(nunjucks.render('templates/shared/about.jinja2'));
             return this;
         }
     });
@@ -47,7 +47,7 @@
         },
 
         render: function () {
-            this.$el.html( nunjucks.render('templates/shared/terms.jinja2'));
+            this.$el.html(nunjucks.render('templates/shared/terms.jinja2'));
             return this;
         }
     });
@@ -56,7 +56,7 @@
         },
 
         render: function () {
-            this.$el.html( nunjucks.render('templates/shared/privacy.jinja2'));
+            this.$el.html(nunjucks.render('templates/shared/privacy.jinja2'));
             return this;
         }
     });
@@ -65,7 +65,7 @@
         },
 
         render: function () {
-            this.$el.html( nunjucks.render('templates/shared/refunds.jinja2'));
+            this.$el.html(nunjucks.render('templates/shared/refunds.jinja2'));
             return this;
         }
     });
@@ -74,7 +74,7 @@
         },
 
         render: function () {
-            this.$el.html( nunjucks.render('templates/shared/categories.jinja2'));
+            this.$el.html(nunjucks.render('templates/shared/categories.jinja2'));
             return this;
         }
     });
@@ -87,9 +87,29 @@
             var self = this;
             models.getUser(function (user) {
                 self.$el.html(nunjucks.render('templates/shared/account.jinja2', {'user': user, 'window': true}));
-                user.getCompanies(function(companies){
+                user.getCompanies(function (companies) {
                     //TODO HOW TO INSERT AFTER?
-                    self.$el.find('.company-thumbs').html(nunjucks.render('templates/shared/company-thumbs.jinja2', {'companies': companies, 'createcompany': true }));
+                    self.$el.find('.company-thumbs').html(nunjucks.render('templates/shared/company-thumbs.jinja2',
+                        {'companies': companies, 'createcompany': true, 'showEditButtons': true }));
+                });
+
+            });
+            return self;
+        }
+    });
+    APP.Views['/new-page'] = Backbone.View.extend({
+        initialize: function (options) {
+        },
+
+        render: function () {
+
+            var self = this;
+            models.getUser(function (user) {
+                self.$el.html(nunjucks.render('templates/shared/account.jinja2', {'user': user, 'window': true}));
+                user.getUnstartedPages(function (companies) {
+                    //TODO HOW TO INSERT AFTER?
+                    self.$el.find('.company-thumbs').html(nunjucks.render('templates/shared/company-thumbs.jinja2',
+                        {'companies': companies, 'createcompany': false, 'showEditButtons': false }));
                 });
 
             });
@@ -104,8 +124,8 @@
 
         render: function () {
             var self = this;
-            models.getUser(function(user){
-                self.$el.html(nunjucks.render('templates/shared/header.jinja2', {'path': self.path, 'user': user, 'window':true}));
+            models.getUser(function (user) {
+                self.$el.html(nunjucks.render('templates/shared/header.jinja2', {'path': self.path, 'user': user, 'window': true}));
 
             });
 
@@ -119,7 +139,7 @@
         },
 
         render: function () {
-            this.$el.html( nunjucks.render('templates/shared/footer.jinja2', {'path': this.path}));
+            this.$el.html(nunjucks.render('templates/shared/footer.jinja2', {'path': this.path}));
             return this;
         }
     });

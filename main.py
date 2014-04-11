@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import json
+from google.appengine.ext.ndb import Cursor
 
 from Models import *
 from lib import gameon
@@ -9,6 +10,7 @@ import webapp2
 import jinja2
 import fixtures
 from lib.gameon_utils import GameOnUtils
+from lib.models.models import Company
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -83,6 +85,25 @@ class RefundsHandler(BaseHandler):
         self.render('templates/refunds.jinja2')
 
 
+class CompaniesHandler(BaseHandler):
+    def get(self):
+        urltitle = self.request.get('urltitle')
+
+        curs = Cursor(urlsafe=self.request.get('cursor'))
+        companies, next_curs, more = Company.randomOrder(urltitle).fetch_page(40, start_cursor=curs)
+
+        if more and next_curs:
+            next_page_cursor = next_curs.urlsafe()
+        else:
+            next_page_cursor = None
+        extraParams = {
+            'companies': companies,
+            'next_page_cursor': next_page_cursor,
+            'urltitle': urltitle,
+        }
+        self.render('templates/companies.jinja2', extraParams)
+
+
 class SitemapHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/xml'
@@ -109,6 +130,9 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/contact', ContactHandler),
                                                ('/refunds', RefundsHandler),
                                                ('/sitemap', SitemapHandler),
+                                               ('/companies', CompaniesHandler),
+                                               ('/company/(.*)', CompaniesHandler),
+
                                                # non prerendered pages
                                                ('/account', MainHandler),
                                                ('/new-page', MainHandler),
