@@ -7,7 +7,6 @@ import os
 import webapp2
 import facebook
 from webapp2_extras import sessions
-import utils
 import jinja2
 
 import json
@@ -107,7 +106,7 @@ class GetOrCreateUserHandler(BaseHandler):
                 self.response.set_cookie('evangelerloggedin', user.cookie_id, max_age=15724800)
                 return user
 
-            cookie_value = utils.random_string()
+            cookie_value = GameOnUtils.random_string()
             self.response.set_cookie('evangelerloggedin', cookie_value, max_age=15724800)
             user = User()
             user.cookie_id = cookie_value
@@ -176,6 +175,7 @@ class CreateCompanyHandler(BaseHandler):
 
         company.name = self.request.get('name')
         company.title = self.request.get('title')
+        company.url_title = GameOnUtils.urlEncode(company.title)
         company.description = self.request.get('description')
         company.about = self.request.get('about')
 

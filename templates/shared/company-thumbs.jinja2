@@ -17,13 +17,9 @@
 
                             <p class="text-smaller">{{ company.about }}</p>
                             {% if showEditButtons %}
-                                <a class="btn" href="/companies/{{ company.url_key }}" title="View {{ company.name }}">View</a>
+                                <a class="btn" href="/companies/{{ company.url_title }}" title="View {{ company.name }}">View</a>
                                 |
-                                <a class="btn" href="/companies/edit/{{ company.url_key }}" title="Edit {{ company.name }}">Edit</a>
-                                |
-                                <button title="Delete {{ company.name }}" type="button" class="btn btn-danger" onclick="modals.showDeleteCompanyModal({{ company.page_id }})">
-
-                                </button>
+                                <a class="btn" href="/companies/edit/{{ company.url_title }}" title="Edit {{ company.name }}">Edit</a>
                             {% endif %}
                         </div>
                     </div>

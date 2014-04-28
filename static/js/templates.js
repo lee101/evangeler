@@ -76,18 +76,14 @@ output += runtime.suppressValue(runtime.memberLookup((t_4),"about", env.autoesc)
 output += "</p>\n                            ";
 if(runtime.contextOrFrameLookup(context, frame, "showEditButtons")) {
 output += "\n                                <a class=\"btn\" href=\"/companies/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_key", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\" title=\"View ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_key", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\"\n                                   title=\"Edit ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\">Edit</a>\n                                |\n                                <button title=\"Delete ";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\" type=\"button\" class=\"btn btn-danger\"\n                                        onclick=\"modals.showDeleteCompanyModal(";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"page_id", env.autoesc), env.autoesc);
-output += ")\">\n\n                                </button>\n                            ";
+output += "\">Edit</a>\n                            ";
 ;
 }
 output += "\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        ";
@@ -138,18 +134,14 @@ output += runtime.suppressValue(runtime.memberLookup((t_4),"about", env.autoesc)
 output += "</p>\n                            ";
 if(runtime.contextOrFrameLookup(context, frame, "showEditButtons")) {
 output += "\n                                <a class=\"btn\" href=\"/companies/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_key", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\" title=\"View ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_key", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\" title=\"Edit ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\">Edit</a>\n                                |\n                                <button title=\"Delete ";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\" type=\"button\" class=\"btn btn-danger\" onclick=\"modals.showDeleteCompanyModal(";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"page_id", env.autoesc), env.autoesc);
-output += ")\">\n\n                                </button>\n                            ";
+output += "\">Edit</a>\n                            ";
 ;
 }
 output += "\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        ";

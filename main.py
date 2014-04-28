@@ -87,10 +87,10 @@ class RefundsHandler(BaseHandler):
 
 class CompaniesHandler(BaseHandler):
     def get(self):
-        urltitle = self.request.get('urltitle')
+        url_title = self.request.get('url_title')
 
         curs = Cursor(urlsafe=self.request.get('cursor'))
-        companies, next_curs, more = Company.randomOrder(urltitle).fetch_page(40, start_cursor=curs)
+        companies, next_curs, more = Company.randomOrder(url_title).fetch_page(60, start_cursor=curs)
 
         if more and next_curs:
             next_page_cursor = next_curs.urlsafe()
@@ -99,10 +99,19 @@ class CompaniesHandler(BaseHandler):
         extraParams = {
             'companies': companies,
             'next_page_cursor': next_page_cursor,
-            'urltitle': urltitle,
+            'url_title': url_title,
         }
         self.render('templates/companies.jinja2', extraParams)
 
+
+class CompanyHandler(BaseHandler):
+    def get(self, url_title):
+
+        extraParams = {
+            'company': Company.getByUrlTitle(url_title),
+            'url_title': url_title,
+        }
+        self.render('templates/company.jinja2', extraParams)
 
 class SitemapHandler(webapp2.RequestHandler):
     def get(self):
@@ -131,7 +140,7 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/refunds', RefundsHandler),
                                                ('/sitemap', SitemapHandler),
                                                ('/companies', CompaniesHandler),
-                                               ('/company/(.*)', CompaniesHandler),
+                                               ('/company/(.*)', CompanyHandler),
 
                                                # non prerendered pages
                                                ('/account', MainHandler),

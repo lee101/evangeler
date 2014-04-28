@@ -17,6 +17,7 @@ class Company(BaseModel):
     page_id = ndb.StringProperty()
     name = ndb.StringProperty()
     title = ndb.StringProperty()
+    url_title = ndb.StringProperty()
     description = ndb.StringProperty()
     about = ndb.StringProperty()
 
@@ -46,12 +47,16 @@ class Company(BaseModel):
         return cls.query(cls.page_id == id).get()
 
     @classmethod
+    def getByUrlTitle(cls, title):
+        return cls.query(cls.url_title == title).get()
+
+    @classmethod
     def randomOrder(cls, title):
         return cls.query()
 
 
 class Contest(BaseModel):
-    url_key = ndb.StringProperty()
+    url_title = ndb.StringProperty()
 
     name = ndb.StringProperty()
     title = ndb.StringProperty()

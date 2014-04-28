@@ -1,7 +1,11 @@
 import os
 import json
 import datetime
+import random
+import re
+import string
 from time import mktime
+import urllib
 from models.models import BaseModel
 
 class GameOnUtils(object):
@@ -33,3 +37,21 @@ class GameOnUtils(object):
                 return obj.to_dict()
 
             return obj.__dict__ #json.JSONEncoder.default(self, obj.__dict__)
+
+
+    @staticmethod
+    def random_string(size=6, chars=string.ascii_letters + string.digits):
+        """ Generate random string """
+        return ''.join(random.choice(chars) for _ in range(size))
+
+
+    @staticmethod
+    def removeNonAscii(s):
+        return "".join(i for i in s if ord(i) < 128)
+
+    @staticmethod
+    def urlEncode(cls, s):
+        s = cls.removeNonAscii(s.replace(" ", "-").lower())
+        # s = s.translate(string.maketrans("", "", ), '!@#;:\',./<>?')
+        s = re.sub("[\.\t\,\:;\(\)'@!\\\?#/<>\s]", "", s, 0, 0)
+        return urllib.quote_plus(s)
