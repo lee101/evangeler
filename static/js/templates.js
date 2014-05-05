@@ -77,7 +77,7 @@ output += "</p>\n                            ";
 if(runtime.contextOrFrameLookup(context, frame, "showEditButtons")) {
 output += "\n                                <a class=\"btn\" href=\"/companies/";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "\" title=\"View ";
+output += "\"\n                                   title=\"View ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
@@ -97,6 +97,7 @@ output += "\n            <div class=\"col-md-6\">\n                <a href=\"/ne
 ;
 }
 output += "\n    </div>\n</div>\n";
+output += "\n\n<div class=\"mm-grid\">\n    <a href=\"#\" class=\"gameon-btn-hg btn btn-success btn-lg\" onclick=\"evutils.loadmore('companies', 'company-thumbs');return false;\">Load\n        More...\n    </a>\n</div>\n\n";
 cb(null, output);
 ;
 } catch (e) {

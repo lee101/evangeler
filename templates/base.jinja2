@@ -23,6 +23,7 @@
     {{ macros.jsheaders() }}
     <script>
         var STATUS = {{ fixtures.STATUS }};
+        var CURR_CURSOR = '{{ next_page_cursor }}';
     </script>
     {% block js %}
 
