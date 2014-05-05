@@ -97,7 +97,7 @@ output += "\n            <div class=\"col-md-6\">\n                <a href=\"/ne
 ;
 }
 output += "\n    </div>\n</div>\n";
-output += "\n\n<div class=\"mm-grid\">\n    <a href=\"#\" class=\"gameon-btn-hg btn btn-success btn-lg\" onclick=\"evutils.loadmore('companies', 'company-thumbs');return false;\">Load\n        More...\n    </a>\n</div>\n\n";
+output += "\n\n<div class=\"mm-grid\">\n    <a href=\"#\" class=\"gameon-btn-hg btn btn-info btn-lg load-more \" onclick=\"evutils.loadmore('companies', 'company-thumbs');return false;\">Load\n        More...\n    </a>\n</div>\n\n";
 cb(null, output);
 ;
 } catch (e) {
