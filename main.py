@@ -136,8 +136,8 @@ class SlashMurdererApp(webapp2.RequestHandler):
 
 
 app = ndb.toplevel(webapp2.WSGIApplication([
-                                               ('(.*)/$', SlashMurdererApp),
                                                ('/', MainHandler),
+                                               ('(.*)/$', SlashMurdererApp),
                                                ('/tests', TestHandler),
                                                ('/privacy', PrivacyHandler),
                                                ('/terms', TermsHandler),

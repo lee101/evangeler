@@ -49,7 +49,7 @@ class GameOnUtils(object):
     def removeNonAscii(s):
         return "".join(i for i in s if ord(i) < 128)
 
-    @staticmethod
+    @classmethod
     def urlEncode(cls, s):
         s = cls.removeNonAscii(s.replace(" ", "-").lower())
         # s = s.translate(string.maketrans("", "", ), '!@#;:\',./<>?')
