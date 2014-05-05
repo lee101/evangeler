@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 import json
+import os
+
 from google.appengine.ext.ndb import Cursor
+import webapp2
+import jinja2
 
 from Models import *
 from lib import gameon
 from ws import ws
-import os
-import webapp2
-import jinja2
 import fixtures
 from lib.gameon_utils import GameOnUtils
 from lib.models.models import Company
+
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -106,12 +108,12 @@ class CompaniesHandler(BaseHandler):
 
 class CompanyHandler(BaseHandler):
     def get(self, url_title):
-
         extraParams = {
             'company': Company.getByUrlTitle(url_title),
             'url_title': url_title,
         }
         self.render('templates/company.jinja2', extraParams)
+
 
 class SitemapHandler(webapp2.RequestHandler):
     def get(self):
@@ -128,7 +130,13 @@ class NotFoundHandler(BaseHandler):
         self.render('templates/404.jinja2')
 
 
+class SlashMurdererApp(webapp2.RequestHandler):
+    def get(self, url):
+        self.redirect(url)
+
+
 app = ndb.toplevel(webapp2.WSGIApplication([
+                                               ('(.*)/$', SlashMurdererApp),
                                                ('/', MainHandler),
                                                ('/tests', TestHandler),
                                                ('/privacy', PrivacyHandler),
