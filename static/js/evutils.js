@@ -18,7 +18,8 @@ window.evutils = new (function () {
 					a.html(data);
 					CURR_CURSOR = a.find('#cursor').attr('data-cursor');
 					//append things
-					$('.mm-grid').append(nunjucks.render('templates/shared/' + templateName + '.jinja2'))
+					var $renderedTemplate = $(nunjucks.render('templates/shared/' + templateName + '.jinja2'));
+					$('.mm-grid').append($renderedTemplate.find('.mm-grid').html());
 					isfetching = false;
 				},
 				'error': function (data) {
