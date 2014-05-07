@@ -9,11 +9,14 @@ window.evutils = new (function () {
 		if (!isfetching) {
 
 			isfetching = true;
-			$('.load-more').attr('disabled', 'disabled');
+			var $loadMore = $('.load-more');
+			$loadMore.attr('disabled', 'disabled')
+				.html('<i class="fa fa-spinner fa-spin"></i>');
 			$.ajax({
 				'url': '/' + pathName + '?cursor=' + CURR_CURSOR,
 				'success': function (data) {
-					$('.load-more').removeAttr('disabled');
+					$loadMore.removeAttr('disabled')
+						.html('Load More...');
 					a = $('<div></div>');
 					a.html(data);
 					CURR_CURSOR = a.find('#cursor').attr('data-cursor');
@@ -23,8 +26,7 @@ window.evutils = new (function () {
 					isfetching = false;
 				},
 				'error': function (data) {
-					var $load = $('.load-more');
-					$load.html('No More Results');
+					$loadMore.html('No More Results');
 				},
 				cache: false
 			});

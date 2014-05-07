@@ -81,10 +81,15 @@ body {
 .mm-logo__text {
   font-family: gesta, sans-serif;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 21.6px;
   color: #3b5997;
   display: inline;
   margin-left: 10px;
+}
+@media (min-width: 481px) {
+  .mm-logo__text {
+    font-size: 28.8px;
+  }
 }
 .mm-logo__link:focus,
 .mm-logo__link:hover {
@@ -177,11 +182,16 @@ body {
   padding-bottom: 40px;
 }
 .mm-grid__section {
-  margin: 20px 40px 0px 40px;
+  margin: 20px 0 0 0;
   text-align: left;
   display: block;
 }
 @media (min-width: 481px) {
+  .mm-grid__section {
+    margin: 20px 40px 0px 40px;
+  }
+}
+@media (min-width: 641px) {
   .mm-grid__section {
     margin: 40px 80px 0px 80px;
   }
@@ -313,5 +323,8 @@ body {
 }
 .normal-text {
   color: #2f2f2f;
+}
+.load-more {
+  width: 300px;
 }
 /*# sourceMappingURL=/static/css/style.css.map */

@@ -68,10 +68,14 @@ body {
 .mm-logo__text {
     font-family: gesta, sans-serif;
     font-weight: bold;
-    font-size: 30px;
+    font-size: @base-font-size * 1.2;
     color: @facebook-blue;
     display: inline;
     margin-left: 10px;
+
+	@media (min-width: @small-min-width) {
+		font-size: @base-font-size * 1.6;
+	}
 }
 
 .mm-logo__link:focus,
@@ -171,10 +175,13 @@ body {
 }
 
 .mm-grid__section {
-    margin: 20px 40px 0px 40px;
+    margin: 20px 0 0 0;
     text-align: left;
     display: block;
     @media (min-width: @small-min-width) {
+        margin: 20px 40px 0px 40px;
+    }
+    @media (min-width: @ipad-portrait-min-width) {
         margin: 40px 80px 0px 80px;
     }
 }
@@ -343,3 +350,6 @@ body {
     color: @lighter-black;
 }
 
+.load-more {
+	width: 300px;
+}
