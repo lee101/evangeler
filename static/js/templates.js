@@ -61,14 +61,14 @@ var t_3 = runtime.contextOrFrameLookup(context, frame, "companies");
 if(t_3) {for(var t_1=0; t_1 < t_3.length; t_1++) {
 var t_4 = t_3[t_1];
 frame.set("company", t_4);
-output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"link", env.autoesc), env.autoesc);
+output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\">\n                            <img class=\"media-object\" src=\"";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"pic", env.autoesc), env.autoesc);
 output += "\" alt=\"";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\" href=\"";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"link", env.autoesc), env.autoesc);
+output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\"\n                               href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\">";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += "</a>\n\n                            <p class=\"text-smaller\">";
@@ -120,14 +120,14 @@ var t_3 = runtime.contextOrFrameLookup(context, frame, "companies");
 if(t_3) {for(var t_1=0; t_1 < t_3.length; t_1++) {
 var t_4 = t_3[t_1];
 frame.set("company", t_4);
-output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"link", env.autoesc), env.autoesc);
+output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\">\n                            <img class=\"media-object\" src=\"";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"pic", env.autoesc), env.autoesc);
 output += "\" alt=\"";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\" href=\"";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"link", env.autoesc), env.autoesc);
+output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\" href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\">";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += "</a>\n\n                            <p class=\"text-smaller\">";
@@ -156,6 +156,48 @@ output += "\n            <div class=\"col-md-6\">\n                <a href=\"/ne
 ;
 }
 output += "\n    </div>\n</div>\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/company.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"mm-grid\">\n    <div class=\"row\">\n\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"url_title", env.autoesc), env.autoesc);
+output += "\">\n                            <img class=\"media-object\" src=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"pic", env.autoesc), env.autoesc);
+output += "\" alt=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\"\n                               href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"url_title", env.autoesc), env.autoesc);
+output += "\">";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += "</a>\n\n                            <p class=\"text-smaller\">";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"about", env.autoesc), env.autoesc);
+output += "</p>\n                            ";
+if(runtime.contextOrFrameLookup(context, frame, "showEditButtons")) {
+output += "\n                                <a class=\"btn\" href=\"/companies/";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"url_title", env.autoesc), env.autoesc);
+output += "\"\n                                   title=\"View ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"url_title", env.autoesc), env.autoesc);
+output += "\"\n                                   title=\"Edit ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += "\">Edit</a>\n                            ";
+;
+}
+output += "\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        \n    </div>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {

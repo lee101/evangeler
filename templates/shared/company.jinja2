@@ -1,0 +1,48 @@
+<div class="mm-grid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="mm-grid__section">
+
+                <div class="media">
+
+                    <a class="pull-left" href="/companies/{{ company.url_title }}">
+                        <img class="media-object" src="{{ company.pic }}" alt="{{ company.name }} Logo" width="100"
+                             height="100">
+                    </a>
+
+                    <div class="media-body">
+                        <a class="media-heading mm-footer__heading"
+                           href="/companies/{{ company.url_title }}">{{ company.name }}</a>
+
+                        <p class="text-smaller">{{ company.about }}</p>
+
+                        <p class="text-smaller">{{ company.description }}</p>
+
+                        <p class="text-smaller">{{ company.tags }}</p>
+
+                        <p class="text-smaller">
+                            <a href="{{ company.facebook_link }}" title="{{ company.name }} on Facebook"
+                               target="_blank">
+                                <span class="fa fa-facebook-square mm-share-btn mm-share-btn--facebook"></span><span
+                                    class="footer__social-link-text"> Facebook</span>
+                            </a>
+                        </p>
+
+                        <p class="text-smaller">
+                            <a href="{{ company.website_link }}" title="{{ company.name }} on Facebook"
+                               target="_blank">
+                                <span class="fa fa-globe mm-share-btn mm-share-btn--twitter"></span><span
+                                    class="footer__social-link-text"> Website</span>
+                            </a>
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

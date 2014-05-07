@@ -148,7 +148,7 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/refunds', RefundsHandler),
                                                ('/sitemap', SitemapHandler),
                                                ('/companies', CompaniesHandler),
-                                               ('/company/(.*)', CompanyHandler),
+                                               ('/companies/(..*)', CompanyHandler),
 
                                                # non prerendered pages
                                                ('/account', MainHandler),

@@ -7,13 +7,13 @@
 
                     <div class="media">
 
-                        <a class="pull-left" href="{{ company.link }}">
+                        <a class="pull-left" href="/companies/{{ company.url_title }}">
                             <img class="media-object" src="{{ company.pic }}" alt="{{ company.name }} Logo" width="100"
                                  height="100">
                         </a>
 
                         <div class="media-body">
-                            <a class="media-heading mm-footer__heading" href="{{ company.link }}">{{ company.name }}</a>
+                            <a class="media-heading mm-footer__heading" href="/companies/{{ company.url_title }}">{{ company.name }}</a>
 
                             <p class="text-smaller">{{ company.about }}</p>
                             {% if showEditButtons %}
