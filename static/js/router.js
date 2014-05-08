@@ -78,7 +78,8 @@
 		routes[key.substring(1)] = value;
 	});
 	jQuery.extend(routes, {
-		'account': 'account'
+		'account': 'account',
+		'new-page': 'new-page'
 	});
 
 	var Router = Backbone.Router.extend({
@@ -94,6 +95,7 @@
 		'terms': defaultHandler('/terms'),
 		'privacy': defaultHandler('/privacy'),
 		'refunds': defaultHandler('/refunds'),
+		'new-page': defaultHandler('/new-page'),
 		'account': defaultHandler('/account')
 	});
 
