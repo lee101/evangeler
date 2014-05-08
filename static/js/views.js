@@ -78,6 +78,26 @@
             return this;
         }
     });
+    APP.Views['/company'] = Backbone.View.extend({
+        initialize: function (options) {
+        },
+
+        render: function () {
+	        var $modal = $('#modal');
+	        $modal.html(nunjucks.render('templates/shared/company.jinja2'));
+	        $modal.modal('show');
+	        return this;
+        }
+    });
+    APP.Views['/companies'] = Backbone.View.extend({
+        initialize: function (options) {
+        },
+
+        render: function () {
+            this.$el.html(nunjucks.render('templates/shared/companies.jinja2'));
+            return this;
+        }
+    });
     APP.Views['/account'] = Backbone.View.extend({
         initialize: function (options) {
         },
@@ -105,7 +125,7 @@
 
             var self = this;
             models.getUser(function (user) {
-                self.$el.html(nunjucks.render('templates/shared/account.jinja2', {'user': user, 'window': true}));
+                self.$el.html(nunjucks.render('templates/shared/new-page.jinja2', {'user': user, 'window': true}));
                 user.getUnstartedPages(function (companies) {
                     //TODO HOW TO INSERT AFTER?
                     self.$el.find('.company-thumbs').html(nunjucks.render('templates/shared/company-thumbs.jinja2',
