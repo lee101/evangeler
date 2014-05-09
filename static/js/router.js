@@ -38,6 +38,7 @@
 	APP.currentView = location.pathname;
 	function defaultHandler(pathname) {
 		return function () {
+			var args = arguments;
 			if (APP.currentView == pathname && prerenderedPages[APP.currentView]) {
 				return;
 			}
@@ -48,13 +49,16 @@
 					facebookWrapper.ifLoggedInElse(function () {
 						APP.currentView = pathname;
 						APP.refresh();
-						animateTo(new APP.Views[pathname]().render().el);
-					});
+						animateTo(new APP.Views[pathname]({args: args}).render().el);
+					}, function() {
+							//TODO login to view this page modal
+						}
+					);
 				}
 				else {
 					APP.currentView = pathname;
 					APP.refresh();
-					animateTo(new APP.Views[pathname]().render().el);
+					animateTo(new APP.Views[pathname]({args: args}).render().el);
 				}
 			});
 
@@ -66,6 +70,7 @@
 		"/how-it-works": "how-it-works",
 		"/categories": "categories",
 		"/companies": "companies",
+		"/companies/:url_title": "companies/:url_title",
 		"/company": "company",
 		"/about": "about",
 		"/contact": "contact",
@@ -79,6 +84,7 @@
 	});
 	jQuery.extend(routes, {
 		'account': 'account',
+		'companies/edit/:url_title': 'companies/edit/:url_title',
 		'new-page': 'new-page'
 	});
 
@@ -89,6 +95,8 @@
 		'how-it-works': defaultHandler('/how-it-works'),
 		'categories': defaultHandler('/categories'),
 		'companies': defaultHandler('/companies'),
+		'companies/edit/:url_title': defaultHandler('/companies/edit/:url_title'),
+		'companies/:url_title': defaultHandler('/companies/:url_title'),
 		'company': defaultHandler('/company'),
 		'about': defaultHandler('/about'),
 		'contact': defaultHandler('/contact'),

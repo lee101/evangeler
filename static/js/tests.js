@@ -38,7 +38,8 @@ describe("tests", function () {
                 authResponse: {
                     accessToken: 'test',
                     userID: 'test'
-                }
+                },
+	            status: 'connected'
             })
         };
         facebookWrapper.getFaceBookPages = function (callback) {

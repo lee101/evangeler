@@ -78,23 +78,27 @@
             return this;
         }
     });
-    APP.Views['/company'] = Backbone.View.extend({
-        initialize: function (options) {
-        },
-
-        render: function () {
-	        var $modal = $('#modal');
-	        $modal.html(nunjucks.render('templates/shared/company.jinja2'));
-	        $modal.modal('show');
-	        return this;
-        }
-    });
     APP.Views['/companies'] = Backbone.View.extend({
         initialize: function (options) {
         },
 
         render: function () {
             this.$el.html(nunjucks.render('templates/shared/companies.jinja2'));
+            return this;
+        }
+    });
+    APP.Views['/companies/:url_title'] = Backbone.View.extend({
+        initialize: function (options) {
+	        this.company_url_title = options.args[0];
+        },
+
+        render: function () {
+	        var $modal = $('#modal');
+
+	        models.getCompanyByUrlTitle(this.company_url_title, function(company) {
+		        $modal.find('.modal-body').html(nunjucks.render('templates/shared/company.jinja2', {'company': company}));
+		        $modal.modal('show');
+	        });
             return this;
         }
     });

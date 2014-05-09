@@ -15,22 +15,23 @@
 
                     <div class="media">
 
-                        <a class="pull-left" href="/companies/{{ company.url_title }}" onclick="return APP.goto('company')">
+                        <a class="pull-left" href="/companies/{{ company.url_title }}">
                             <img class="media-object" src="{{ company.pic }}" alt="{{ company.name }} Logo" width="100"
                                  height="100">
                         </a>
 
                         <div class="media-body">
-                            <a class="media-heading mm-footer__heading"
-                               href="/companies/{{ company.url_title }}">{{ company.name }}</a>
+                            <a class="media-heading mm-footer__heading" href="/companies/{{ company.url_title }}"
+                               onclick="return APP.goto('companies/{{ company.url_title }}')">{{ company.name }}</a>
 
                             <p class="text-smaller">{{ company.about }}</p>
                             {% if showEditButtons %}
-                                <a class="btn" href="/companies/{{ company.url_title }}"
-                                   title="View {{ company.name }}">View</a>
+                                <a class="btn" href="/companies/{{ company.url_title }}" title="View {{ company.name }}"
+                                   onclick="return APP.goto('companies/{{ company.url_title }}')">View</a>
                                 |
                                 <a class="btn" href="/companies/edit/{{ company.url_title }}"
-                                   title="Edit {{ company.name }}">Edit</a>
+                                   title="Edit {{ company.name }}"
+                                   onclick="return APP.goto('companies/edit/{{ company.url_title }}')">Edit</a>
                             {% endif %}
                         </div>
                     </div>
@@ -50,6 +51,7 @@
         {% endif %}
     </div>
 </div>
+
 {# END copied from company-thumbs!!! #}
 
 <div class="mm-grid">

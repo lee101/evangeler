@@ -218,7 +218,12 @@ class GetCompanyHandler(BaseHandler):
     def get(self):
 
         ids = self.request.get_all('ids[]')
-        companies = Company.getCompaniesByIds(ids)
+        if ids:
+            companies = Company.getCompaniesByIds(ids)
+        else:
+            url_title = self.request.get('url_title')
+
+            companies = Company.getByUrlTitle(url_title)
 
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(companies, cls=GameOnUtils.MyEncoder))
