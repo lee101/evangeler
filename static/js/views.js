@@ -89,14 +89,14 @@
     });
     APP.Views['/companies/:url_title'] = Backbone.View.extend({
         initialize: function (options) {
-	        this.company_url_title = options.args[0];
+            this.company_url_title = options.args[0];
         },
 
         render: function () {
 
-	        models.getCompanyByUrlTitle(this.company_url_title, function(company) {
-		        evutils.setModal(nunjucks.render('templates/shared/company.jinja2', {'company': company}));
-	        });
+            models.getCompanyByUrlTitle(this.company_url_title, function (company) {
+                evutils.setModal(nunjucks.render('templates/shared/company.jinja2', {'company': company}));
+            });
             return this;
         }
     });

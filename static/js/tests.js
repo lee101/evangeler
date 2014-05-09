@@ -39,7 +39,7 @@ describe("tests", function () {
                     accessToken: 'test',
                     userID: 'test'
                 },
-	            status: 'connected'
+                status: 'connected'
             })
         };
         facebookWrapper.getFaceBookPages = function (callback) {
@@ -105,12 +105,12 @@ describe("lib", function () {
             }, function (data) {
                 expect(data).toBe('success');
                 models.getUser(function (user) {
-                    user.getCompanies(function(companies) {
+                    user.getCompanies(function (companies) {
                         expect(companies[0].page_id).toBe(page_id);
                         user.getUnstartedPages(function (pages) {
                             var containsWS = false;
-                            _.each(pages, function(page){
-                                if(page.page_id == page_id) {
+                            _.each(pages, function (page) {
+                                if (page.page_id == page_id) {
                                     containsWS = true
                                 }
                             });
