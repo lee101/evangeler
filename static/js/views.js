@@ -93,11 +93,9 @@
         },
 
         render: function () {
-	        var $modal = $('#modal');
 
 	        models.getCompanyByUrlTitle(this.company_url_title, function(company) {
-		        $modal.find('.modal-body').html(nunjucks.render('templates/shared/company.jinja2', {'company': company}));
-		        $modal.modal('show');
+		        evutils.setModal(nunjucks.render('templates/shared/company.jinja2', {'company': company}));
 	        });
             return this;
         }

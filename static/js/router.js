@@ -2,9 +2,11 @@
 	"use strict";
 	window.APP = window.APP || {Routers: {}, Collections: {}, Models: {}, Views: {}};
 	APP.routerViews = {};
+	var history = [];
 	APP.goto = function (name) {
+		history.push(name)
 		APP.router.navigate(name, {trigger: true});
-		$(this).toggleClass('active');
+//		$(this).toggleClass('active');
 		return false
 	};
 	APP.delete_cookie = function (name) {
@@ -12,6 +14,11 @@
 	};
 
 	function animateTo(data) {
+		if(evutils.modalHidden) {
+
+		} else {
+
+		}
 		var width = $(document).width();
 
 

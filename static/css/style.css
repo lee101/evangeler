@@ -27,6 +27,9 @@ a:focus {
 .text-smaller {
   font-size: 16.2px;
 }
+.modal-header {
+  border-bottom: none;
+}
 body {
   background-repeat: repeat;
   background-position: center 12px;

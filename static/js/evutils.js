@@ -34,4 +34,43 @@ window.evutils = new (function () {
 		return false;
 	}
 
+	//Modals
+	self.modalHidden = true;
+	var $modal = $('#modal');
+	$modal.on('hide.bs.modal', function (e) {
+		self.modalHidden = true;
+	});
+
+	$modal.on('show.bs.modal', function (e) {
+		self.modalHidden = false;
+	});
+	self.showModal = function () {
+		$modal.modal('show');
+	};
+	self.hideModal = function () {
+		$modal.modal('hide');
+	};
+	self.setModal = function (content) {
+		$modal.find('.modal-body').html(content);
+		self.showModal();
+	};
+
+	//History
+	self.history = (function () {
+		var hself = this;
+		var history = [window.location.pathname];
+		var historyIdx = 0;
+		hself.goingback = false;
+		hself.add = function () {
+			var state = window.location.pathname;
+			if (historyIdx >= 1) {
+				if (history[historyIdx - 1] == state) {
+					historyIdx -= 1;
+					hself.goingback = true;
+				}
+			}
+		}
+		return hself;
+	})();
+
 })();
