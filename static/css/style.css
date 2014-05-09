@@ -219,12 +219,18 @@ body {
   text-align: center;
   border: 3px dashed #008000;
   display: block;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 .mm-highlighted-new:hover {
   border: 3px dashed orange;
+  background-color: orange;
+  border-radius: 13px;
 }
 .mm-highlighted-new:hover .mm-highlighted-new__text {
-  color: orange;
+  color: white;
 }
 .mm-highlighted-new__text {
   text-align: center;

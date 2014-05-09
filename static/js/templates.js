@@ -196,9 +196,7 @@ output += "\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
 output += "</a>\n\n                        <p class=\"text-smaller\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"about", env.autoesc), env.autoesc);
-output += "</p>\n\n                        <p class=\"text-smaller\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"description", env.autoesc), env.autoesc);
-output += "</p>\n\n\n\n                        <p class=\"text-smaller\">\n                            <a href=\"";
+output += "</p>\n\n\n                        <p class=\"text-smaller\">\n                            <a href=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"facebook_link", env.autoesc), env.autoesc);
 output += "\" title=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
@@ -206,7 +204,9 @@ output += " on Facebook\"\n                               target=\"_blank\">\n  
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"website_link", env.autoesc), env.autoesc);
 output += "\" title=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += " on Facebook\"\n                               target=\"_blank\">\n                                <span class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></span><span\n                                    class=\"footer__social-link-text\"> Website</span>\n                            </a>\n                        </p>\n\n\n                    </div>\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n</div>\n";
+output += " on Facebook\"\n                               target=\"_blank\">\n                                <span class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></span><span\n                                    class=\"footer__social-link-text\"> Website</span>\n                            </a>\n                        </p>\n\n\n                    </div>\n                </div>\n\n                <p class=\"text-smaller\">";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"description", env.autoesc), env.autoesc);
+output += "</p>\n\n\n            </div>\n\n        </div>\n\n    </div>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {

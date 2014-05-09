@@ -56,7 +56,7 @@ window.evutils = new (function () {
     };
 
     //History
-    self.history = (function () {
+    self.history = new (function () {
         var hself = this;
         var history = [window.location.pathname];
         var historyIdx = 0;
