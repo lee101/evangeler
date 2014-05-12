@@ -4,7 +4,7 @@
     APP.routerViews = {};
     var history = [];
     APP.goto = function (name) {
-        history.push(name)
+        history.push(name);
         APP.router.navigate(name, {trigger: true});
 //		$(this).toggleClass('active');
         return false
@@ -13,25 +13,31 @@
         document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     };
 
-    function animateTo(data) {
-        if (evutils.modalHidden) {
 
-        } else {
+    function animateTo(data, rightOrLeft) {
 
-        }
         var width = $(document).width();
 
 
         var $mainbody = $('#mainbody');
         var speed = 500;
-        $mainbody.animate({
-            left: -width
-        }, speed, null, function () {
+        if (rightOrLeft === "right") {
+            $mainbody.animate({left: -width}, speed, null, function () {
 
-            $mainbody.html(data);
-            $mainbody.css({left: width});
-            $mainbody.animate({left: 0}, speed)
-        });
+                $mainbody.html(data);
+                $mainbody.css({left: width});
+                $mainbody.animate({left: 0}, speed)
+            });
+        }
+        else {
+            $mainbody.animate({left: width}, speed, null, function () {
+
+                $mainbody.html(data);
+                $mainbody.css({left: -width});
+                $mainbody.animate({left: 0}, speed)
+            });
+        }
+
         //scroll to top
         $("html, body").animate({ scrollTop: 0 }, "slow");
     }
@@ -41,7 +47,15 @@
         APP.header.path = location.pathname;
         $('#headerbody').html(APP.header.render().el);
         $('#footerbody').html(APP.footer.render().el);
-    }
+    };
+
+    var modalPages = {
+        '/companies/:url_title': 1,
+        'companies/edit/:url_title': 1
+    };
+
+
+    var isViewingModal = false;
     APP.currentView = location.pathname;
     function defaultHandler(pathname) {
         return function () {
@@ -49,23 +63,42 @@
             if (APP.currentView == pathname && prerenderedPages[APP.currentView]) {
                 return;
             }
+
+            function handle() {
+                evutils.history.add();
+                APP.currentView = pathname;
+                if (modalClosing) {
+                    modalClosing = false;
+                    return;
+                }
+                APP.refresh();
+                if (modalPages[pathname]) {
+                    isViewingModal = true;
+                    new APP.Views[pathname]({args: args})
+                        .render();
+                } else {
+                    isViewingModal = false;
+                    if (evutils.history.goingback) {
+                        animateTo(new APP.Views[pathname]({args: args}).render().el, "left");
+                    } else {
+                        animateTo(new APP.Views[pathname]({args: args}).render().el, "right");
+                    }
+                }
+            }
+
             facebookWrapper.onEverythingLoaded(function () {
 
                 //if its not prerendered it requires login
                 if (!prerenderedPages[APP.currentView]) {
                     facebookWrapper.ifLoggedInElse(function () {
-                            APP.currentView = pathname;
-                            APP.refresh();
-                            animateTo(new APP.Views[pathname]({args: args}).render().el);
+                            handle();
                         }, function () {
                             //TODO login to view this page modal
                         }
                     );
                 }
                 else {
-                    APP.currentView = pathname;
-                    APP.refresh();
-                    animateTo(new APP.Views[pathname]({args: args}).render().el);
+                    handle();
                 }
             });
 
@@ -114,7 +147,17 @@
         'account': defaultHandler('/account')
     });
 
+    var modalClosing = false;
     $(document).ready(function () {
+        var $modal = $('#modal');
+        $modal.on('hide.bs.modal', function ModalClose() {
+            var previousState = evutils.history.previousState();
+            if (isViewingModal) {
+                modalClosing = true;
+                APP.router.navigate(previousState, {trigger: true});
+            }
+        });
+
         APP.router = new Router();
         APP.header = new APP.Views.Header({path: location.pathname});
         APP.footer = new APP.Views.Footer({path: location.pathname});

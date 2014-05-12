@@ -341,7 +341,7 @@ output += "\n        ";
 if(runtime.contextOrFrameLookup(context, frame, "window")) {
 output += "\n            ";
 if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"facebook_access_token", env.autoesc)) {
-output += "\n                <a class=\"mm-header__link mm-header__profile-link pull-right\" href=\"/account\" title=\"How It Works\"\n                   onclick=\"return APP.goto('account')\">\n                    <img src=\"https://graph.facebook.com/";
+output += "\n                <a class=\"mm-header__link mm-header__profile-link pull-right\" href=\"/account\" title=\"My Account\"\n                   onclick=\"return APP.goto('account')\">\n                    <img src=\"https://graph.facebook.com/";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"facebook_id", env.autoesc), env.autoesc);
 output += "/picture\" width=\"50\" height=\"50\">\n                </a>\n            ";
 ;

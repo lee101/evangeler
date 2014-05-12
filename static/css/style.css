@@ -30,6 +30,12 @@ a:focus {
 .modal-header {
   border-bottom: none;
 }
+.btn {
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
 body {
   background-repeat: repeat;
   background-position: center 12px;
@@ -218,6 +224,7 @@ body {
 .mm-highlighted-new {
   text-align: center;
   border: 3px dashed #008000;
+  border-radius: 13px;
   display: block;
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
@@ -225,9 +232,8 @@ body {
   transition: all 0.3s ease-in;
 }
 .mm-highlighted-new:hover {
-  border: 3px dashed orange;
-  background-color: orange;
-  border-radius: 13px;
+  border: 3px dashed #ed9c28;
+  background-color: #ed9c28;
 }
 .mm-highlighted-new:hover .mm-highlighted-new__text {
   color: white;

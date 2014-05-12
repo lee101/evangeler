@@ -36,22 +36,25 @@ window.evutils = new (function () {
 
     //Modals
     self.modalHidden = true;
-    var $modal = $('#modal');
-    $modal.on('hide.bs.modal', function (e) {
-        self.modalHidden = true;
-    });
+    $(document).ready(function () {
 
-    $modal.on('show.bs.modal', function (e) {
-        self.modalHidden = false;
+        var $modal = $('#modal');
+        $modal.on('hide.bs.modal', function (e) {
+            self.modalHidden = true;
+        });
+
+        $modal.on('show.bs.modal', function (e) {
+            self.modalHidden = false;
+        });
     });
     self.showModal = function () {
-        $modal.modal('show');
+        $('#modal').modal('show');
     };
     self.hideModal = function () {
-        $modal.modal('hide');
+        $('#modal').modal('hide');
     };
     self.setModal = function (content) {
-        $modal.find('.modal-body').html(content);
+        $('#modal').find('.modal-body').html(content);
         self.showModal();
     };
 
@@ -63,13 +66,25 @@ window.evutils = new (function () {
         hself.goingback = false;
         hself.add = function () {
             var state = window.location.pathname;
-            if (historyIdx >= 1) {
-                if (history[historyIdx - 1] == state) {
-                    historyIdx -= 1;
-                    hself.goingback = true;
-                }
+            if (historyIdx >= 1 && history[historyIdx - 1] == state) {
+                historyIdx -= 1;
+                hself.goingback = true;
+            } else {
+                hself.goforward(state);
             }
-        }
+        };
+        hself.goforward = function (state) {
+            historyIdx++;
+            history[historyIdx] = state;
+            hself.goingback = false;
+        };
+        hself.previousState = function () {
+            if (historyIdx >= 1) {
+                return history[historyIdx - 1];
+            }
+            return null;
+        };
+
         return hself;
     })();
 
