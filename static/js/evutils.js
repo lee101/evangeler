@@ -88,4 +88,11 @@ window.evutils = new (function () {
         return hself;
     })();
 
+    self.urlencode = function(name) {
+        return name.replace(/[\.\t\,\:;\(\)'@!\\\?#/<>\s]/g, '')
+            .replace(/  */g, '-')
+            .replace(/[^\x00-\x7F]/g, "")
+            .toLowerCase();
+    }
+
 })();

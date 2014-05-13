@@ -129,11 +129,27 @@
             models.getUser(function (user) {
                 self.$el.html(nunjucks.render('templates/shared/new-page.jinja2', {'user': user, 'window': true}));
                 user.getUnstartedPages(function (companies) {
-                    //TODO HOW TO INSERT AFTER?
                     self.$el.find('.company-thumbs').html(nunjucks.render('templates/shared/company-thumbs.jinja2',
                         {'companies': companies, 'createcompany': false, 'showEditButtons': false }));
                 });
 
+            });
+            return self;
+        }
+    });
+    APP.Views['/new-page/:url_title'] = Backbone.View.extend({
+        initialize: function (options) {
+            this.company_url_title = options.args[0];
+        },
+
+        render: function () {
+            var self = this;
+            models.getUser(function (user) {
+                user.getUnstartedPages(function (companies) {
+                    var page = _.where(companies, { url_title: this.company_url_title })[0];
+                    self.$el.html(nunjucks.render('templates/shared/create-new-page.jinja2',
+                        {'page': page, 'window': true}));
+                });
             });
             return self;
         }
