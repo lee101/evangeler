@@ -14,14 +14,14 @@
 
                         <div class="media-body">
                             <a class="media-heading mm-footer__heading" href="/companies/{{ company.url_title }}"
-                               onclick="return APP.goto('companies/{{ company.url_title }}')">{{ company.name }}</a>
+                              >{{ company.name }}</a>
 
                             <p class="text-smaller">{{ company.about }}</p>
                             {% if showEditButtons %}
-                                <a class="btn" href="/companies/{{ company.url_title }}" title="View {{ company.name }}" onclick="return APP.goto('companies/{{ company.url_title }}')">View</a>
+                                <a class="btn" href="/companies/{{ company.url_title }}" title="View {{ company.name }}">View</a>
                                 |
                                 <a class="btn" href="/companies/edit/{{ company.url_title }}" title="Edit {{ company.name }}"
-                                   onclick="return APP.goto('companies/edit/{{ company.url_title }}')">Edit</a>
+                                  >Edit</a>
                             {% endif %}
                         </div>
                     </div>
@@ -34,7 +34,7 @@
             <div class="col-md-6">
                 <a href="/new-page" class="mm-grid__section mm-highlighted-new"
                    title="Create a New Page On Evangeler.com"
-                   onclick="return APP.goto('new-page')">
+                  >
                     <h4 class="mm-highlighted-new__text">New</h4>
                 </a>
             </div>

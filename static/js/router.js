@@ -9,6 +9,14 @@
 //		$(this).toggleClass('active');
         return false
     };
+    $(document).on('click', 'a:not([data-bypass])', function (e) {
+        var href = $(this).prop('href');
+        var root = location.protocol + '//' + location.host + '/';
+        if (root === href.slice(0, root.length)) {
+            e.preventDefault();
+            APP.goto(href.slice(root.length));
+        }
+    });
     APP.delete_cookie = function (name) {
         document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     };

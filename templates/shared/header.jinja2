@@ -4,7 +4,7 @@
     <div class="mm-logo">
         {% if path == '/' %}
             <span class="mm-logo__link" title="Evangeler - Social Marketing For The Masses!"
-               onclick="return APP.goto('')">
+              >
                 <img src="/static/img/evangeler-logo64.png" class="mm-logo__image" width="64" height="64"
                      alt="Evangeler">
 
@@ -12,7 +12,7 @@
             </span>
         {% else %}
         <a href="/" class="mm-logo__link" title="Evangeler - Social Marketing For The Masses!"
-           onclick="return APP.goto('')">
+          >
             <img src="/static/img/evangeler-logo64.png" class="mm-logo__image" width="64" height="64"
                  alt="Evangeler">
 
@@ -27,14 +27,14 @@
             </span>
         {% else %}
             <a class="mm-header__link" href="/how-it-works" title="How It Works"
-               onclick="return APP.goto('how-it-works')">
+              >
                 How It Works
             </a>
         {% endif %}
         {% if window %}
             {% if user.facebook_access_token %}
                 <a class="mm-header__link mm-header__profile-link pull-right" href="/account" title="My Account"
-                   onclick="return APP.goto('account')">
+                  >
                     <img src="https://graph.facebook.com/{{ user.facebook_id }}/picture" width="50" height="50">
                 </a>
             {% endif %}

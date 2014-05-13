@@ -3,7 +3,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        Evangeler Helps Companies Create Viral and Social Marketing Campaigns.\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Companies offer cash prizes on evangeler.com in exchange for people promoting there products\n    </h2>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h1 class=\"mm-marketing-text mm-marketing-text--black\">\n        Social Marketing Helps Business!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Evangeler gives businesses direct access to millions of marketers!\n    </h2>\n    <a href=\"/categories\" class=\"gameon-btn-hg btn btn-success btn-lg\" title=\"Create a Viral Marketing Campaign!\"\n       onclick=\"return APP.goto('/categories')\">Create Social Marketing Campaign!\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h1 class=\"mm-marketing-text\">\n        Social Marketing Helps People!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Win cash prizes for promoting products you love!\n    </h2>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\">Browse Marketing Contests\n    </button>\n</div>\n";
+output += "<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        Evangeler Helps Companies Create Viral and Social Marketing Campaigns.\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Companies offer cash prizes on evangeler.com in exchange for people promoting there products\n    </h2>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h1 class=\"mm-marketing-text mm-marketing-text--black\">\n        Social Marketing Helps Business!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Evangeler gives businesses direct access to millions of marketers!\n    </h2>\n    <a href=\"/categories\" class=\"gameon-btn-hg btn btn-success btn-lg\" title=\"Create a Viral Marketing Campaign!\"\n      >Create Social Marketing Campaign!\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h1 class=\"mm-marketing-text\">\n        Social Marketing Helps People!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Win cash prizes for promoting products you love!\n    </h2>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\">Browse Marketing Contests\n    </button>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -20,7 +20,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-hero pistachio\">\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        My Contests.\n    </h2>\n</div>\n<div class=\"contest-thumbs\">\n\n</div>\n<div class=\"mm-grid\">\n\n    <div class=\"row\">\n\n        <div class=\"col-md-6\">\n            <a href=\"/categories\" class=\"mm-grid__section mm-highlighted-new\" title=\"Create a New Contest!\"\n               onclick=\"return APP.goto('categories')\">\n                <h4 class=\"mm-highlighted-new__text\">New</h4>\n            </a>\n        </div>\n    </div>\n</div>\n\n<div class=\"mm-hero mm-hero--secondary morange\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        My Pages.\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n\n</div>\n\n";
+output += "<div class=\"mm-hero pistachio\">\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        My Contests.\n    </h2>\n</div>\n<div class=\"contest-thumbs\">\n\n</div>\n<div class=\"mm-grid\">\n\n    <div class=\"row\">\n\n        <div class=\"col-md-6\">\n            <a href=\"/categories\" class=\"mm-grid__section mm-highlighted-new\" title=\"Create a New Contest!\"\n              >\n                <h4 class=\"mm-highlighted-new__text\">New</h4>\n            </a>\n        </div>\n    </div>\n</div>\n\n<div class=\"mm-hero mm-hero--secondary morange\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        My Pages.\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n\n</div>\n\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -69,9 +69,7 @@ output += "\" alt=\"";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\" href=\"/companies/";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "\"\n                               onclick=\"return APP.goto('companies/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "')\">";
+output += "\"\n                              >";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += "</a>\n\n                            <p class=\"text-smaller\">";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"about", env.autoesc), env.autoesc);
@@ -81,15 +79,11 @@ output += "\n                                <a class=\"btn\" href=\"/companies/
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\" title=\"View ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\"\n                                   onclick=\"return APP.goto('companies/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "')\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
+output += "\"\n                                  >View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\"\n                                   title=\"Edit ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\"\n                                   onclick=\"return APP.goto('companies/edit/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "')\">Edit</a>\n                            ";
+output += "\"\n                                  >Edit</a>\n                            ";
 ;
 }
 output += "\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        ";
@@ -99,7 +93,7 @@ output += "\n                        </div>\n                    </div>\n       
 frame = frame.pop();
 output += "\n\n        ";
 if(runtime.contextOrFrameLookup(context, frame, "createcompany")) {
-output += "\n            <div class=\"col-md-6\">\n                <a href=\"/new-page\" class=\"mm-grid__section mm-highlighted-new\"\n                   title=\"Create a New Page On Evangeler.com\"\n                   onclick=\"return APP.goto('new-page')\">\n                    <h4 class=\"mm-highlighted-new__text\">New</h4>\n                </a>\n            </div>\n        ";
+output += "\n            <div class=\"col-md-6\">\n                <a href=\"/new-page\" class=\"mm-grid__section mm-highlighted-new\"\n                   title=\"Create a New Page On Evangeler.com\"\n                  >\n                    <h4 class=\"mm-highlighted-new__text\">New</h4>\n                </a>\n            </div>\n        ";
 ;
 }
 output += "\n    </div>\n</div>\n\n";
@@ -134,9 +128,7 @@ output += "\" alt=\"";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\" href=\"/companies/";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "\"\n                               onclick=\"return APP.goto('companies/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "')\">";
+output += "\"\n                              >";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += "</a>\n\n                            <p class=\"text-smaller\">";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"about", env.autoesc), env.autoesc);
@@ -146,15 +138,11 @@ output += "\n                                <a class=\"btn\" href=\"/companies/
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\" title=\"View ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\" onclick=\"return APP.goto('companies/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "')\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
+output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\" title=\"Edit ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\"\n                                   onclick=\"return APP.goto('companies/edit/";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "')\">Edit</a>\n                            ";
+output += "\"\n                                  >Edit</a>\n                            ";
 ;
 }
 output += "\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        ";
@@ -164,7 +152,7 @@ output += "\n                        </div>\n                    </div>\n       
 frame = frame.pop();
 output += "\n\n        ";
 if(runtime.contextOrFrameLookup(context, frame, "createcompany")) {
-output += "\n            <div class=\"col-md-6\">\n                <a href=\"/new-page\" class=\"mm-grid__section mm-highlighted-new\"\n                   title=\"Create a New Page On Evangeler.com\"\n                   onclick=\"return APP.goto('new-page')\">\n                    <h4 class=\"mm-highlighted-new__text\">New</h4>\n                </a>\n            </div>\n        ";
+output += "\n            <div class=\"col-md-6\">\n                <a href=\"/new-page\" class=\"mm-grid__section mm-highlighted-new\"\n                   title=\"Create a New Page On Evangeler.com\"\n                  >\n                    <h4 class=\"mm-highlighted-new__text\">New</h4>\n                </a>\n            </div>\n        ";
 ;
 }
 output += "\n    </div>\n</div>\n";
@@ -263,7 +251,7 @@ output += "\n                    <span>Contact</span>\n                ";
 ;
 }
 else {
-output += "\n                    <a class=\"footer__link\" href=\"/contact\" title=\"Contact Us\"\n                       onclick=\"return APP.goto('contact')\">Contact</a>\n                ";
+output += "\n                    <a class=\"footer__link\" href=\"/contact\" title=\"Contact Us\"\n                      >Contact</a>\n                ";
 ;
 }
 output += "\n                ";
@@ -272,7 +260,7 @@ output += "\n                    <span>About Us</span>\n                ";
 ;
 }
 else {
-output += "\n                    <a class=\"footer__link\" href=\"/about\" title=\"About Evangeler\"\n                       onclick=\"return APP.goto('about')\">About</a>\n                ";
+output += "\n                    <a class=\"footer__link\" href=\"/about\" title=\"About Evangeler\"\n                      >About</a>\n                ";
 ;
 }
 output += "\n            </div>\n        </div>\n        <div class=\"col-md-6\">\n            <div class=\"mm-grid__section\">\n\n                <h4 class=\"mm-footer__heading\">Social</h4>\n                <a class=\"footer__link\" href=\"https://www.facebook.com/pages/Evangeler/721564427863714\" title=\"Evangeler on Facebook\"\n                   target=\"_blank\">\n                    <span class=\"fa fa-facebook-square mm-share-btn mm-share-btn--facebook\"></span><span\n                        class=\"footer__social-link-text\"> Facebook</span>\n                </a>\n                <a class=\"footer__link\" href=\"http://www.twitter.com/evangelersays\" title=\"Evangeler on Twitter\"\n                   target=\"_blank\">\n                    <span class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></span><span\n                        class=\"footer__social-link-text\"> Twitter</span>\n                </a>\n                <a class=\"footer__link\" href=\"http://www.pinterest.com/evangeler\" title=\"Evangeler on Pinterest\"\n                   target=\"_blank\">\n                    <span class=\"fa fa-pinterest-square mm-share-btn mm-share-btn--pinterest\"></span><span\n                        class=\"footer__social-link-text\"> Pinterest</span>\n                </a>\n                <a class=\"footer__link\" href=\"https://plus.google.com/+Evangeler\" rel=\"publisher\"\n                   title=\"Evangeler on Google Plus\" target=\"_blank\">\n                    <span class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></span><span\n                        class=\"footer__social-link-text\"> Google+</span>\n                </a>\n            </div>\n        </div>\n    </div>\n    <br/>\n\n    <div class=\"mm-tc pull-left\">\n        <span>© 2014 Evangeler</span>\n        ";
@@ -281,7 +269,7 @@ output += "\n            <span>Terms &amp; Conditions</span>\n        ";
 ;
 }
 else {
-output += "\n            <a href=\"/terms\" title=\"Terms &amp; Conditions\" onclick=\"return APP.goto('terms')\">Terms &amp; Conditions</a>\n        ";
+output += "\n            <a href=\"/terms\" title=\"Terms &amp; Conditions\">Terms &amp; Conditions</a>\n        ";
 ;
 }
 output += "\n        |\n\n        ";
@@ -290,7 +278,7 @@ output += "\n            <span>Privacy</span>\n        ";
 ;
 }
 else {
-output += "\n            <a href=\"/privacy\" title=\"Privacy\" onclick=\"return APP.goto('privacy')\">Privacy</a>\n        ";
+output += "\n            <a href=\"/privacy\" title=\"Privacy\">Privacy</a>\n        ";
 ;
 }
 output += "\n        |\n\n        ";
@@ -299,7 +287,7 @@ output += "\n            <span>Refunds</span>\n        ";
 ;
 }
 else {
-output += "\n            <a href=\"/refunds\" title=\"Money Back Guarantee\" onclick=\"return APP.goto('refunds')\">Refunds</a>\n        ";
+output += "\n            <a href=\"/refunds\" title=\"Money Back Guarantee\">Refunds</a>\n        ";
 ;
 }
 output += "\n    </div>\n\n</div>\n";
@@ -321,11 +309,11 @@ var output = "";
 try {
 output += "\n\n<div class=\"mm-header\">\n    <div class=\"mm-logo\">\n        ";
 if(runtime.contextOrFrameLookup(context, frame, "path") == "/") {
-output += "\n            <span class=\"mm-logo__link\" title=\"Evangeler - Social Marketing For The Masses!\"\n               onclick=\"return APP.goto('')\">\n                <img src=\"/static/img/evangeler-logo64.png\" class=\"mm-logo__image\" width=\"64\" height=\"64\"\n                     alt=\"Evangeler\">\n\n                <h1 class=\"mm-logo__text\">Evangeler</h1>\n            </span>\n        ";
+output += "\n            <span class=\"mm-logo__link\" title=\"Evangeler - Social Marketing For The Masses!\"\n              >\n                <img src=\"/static/img/evangeler-logo64.png\" class=\"mm-logo__image\" width=\"64\" height=\"64\"\n                     alt=\"Evangeler\">\n\n                <h1 class=\"mm-logo__text\">Evangeler</h1>\n            </span>\n        ";
 ;
 }
 else {
-output += "\n        <a href=\"/\" class=\"mm-logo__link\" title=\"Evangeler - Social Marketing For The Masses!\"\n           onclick=\"return APP.goto('')\">\n            <img src=\"/static/img/evangeler-logo64.png\" class=\"mm-logo__image\" width=\"64\" height=\"64\"\n                 alt=\"Evangeler\">\n\n            <h1 class=\"mm-logo__text\">Evangeler</h1>\n        </a>\n        ";
+output += "\n        <a href=\"/\" class=\"mm-logo__link\" title=\"Evangeler - Social Marketing For The Masses!\"\n          >\n            <img src=\"/static/img/evangeler-logo64.png\" class=\"mm-logo__image\" width=\"64\" height=\"64\"\n                 alt=\"Evangeler\">\n\n            <h1 class=\"mm-logo__text\">Evangeler</h1>\n        </a>\n        ";
 ;
 }
 output += "\n    </div>\n    <div class=\"mm-header__nav\">\n        ";
@@ -334,14 +322,14 @@ output += "\n            <span class=\"mm-header__link active\">\n              
 ;
 }
 else {
-output += "\n            <a class=\"mm-header__link\" href=\"/how-it-works\" title=\"How It Works\"\n               onclick=\"return APP.goto('how-it-works')\">\n                How It Works\n            </a>\n        ";
+output += "\n            <a class=\"mm-header__link\" href=\"/how-it-works\" title=\"How It Works\"\n              >\n                How It Works\n            </a>\n        ";
 ;
 }
 output += "\n        ";
 if(runtime.contextOrFrameLookup(context, frame, "window")) {
 output += "\n            ";
 if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"facebook_access_token", env.autoesc)) {
-output += "\n                <a class=\"mm-header__link mm-header__profile-link pull-right\" href=\"/account\" title=\"My Account\"\n                   onclick=\"return APP.goto('account')\">\n                    <img src=\"https://graph.facebook.com/";
+output += "\n                <a class=\"mm-header__link mm-header__profile-link pull-right\" href=\"/account\" title=\"My Account\"\n                  >\n                    <img src=\"https://graph.facebook.com/";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"facebook_id", env.autoesc), env.autoesc);
 output += "/picture\" width=\"50\" height=\"50\">\n                </a>\n            ";
 ;
@@ -366,7 +354,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "\n<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        1: Sign up with Facebook!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        We'll create a page for your business on Evangeler.com!\n    </h2>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\" onclick=\"window.facebookWrapper.fb_login();return false\">Login With Facebook\n    </button>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h1 class=\"mm-marketing-text mm-marketing-text--black\">\n        2: Create &amp; run a viral marketing contest you like!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Evangelers from all over the world compete to promote your product and win cash prizes!\n    </h2>\n    <a class=\"gameon-btn-hg btn btn-success btn-lg\" href=\"/categories\" title=\"Create A Viral Marketing Contest!\"\n       onclick=\"return APP.goto('categories')\">Create Contest!\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h1 class=\"mm-marketing-text\">\n        3: Award a winner!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        For best results share your contest at every stage!\n    </h2>\n</div>\n";
+output += "\n<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        1: Sign up with Facebook!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        We'll create a page for your business on Evangeler.com!\n    </h2>\n    <button type=\"button\" class=\"gameon-btn-hg btn btn-warning btn-lg\" onclick=\"window.facebookWrapper.fb_login();return false\">Login With Facebook\n    </button>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h1 class=\"mm-marketing-text mm-marketing-text--black\">\n        2: Create &amp; run a viral marketing contest you like!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Evangelers from all over the world compete to promote your product and win cash prizes!\n    </h2>\n    <a class=\"gameon-btn-hg btn btn-success btn-lg\" href=\"/categories\" title=\"Create A Viral Marketing Contest!\"\n      >Create Contest!\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h1 class=\"mm-marketing-text\">\n        3: Award a winner!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        For best results share your contest at every stage!\n    </h2>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -434,7 +422,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        Promote your product with the power of the people!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Create viral marketing campaigns and appeal to the masses!\n    </h2>\n    <a href=\"how-it-works\" class=\"gameon-btn-hg btn btn-warning btn-lg\" onclick=\"return APP.goto('how-it-works')\">Get Started Now!\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--black\">\n        Become an Evangeler!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Make Money talking about products you love!\n    </h3>\n    <a href=\"/contests\" class=\"gameon-btn-hg btn btn-success btn-lg\" onclick=\"return APP.goto('contests')\">Browse Contests\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h2 class=\"mm-marketing-text\">\n        Run an Evangeler contest Free!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Only For A Limited Time!\n    </h3>\n    <a href=\"/how-it-works\" class=\"gameon-btn-hg btn btn-warning btn-lg\" onclick=\"return APP.goto('how-it-works')\">Get Started Now!\n    </a>\n</div>\n";
+output += "<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        Promote your product with the power of the people!\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Create viral marketing campaigns and appeal to the masses!\n    </h2>\n    <a href=\"how-it-works\" class=\"gameon-btn-hg btn btn-warning btn-lg\">Get Started Now!\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--black\">\n        Become an Evangeler!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller mm-marketing-text--black\">\n        Make Money talking about products you love!\n    </h3>\n    <a href=\"/contests\" class=\"gameon-btn-hg btn btn-success btn-lg\">Browse Contests\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h2 class=\"mm-marketing-text\">\n        Run an Evangeler contest Free!\n    </h2>\n\n    <h3 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Only For A Limited Time!\n    </h3>\n    <a href=\"/how-it-works\" class=\"gameon-btn-hg btn btn-warning btn-lg\">Get Started Now!\n    </a>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
