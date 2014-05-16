@@ -1,0 +1,60 @@
+<div class="mm-hero morange">
+    <h2 class="mm-marketing-text mm-marketing-text--smaller">
+        Create a page for {{ company.name }} on Evangeler
+    </h2>
+</div>
+<div class="company-thumbs">
+    <div class="mm-grid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="mm-grid__section">
+
+                    <div class="media">
+
+                        <img class="pull-left media-object" src="{{ company.pic }}" alt="{{ company.name }} Logo"
+                             width="100"
+                             height="100">
+
+                        <div class="media-body">
+                            <form id="create-company-form" role="form">
+                                <a class="media-heading mm-footer__heading" href="/{{ link }}/{{ company.url_title }}"
+                                        >{{ company.name }}</a>
+
+                                <div class="form-group">
+                                    <label for="companyAbout">About</label>
+                                    <textarea id="companyAbout" class="text-smaller form-control"
+                                              rows="4">{{ company.about }}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="companyDescription">Description</label>
+                                    <textarea id="companyDescription" class="text-smaller form-control"
+                                              rows="4">{{ company.description }}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="companyWebsite"><i class="fa fa-globe mm-share-btn mm-share-btn--twitter"></i> Website</label>
+                                    <input id="companyWebsite" class="text-smaller form-control"
+                                              value="{{ company.website_link }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="companyTwitter"><i
+                                            class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></i> Twitter</label>
+                                    <input id="companyTwitter" class="text-smaller form-control" placeholder="@evangelersays">
+                                </div>
+
+
+                                <button type="submit" class="btn btn-default">Submit</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

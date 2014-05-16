@@ -136,7 +136,8 @@
     jQuery.extend(routes, {
         'account': 'account',
         'companies/edit/:url_title': 'companies/edit/:url_title',
-        'new-page': 'new-page'
+        'new-page': 'new-page',
+        'new-page/:url_title': 'new-page/:url_title'
     });
 
     var Router = Backbone.Router.extend({
@@ -155,6 +156,7 @@
         'privacy': defaultHandler('/privacy'),
         'refunds': defaultHandler('/refunds'),
         'new-page': defaultHandler('/new-page'),
+        'new-page/:url_title': defaultHandler('/new-page/:url_title'),
         'account': defaultHandler('/account')
     });
 

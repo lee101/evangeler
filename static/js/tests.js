@@ -125,3 +125,13 @@ describe("lib", function () {
     });
 
 });
+
+describe("the site", function () {
+
+    it('should let you navigate to new page', function (done) {
+        expect(models.user).toBeTruthy();
+        
+    });
+
+});
+
