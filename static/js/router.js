@@ -86,7 +86,10 @@
                         .render();
                 } else {
                     isViewingModal = false;
-                    if (evutils.history.goingback) {
+                    if(!evutils.modalHidden) {
+                        evutils.hideModal();
+                    }
+                    else if (evutils.history.goingback) {
                         animateTo(new APP.Views[pathname]({args: args}).render().el, "left");
                     } else {
                         animateTo(new APP.Views[pathname]({args: args}).render().el, "right");

@@ -1,6 +1,7 @@
 @import "lesshat";
 @import "variables";
 @import "defaults";
+@import "mixins";
 
 body {
     background-repeat: repeat;
@@ -66,14 +67,10 @@ body {
 .mm-logo__text {
     font-family: gesta, sans-serif;
     font-weight: bold;
-    font-size: @base-font-size * 1.2;
+    .font-size(1.6);
     color: @facebook-blue;
     display: inline;
     margin-left: 10px;
-
-    @media (min-width: @small-min-width) {
-        font-size: @base-font-size * 1.6;
-    }
 }
 
 .mm-logo__link:focus,
@@ -117,33 +114,11 @@ body {
     font-family: gesta, sans-serif;
     font-weight: normal;
 
-    font-size: @base-font-size * 1.9;
-
-    @media (min-width: @small-min-width) {
-        font-size: @base-font-size * 2.4;
-    }
-    @media (min-width: @ipad-landscape-min-width) {
-        font-size: @base-font-size * 2.7;
-    }
-    @media (min-width: @huge-min-width) {
-        font-size: @base-font-size * 3;
-
-    }
+    .font-size(3);
 }
 
 .mm-marketing-text--smaller {
-    font-size: @base-font-size * 1.5;
-
-    @media (min-width: @small-min-width) {
-        font-size: @base-font-size * 2;
-    }
-    @media (min-width: @ipad-landscape-min-width) {
-        font-size: @base-font-size * 2.3;
-    }
-    @media (min-width: @huge-min-width) {
-        font-size: @base-font-size * 2.5;
-
-    }
+    .font-size(2.5);
 }
 
 .mm-marketing-text--black {
@@ -163,7 +138,7 @@ body {
 }
 
 .mm-footer__heading {
-    font-size: @base-font-size *1.4;
+    .font-size(1.7);
     text-align: left;
     border-bottom-color: @lighter-black;
     border-bottom-width: 1px;

@@ -90,12 +90,32 @@ body {
 .mm-logo__text {
   font-family: gesta, sans-serif;
   font-weight: bold;
-  font-size: 21.6px;
+  font-size: 18.24px;
   color: #3b5997;
   display: inline;
   margin-left: 10px;
 }
 @media (min-width: 481px) {
+  .mm-logo__text {
+    font-size: 23.04px;
+  }
+}
+@media (min-width: 641px) {
+  .mm-logo__text {
+    font-size: 24.96px;
+  }
+}
+@media (min-width: 961px) {
+  .mm-logo__text {
+    font-size: 25.92px;
+  }
+}
+@media (min-width: 1025px) {
+  .mm-logo__text {
+    font-size: 26.88px;
+  }
+}
+@media (min-width: 1281px) {
   .mm-logo__text {
     font-size: 28.8px;
   }
@@ -143,9 +163,19 @@ body {
     font-size: 43.2px;
   }
 }
+@media (min-width: 641px) {
+  .mm-marketing-text {
+    font-size: 46.8px;
+  }
+}
 @media (min-width: 961px) {
   .mm-marketing-text {
     font-size: 48.6px;
+  }
+}
+@media (min-width: 1025px) {
+  .mm-marketing-text {
+    font-size: 50.4px;
   }
 }
 @media (min-width: 1281px) {
@@ -154,16 +184,26 @@ body {
   }
 }
 .mm-marketing-text--smaller {
-  font-size: 27px;
+  font-size: 28.5px;
 }
 @media (min-width: 481px) {
   .mm-marketing-text--smaller {
     font-size: 36px;
   }
 }
+@media (min-width: 641px) {
+  .mm-marketing-text--smaller {
+    font-size: 39px;
+  }
+}
 @media (min-width: 961px) {
   .mm-marketing-text--smaller {
-    font-size: 41.4px;
+    font-size: 40.5px;
+  }
+}
+@media (min-width: 1025px) {
+  .mm-marketing-text--smaller {
+    font-size: 42px;
   }
 }
 @media (min-width: 1281px) {
@@ -181,11 +221,36 @@ body {
   border-top: 10px solid #3b5997;
 }
 .mm-footer__heading {
-  font-size: 25.2px;
+  font-size: 19.38px;
   text-align: left;
   border-bottom-color: #2f2f2f;
   border-bottom-width: 1px;
   border-bottom-style: solid;
+}
+@media (min-width: 481px) {
+  .mm-footer__heading {
+    font-size: 24.48px;
+  }
+}
+@media (min-width: 641px) {
+  .mm-footer__heading {
+    font-size: 26.52px;
+  }
+}
+@media (min-width: 961px) {
+  .mm-footer__heading {
+    font-size: 27.54px;
+  }
+}
+@media (min-width: 1025px) {
+  .mm-footer__heading {
+    font-size: 28.56px;
+  }
+}
+@media (min-width: 1281px) {
+  .mm-footer__heading {
+    font-size: 30.6px;
+  }
 }
 .mm-grid {
   padding-bottom: 40px;
