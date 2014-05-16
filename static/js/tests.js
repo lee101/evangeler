@@ -129,8 +129,11 @@ describe("lib", function () {
 describe("the site", function () {
 
     it('should let you navigate to new page', function (done) {
-        expect(models.user).toBeTruthy();
-        
+        APP.goto('account');
+        APP.goto('new-page');
+        APP.goto('new-page/multiplication-master');
+        APP.goto('tests');
+        done();
     });
 
 });

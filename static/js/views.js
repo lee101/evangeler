@@ -152,6 +152,13 @@
                 });
             });
             return self;
+        },
+        events: {
+            'submit #create-company-form': 'createCompany'
+        },
+        createCompany: function(evt) {
+            var data = $(evt.target).serialize();
+            return false;
         }
     });
 

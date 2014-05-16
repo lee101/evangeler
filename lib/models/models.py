@@ -25,6 +25,8 @@ class Company(BaseModel):
 
     facebook_link = ndb.StringProperty()
     website_link = ndb.StringProperty()
+    twitter_name = ndb.StringProperty()
+    google_link = ndb.StringProperty()
 
     tags = ndb.StringProperty(repeated=True)
     status = ndb.IntegerProperty()  # draft live deleted
