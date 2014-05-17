@@ -22,33 +22,35 @@
                                         >{{ company.name }}</p>
 
                                 <div class="form-group">
-                                    <label for="companyAbout">About</label>
+{#                                    <label for="companyAbout">About</label>#}
                                     <textarea id="companyAbout" class="text-smaller form-control"
-                                              rows="4">{{ company.about }}</textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="companyDescription">Description</label>
-                                    <textarea id="companyDescription" class="text-smaller form-control"
-                                              rows="4">{{ company.description }}</textarea>
+                                              rows="4" name="companyAbout">{{ company.about }}</textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="companyWebsite"><i class="fa fa-globe mm-share-btn mm-share-btn--twitter"></i> Website</label>
                                     <input id="companyWebsite" class="text-smaller form-control"
-                                              value="{{ company.website_link }}">
+                                              value="{{ company.website_link }}" name="companyWebsite">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="companyTwitter"><i
                                             class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></i> Twitter</label>
-                                    <input id="companyTwitter" class="text-smaller form-control" placeholder="@evangelersays">
+                                    <input id="companyTwitter" class="text-smaller form-control" placeholder="@evangelersays"
+                                           name="companyTwitter">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="companyTwitter"><i
+                                    <label for="companyGooglePlus"><i
                                             class="fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus"></i> Google Plus Link</label>
-                                    <input id="companyTwitter" class="text-smaller form-control" placeholder="https://plus.google.com/+Evangeler">
+                                    <input id="companyGooglePlus" class="text-smaller form-control"
+                                           placeholder="https://plus.google.com/+Evangeler" name="companyGooglePlus">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="companyDescription">Description</label>
+                                    <textarea id="companyDescription" class="text-smaller form-control"
+                                              rows="6" name="companyDescription">{{ company.description }}</textarea>
                                 </div>
 
                                 <button type="submit" class="btn btn-lg btn-warning">Create!</button>

@@ -94,7 +94,6 @@ describe("lib", function () {
             user.createCompany({
                 name: 'Word Smashing',
                 description: 'description',
-                title: 'Word Smashing',
                 facebook_link: 'test',
                 tags: [1, 2],
                 status: STATUS.DRAFT,

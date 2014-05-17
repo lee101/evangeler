@@ -174,8 +174,8 @@ class CreateCompanyHandler(BaseHandler):
         company.facebook_link = self.request.get('facebook_link')
 
         company.name = self.request.get('name')
-        company.title = self.request.get('title')
-        company.url_title = GameOnUtils.urlEncode(company.title)
+        # TODO ensure url_title is unique
+        company.url_title = GameOnUtils.urlEncode(company.name)
         company.description = self.request.get('description')
         company.about = self.request.get('about')
 
@@ -197,7 +197,7 @@ class EditCompanyHandler(BaseHandler):
         company.facebook_link = self.request.get('facebook_link')
 
         company.name = self.request.get('name')
-        company.title = self.request.get('title')
+        company.url_title = GameOnUtils.urlEncode(company.name)
         company.description = self.request.get('description')
         company.about = self.request.get('about')
 
@@ -205,6 +205,8 @@ class EditCompanyHandler(BaseHandler):
         company.pic = self.request.get('pic')
 
         company.website_link = self.request.get('website_link')
+        company.twitter_name = self.request.get('twitter_name')
+        company.google_link = self.request.get('google_link')
         company.status = self.request.get('status')
 
         company.tags = self.request.get_all('tags[]')

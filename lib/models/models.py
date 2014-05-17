@@ -16,7 +16,6 @@ class Post(BaseModel):
 class Company(BaseModel):
     page_id = ndb.StringProperty()
     name = ndb.StringProperty()
-    title = ndb.StringProperty()
     url_title = ndb.StringProperty()
     description = ndb.StringProperty()
     about = ndb.StringProperty()
