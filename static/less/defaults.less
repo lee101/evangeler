@@ -36,6 +36,13 @@ a:focus {
     font-size: @base-font-size * 0.9;
 }
 
+.modal-body {
+    padding: 0;
+    @media (min-width: @phone-min-width) {
+        padding: 20px;
+    }
+}
+
 .modal-header {
     border-bottom: none;
 }

@@ -27,6 +27,14 @@ a:focus {
 .text-smaller {
   font-size: 16.2px;
 }
+.modal-body {
+  padding: 0;
+}
+@media (min-width: 320px) {
+  .modal-body {
+    padding: 20px;
+  }
+}
 .modal-header {
   border-bottom: none;
 }
@@ -73,12 +81,10 @@ body {
   padding-top: 23px;
 }
 .mm-logo {
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding: 21px;
   height: 64px;
   display: inline-block;
   text-align: left;
-  margin-left: 30px;
 }
 .mm-logo__link {
   display: inline;

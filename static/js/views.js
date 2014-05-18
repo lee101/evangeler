@@ -146,9 +146,9 @@
             var self = this;
             models.getUser(function (user) {
                 user.getUnstartedPages(function (companies) {
-                    var company = _.where(companies, { url_title: self.company_url_title })[0];
+                    self.page = _.where(companies, { url_title: self.company_url_title })[0];
                     self.$el.html(nunjucks.render('templates/shared/create-new-page.jinja2',
-                        {'company': company, 'window': true}));
+                        {'company': self.page, 'window': true}));
                 });
             });
             return self;
@@ -157,7 +157,14 @@
             'submit #create-company-form': 'createCompany'
         },
         createCompany: function(evt) {
-            var data = $(evt.target).serialize();
+            var data = $(evt.target).serializeObject();
+            var company = $.extend(this.page, data);
+            models.getUser(function(user) {
+                user.createCompany(company, function(data) {
+
+                    APP.goto('account');
+                });
+            })
             return false;
         }
     });

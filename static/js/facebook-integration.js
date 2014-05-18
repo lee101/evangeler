@@ -147,9 +147,17 @@ window.facebookWrapper = new (function () {
     };
 
     self.getFaceBookPages = function (callback) {
-        var fqlRequest = "SELECT page_id,name,access_token,about,description,categories,keywords,pic,website  FROM page" +
+        var fqlRequest = "SELECT page_id,name,access_token,about,description,categories,keywords,pic,website,page_url  FROM page" +
             " WHERE page_id IN (SELECT page_id FROM page_admin WHERE uid = me())";
         FB.api("/fql", {q: fqlRequest}, function (response) {
+            for (var i = 0; i < callback.data.length; i++) {
+                var page = callback.data[i];
+
+                page.website_link = page.website;
+                delete page.website;
+                page.facebook_link = page.page_url;
+                delete page.page_url;
+            }
             callback(response);
         })
     };
