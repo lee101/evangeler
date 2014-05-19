@@ -158,7 +158,7 @@ window.evutils = new (function () {
             window: window,
             client_side: true
         });
-        nunjucks.render(template, opts);
+        return nunjucks.render(template, opts);
     }
 
 })();
