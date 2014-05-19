@@ -195,7 +195,9 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-grid\">\n    <div class=\"row\">\n\n        <div class=\"col-md-12\">\n            <div class=\"mm-grid__section\">\n                <p>Share <a href=\"#\" class=\"facebook-share-btn\"><i class=\"fa fa-facebook-square mm-share-btn\"></i> </a>\n                    <a href=\"https://twitter.com/intent/tweet\" target=\"_blank\" rel=\"nofollow\"><i class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></i> </a>\n                </p>\n                <div class=\"media\">\n\n                    <a class=\"pull-left\" href=\"/companies/";
+output += "<div class=\"mm-grid\">\n    <div class=\"row\">\n\n        <div class=\"col-md-12\">\n            <div class=\"mm-grid__section\">\n                <p>Share <a href=\"#\" class=\"facebook-share-btn\"><i class=\"fa fa-facebook-square mm-share-btn\"></i> </a>\n                    <a href=\"https://twitter.com/intent/tweet?url=";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "url"), env.autoesc);
+output += "\" target=\"_blank\" rel=\"nofollow\">\n                        <i class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></i> </a>\n                </p>\n                <div class=\"media\">\n\n                    <a class=\"pull-left\" href=\"/companies/";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"url_title", env.autoesc), env.autoesc);
 output += "\">\n                        <img class=\"media-object\" src=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"pic", env.autoesc), env.autoesc);
@@ -380,7 +382,7 @@ output += "\n            <a class=\"mm-header__link\" href=\"/how-it-works\" tit
 ;
 }
 output += "\n        ";
-if(runtime.contextOrFrameLookup(context, frame, "window")) {
+if(runtime.contextOrFrameLookup(context, frame, "client_side")) {
 output += "\n            ";
 if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"facebook_access_token", env.autoesc)) {
 output += "\n                <a class=\"mm-header__link mm-header__profile-link pull-right\" href=\"/account\" title=\"My Account\"\n                  >\n                    <img src=\"https://graph.facebook.com/";

@@ -148,6 +148,19 @@ window.evutils = new (function () {
         window.__twitterIntentHandler = true;
     }());
 
+    self.render = function(template, opts) {
+//TODO on load?
+        if(typeof opts === 'undefined') {
+            opts = {};
+        }
+        $.extend(opts, {
+            url: window.location.href,
+            window: window,
+            client_side: true
+        });
+        nunjucks.render(template, opts);
+    }
+
 })();
 
 $.fn.serializeObject = function () {

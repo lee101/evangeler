@@ -7,7 +7,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/start.jinja2'));
+            this.$el.html(evutils.render('templates/shared/start.jinja2'));
 
             return this;
         }
@@ -18,7 +18,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/how-it-works.jinja2'));
+            this.$el.html(evutils.render('templates/shared/how-it-works.jinja2'));
             return this;
         }
     });
@@ -28,7 +28,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/contact.jinja2'));
+            this.$el.html(evutils.render('templates/shared/contact.jinja2'));
             return this;
         }
     });
@@ -38,7 +38,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/about.jinja2'));
+            this.$el.html(evutils.render('templates/shared/about.jinja2'));
             return this;
         }
     });
@@ -47,7 +47,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/terms.jinja2'));
+            this.$el.html(evutils.render('templates/shared/terms.jinja2'));
             return this;
         }
     });
@@ -56,7 +56,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/privacy.jinja2'));
+            this.$el.html(evutils.render('templates/shared/privacy.jinja2'));
             return this;
         }
     });
@@ -65,7 +65,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/refunds.jinja2'));
+            this.$el.html(evutils.render('templates/shared/refunds.jinja2'));
             return this;
         }
     });
@@ -74,7 +74,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/categories.jinja2'));
+            this.$el.html(evutils.render('templates/shared/categories.jinja2'));
             return this;
         }
     });
@@ -83,7 +83,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/companies.jinja2'));
+            this.$el.html(evutils.render('templates/shared/companies.jinja2'));
             return this;
         }
     });
@@ -95,7 +95,7 @@
         render: function () {
 
             models.getCompanyByUrlTitle(this.company_url_title, function (company) {
-                evutils.setModal(nunjucks.render('templates/shared/company.jinja2', {'company': company}));
+                evutils.setModal(evutils.render('templates/shared/company.jinja2', {'company': company}));
             });
             return this;
         }
@@ -108,10 +108,10 @@
 
             var self = this;
             models.getUser(function (user) {
-                self.$el.html(nunjucks.render('templates/shared/account.jinja2', {'user': user, 'window': true}));
+                self.$el.html(evutils.render('templates/shared/account.jinja2', {'user': user}));
                 user.getCompanies(function (companies) {
                     //TODO HOW TO INSERT AFTER?
-                    self.$el.find('.company-thumbs').html(nunjucks.render('templates/shared/company-thumbs.jinja2',
+                    self.$el.find('.company-thumbs').html(evutils.render('templates/shared/company-thumbs.jinja2',
                         {'companies': companies, 'createcompany': true, 'showEditButtons': true }));
                 });
 
@@ -127,9 +127,9 @@
 
             var self = this;
             models.getUser(function (user) {
-                self.$el.html(nunjucks.render('templates/shared/new-page.jinja2', {'user': user, 'window': true}));
+                self.$el.html(evutils.render('templates/shared/new-page.jinja2', {'user': user}));
                 user.getUnstartedPages(function (companies) {
-                    self.$el.find('.company-thumbs').html(nunjucks.render('templates/shared/company-thumbs.jinja2',
+                    self.$el.find('.company-thumbs').html(evutils.render('templates/shared/company-thumbs.jinja2',
                         {'companies': companies, 'createcompany': false, 'showEditButtons': false, 'newPage': true }));
                 });
 
@@ -147,8 +147,8 @@
             models.getUser(function (user) {
                 user.getUnstartedPages(function (companies) {
                     self.page = _.where(companies, { url_title: self.company_url_title })[0];
-                    self.$el.html(nunjucks.render('templates/shared/create-new-page.jinja2',
-                        {'company': self.page, 'window': true}));
+                    self.$el.html(evutils.render('templates/shared/create-new-page.jinja2',
+                        {'company': self.page}));
                 });
             });
             return self;
@@ -177,7 +177,7 @@
         render: function () {
             var self = this;
             models.getUser(function (user) {
-                self.$el.html(nunjucks.render('templates/shared/header.jinja2', {'path': self.path, 'user': user, 'window': true}));
+                self.$el.html(evutils.render('templates/shared/header.jinja2', {'path': self.path, 'user': user}));
 
             });
 
@@ -191,7 +191,7 @@
         },
 
         render: function () {
-            this.$el.html(nunjucks.render('templates/shared/footer.jinja2', {'path': this.path}));
+            this.$el.html(evutils.render('templates/shared/footer.jinja2', {'path': this.path}));
             return this;
         }
     });
