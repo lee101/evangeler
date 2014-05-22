@@ -273,11 +273,39 @@ body {
 }
 @media (min-width: 641px) {
   .mm-grid__section {
-    margin: 40px 80px 0px 80px;
+    margin: 40px 50px 0px 50px;
   }
 }
 .footer__link {
   display: block;
+}
+.mm-sharing-btns {
+  font-size: 21.66px;
+}
+@media (min-width: 481px) {
+  .mm-sharing-btns {
+    font-size: 27.36px;
+  }
+}
+@media (min-width: 641px) {
+  .mm-sharing-btns {
+    font-size: 29.64px;
+  }
+}
+@media (min-width: 961px) {
+  .mm-sharing-btns {
+    font-size: 30.78px;
+  }
+}
+@media (min-width: 1025px) {
+  .mm-sharing-btns {
+    font-size: 31.92px;
+  }
+}
+@media (min-width: 1281px) {
+  .mm-sharing-btns {
+    font-size: 34.2px;
+  }
 }
 .mm-share-btn {
   margin-top: 10px;
@@ -291,6 +319,15 @@ body {
 }
 .mm-share-btn--pinterest {
   color: #ca2027;
+}
+.mm-share-btn--linked-in {
+  color: #1a84bc;
+}
+.mm-share-btn--reddit {
+  color: #cee3f8;
+}
+.mm-share-btn--stumbleupon {
+  color: #ea4b24;
 }
 .mm-highlighted-new {
   text-align: center;

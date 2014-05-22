@@ -51,7 +51,7 @@ class GameOnUtils(object):
 
     @classmethod
     def urlEncode(cls, s):
-        s = cls.removeNonAscii(s.replace(" ", "-").lower())
-        # s = s.translate(string.maketrans("", "", ), '!@#;:\',./<>?')
-        s = re.sub("[\.\t\,\:;\(\)'@!\\\?#/<>\s]", "", s, 0, 0)
+        s = cls.removeNonAscii(s.lower())
+        s = re.sub("[\s]", "-", s, 0, 0)
+        s = re.sub("[\.\t\,\:;\(\)'@!\\\?#/<>&]", "", s, 0, 0)
         return urllib.quote_plus(s)

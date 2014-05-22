@@ -195,9 +195,58 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-grid\">\n    <div class=\"row\">\n\n        <div class=\"col-md-12\">\n            <div class=\"mm-grid__section\">\n                <p>Share <a href=\"#\" class=\"facebook-share-btn\"><i class=\"fa fa-facebook-square mm-share-btn\"></i> </a>\n                    <a href=\"https://twitter.com/intent/tweet?url=";
-output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "url"), env.autoesc);
-output += "\" target=\"_blank\" rel=\"nofollow\">\n                        <i class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></i> </a>\n                </p>\n                <div class=\"media\">\n\n                    <a class=\"pull-left\" href=\"/companies/";
+output += "<div class=\"mm-grid\">\n    <div class=\"row\">\n\n        <div class=\"col-md-12\">\n            <div class=\"mm-grid__section\">\n\n                <p class=\"mm-sharing-btns\">\n                    ";
+var t_1;
+t_1 = (lineno = 7, colno = 49, runtime.callWrap(runtime.contextOrFrameLookup(context, frame, "urlencode"), "urlencode", ["Check out " + runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc) + " on Evangeler! " + runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"about", env.autoesc)]));
+frame.set("encoded_desc", t_1);
+if(!frame.parent) {
+context.setVariable("encoded_desc", t_1);
+context.addExport("encoded_desc");
+}
+var t_2;
+t_2 = (lineno = 8, colno = 55, runtime.callWrap(runtime.contextOrFrameLookup(context, frame, "urlencode"), "urlencode", ["Check out " + runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc) + " on Evangeler!"]));
+frame.set("encoded_desc_short", t_2);
+if(!frame.parent) {
+context.setVariable("encoded_desc_short", t_2);
+context.addExport("encoded_desc_short");
+}
+output += "Share <a href=\"#\" class=\"facebook-share-btn\" title=\"Share ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " on Facebook\"><i\n                        class=\"fa fa-facebook-square mm-share-btn\"></i> </a>\n                    <a href=\"https://twitter.com/intent/tweet?url=";
+output += runtime.suppressValue((lineno = 11, colno = 76, runtime.callWrap(runtime.contextOrFrameLookup(context, frame, "urlencode"), "urlencode", [runtime.contextOrFrameLookup(context, frame, "url")])), env.autoesc);
+output += "&text=";
+output += runtime.suppressValue(t_2, env.autoesc);
+output += "\"\n                       target=\"_blank\" rel=\"nofollow\" title=\"Tweet ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " on Twitter\">\n                        <i class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></i>\n                    </a>\n                    <a href=\"https://pinterest.com/pin/create/bookmarklet/?url=";
+output += runtime.suppressValue((lineno = 15, colno = 89, runtime.callWrap(runtime.contextOrFrameLookup(context, frame, "urlencode"), "urlencode", [runtime.contextOrFrameLookup(context, frame, "url")])), env.autoesc);
+output += "&description=";
+output += runtime.suppressValue(t_1, env.autoesc);
+output += "\"\n                       target=\"_blank\" rel=\"nofollow\" title=\"Pin ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " on pinterest\">\n                        <i class=\"fa fa-pinterest-square mm-share-btn mm-share-btn--pinterest\"></i>\n                    </a>\n                    <a href=\"https://plus.google.com/share?url=";
+output += runtime.suppressValue((lineno = 19, colno = 73, runtime.callWrap(runtime.contextOrFrameLookup(context, frame, "urlencode"), "urlencode", [runtime.contextOrFrameLookup(context, frame, "url")])), env.autoesc);
+output += "\"\n                       target=\"_blank\" rel=\"nofollow\" title=\"Share ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " on Google Plus\">\n                        <i class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></i>\n                    </a>\n                    <a href=\"http://www.linkedin.com/shareArticle?url=";
+output += runtime.suppressValue((lineno = 23, colno = 80, runtime.callWrap(runtime.contextOrFrameLookup(context, frame, "urlencode"), "urlencode", [runtime.contextOrFrameLookup(context, frame, "url")])), env.autoesc);
+output += "&title=";
+output += runtime.suppressValue(t_1, env.autoesc);
+output += "\"\n                       target=\"_blank\" rel=\"nofollow\" title=\"Share ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " on Linkedin\">\n                        <i class=\"fa fa-linkedin-square mm-share-btn mm-share-btn--linked-in\"></i>\n                    </a>\n                    <a href=\"http://www.stumbleupon.com/submit?url=";
+output += runtime.suppressValue((lineno = 27, colno = 77, runtime.callWrap(runtime.contextOrFrameLookup(context, frame, "urlencode"), "urlencode", [runtime.contextOrFrameLookup(context, frame, "url")])), env.autoesc);
+output += "&title=";
+output += runtime.suppressValue(t_1, env.autoesc);
+output += "\"\n                       target=\"_blank\" rel=\"nofollow\" title=\"Share ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " on Stumble Upon\">\n                        <i class=\"fa fa-stumbleupon-circle mm-share-btn mm-share-btn--stumbleupon\"></i>\n                    </a>\n                    <a href=\"http://reddit.com/submit?url=";
+output += runtime.suppressValue((lineno = 31, colno = 68, runtime.callWrap(runtime.contextOrFrameLookup(context, frame, "urlencode"), "urlencode", [runtime.contextOrFrameLookup(context, frame, "url")])), env.autoesc);
+output += "&title=";
+output += runtime.suppressValue(t_2, env.autoesc);
+output += "\"\n                       target=\"_blank\" rel=\"nofollow\" title=\"Share ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " on reddit\">\n                        <i class=\"fa fa-reddit mm-share-btn\"></i>\n                    </a>\n                </p>\n\n                <div class=\"media\">\n\n                    <a class=\"pull-left\" href=\"/companies/";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"url_title", env.autoesc), env.autoesc);
 output += "\">\n                        <img class=\"media-object\" src=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"pic", env.autoesc), env.autoesc);
@@ -209,17 +258,45 @@ output += "\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
 output += "</a>\n\n                        <p class=\"text-smaller\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"about", env.autoesc), env.autoesc);
-output += "</p>\n\n\n                        <p class=\"text-smaller\">\n                            <a href=\"";
+output += "</p>\n\n                        ";
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"facebook_link", env.autoesc)) {
+output += "\n                            <p class=\"text-smaller\">\n                                <a href=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"facebook_link", env.autoesc), env.autoesc);
 output += "\" title=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += " on Facebook\"\n                               target=\"_blank\">\n                                <span class=\"fa fa-facebook-square mm-share-btn mm-share-btn--facebook\"></span><span\n                                    class=\"footer__social-link-text\"> Facebook</span>\n                            </a>\n                        </p>\n\n                        <p class=\"text-smaller\">\n                            <a href=\"";
+output += " on Facebook\"\n                                   target=\"_blank\" rel=\"nofollow\">\n                                    <span class=\"fa fa-facebook-square mm-share-btn mm-share-btn--facebook\"></span><span\n                                        class=\"footer__social-link-text\"> Facebook</span>\n                                </a>\n                            </p>\n                        ";
+;
+}
+output += "\n\n                        ";
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"website_link", env.autoesc)) {
+output += "\n                            <p class=\"text-smaller\">\n                                <a href=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"website_link", env.autoesc), env.autoesc);
+output += "\" title=\"Visit ";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += "\"\n                                   target=\"_blank\" rel=\"nofollow\">\n                                    <span class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></span><span\n                                        class=\"footer__social-link-text\"> Website</span>\n                                </a>\n                            </p>\n                        ";
+;
+}
+output += "\n\n                        ";
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"twitter_name", env.autoesc)) {
+output += "\n                            <p class=\"text-smaller\">\n                                <a href=\"https://twitter.com/";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"twitter_name", env.autoesc), env.autoesc);
 output += "\" title=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += " on Facebook\"\n                               target=\"_blank\">\n                                <span class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></span><span\n                                    class=\"footer__social-link-text\"> Website</span>\n                            </a>\n                        </p>\n\n\n                    </div>\n                </div>\n\n                <p class=\"text-smaller\">";
+output += " on Twitter\"\n                                   target=\"_blank\" rel=\"nofollow\">\n                                    <span class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></span><span\n                                        class=\"footer__social-link-text\"> Twitter</span>\n                                </a>\n                            </p>\n                        ";
+;
+}
+output += "\n\n                        ";
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"google_link", env.autoesc)) {
+output += "\n                            <p class=\"text-smaller\">\n                                <a href=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"google_link", env.autoesc), env.autoesc);
+output += "\" title=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
+output += " on Google Plus\"\n                                   target=\"_blank\" rel=\"nofollow\">\n                                    <span class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></span><span\n                                        class=\"footer__social-link-text\"> Google Plus</span>\n                                </a>\n                            </p>\n                        ";
+;
+}
+output += "\n\n                    </div>\n                </div>\n\n                <p class=\"text-smaller\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"description", env.autoesc), env.autoesc);
-output += "</p>\n\n\n            </div>\n\n        </div>\n\n    </div>\n</div>\n";
+output += "</p>\n\n            </div>\n        </div>\n    </div>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {

@@ -147,8 +147,13 @@
             models.getUser(function (user) {
                 user.getUnstartedPages(function (companies) {
                     self.page = _.where(companies, { url_title: self.company_url_title })[0];
-                    self.$el.html(evutils.render('templates/shared/create-new-page.jinja2',
-                        {'company': self.page}));
+                    if (self.page) {
+                        self.$el.html(evutils.render('templates/shared/create-new-page.jinja2',
+                            {'company': self.page}));
+                    }
+                    else {
+                        APP.router.navigate('account', {trigger: true});
+                    }
                 });
             });
             return self;

@@ -90,7 +90,7 @@ window.evutils = new (function () {
 
     self.urlencode = function(name) {
         return name.replace(/\s/g, '-')
-            .replace(/[\.\t\,\:;\(\)'@!\\\?#/<>]/g, '')
+            .replace(/[\.\t\,\:;\(\)'@!\\\?#/<>&]/g, '')
             .replace(/[^\x00-\x7F]/g, "")
             .toLowerCase();
     }
@@ -155,6 +155,7 @@ window.evutils = new (function () {
         }
         $.extend(opts, {
             url: window.location.href,
+            urlencode: encodeURIComponent,
             window: window,
             client_side: true
         });

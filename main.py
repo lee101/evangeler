@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import json
 import os
+import urllib
 
 from google.appengine.ext.ndb import Cursor
 import webapp2
@@ -30,6 +31,7 @@ class BaseHandler(webapp2.RequestHandler):
             'GameOnUtils': GameOnUtils,
             'path': self.request.path,
             'url': self.request.uri,
+            'urlencode': urllib.quote_plus,
             # 'facebook_app_id': FACEBOOK_APP_ID,
             # 'glogin_url': users.create_login_url(self.request.uri),
             # 'glogout_url': users.create_logout_url(self.request.uri),

@@ -3,10 +3,38 @@
 
         <div class="col-md-12">
             <div class="mm-grid__section">
-                <p>Share <a href="#" class="facebook-share-btn"><i class="fa fa-facebook-square mm-share-btn"></i> </a>
-                    <a href="https://twitter.com/intent/tweet?url={{ url }}" target="_blank" rel="nofollow">
-                        <i class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></i> </a>
+
+                <p class="mm-sharing-btns">
+                    {% set encoded_desc = urlencode('Check out ' + company.name + ' on Evangeler! ' + company.about) -%}
+                    {% set encoded_desc_short = urlencode('Check out ' + company.name + ' on Evangeler!') -%}
+                    Share <a href="#" class="facebook-share-btn" title="Share {{ company.name }} on Facebook"><i
+                        class="fa fa-facebook-square mm-share-btn"></i> </a>
+                    <a href="https://twitter.com/intent/tweet?url={{ urlencode(url) }}&text={{ encoded_desc_short }}"
+                       target="_blank" rel="nofollow" title="Tweet {{ company.name }} on Twitter">
+                        <i class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></i>
+                    </a>
+                    <a href="https://pinterest.com/pin/create/bookmarklet/?url={{ urlencode(url) }}&description={{ encoded_desc }}"
+                       target="_blank" rel="nofollow" title="Pin {{ company.name }} on pinterest">
+                        <i class="fa fa-pinterest-square mm-share-btn mm-share-btn--pinterest"></i>
+                    </a>
+                    <a href="https://plus.google.com/share?url={{ urlencode(url) }}"
+                       target="_blank" rel="nofollow" title="Share {{ company.name }} on Google Plus">
+                        <i class="fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus"></i>
+                    </a>
+                    <a href="http://www.linkedin.com/shareArticle?url={{ urlencode(url) }}&title={{ encoded_desc }}"
+                       target="_blank" rel="nofollow" title="Share {{ company.name }} on Linkedin">
+                        <i class="fa fa-linkedin-square mm-share-btn mm-share-btn--linked-in"></i>
+                    </a>
+                    <a href="http://www.stumbleupon.com/submit?url={{ urlencode(url) }}&title={{ encoded_desc }}"
+                       target="_blank" rel="nofollow" title="Share {{ company.name }} on Stumble Upon">
+                        <i class="fa fa-stumbleupon-circle mm-share-btn mm-share-btn--stumbleupon"></i>
+                    </a>
+                    <a href="http://reddit.com/submit?url={{ urlencode(url) }}&title={{ encoded_desc_short }}"
+                       target="_blank" rel="nofollow" title="Share {{ company.name }} on reddit">
+                        <i class="fa fa-reddit mm-share-btn"></i>
+                    </a>
                 </p>
+
                 <div class="media">
 
                     <a class="pull-left" href="/companies/{{ company.url_title }}">
@@ -20,33 +48,52 @@
 
                         <p class="text-smaller">{{ company.about }}</p>
 
+                        {% if company.facebook_link %}
+                            <p class="text-smaller">
+                                <a href="{{ company.facebook_link }}" title="{{ company.name }} on Facebook"
+                                   target="_blank" rel="nofollow">
+                                    <span class="fa fa-facebook-square mm-share-btn mm-share-btn--facebook"></span><span
+                                        class="footer__social-link-text"> Facebook</span>
+                                </a>
+                            </p>
+                        {% endif %}
 
-                        <p class="text-smaller">
-                            <a href="{{ company.facebook_link }}" title="{{ company.name }} on Facebook"
-                               target="_blank">
-                                <span class="fa fa-facebook-square mm-share-btn mm-share-btn--facebook"></span><span
-                                    class="footer__social-link-text"> Facebook</span>
-                            </a>
-                        </p>
+                        {% if company.website_link %}
+                            <p class="text-smaller">
+                                <a href="{{ company.website_link }}" title="Visit {{ company.name }}"
+                                   target="_blank" rel="nofollow">
+                                    <span class="fa fa-globe mm-share-btn mm-share-btn--twitter"></span><span
+                                        class="footer__social-link-text"> Website</span>
+                                </a>
+                            </p>
+                        {% endif %}
 
-                        <p class="text-smaller">
-                            <a href="{{ company.website_link }}" title="{{ company.name }} on Facebook"
-                               target="_blank">
-                                <span class="fa fa-globe mm-share-btn mm-share-btn--twitter"></span><span
-                                    class="footer__social-link-text"> Website</span>
-                            </a>
-                        </p>
+                        {% if company.twitter_name %}
+                            <p class="text-smaller">
+                                <a href="https://twitter.com/{{ company.twitter_name }}" title="{{ company.name }} on Twitter"
+                                   target="_blank" rel="nofollow">
+                                    <span class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></span><span
+                                        class="footer__social-link-text"> Twitter</span>
+                                </a>
+                            </p>
+                        {% endif %}
 
+                        {% if company.google_link %}
+                            <p class="text-smaller">
+                                <a href="{{ company.google_link }}" title="{{ company.name }} on Google Plus"
+                                   target="_blank" rel="nofollow">
+                                    <span class="fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus"></span><span
+                                        class="footer__social-link-text"> Google Plus</span>
+                                </a>
+                            </p>
+                        {% endif %}
 
                     </div>
                 </div>
 
                 <p class="text-smaller">{{ company.description }}</p>
 
-
             </div>
-
         </div>
-
     </div>
 </div>
