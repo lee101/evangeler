@@ -164,7 +164,6 @@
     $(document).ready(function () {
         var $modal = $('#modal');
         $modal.on('hide.bs.modal', function ModalClose() {
-            var previousState = evutils.history.previousState();
             if (isViewingModal) {
                 modalClosing = true;
                 window.history.back();
