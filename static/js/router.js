@@ -167,7 +167,7 @@
             var previousState = evutils.history.previousState();
             if (isViewingModal) {
                 modalClosing = true;
-                APP.router.navigate(previousState, {trigger: true});
+                window.history.back();
             }
         });
 
