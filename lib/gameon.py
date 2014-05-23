@@ -1,20 +1,17 @@
 #!/usr/bin/env python
 
-from models.models import *
-from google.appengine.api import users
-from gameon_utils import GameOnUtils
 import os
+import json
+
 import webapp2
-import facebook
 from webapp2_extras import sessions
 import jinja2
 
-import json
-import jwt
+from models.models import *
+from gameon_utils import GameOnUtils
+
 
 # application-specific imports
-from sellerinfo import SELLER_ID
-from sellerinfo import SELLER_SECRET
 
 FACEBOOK_APP_ID = "138831849632195"
 FACEBOOK_APP_SECRET = "93986c9cdd240540f70efaea56a9e3f2"
@@ -120,7 +117,6 @@ class GetOrCreateUserHandler(BaseHandler):
 
         user = get_or_create_user()
 
-
         user_to_dict = user.to_dict()
 
         self.response.headers['Content-Type'] = 'application/json'
@@ -141,27 +137,6 @@ class SaveAccessTokenHandler(BaseHandler):
             currentUser.facebook_access_token = self.request.get('facebook_access_token')
             currentUser.put()
             self.response.out.write('success')
-
-
-class BuyHandler(BaseHandler):
-    def get(self):
-        # paymentAmount = "3.99"
-        # CURRENCYCODE = "USD"
-        # RETURNURL = "https://evangeler.appspot.com/buy"
-        # CANCELURL = "https://evangeler.appspot.com/buy"
-
-        self.render('buy.jinja2')
-
-    def post(self):
-        self.render('buy.jinja2')
-
-
-class TestsHandler(BaseHandler):
-    def get(self):
-        try:
-            self.render('templates/tests.jinja2')
-        except Exception as e:
-            logging.error(e)
 
 
 class CreateCompanyHandler(BaseHandler):
@@ -190,9 +165,9 @@ class CreateCompanyHandler(BaseHandler):
 
         self.response.out.write('success')
 
+
 class EditCompanyHandler(BaseHandler):
     def get(self):
-
         company = Company.getByPageId(self.request.get('page_id'))
         company.facebook_link = self.request.get('facebook_link')
 
@@ -200,7 +175,6 @@ class EditCompanyHandler(BaseHandler):
         company.url_title = GameOnUtils.urlEncode(company.name)
         company.description = self.request.get('description')
         company.about = self.request.get('about')
-
 
         company.pic = self.request.get('pic')
 
@@ -236,7 +210,6 @@ routes = [
     ('/lib/getorcreatenewuser', GetOrCreateUserHandler),
     ('/lib/saveaccesstoken', SaveAccessTokenHandler),
     ('/lib/isgold', IsGoldHandler),
-    ('/lib/tests', TestsHandler),
     ('/lib/createcompany', CreateCompanyHandler),
     ('/lib/editcompany', EditCompanyHandler),
     ('/lib/getcompanies', GetCompanyHandler),
