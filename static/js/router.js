@@ -2,13 +2,21 @@
     "use strict";
     window.APP = window.APP || {Routers: {}, Collections: {}, Models: {}, Views: {}};
     APP.routerViews = {};
-    var history = [];
     APP.goto = function (name) {
-        history.push(name);
         APP.router.navigate(name, {trigger: true});
-//		$(this).toggleClass('active');
         return false
     };
+
+    APP.backto = function (name) {
+        if (evutils.history.previousState == name) {
+            window.history.back();
+            return false;
+        }
+        else {
+            return APP.goto(name);
+        }
+    };
+
     $(document).on('click', 'a:not([data-bypass])', function (e) {
         var href = $(this).prop('href');
         var root = location.protocol + '//' + location.host + '/';
@@ -58,8 +66,7 @@
     };
 
     var modalPages = {
-        '/companies/:url_title': 1,
-        'companies/edit/:url_title': 1
+        '/companies/:url_title': 1
     };
 
 
@@ -86,7 +93,7 @@
                         .render();
                 } else {
                     isViewingModal = false;
-                    if(!evutils.modalHidden) {
+                    if (!evutils.modalHidden) {
                         evutils.hideModal();
                     }
                     else if (evutils.history.goingback) {
@@ -135,7 +142,7 @@
     });
     jQuery.extend(routes, {
         'account': 'account',
-        'companies/edit/:url_title': 'companies/edit/:url_title',
+        'companies/:url_title/edit': 'companies/:url_title/edit',
         'new-page': 'new-page',
         'new-page/:url_title': 'new-page/:url_title'
     });
@@ -147,7 +154,7 @@
         'how-it-works': defaultHandler('/how-it-works'),
         'categories': defaultHandler('/categories'),
         'companies': defaultHandler('/companies'),
-        'companies/edit/:url_title': defaultHandler('/companies/edit/:url_title'),
+        'companies/:url_title/edit': defaultHandler('/companies/:url_title/edit'),
         'companies/:url_title': defaultHandler('/companies/:url_title'),
         'company': defaultHandler('/company'),
         'about': defaultHandler('/about'),
@@ -159,6 +166,7 @@
         'new-page/:url_title': defaultHandler('/new-page/:url_title'),
         'account': defaultHandler('/account')
     });
+
 
     var modalClosing = false;
     $(document).ready(function () {

@@ -148,8 +148,8 @@
                 user.getUnstartedPages(function (companies) {
                     self.page = _.where(companies, { url_title: self.company_url_title })[0];
                     if (self.page) {
-                        self.$el.html(evutils.render('templates/shared/create-new-page.jinja2',
-                            {'company': self.page}));
+                        self.$el.html(evutils.render('templates/shared/edit-page.jinja2',
+                            {'company': self.page, 'creating': true}));
                     }
                     else {
                         APP.router.navigate('account', {trigger: true});
@@ -161,15 +161,50 @@
         events: {
             'submit #create-company-form': 'createCompany'
         },
-        createCompany: function(evt) {
+        createCompany: function (evt) {
             var data = $(evt.target).serializeObject();
             var company = $.extend(this.page, data);
-            models.getUser(function(user) {
-                user.createCompany(company, function(data) {
-
+            models.getUser(function (user) {
+                user.createCompany(company, function (data) {
                     APP.goto('account');
                 });
-            })
+            });
+            return false;
+        }
+    });
+
+    APP.Views['/companies/:url_title/edit'] = Backbone.View.extend({
+        initialize: function (options) {
+            this.company_url_title = options.args[0];
+        },
+
+        render: function () {
+            var self = this;
+            models.getUser(function (user) {
+                user.getCompanies(function (companies) {
+                    self.page = _.where(companies, { url_title: self.company_url_title })[0];
+                    if (self.page) {
+                        self.$el.html(evutils.render('templates/shared/edit-page.jinja2',
+                            {'company': self.page, 'creating': false}));
+                    }
+                    else {
+                        APP.router.navigate('account', {trigger: true});
+                    }
+                });
+            });
+            return self;
+        },
+        events: {
+            'submit #create-company-form': 'createCompany'
+        },
+        createCompany: function (evt) {
+            var data = $(evt.target).serializeObject();
+            var company = $.extend(this.page, data);
+            models.getUser(function (user) {
+                user.createCompany(company, function (data) {
+                    APP.goto('account');
+                });
+            });
             return false;
         }
     });

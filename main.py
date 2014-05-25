@@ -156,7 +156,7 @@ app = ndb.toplevel(webapp2.WSGIApplication([
                                                ('/new-page', MainHandler),
                                                ('/new-page/(..*)', MainHandler),
                                                ('/launch/reshare', MainHandler),
-                                               ('/companies/edit/(..*)', MainHandler),
+                                               ('/companies/(..*)/edit', MainHandler),
 
                                                ('/companies/(..*)', CompanyHandler),
 

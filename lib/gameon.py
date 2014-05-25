@@ -166,30 +166,6 @@ class CreateCompanyHandler(BaseHandler):
         self.response.out.write('success')
 
 
-class EditCompanyHandler(BaseHandler):
-    def get(self):
-        company = Company.getByPageId(self.request.get('page_id'))
-        company.facebook_link = self.request.get('facebook_link')
-
-        company.name = self.request.get('name')
-        company.url_title = GameOnUtils.urlEncode(company.name)
-        company.description = self.request.get('description')
-        company.about = self.request.get('about')
-
-        company.pic = self.request.get('pic')
-
-        company.website_link = self.request.get('website_link')
-        company.twitter_name = self.request.get('twitter_name')
-        company.google_link = self.request.get('google_link')
-        company.status = self.request.get('status')
-
-        company.tags = self.request.get_all('tags[]')
-
-        company.put()
-
-        self.response.out.write('success')
-
-
 class GetCompanyHandler(BaseHandler):
     def get(self):
 
@@ -211,7 +187,6 @@ routes = [
     ('/lib/saveaccesstoken', SaveAccessTokenHandler),
     ('/lib/isgold', IsGoldHandler),
     ('/lib/createcompany', CreateCompanyHandler),
-    ('/lib/editcompany', EditCompanyHandler),
     ('/lib/getcompanies', GetCompanyHandler),
 
 ]

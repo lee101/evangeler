@@ -61,11 +61,11 @@ window.evutils = new (function () {
     //History
     self.history = new (function () {
         var hself = this;
-        var history = [window.location.pathname];
+        var history = [window.location.pathname + window.location.hash];
         var historyIdx = 0;
         hself.goingback = false;
         hself.add = function () {
-            var state = window.location.pathname;
+            var state = window.location.pathname + window.location.hash;
             if (historyIdx >= 1 && history[historyIdx - 1] == state) {
                 historyIdx -= 1;
                 hself.goingback = true;
@@ -81,6 +81,12 @@ window.evutils = new (function () {
         hself.previousState = function () {
             if (historyIdx >= 1) {
                 return history[historyIdx - 1];
+            }
+            return null;
+        };
+        hself.currentState = function () {
+            if (historyIdx >= 0) {
+                return history[historyIdx];
             }
             return null;
         };

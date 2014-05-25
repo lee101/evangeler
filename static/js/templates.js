@@ -79,9 +79,9 @@ output += "\n                                <a class=\"btn\" href=\"/companies/
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
 output += "\" title=\"View ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
-output += "\"\n                                  >View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
+output += "\"\n                                  >View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
-output += "\"\n                                   title=\"Edit ";
+output += "/edit\"\n                                   title=\"Edit ";
 output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
 output += "\"\n                                  >Edit</a>\n                            ";
 ;
@@ -161,9 +161,9 @@ output += "\n                                <a class=\"btn\" href=\"/companies/
 output += runtime.suppressValue(runtime.memberLookup((t_5),"url_title", env.autoesc), env.autoesc);
 output += "\" title=\"View ";
 output += runtime.suppressValue(runtime.memberLookup((t_5),"name", env.autoesc), env.autoesc);
-output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/edit/";
+output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/companies/";
 output += runtime.suppressValue(runtime.memberLookup((t_5),"url_title", env.autoesc), env.autoesc);
-output += "\" title=\"Edit ";
+output += "/edit\" title=\"Edit ";
 output += runtime.suppressValue(runtime.memberLookup((t_5),"name", env.autoesc), env.autoesc);
 output += "\"\n                                  >Edit</a>\n                            ";
 ;
@@ -342,7 +342,7 @@ root: root
 };
 })();
 })();
-(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/create-new-page.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/edit-page.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;
 var output = "";
@@ -357,11 +357,20 @@ output += " Logo\"\n                             width=\"100\"\n                
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
 output += "</p>\n\n                                <div class=\"form-group\">\n                                    <textarea class=\"text-smaller form-control\"\n                                              rows=\"4\" name=\"about\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"about", env.autoesc), env.autoesc);
-output += "</textarea>\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyWebsite\"><i class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></i> Website</label>\n                                    <input id=\"companyWebsite\" class=\"text-smaller form-control\"\n                                              value=\"";
+output += "</textarea>\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyWebsite\"><i\n                                            class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></i> Website</label>\n                                    <input id=\"companyWebsite\" class=\"text-smaller form-control\"\n                                           value=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"website_link", env.autoesc), env.autoesc);
-output += "\" name=\"website_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyTwitter\"><i\n                                            class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></i> Twitter</label>\n                                    <input id=\"companyTwitter\" class=\"text-smaller form-control\" placeholder=\"@evangelersays\"\n                                           name=\"twitter_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyGooglePlus\"><i\n                                            class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></i> Google Plus Link</label>\n                                    <input id=\"companyGooglePlus\" class=\"text-smaller form-control\"\n                                           placeholder=\"https://plus.google.com/+Evangeler\" name=\"google_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyDescription\">Description</label>\n                                    <textarea id=\"companyDescription\" class=\"text-smaller form-control\"\n                                              rows=\"6\" name=\"description\">";
+output += "\" name=\"website_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyTwitter\"><i\n                                            class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></i> Twitter</label>\n                                    <input id=\"companyTwitter\" class=\"text-smaller form-control\"\n                                           placeholder=\"@evangelersays\"\n                                           name=\"twitter_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyGooglePlus\"><i\n                                            class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></i>\n                                        Google Plus Link</label>\n                                    <input id=\"companyGooglePlus\" class=\"text-smaller form-control\"\n                                           placeholder=\"https://plus.google.com/+Evangeler\" name=\"google_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyDescription\">Description</label>\n                                    <textarea id=\"companyDescription\" class=\"text-smaller form-control\"\n                                              rows=\"6\" name=\"description\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"description", env.autoesc), env.autoesc);
-output += "</textarea>\n                                </div>\n\n                                <button type=\"submit\" class=\"btn btn-lg btn-warning\">Create!</button>\n\n                            </form>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</div>\n";
+output += "</textarea>\n                                </div>\n                                ";
+if(runtime.contextOrFrameLookup(context, frame, "creating")) {
+output += "\n                                    <button type=\"submit\" class=\"btn btn-lg btn-warning\">Create!</button>\n                                ";
+;
+}
+else {
+output += "\n                                    <button type=\"submit\" class=\"btn btn-lg btn-warning\">Save</button>\n                                    <button class=\"btn btn-lg btn-primary\" onclick=\"window.history.back();return false;\">Cancel</button>\n                                ";
+;
+}
+output += "\n                            </form>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
