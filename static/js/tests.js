@@ -123,7 +123,20 @@ describe("lib", function () {
         })
     });
 
+
 });
+
+describe("evutils", function () {
+
+    it('should format tags', function () {
+        var obj = {};
+        obj.tags = 'test, amount ,  of tags , asdf';
+        evutils.formatTags(obj);
+        expect(obj.tags).toEqual(['test', 'amount', 'of tags', 'asdf']);
+    });
+
+});
+
 
 describe("the site", function () {
 
@@ -135,5 +148,17 @@ describe("the site", function () {
         done();
     });
 
+    it('should tear down the test data', function (done) {
+        expect(models.user).toBeTruthy();
+
+        models.getUser(function (user) {
+
+            models.deleteAllTestData(function (data) {
+                expect(data).toBe('success');
+                done();
+            });
+
+        })
+    });
 });
 

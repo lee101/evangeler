@@ -144,7 +144,8 @@
         'account': 'account',
         'companies/:url_title/edit': 'companies/:url_title/edit',
         'new-page': 'new-page',
-        'new-page/:url_title': 'new-page/:url_title'
+        'new-page/:url_title': 'new-page/:url_title',
+        'launch/reshare': 'launch/reshare'
     });
 
     var Router = Backbone.Router.extend({
@@ -164,6 +165,7 @@
         'refunds': defaultHandler('/refunds'),
         'new-page': defaultHandler('/new-page'),
         'new-page/:url_title': defaultHandler('/new-page/:url_title'),
+        'launch/reshare': defaultHandler('/launch/reshare'),
         'account': defaultHandler('/account')
     });
 

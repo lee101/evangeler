@@ -166,6 +166,24 @@ class CreateCompanyHandler(BaseHandler):
         self.response.out.write('success')
 
 
+class CreateContestHandler(BaseHandler):
+    def get(self):
+        contest = Contest.getByUrlTitle(self.request.get('url_title'))
+        if not contest:
+            contest = Contest()
+
+        contest.title = self.request.get('title')
+        # TODO ensure url_title is unique
+        contest.url_title = GameOnUtils.urlEncode(contest.title)
+
+        contest.description = self.request.get('description')
+        contest.tags = self.request.get_all('tags[]')
+
+        contest.put()
+
+        self.response.out.write('success')
+
+
 class GetCompanyHandler(BaseHandler):
     def get(self):
 
@@ -180,6 +198,24 @@ class GetCompanyHandler(BaseHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(companies, cls=GameOnUtils.MyEncoder))
 
+class GetContestHandler(BaseHandler):
+    def get(self):
+
+        url_title = self.request.get('url_title')
+
+        contest = Contest.getByUrlTitle(url_title)
+
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps(contest, cls=GameOnUtils.MyEncoder))
+
+
+class DeleteAllTestDataHandler(BaseHandler):
+    def get(self):
+        Company.deleteTestData()
+        User.deleteTestData()
+
+        self.response.out.write('success')
+
 
 routes = [
     ('/lib/getuser', GetUserHandler),
@@ -187,6 +223,9 @@ routes = [
     ('/lib/saveaccesstoken', SaveAccessTokenHandler),
     ('/lib/isgold', IsGoldHandler),
     ('/lib/createcompany', CreateCompanyHandler),
+    ('/lib/createcontest', CreateContestHandler),
     ('/lib/getcompanies', GetCompanyHandler),
+    ('/lib/getcontest', GetContestHandler),
+    ('/lib/deletealltestdata', DeleteAllTestDataHandler),
 
 ]

@@ -32,7 +32,7 @@ window.evutils = new (function () {
             });
         }
         return false;
-    }
+    };
 
     //Modals
     self.modalHidden = true;
@@ -94,15 +94,15 @@ window.evutils = new (function () {
         return hself;
     })();
 
-    self.urlencode = function(name) {
+    self.urlencode = function (name) {
         return name.replace(/\s/g, '-')
             .replace(/[\.\t\,\:;\(\)'@!\\\?#/<>&]/g, '')
             .replace(/[^\x00-\x7F]/g, "")
             .toLowerCase();
-    }
+    };
 
     //share buttons
-    $(document).on('click', '.facebook-share-btn', function() {
+    $(document).on('click', '.facebook-share-btn', function () {
         FB.ui({
             method: 'share',
             href: window.location.href
@@ -110,6 +110,27 @@ window.evutils = new (function () {
         });
     });
 
+
+    self.render = function (template, opts) {
+//TODO on load?
+        if (typeof opts === 'undefined') {
+            opts = {};
+        }
+        $.extend(opts, {
+            url: window.location.href,
+            urlencode: encodeURIComponent,
+            window: window,
+            client_side: true
+        });
+        return nunjucks.render(template, opts);
+    };
+
+
+    self.formatTags = function (obj) {
+        if (obj.tags) {
+            obj.tags = obj.tags.split(/\s*,\s*/);
+        }
+    };
     (function () {
         if (window.__twitterIntentHandler) return;
         var intentRegex = /twitter\.com(\:\d{2,4})?\/intent\/(\w+)/,
@@ -153,20 +174,6 @@ window.evutils = new (function () {
         }
         window.__twitterIntentHandler = true;
     }());
-
-    self.render = function(template, opts) {
-//TODO on load?
-        if(typeof opts === 'undefined') {
-            opts = {};
-        }
-        $.extend(opts, {
-            url: window.location.href,
-            urlencode: encodeURIComponent,
-            window: window,
-            client_side: true
-        });
-        return nunjucks.render(template, opts);
-    }
 
 })();
 

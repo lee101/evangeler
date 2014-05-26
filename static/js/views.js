@@ -119,6 +119,26 @@
             return self;
         }
     });
+    APP.Views['/launch/reshare'] = Backbone.View.extend({
+        initialize: function (options) {
+        },
+
+        render: function () {
+            var self = this;
+            models.getUser(function (user) {
+                self.$el.html(evutils.render('templates/shared/launch-reshare.jinja2', {'user': user}));
+            });
+            return self;
+        },
+        events: {
+            'submit #contest-details-form': 'createContest'
+        },
+        createContest: function (evt) {
+            var data = $(evt.target).serializeObject();
+            evutils.formatTags(data);
+            $.extend(data, {type: CONTESTS.RESHARE});
+        }
+    });
     APP.Views['/new-page'] = Backbone.View.extend({
         initialize: function (options) {
         },
@@ -137,6 +157,17 @@
             return self;
         }
     });
+
+    function createCompanyFormSubmit(evt) {
+        var data = $(evt.target).serializeObject();
+        var company = $.extend(this.page, data);
+        models.getUser(function (user) {
+            user.createCompany(company, function (data) {
+                APP.goto('account');
+            });
+        });
+        return false;
+    }
     APP.Views['/new-page/:url_title'] = Backbone.View.extend({
         initialize: function (options) {
             this.company_url_title = options.args[0];
@@ -161,16 +192,7 @@
         events: {
             'submit #create-company-form': 'createCompany'
         },
-        createCompany: function (evt) {
-            var data = $(evt.target).serializeObject();
-            var company = $.extend(this.page, data);
-            models.getUser(function (user) {
-                user.createCompany(company, function (data) {
-                    APP.goto('account');
-                });
-            });
-            return false;
-        }
+        createCompany: createCompanyFormSubmit
     });
 
     APP.Views['/companies/:url_title/edit'] = Backbone.View.extend({
@@ -197,16 +219,7 @@
         events: {
             'submit #create-company-form': 'createCompany'
         },
-        createCompany: function (evt) {
-            var data = $(evt.target).serializeObject();
-            var company = $.extend(this.page, data);
-            models.getUser(function (user) {
-                user.createCompany(company, function (data) {
-                    APP.goto('account');
-                });
-            });
-            return false;
-        }
+        createCompany: createCompanyFormSubmit
     });
 
     APP.Views.Header = Backbone.View.extend({

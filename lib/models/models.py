@@ -58,6 +58,14 @@ class Company(BaseModel):
 
 
     @classmethod
+    def deleteTestData(cls):
+        companies =  cls.query(cls.facebook_link == 'test').fetch(1000)
+        for company in companies:
+            Contest.hardDeleteByCompany(company)
+        ndb.delete_multi([m.key for m in companies])
+
+
+    @classmethod
     def getAllTitles(cls):
         all_titles = []
 
@@ -91,6 +99,14 @@ class Contest(BaseModel):
     def getByCompanyKey(cls, id):
         return cls.query(cls.key == id).fetch()
 
+    @classmethod
+    def getByUrlTitle(cls, title):
+        return cls.query(cls.url_title == title).get()
+
+    @classmethod
+    def hardDeleteByCompany(cls, company):
+        ndb.delete_multi([m.key for m in cls.query(cls.company_key == company.key).fetch(10000)])
+
 
 class User(BaseModel):
     cookie_id = ndb.StringProperty(required=True)
@@ -114,3 +130,7 @@ class User(BaseModel):
     @classmethod
     def byFacebookId(cls, id):
         return cls.query(cls.facebook_id == id).get()
+
+    @classmethod
+    def deleteTestData(cls):
+        return ndb.delete_multi([m.key for m in cls.query(cls.facebook_id == 'test').fetch(1000)])

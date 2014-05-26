@@ -18,3 +18,10 @@ STATUS = {
     'DELETED':  4,
     'REFUNDED': 5,
 }
+
+CONTESTS = {
+    'RESHARE': 1,
+    'HASHTAG': 2,
+    'ARTICLE': 3,
+    'REVIEW': 4,
+}

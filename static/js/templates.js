@@ -508,6 +508,23 @@ root: root
 };
 })();
 })();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/launch-reshare.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"mm-hero pistachio\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Contest Details\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n    <div class=\"mm-grid\">\n        <div class=\"row\">\n\n            <div class=\"col-md-12\">\n                <div class=\"mm-grid__section\">\n\n                    <form id=\"contest-details-form\" role=\"form\">\n\n                        <div class=\"form-group\">\n                            <label for=\"contestTitle\">Title</label>\n                            <input id=\"contestTitle\" class=\"text-smaller form-control\"\n                                   placeholder=\"Dunkin' Donuts like competition! Win a lifetime supply of donuts!\" name=\"title\">\n                        </div>\n\n                        <div class=\"form-group\">\n\n                            <label for=\"contestDescription\">Description</label>\n                            <textarea id=\"contestDescription\" class=\"text-smaller form-control\"\n                                      rows=\"8\" name=\"description\" placeholder=\"Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!\"></textarea>\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"contestTags\">Tags</label>\n                            <input id=\"contestTags\" class=\"text-smaller form-control\"\n                                   placeholder=\"Donuts, confectioneries, sweets, lifetime donut supply, Heaven on Earth\"\n                                   name=\"tags\">\n                        </div>\n\n                        <button type=\"submit\" class=\"btn btn-lg btn-warning\">Next</button>\n                    </form>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</div>\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
 (function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["templates/shared/new-page.jinja2"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;
