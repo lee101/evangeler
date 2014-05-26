@@ -120,7 +120,9 @@ class CompanyHandler(BaseHandler):
 class SitemapHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/xml'
+        company_titles = Company.getAllTitles()
         template_values = {
+            'company_titles': company_titles
         }
         template = JINJA_ENVIRONMENT.get_template('templates/sitemap.xml')
         self.response.write(template.render(template_values))

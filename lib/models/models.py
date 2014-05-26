@@ -4,6 +4,7 @@ from google.appengine.ext import ndb
 class BaseModel(ndb.Model):
     def default(self, o): return o.to_dict()
 
+
     # def to_dict(self):
     #    return dict([(p, unicode(getattr(self, p))) for p in self._properties])
 
@@ -56,6 +57,15 @@ class Company(BaseModel):
         return cls.query()
 
 
+    @classmethod
+    def getAllTitles(cls):
+        all_titles = []
+
+        if len(all_titles) <= 0:
+            all_titles = map(lambda x: x.url_title, cls.query().fetch(50000, projection=[cls.url_title]))
+        return all_titles
+
+
 class Contest(BaseModel):
     url_title = ndb.StringProperty()
 
@@ -80,6 +90,7 @@ class Contest(BaseModel):
     @classmethod
     def getByCompanyKey(cls, id):
         return cls.query(cls.key == id).fetch()
+
 
 class User(BaseModel):
     cookie_id = ndb.StringProperty(required=True)
