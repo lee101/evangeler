@@ -46,7 +46,6 @@ describe("tests", function () {
             callback({
                 "data": [
                     {"facebook_link": 'test', "page_id": 721564427863714, "name": "Evangeler", "access_token": "CAALmwptiDqQBADO0SQ0XfxSQKcuLgBpAouBu25HMBAld1zzEnuS8dZAD5xyuscQQ5iWl325zyZBhaXRI20emyaMPZBygLBZAU3ZCPHLuExqu1c9aVsD3kA5ultGiHQzZBKYZAX4R7cDZCXHtiqSv5C6bUBZBaERrEwj12usS4K94YgeKLuW6ZBa92tRSC4B3yVR4kZD", "about": "Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! Free For A Limited Time!", "description": "", "categories": [
-                    {"facebook_link": 'test', "name": "Evangeler", "access_token": "CAALmwptiDqQBADO0SQ0XfxSQKcuLgBpAouBu25HMBAld1zzEnuS8dZAD5xyuscQQ5iWl325zyZBhaXRI20emyaMPZBygLBZAU3ZCPHLuExqu1c9aVsD3kA5ultGiHQzZBKYZAX4R7cDZCXHtiqSv5C6bUBZBaERrEwj12usS4K94YgeKLuW6ZBa92tRSC4B3yVR4kZD", "about": "Create Viral Marketing Campaigns! Promote Your Product With The Power Of The People! Free For A Limited Time!", "description": "", "categories": [
                         {"id": 164886566892249, "name": "Advertising Agency"},
                         {"id": 170992992946914, "name": "Marketing Consultant"}
                     ], "keywords": null, "pic": "https:\/\/fbcdn-profile-a.akamaihd.net\/hprofile-ak-prn2\/t1.0-1\/p100x100\/10003506_721564694530354_277872486_a.png", "website_link": "http:\/\/www.evangeler.com"},
@@ -72,95 +71,6 @@ describe("tests", function () {
                 expect(data).toBe('success');
                 done();
             });
-
         })
     });
-
 });
-
-describe("evangeler", function () {
-
-    it('should let you login', function (done) {
-        facebookWrapper.fb_login(function (user) {
-            expect(user.email).toBe('test');
-            done();
-        });
-    });
-    it('should let you log out and back in', function (done) {
-        facebookWrapper.fb_logout(function () {
-            expect(gameon.user).toBeFalsy();
-        });
-        facebookWrapper.fb_login(function (user) {
-            expect(user.email).toBe('test');
-            done();
-        });
-    });
-
-});
-describe("lib", function () {
-
-    it('should let you create a company', function (done) {
-        expect(models.user).toBeTruthy();
-
-        models.getUser(function (user) {
-            var page_id = 159201617592591;
-
-            user.createCompany({
-                name: 'Word Smashing',
-                description: 'description',
-                facebook_link: 'test',
-                tags: [1, 2],
-                status: STATUS.DRAFT,
-                pic: wordsmashing.pic,
-                about: wordsmashing.about,
-
-                page_id: page_id
-            }, function (data) {
-                expect(data).toBe('success');
-                models.getUser(function (user) {
-                    user.getCompanies(function (companies) {
-                        expect(companies[0].page_id).toBe(page_id);
-                        user.getUnstartedPages(function (pages) {
-                            var containsWS = false;
-                            _.each(pages, function (page) {
-                                if (page.page_id == page_id) {
-                                    containsWS = true
-                                }
-                            });
-                            expect(containsWS).toBeFalsy();
-                            done()
-                        })
-                    });
-                })
-            })
-
-        })
-    });
-
-
-});
-
-describe("evutils", function () {
-
-    it('should format tags', function () {
-        var obj = {};
-        obj.tags = 'test, amount ,  of tags , asdf';
-        evutils.formatTags(obj);
-        expect(obj.tags).toEqual(['test', 'amount', 'of tags', 'asdf']);
-    });
-
-});
-
-
-describe("the site", function () {
-
-    it('should let you navigate to new page', function (done) {
-        APP.goto('account');
-        APP.goto('new-page');
-        APP.goto('new-page/multiplication-master');
-        APP.goto('tests');
-        done();
-    });
-
-});
-
