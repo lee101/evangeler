@@ -158,69 +158,82 @@
         }
     });
 
-    function createCompanyFormSubmit(evt) {
-        var data = $(evt.target).serializeObject();
-        var company = $.extend(this.page, data);
-        models.getUser(function (user) {
-            user.createCompany(company, function (data) {
-                APP.goto('account');
-            });
+
+    function editPageViewFactory(editing) {
+        return Backbone.View.extend({
+            initialize: function (options) {
+                this.company_url_title = options.args[0];
+            },
+
+            render: function () {
+                var self = this;
+                self.editing = editing;
+                models.getUser(function (user) {
+                    var getFunc = 'getUnstartedPages';
+                    if (self.editing) {
+                        getFunc = 'getCompanies';
+                    }
+                    user[getFunc](function renderCompanyForm(companies) {
+                        self.page = _.where(companies, { url_title: self.company_url_title })[0];
+                        if (self.page) {
+                            self.$el.html(evutils.render('templates/shared/edit-page.jinja2',
+                                {'company': self.page, 'creating': !self.editing}));
+
+                            $('#create-company-form').validate({
+                                rules: {
+                                    description: {
+                                        minlength: 3,
+                                        maxlength: 15,
+                                        required: true
+                                    },
+                                    lastname: {
+                                        minlength: 3,
+                                        maxlength: 15,
+                                        required: true
+                                    }
+                                },
+                                highlight: function (element) {
+                                    $(element).closest('.form-group').addClass('has-error');
+                                },
+                                unhighlight: function (element) {
+                                    $(element).closest('.form-group').removeClass('has-error');
+                                },
+                                errorElement: 'span',
+                                errorClass: 'help-block',
+                                errorPlacement: function (error, element) {
+                                    if (element.parent('.input-group').length) {
+                                        error.insertAfter(element.parent());
+                                    } else {
+                                        error.insertAfter(element);
+                                    }
+                                }
+                            });
+                        }
+                        else {
+                            APP.router.navigate('account', {trigger: true});
+                        }
+                    });
+                });
+                return self;
+            },
+            events: {
+                'submit #create-company-form': 'createCompany'
+            },
+            createCompany: function (evt) {
+                var data = $(evt.target).serializeObject();
+                var company = $.extend(this.page, data);
+                models.getUser(function (user) {
+                    user.createCompany(company, function (data) {
+                        APP.goto('account');
+                    });
+                });
+                return false;
+            }
         });
-        return false;
     }
-    APP.Views['/new-page/:url_title'] = Backbone.View.extend({
-        initialize: function (options) {
-            this.company_url_title = options.args[0];
-        },
+    APP.Views['/new-page/:url_title'] = editPageViewFactory(false);
 
-        render: function () {
-            var self = this;
-            models.getUser(function (user) {
-                user.getUnstartedPages(function (companies) {
-                    self.page = _.where(companies, { url_title: self.company_url_title })[0];
-                    if (self.page) {
-                        self.$el.html(evutils.render('templates/shared/edit-page.jinja2',
-                            {'company': self.page, 'creating': true}));
-                    }
-                    else {
-                        APP.router.navigate('account', {trigger: true});
-                    }
-                });
-            });
-            return self;
-        },
-        events: {
-            'submit #create-company-form': 'createCompany'
-        },
-        createCompany: createCompanyFormSubmit
-    });
-
-    APP.Views['/companies/:url_title/edit'] = Backbone.View.extend({
-        initialize: function (options) {
-            this.company_url_title = options.args[0];
-        },
-
-        render: function () {
-            var self = this;
-            models.getUser(function (user) {
-                user.getCompanies(function (companies) {
-                    self.page = _.where(companies, { url_title: self.company_url_title })[0];
-                    if (self.page) {
-                        self.$el.html(evutils.render('templates/shared/edit-page.jinja2',
-                            {'company': self.page, 'creating': false}));
-                    }
-                    else {
-                        APP.router.navigate('account', {trigger: true});
-                    }
-                });
-            });
-            return self;
-        },
-        events: {
-            'submit #create-company-form': 'createCompany'
-        },
-        createCompany: createCompanyFormSubmit
-    });
+    APP.Views['/companies/:url_title/edit'] = editPageViewFactory(true);
 
     APP.Views.Header = Backbone.View.extend({
         initialize: function (options) {
