@@ -25,7 +25,32 @@ a:focus {
   text-align: left;
 }
 .text-smaller {
-  font-size: 16.2px;
+  font-size: 13.8px;
+}
+@media (min-width: 481px) {
+  .text-smaller {
+    font-size: 15px;
+  }
+}
+@media (min-width: 641px) {
+  .text-smaller {
+    font-size: 15.6px;
+  }
+}
+@media (min-width: 961px) {
+  .text-smaller {
+    font-size: 16.2px;
+  }
+}
+@media (min-width: 1025px) {
+  .text-smaller {
+    font-size: 16.8px;
+  }
+}
+@media (min-width: 1281px) {
+  .text-smaller {
+    font-size: 18px;
+  }
 }
 .modal-body {
   padding: 0;

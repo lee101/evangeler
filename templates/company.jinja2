@@ -3,7 +3,7 @@
 {% block headers %}
 
     {% set title = company.name + ' On Evangeler' -%}
-    {% set desc = 'Check out '+company.name+' on Evangeler! ' + company.about -%}
+    {% set desc = 'Check out ' + company.name + ' on Evangeler! ' + company.about -%}
 
     <title>{{ title }}</title>
     <meta name="description"
@@ -14,7 +14,7 @@
     <meta property="og:title" content="{{ title }}">
     <meta property="og:url" content="{{ url }}">
     <meta property="og:image"
-          content="http://www.evangeler.com/static/img/evangeler-logo128.png">
+          content="{{ company.pic }}">
     <meta property="og:description"
           content="{{ desc }}">
 {% endblock %}
