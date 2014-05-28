@@ -8,7 +8,7 @@
     };
 
     APP.backto = function (name) {
-        if (evutils.history.previousState == name) {
+        if (evutils.history.getPreviousState() == name) {
             window.history.back();
             return false;
         }

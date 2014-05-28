@@ -54,6 +54,10 @@
 
                 $('#create-company-form').validate({
                     rules: {
+                        about: {
+                            minlength: 10,
+                            required: true
+                        },
                         description: {
                             minlength: 3,
                             required: false

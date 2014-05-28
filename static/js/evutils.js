@@ -78,7 +78,7 @@ window.evutils = new (function () {
             history[historyIdx] = state;
             hself.goingback = false;
         };
-        hself.previousState = function () {
+        hself.getPreviousState = function () {
             if (historyIdx >= 1) {
                 return history[historyIdx - 1];
             }

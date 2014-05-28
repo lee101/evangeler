@@ -150,7 +150,7 @@ class CreateCompanyHandler(BaseHandler):
 
         company.name = self.request.get('name')
         # TODO ensure url_title is unique
-        company.url_title = GameOnUtils.urlEncode(company.name)
+        company.url_title = self.request.get('url_title')
         company.description = self.request.get('description')
         company.about = self.request.get('about')
 
