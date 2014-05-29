@@ -9,15 +9,15 @@
 
             <div class="col-md-12">
                 <div class="mm-grid__section">
+                    <form id="create-company-form" role="form">
 
-                    <div class="media">
+                        <div class="media">
 
-                        <img class="pull-left media-object" src="{{ company.pic }}" alt="{{ company.name }} Logo"
-                             width="100"
-                             height="100">
+                            <img class="pull-left media-object" src="{{ company.pic }}" alt="{{ company.name }} Logo"
+                                 width="100"
+                                 height="100">
 
-                        <div class="media-body">
-                            <form id="create-company-form" role="form">
+                            <div class="media-body">
                                 <p class="media-heading mm-footer__heading"
                                         >{{ company.name }}</p>
 
@@ -26,43 +26,46 @@
                                               rows="4" name="about">{{ company.about }}</textarea>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="companyWebsite"><i
-                                            class="fa fa-globe mm-share-btn mm-share-btn--twitter"></i> Website</label>
-                                    <input id="companyWebsite" class="text-smaller form-control"
-                                           value="{{ company.website_link }}" name="website_link">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="companyTwitter"><i
-                                            class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></i> Twitter</label>
-                                    <input id="companyTwitter" class="text-smaller form-control"
-                                           placeholder="@evangelersays"
-                                           name="twitter_link">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="companyGooglePlus"><i
-                                            class="fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus"></i>
-                                        Google Plus Link</label>
-                                    <input id="companyGooglePlus" class="text-smaller form-control"
-                                           placeholder="https://plus.google.com/+Evangeler" name="google_link">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="companyDescription">Description</label>
-                                    <textarea id="companyDescription" class="text-smaller form-control"
-                                              rows="6" name="description">{{ company.description }}</textarea>
-                                </div>
-                                {% if creating %}
-                                    <button type="submit" class="btn btn-lg btn-warning">Create!</button>
-                                {% else %}
-                                    <button type="submit" class="btn btn-lg btn-warning">Save</button>
-                                    <button class="btn btn-lg btn-primary" onclick="window.history.back();return false;">Cancel</button>
-                                {% endif %}
-                            </form>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="form-group">
+                            <label for="companyWebsite"><i
+                                    class="fa fa-globe mm-share-btn mm-share-btn--twitter"></i> Website</label>
+                            <input id="companyWebsite" class="text-smaller form-control"
+                                   value="{{ company.website_link }}" name="website_link">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="companyTwitter"><i
+                                    class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></i> Twitter</label>
+                            <input id="companyTwitter" class="text-smaller form-control"
+                                   placeholder="@evangelersays"
+                                   name="twitter_link">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="companyGooglePlus"><i
+                                    class="fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus"></i>
+                                Google Plus Link</label>
+                            <input id="companyGooglePlus" class="text-smaller form-control"
+                                   placeholder="https://plus.google.com/+Evangeler" name="google_link">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="companyDescription">Description</label>
+                            <textarea id="companyDescription" class="text-smaller form-control"
+                                      rows="6" name="description">{{ company.description }}</textarea>
+                        </div>
+                        {% if creating %}
+                            <button type="submit" class="btn btn-lg btn-warning">Create!</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-lg btn-warning">Save</button>
+                            <button class="btn btn-lg btn-primary" onclick="window.history.back();return false;">
+                                Cancel
+                            </button>
+                        {% endif %}
+                    </form>
                 </div>
 
             </div>

@@ -206,3 +206,5 @@ $.fn.serializeObject = function () {
     });
     return o;
 };
+
+nunjucks.configure({ autoescape: true });

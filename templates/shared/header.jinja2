@@ -24,11 +24,21 @@
         {% if path == '/how-it-works' %}
             <span class="mm-header__link active">
                 How It Works
-            </span>
+            </span
         {% else %}
             <a class="mm-header__link" href="/how-it-works" title="How It Works"
               >
                 How It Works
+            </a
+        {% endif %}
+        {% if path == '/companies' %}
+            ><span class="mm-header__link active">
+                Companies
+            </span>
+        {% else %}
+            ><a class="mm-header__link" href="/companies" title="Businesses using Evangeler"
+              >
+                Companies
             </a>
         {% endif %}
         {% if client_side %}

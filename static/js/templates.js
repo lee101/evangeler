@@ -258,43 +258,43 @@ output += "\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
 output += "</a>\n\n                        <p class=\"text-smaller\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"about", env.autoesc), env.autoesc);
-output += "</p>\n\n                        ";
+output += "</p>\n                    </div>\n                </div>\n\n                ";
 if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"facebook_link", env.autoesc)) {
-output += "\n                            <p class=\"text-smaller\">\n                                <a href=\"";
+output += "\n                    <p class=\"text-smaller\">\n                        <a href=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"facebook_link", env.autoesc), env.autoesc);
 output += "\" title=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += " on Facebook\"\n                                   target=\"_blank\" rel=\"nofollow\">\n                                    <span class=\"fa fa-facebook-square mm-share-btn mm-share-btn--facebook\"></span><span\n                                        class=\"footer__social-link-text\"> Facebook</span>\n                                </a>\n                            </p>\n                        ";
+output += " on Facebook\"\n                           target=\"_blank\" rel=\"nofollow\">\n                            <span class=\"fa fa-facebook-square mm-share-btn mm-share-btn--facebook\"></span><span\n                                class=\"footer__social-link-text\"> Facebook</span>\n                        </a>\n                    </p>\n                ";
 ;
 }
-output += "\n\n                        ";
+output += "\n\n                ";
 if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"website_link", env.autoesc)) {
-output += "\n                            <p class=\"text-smaller\">\n                                <a href=\"";
+output += "\n                    <p class=\"text-smaller\">\n                        <a href=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"website_link", env.autoesc), env.autoesc);
 output += "\" title=\"Visit ";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += "\"\n                                   target=\"_blank\" rel=\"nofollow\">\n                                    <span class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></span><span\n                                        class=\"footer__social-link-text\"> Website</span>\n                                </a>\n                            </p>\n                        ";
+output += "\"\n                           target=\"_blank\" rel=\"nofollow\">\n                            <span class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></span><span\n                                class=\"footer__social-link-text\"> Website</span>\n                        </a>\n                    </p>\n                ";
 ;
 }
-output += "\n\n                        ";
+output += "\n\n                ";
 if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"twitter_name", env.autoesc)) {
-output += "\n                            <p class=\"text-smaller\">\n                                <a href=\"https://twitter.com/";
+output += "\n                    <p class=\"text-smaller\">\n                        <a href=\"https://twitter.com/";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"twitter_name", env.autoesc), env.autoesc);
 output += "\" title=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += " on Twitter\"\n                                   target=\"_blank\" rel=\"nofollow\">\n                                    <span class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></span><span\n                                        class=\"footer__social-link-text\"> Twitter</span>\n                                </a>\n                            </p>\n                        ";
+output += " on Twitter\"\n                           target=\"_blank\" rel=\"nofollow\">\n                            <span class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></span><span\n                                class=\"footer__social-link-text\"> Twitter</span>\n                        </a>\n                    </p>\n                ";
 ;
 }
-output += "\n\n                        ";
+output += "\n\n                ";
 if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"google_link", env.autoesc)) {
-output += "\n                            <p class=\"text-smaller\">\n                                <a href=\"";
+output += "\n                    <p class=\"text-smaller\">\n                        <a href=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"google_link", env.autoesc), env.autoesc);
 output += "\" title=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += " on Google Plus\"\n                                   target=\"_blank\" rel=\"nofollow\">\n                                    <span class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></span><span\n                                        class=\"footer__social-link-text\"> Google Plus</span>\n                                </a>\n                            </p>\n                        ";
+output += " on Google Plus\"\n                           target=\"_blank\" rel=\"nofollow\">\n                            <span class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></span><span\n                                class=\"footer__social-link-text\"> Google Plus</span>\n                        </a>\n                    </p>\n                ";
 ;
 }
-output += "\n\n                    </div>\n                </div>\n\n                <p class=\"text-smaller\">";
+output += "\n\n                <p class=\"text-smaller\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"description", env.autoesc), env.autoesc);
 output += "</p>\n\n            </div>\n        </div>\n    </div>\n</div>\n";
 cb(null, output);
@@ -313,7 +313,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        Evangeler Helps Companies Create Viral and Social Marketing Campaigns.\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Give us an email at leepenkman@evangeler.com\n    </h2>\n    <a href=\"mailto:leepenkman@evangeler.com\" type=\"button\" class=\"mm-btn-hg btn btn-warning btn-lg\">Email Us\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h1 class=\"mm-marketing-text mm-marketing-text--black mm-marketing-text--smaller\">\n        Call us on +61 421 922 842 In Australia<br>\n        Call us on +64 21 296 4467 in New Zealand.\n    </h1>\n\n\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h1 class=\"mm-marketing-text\">\n        Business Address;\n    </h1>\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Unit 507/815 Bourke Street,<br>\n        Docklands,<br>\n        Melbourne<br>\n        Australia.<br>\n        <br>\n        4 Thornlea Drive,<br>\n        Welcome Bay,<br>\n        Tauranga,\n        New Zealand<br>\n    </h2>\n</div>\n";
+output += "<div class=\"mm-hero\">\n    <h1 class=\"mm-marketing-text\">\n        Evangeler Helps Companies Create Viral and Social Marketing Campaigns.\n    </h1>\n\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Give us an email at leepenkman@evangeler.com\n    </h2>\n    <a href=\"mailto:leepenkman@evangeler.com\" type=\"button\" class=\"mm-btn-hg btn btn-warning btn-lg\">Email Us\n    </a>\n</div>\n<div class=\"mm-hero mm-hero--light\">\n    <h1 class=\"mm-marketing-text mm-marketing-text--black mm-marketing-text--smaller\">\n        Call us on +61 421 922 842 In Australia<br>\n        Call us on +64 21 029 453 09 in New Zealand.\n    </h1>\n\n\n</div>\n<div class=\"mm-hero mm-hero--secondary\">\n    <h1 class=\"mm-marketing-text\">\n        Business Address;\n    </h1>\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Unit 507/815 Bourke Street,<br>\n        Docklands,<br>\n        Melbourne<br>\n        Australia.<br>\n        <br>\n        4 Thornlea Drive,<br>\n        Welcome Bay,<br>\n        Tauranga,\n        New Zealand<br>\n    </h2>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -349,28 +349,28 @@ var output = "";
 try {
 output += "<div class=\"mm-hero morange\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        Create a page for ";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += " on Evangeler\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n    <div class=\"mm-grid\">\n        <div class=\"row\">\n\n            <div class=\"col-md-12\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <img class=\"pull-left media-object\" src=\"";
+output += " on Evangeler\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n    <div class=\"mm-grid\">\n        <div class=\"row\">\n\n            <div class=\"col-md-12\">\n                <div class=\"mm-grid__section\">\n                    <form id=\"create-company-form\" role=\"form\">\n\n                        <div class=\"media\">\n\n                            <img class=\"pull-left media-object\" src=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"pic", env.autoesc), env.autoesc);
 output += "\" alt=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
-output += " Logo\"\n                             width=\"100\"\n                             height=\"100\">\n\n                        <div class=\"media-body\">\n                            <form id=\"create-company-form\" role=\"form\">\n                                <p class=\"media-heading mm-footer__heading\"\n                                        >";
+output += " Logo\"\n                                 width=\"100\"\n                                 height=\"100\">\n\n                            <div class=\"media-body\">\n                                <p class=\"media-heading mm-footer__heading\"\n                                        >";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"name", env.autoesc), env.autoesc);
 output += "</p>\n\n                                <div class=\"form-group\">\n                                    <textarea class=\"text-smaller form-control\"\n                                              rows=\"4\" name=\"about\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"about", env.autoesc), env.autoesc);
-output += "</textarea>\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyWebsite\"><i\n                                            class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></i> Website</label>\n                                    <input id=\"companyWebsite\" class=\"text-smaller form-control\"\n                                           value=\"";
+output += "</textarea>\n                                </div>\n\n                            </div>\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"companyWebsite\"><i\n                                    class=\"fa fa-globe mm-share-btn mm-share-btn--twitter\"></i> Website</label>\n                            <input id=\"companyWebsite\" class=\"text-smaller form-control\"\n                                   value=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"website_link", env.autoesc), env.autoesc);
-output += "\" name=\"website_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyTwitter\"><i\n                                            class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></i> Twitter</label>\n                                    <input id=\"companyTwitter\" class=\"text-smaller form-control\"\n                                           placeholder=\"@evangelersays\"\n                                           name=\"twitter_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyGooglePlus\"><i\n                                            class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></i>\n                                        Google Plus Link</label>\n                                    <input id=\"companyGooglePlus\" class=\"text-smaller form-control\"\n                                           placeholder=\"https://plus.google.com/+Evangeler\" name=\"google_link\">\n                                </div>\n\n                                <div class=\"form-group\">\n                                    <label for=\"companyDescription\">Description</label>\n                                    <textarea id=\"companyDescription\" class=\"text-smaller form-control\"\n                                              rows=\"6\" name=\"description\">";
+output += "\" name=\"website_link\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"companyTwitter\"><i\n                                    class=\"fa fa-twitter-square mm-share-btn mm-share-btn--twitter\"></i> Twitter</label>\n                            <input id=\"companyTwitter\" class=\"text-smaller form-control\"\n                                   placeholder=\"@evangelersays\"\n                                   name=\"twitter_link\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"companyGooglePlus\"><i\n                                    class=\"fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus\"></i>\n                                Google Plus Link</label>\n                            <input id=\"companyGooglePlus\" class=\"text-smaller form-control\"\n                                   placeholder=\"https://plus.google.com/+Evangeler\" name=\"google_link\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"companyDescription\">Description</label>\n                            <textarea id=\"companyDescription\" class=\"text-smaller form-control\"\n                                      rows=\"6\" name=\"description\">";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"description", env.autoesc), env.autoesc);
-output += "</textarea>\n                                </div>\n                                ";
+output += "</textarea>\n                        </div>\n                        ";
 if(runtime.contextOrFrameLookup(context, frame, "creating")) {
-output += "\n                                    <button type=\"submit\" class=\"btn btn-lg btn-warning\">Create!</button>\n                                ";
+output += "\n                            <button type=\"submit\" class=\"btn btn-lg btn-warning\">Create!</button>\n                        ";
 ;
 }
 else {
-output += "\n                                    <button type=\"submit\" class=\"btn btn-lg btn-warning\">Save</button>\n                                    <button class=\"btn btn-lg btn-primary\" onclick=\"window.history.back();return false;\">Cancel</button>\n                                ";
+output += "\n                            <button type=\"submit\" class=\"btn btn-lg btn-warning\">Save</button>\n                            <button class=\"btn btn-lg btn-primary\" onclick=\"window.history.back();return false;\">\n                                Cancel\n                            </button>\n                        ";
 ;
 }
-output += "\n                            </form>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</div>\n";
+output += "\n                    </form>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -460,11 +460,20 @@ output += "\n        <a href=\"/\" class=\"mm-logo__link\" title=\"Evangeler - S
 }
 output += "\n    </div>\n    <div class=\"mm-header__nav\">\n        ";
 if(runtime.contextOrFrameLookup(context, frame, "path") == "/how-it-works") {
-output += "\n            <span class=\"mm-header__link active\">\n                How It Works\n            </span>\n        ";
+output += "\n            <span class=\"mm-header__link active\">\n                How It Works\n            </span\n        ";
 ;
 }
 else {
-output += "\n            <a class=\"mm-header__link\" href=\"/how-it-works\" title=\"How It Works\"\n              >\n                How It Works\n            </a>\n        ";
+output += "\n            <a class=\"mm-header__link\" href=\"/how-it-works\" title=\"How It Works\"\n              >\n                How It Works\n            </a\n        ";
+;
+}
+output += "\n        ";
+if(runtime.contextOrFrameLookup(context, frame, "path") == "/companies") {
+output += "\n            ><span class=\"mm-header__link active\">\n                Companies\n            </span>\n        ";
+;
+}
+else {
+output += "\n            ><a class=\"mm-header__link\" href=\"/companies\" title=\"Businesses using Evangeler\"\n              >\n                Companies\n            </a>\n        ";
 ;
 }
 output += "\n        ";

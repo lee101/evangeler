@@ -47,49 +47,48 @@
                            href="/companies/{{ company.url_title }}">{{ company.name }}</a>
 
                         <p class="text-smaller">{{ company.about }}</p>
-
-                        {% if company.facebook_link %}
-                            <p class="text-smaller">
-                                <a href="{{ company.facebook_link }}" title="{{ company.name }} on Facebook"
-                                   target="_blank" rel="nofollow">
-                                    <span class="fa fa-facebook-square mm-share-btn mm-share-btn--facebook"></span><span
-                                        class="footer__social-link-text"> Facebook</span>
-                                </a>
-                            </p>
-                        {% endif %}
-
-                        {% if company.website_link %}
-                            <p class="text-smaller">
-                                <a href="{{ company.website_link }}" title="Visit {{ company.name }}"
-                                   target="_blank" rel="nofollow">
-                                    <span class="fa fa-globe mm-share-btn mm-share-btn--twitter"></span><span
-                                        class="footer__social-link-text"> Website</span>
-                                </a>
-                            </p>
-                        {% endif %}
-
-                        {% if company.twitter_name %}
-                            <p class="text-smaller">
-                                <a href="https://twitter.com/{{ company.twitter_name }}" title="{{ company.name }} on Twitter"
-                                   target="_blank" rel="nofollow">
-                                    <span class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></span><span
-                                        class="footer__social-link-text"> Twitter</span>
-                                </a>
-                            </p>
-                        {% endif %}
-
-                        {% if company.google_link %}
-                            <p class="text-smaller">
-                                <a href="{{ company.google_link }}" title="{{ company.name }} on Google Plus"
-                                   target="_blank" rel="nofollow">
-                                    <span class="fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus"></span><span
-                                        class="footer__social-link-text"> Google Plus</span>
-                                </a>
-                            </p>
-                        {% endif %}
-
                     </div>
                 </div>
+
+                {% if company.facebook_link %}
+                    <p class="text-smaller">
+                        <a href="{{ company.facebook_link }}" title="{{ company.name }} on Facebook"
+                           target="_blank" rel="nofollow">
+                            <span class="fa fa-facebook-square mm-share-btn mm-share-btn--facebook"></span><span
+                                class="footer__social-link-text"> Facebook</span>
+                        </a>
+                    </p>
+                {% endif %}
+
+                {% if company.website_link %}
+                    <p class="text-smaller">
+                        <a href="{{ company.website_link }}" title="Visit {{ company.name }}"
+                           target="_blank" rel="nofollow">
+                            <span class="fa fa-globe mm-share-btn mm-share-btn--twitter"></span><span
+                                class="footer__social-link-text"> Website</span>
+                        </a>
+                    </p>
+                {% endif %}
+
+                {% if company.twitter_name %}
+                    <p class="text-smaller">
+                        <a href="https://twitter.com/{{ company.twitter_name }}" title="{{ company.name }} on Twitter"
+                           target="_blank" rel="nofollow">
+                            <span class="fa fa-twitter-square mm-share-btn mm-share-btn--twitter"></span><span
+                                class="footer__social-link-text"> Twitter</span>
+                        </a>
+                    </p>
+                {% endif %}
+
+                {% if company.google_link %}
+                    <p class="text-smaller">
+                        <a href="{{ company.google_link }}" title="{{ company.name }} on Google Plus"
+                           target="_blank" rel="nofollow">
+                            <span class="fa fa-google-plus-square mm-share-btn mm-share-btn--google-plus"></span><span
+                                class="footer__social-link-text"> Google Plus</span>
+                        </a>
+                    </p>
+                {% endif %}
 
                 <p class="text-smaller">{{ company.description }}</p>
 

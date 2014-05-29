@@ -21,9 +21,9 @@
 
     {{ macros.jsheaders() }}
     <script>
-        var STATUS = {{ fixtures.STATUS }};
-        var CONTESTS = {{ fixtures.CONTESTS }};
-        var CURR_CURSOR = '{{ next_page_cursor }}';
+        var STATUS = {{ fixtures.STATUS|safe }};
+        var CONTESTS = {{ fixtures.CONTESTS|safe }};
+        var CURR_CURSOR = '{{ next_page_cursor|safe }}';
     </script>
     {% block js %}
 
