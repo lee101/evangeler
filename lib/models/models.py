@@ -79,6 +79,8 @@ class Contest(BaseModel):
 
     name = ndb.StringProperty()
     title = ndb.StringProperty()
+    about = ndb.StringProperty()
+
     description = ndb.StringProperty()
 
     type = ndb.IntegerProperty()

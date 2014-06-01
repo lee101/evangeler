@@ -140,32 +140,32 @@ class SlashMurdererApp(webapp2.RequestHandler):
         self.redirect(url)
 
 
-app = ndb.toplevel(webapp2.WSGIApplication([
-                                               ('/', MainHandler),
-                                               ('(.*)/$', SlashMurdererApp),
-                                               ('/tests', TestHandler),
-                                               ('/privacy', PrivacyHandler),
-                                               ('/terms', TermsHandler),
-                                               ('/how-it-works', HowHandler),
-                                               ('/categories', CategoriesHandler),
-                                               ('/about', AboutHandler),
-                                               ('/contact', ContactHandler),
-                                               ('/refunds', RefundsHandler),
-                                               ('/sitemap', SitemapHandler),
-                                               ('/companies', CompaniesHandler),
+app = ndb.toplevel(
+    webapp2.WSGIApplication([
+                                ('/', MainHandler),
+                                ('(.*)/$', SlashMurdererApp),
+                                ('/tests', TestHandler),
+                                ('/privacy', PrivacyHandler),
+                                ('/terms', TermsHandler),
+                                ('/how-it-works', HowHandler),
+                                ('/categories', CategoriesHandler),
+                                ('/about', AboutHandler),
+                                ('/contact', ContactHandler),
+                                ('/refunds', RefundsHandler),
+                                ('/sitemap', SitemapHandler),
+                                ('/companies', CompaniesHandler),
 
-                                               # non prerendered pages
-                                               ('/account', MainHandler),
-                                               ('/new-page', MainHandler),
-                                               ('/new-page/(..*)', MainHandler),
-                                               ('/launch/reshare', MainHandler),
-                                               ('/launch/hashtag', MainHandler),
-                                               ('/companies/(..*)/edit', MainHandler),
+                                # non prerendered pages
+                                ('/account', MainHandler),
+                                ('/new-page', MainHandler),
+                                ('/new-page/(..*)', MainHandler),
+                                ('/launch/reshare', MainHandler),
+                                ('/launch/hashtag', MainHandler),
+                                ('/companies/(..*)/edit', MainHandler),
 
-                                               ('/companies/(..*)', CompanyHandler),
+                                ('/companies/(..*)', CompanyHandler),
 
-
-                                           ] + gameon.routes + [
-                                               ('/.*', NotFoundHandler),
-                                           ]
-                                           , debug=ws.debug, config=config))
+                            ] + gameon.routes + [
+                                ('/.*', NotFoundHandler),
+                            ]
+                            , debug=ws.debug, config=config))

@@ -119,26 +119,7 @@
             return self;
         }
     });
-    APP.Views['/launch/reshare'] = Backbone.View.extend({
-        initialize: function (options) {
-        },
 
-        render: function () {
-            var self = this;
-            models.getUser(function (user) {
-                self.$el.html(evutils.render('templates/shared/launch-reshare.jinja2', {'user': user}));
-            });
-            return self;
-        },
-        events: {
-            'submit #contest-details-form': 'createContest'
-        },
-        createContest: function (evt) {
-            var data = $(evt.target).serializeObject();
-            evutils.formatTags(data);
-            $.extend(data, {type: CONTESTS.RESHARE});
-        }
-    });
 
     APP.Views.Header = Backbone.View.extend({
         initialize: function (options) {
