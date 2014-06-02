@@ -89,12 +89,14 @@ class Contest(BaseModel):
     status = ndb.IntegerProperty()  # draft live deleted finished
 
     website_link = ndb.StringProperty()
-    facebook_post = ndb.StructuredProperty(Post)
 
     company_key = ndb.KeyProperty(kind=Company)
 
     created = ndb.DateTimeProperty(auto_now_add=True)
     updated = ndb.DateTimeProperty(auto_now=True)
+
+    duration = ndb.DateTimeProperty(auto_now=True)
+    launched = ndb.DateTimeProperty(auto_now=True)
 
 
     @classmethod

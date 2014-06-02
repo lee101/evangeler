@@ -274,3 +274,23 @@ body {
 .mm-btn-hg {
     font-size: 28px;
 }
+
+.icon-container {
+    border-radius: 40px;
+    border: 3px solid @facebook-blue;
+    width: 64px;
+    height: 64px;
+
+    display: none;
+    @media (min-width: @small-min-width) {
+        display: table;
+    }
+}
+
+.icon-container--icon {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: @facebook-blue;
+    font-size: 27px;
+}

@@ -15,22 +15,32 @@
                         <div class="form-group">
                             <label for="contestTitle">Title</label>
                             <input id="contestTitle" class="text-smaller form-control"
-                                   placeholder="Dunkin' Donuts like competition! Win a lifetime supply of donuts!" name="title">
+                                   placeholder="Dunkin' Donuts like competition! Win a lifetime supply of donuts!"
+                                   name="title">
                         </div>
 
                         <div class="form-group">
 
                             <label for="contestDescription">Description</label>
                             <textarea id="contestDescription" class="text-smaller form-control"
-                                      rows="8" name="description" placeholder="Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!"></textarea>
+                                      rows="8" name="description"
+                                      placeholder="Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!"></textarea>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left icon-container" href="/{{ link }}/{{ company.url_title }}">
+                                <i class="media-object fa fa-tags icon-container--icon"></i>
+                            </div>
+
+                            <div class="media-body">
+                                <div class="form-group">
+                                    <label for="contestTags">Tags</label>
+                                    <input id="contestTags" class="text-smaller form-control"
+                                           placeholder="Donuts, confectioneries, sweets, lifetime donut supply, Heaven on Earth"
+                                           name="tags">
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="contestTags">Tags</label>
-                            <input id="contestTags" class="text-smaller form-control"
-                                   placeholder="Donuts, confectioneries, sweets, lifetime donut supply, Heaven on Earth"
-                                   name="tags">
-                        </div>
 
                         <button type="submit" class="btn btn-lg btn-warning">Next</button>
                     </form>

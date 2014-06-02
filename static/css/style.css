@@ -419,4 +419,23 @@ body {
 .mm-btn-hg {
   font-size: 28px;
 }
+.icon-container {
+  border-radius: 40px;
+  border: 3px solid #3b5997;
+  width: 64px;
+  height: 64px;
+  display: none;
+}
+@media (min-width: 481px) {
+  .icon-container {
+    display: table;
+  }
+}
+.icon-container--icon {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #3b5997;
+  font-size: 27px;
+}
 /*# sourceMappingURL=/static/css/style.css.map */
