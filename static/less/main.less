@@ -283,7 +283,7 @@ body {
 
     display: none;
     @media (min-width: @small-min-width) {
-        display: table;
+        display: inline-table;
     }
 }
 
@@ -293,4 +293,11 @@ body {
     text-align: center;
     color: @facebook-blue;
     font-size: 27px;
+}
+
+.icon-container--white {
+    border-color: white;
+    .icon-container--icon {
+        color: white;
+    }
 }

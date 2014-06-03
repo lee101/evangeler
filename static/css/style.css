@@ -428,7 +428,7 @@ body {
 }
 @media (min-width: 481px) {
   .icon-container {
-    display: table;
+    display: inline-table;
   }
 }
 .icon-container--icon {
@@ -437,5 +437,11 @@ body {
   text-align: center;
   color: #3b5997;
   font-size: 27px;
+}
+.icon-container--white {
+  border-color: white;
+}
+.icon-container--white .icon-container--icon {
+  color: white;
 }
 /*# sourceMappingURL=/static/css/style.css.map */

@@ -1,5 +1,3 @@
-
-
 describe("evangeler", function () {
 
     it('should let you login', function (done) {
@@ -80,8 +78,27 @@ describe("the site", function () {
         APP.goto('account');
         APP.goto('new-page');
         APP.goto('new-page/multiplication-master');
+        window.setTimeout(function () {
+            $('#create-company-form').submit();
+            APP.goto('categories');
+            APP.goto('launch/reshare');
+
+            done();
+        }, 2000);
+    });
+
+    it('should have eventually created data', function (done) {
+        window.setTimeout(function () {
+            models.getCompanyByUrlTitle('multiplication-master', function (company) {
+                expect(company.url_title).toBe('multiplication-master');
+                done();
+            });
+        }, 2000);
+    });
+
+
+    it('should go back to /tests afterwards', function () {
         APP.goto('tests');
-        done();
     });
 
 });

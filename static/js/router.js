@@ -29,26 +29,32 @@
         document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     };
 
-
-    function animateTo(data, rightOrLeft) {
-
+    var currentView;
+    function animateTo(view, rightOrLeft) {
         var width = $(document).width();
-
 
         var $mainbody = $('#mainbody');
         var speed = 500;
         if (rightOrLeft === "right") {
             $mainbody.animate({left: -width}, speed, null, function () {
+                if (currentView) {
+                    currentView.close();
+                }
 
-                $mainbody.html(data);
+                currentView = view;
+                $mainbody.html(view.render().el);
                 $mainbody.css({left: width});
                 $mainbody.animate({left: 0}, speed)
             });
         }
         else {
             $mainbody.animate({left: width}, speed, null, function () {
+                if (currentView) {
+                    currentView.close();
+                }
 
-                $mainbody.html(data);
+                currentView = view;
+                $mainbody.html(view.render().el);
                 $mainbody.css({left: -width});
                 $mainbody.animate({left: 0}, speed)
             });
@@ -97,9 +103,9 @@
                         evutils.hideModal();
                     }
                     else if (evutils.history.goingback) {
-                        animateTo(new APP.Views[pathname]({args: args}).render().el, "left");
+                        animateTo(new APP.Views[pathname]({args: args}), "left");
                     } else {
-                        animateTo(new APP.Views[pathname]({args: args}).render().el, "right");
+                        animateTo(new APP.Views[pathname]({args: args}), "right");
                     }
                 }
             }
