@@ -132,7 +132,7 @@
     var prerenderedPages = {
         "/": "home",
         "/how-it-works": "how-it-works",
-        "/categories": "categories",
+        "/contest-categories": "contest-categories",
         "/companies": "companies",
         "/companies/:url_title": "companies/:url_title",
         "/company": "company",
@@ -159,7 +159,7 @@
         'routes': routes,
         'home': defaultHandler('/'),
         'how-it-works': defaultHandler('/how-it-works'),
-        'categories': defaultHandler('/categories'),
+        'contest-categories': defaultHandler('/contest-categories'),
         'companies': defaultHandler('/companies'),
         'companies/:url_title/edit': defaultHandler('/companies/:url_title/edit'),
         'companies/:url_title': defaultHandler('/companies/:url_title'),

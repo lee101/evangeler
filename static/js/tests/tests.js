@@ -23,13 +23,13 @@ describe("lib", function () {
         expect(models.user).toBeTruthy();
 
         models.getUser(function (user) {
-            var page_id = 159201617592591;
+            var page_id = wordsmashing.page_id;
 
             user.createCompany({
                 name: 'Word Smashing',
                 description: 'description',
                 facebook_link: 'test',
-                tags: [1, 2],
+                tags: [1, 2, "asdf"],
                 status: STATUS.DRAFT,
                 pic: wordsmashing.pic,
                 about: wordsmashing.about,
@@ -80,10 +80,13 @@ describe("the site", function () {
         APP.goto('new-page/multiplication-master');
         window.setTimeout(function () {
             $('#create-company-form').submit();
-            APP.goto('categories');
-            APP.goto('launch/reshare');
+            APP.testCallback = function() {
+                APP.goto('contest-categories');
+                APP.goto('launch/reshare');
 
-            done();
+                done();
+                APP.testCallback = null;
+            };
         }, 2000);
     });
 

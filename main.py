@@ -70,9 +70,9 @@ class HowHandler(BaseHandler):
         self.render('templates/how-it-works.jinja2')
 
 
-class CategoriesHandler(BaseHandler):
+class ContestCategoriesHandler(BaseHandler):
     def get(self):
-        self.render('templates/categories.jinja2')
+        self.render('templates/contest-categories.jinja2')
 
 
 class AboutHandler(BaseHandler):
@@ -148,7 +148,7 @@ app = ndb.toplevel(
                                 ('/privacy', PrivacyHandler),
                                 ('/terms', TermsHandler),
                                 ('/how-it-works', HowHandler),
-                                ('/categories', CategoriesHandler),
+                                ('/contest-categories', ContestCategoriesHandler),
                                 ('/about', AboutHandler),
                                 ('/contact', ContactHandler),
                                 ('/refunds', RefundsHandler),

@@ -69,12 +69,12 @@
             return this;
         }
     });
-    APP.Views['/categories'] = Backbone.View.extend({
+    APP.Views['/contest-categories'] = Backbone.View.extend({
         initialize: function (options) {
         },
 
         render: function () {
-            this.$el.html(evutils.render('templates/shared/categories.jinja2'));
+            this.$el.html(evutils.render('templates/shared/contest-categories.jinja2'));
             return this;
         }
     });
