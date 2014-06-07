@@ -9,8 +9,13 @@
         render: function () {
             var self = this;
             models.getUser(function (user) {
-                self.$el.html(evutils.render('templates/shared/launch-reshare.jinja2', {'user': user}));
-                window.setTimeout(self.addValidation, 1000);
+                user.getCompanies(function (companies) {
+                    self.$el.html(evutils.render('templates/shared/launch-reshare.jinja2', {
+                        'user': user,
+                        'companies': companies
+                    }));
+                    window.setTimeout(self.addValidation, 1000);
+                });
             });
             return self;
         },
@@ -30,8 +35,8 @@
                         minlength: 10,
                         required: true
                     },
-                    description: {
-                        minlength: 3,
+                    website_link: {
+                        url: true,
                         required: false
                     }
                 },

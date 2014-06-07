@@ -1,7 +1,7 @@
 <div class="mm-hero morange">
     <h2 class="mm-marketing-text mm-marketing-text--smaller">
         <div class="icon-container icon-container--white">
-            <i class="fa fa-university icon-container--icon"></i>
+            <i class="fa fa-university icon-container__icon"></i>
         </div>
         Create a page for {{ company.name }} on Evangeler
     </h2>
@@ -25,7 +25,8 @@
                                         >{{ company.name }}</p>
 
                                 <div class="form-group">
-                                    <textarea class="text-smaller form-control"
+                                    <label for="companyAbout" class="sr-only">About</label>
+                                    <textarea id="companyAbout" class="text-smaller form-control"
                                               rows="4" name="about">{{ company.about }}</textarea>
                                 </div>
 

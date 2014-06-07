@@ -69,6 +69,11 @@ a:focus {
   -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
+.mm-form-control-inline {
+  display: inline;
+  width: 100px;
+  margin-right: 10px;
+}
 body {
   background-repeat: repeat;
   background-position: center 12px;
@@ -431,17 +436,24 @@ body {
     display: inline-table;
   }
 }
-.icon-container--icon {
+.icon-container__icon {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
   color: #3b5997;
   font-size: 27px;
 }
+.icon-container__icon--forward {
+  padding-left: 7px;
+}
+.icon-container__icon--globe {
+  font-size: 33px;
+  color: #4098fd;
+}
 .icon-container--white {
   border-color: white;
 }
-.icon-container--white .icon-container--icon {
+.icon-container--white .icon-container__icon {
   color: white;
 }
 /*# sourceMappingURL=/static/css/style.css.map */

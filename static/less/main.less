@@ -287,7 +287,7 @@ body {
     }
 }
 
-.icon-container--icon {
+.icon-container__icon {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
@@ -295,9 +295,19 @@ body {
     font-size: 27px;
 }
 
+.icon-container__icon--forward {
+    padding-left: 7px;
+}
+
+.icon-container__icon--globe {
+    font-size: 33px;
+    color: @twitter-blue;
+}
+
 .icon-container--white {
     border-color: white;
-    .icon-container--icon {
+    .icon-container__icon {
         color: white;
     }
 }
+

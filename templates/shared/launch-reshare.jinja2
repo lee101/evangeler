@@ -1,7 +1,7 @@
 <div class="mm-hero pistachio">
     <h2 class="mm-marketing-text mm-marketing-text--smaller">
         <div class="icon-container icon-container--white">
-            <i class="fa fa-trophy icon-container--icon"></i>
+            <i class="fa fa-trophy icon-container__icon"></i>
         </div>
         Contest Details
     </h2>
@@ -16,30 +16,89 @@
                     <form id="contest-details-form" role="form">
 
                         <div class="form-group">
-                            <label for="contestTitle">Title</label>
+                            <label for="contestTitle"
+                                   title="Sell your contest to potential customers, people will see this when your contest is shared on social networks">Title</label>
                             <input id="contestTitle" class="text-smaller form-control"
                                    placeholder="Dunkin' Donuts like competition! Win a lifetime supply of donuts!"
                                    name="title">
                         </div>
 
                         <div class="form-group">
+                            <label for="contestAbout" class="sr-only">About</label>
+                            <textarea id="contestAbout" class="text-smaller form-control"
+                                      rows="4" name="about"
+                                      placeholder="Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!"></textarea>
+                        </div>
 
+                        <div class="form-group">
                             <label for="contestDescription">Description</label>
                             <textarea id="contestDescription" class="text-smaller form-control"
                                       rows="8" name="description"
                                       placeholder="Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!"></textarea>
                         </div>
+
                         <div class="media">
-                            <div class="pull-left icon-container" href="/{{ link }}/{{ company.url_title }}">
-                                <i class="media-object fa fa-tags icon-container--icon"></i>
+                            <div class="pull-left icon-container">
+                                <i class="media-object fa fa-tags icon-container__icon"></i>
                             </div>
 
                             <div class="media-body">
                                 <div class="form-group">
-                                    <label for="contestTags">Tags</label>
+                                    <label for="contestTags"
+                                           title="3+ Keywords to help people find your contest">Tags</label>
                                     <input id="contestTags" class="text-smaller form-control"
                                            placeholder="Donuts, confectioneries, sweets, lifetime donut supply, Heaven on Earth"
                                            name="tags">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left icon-container">
+                                <i class="media-object fa fa-forward icon-container__icon icon-container__icon--forward"></i>
+                            </div>
+
+                            <div class="media-body">
+                                <div class="form-group">
+                                    <label for="contestDuration"
+                                           title="How long would you like your contest to run for?">Duration</label>
+                                    <br/>
+                                    <input id="contestDuration" class="mm-form-control-inline text-smaller form-control"
+                                           value="12"
+                                           name="duration"> Days
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left icon-container">
+                                <i class="media-object fa fa-university icon-container__icon"></i>
+                            </div>
+
+                            <div class="media-body">
+                                <div class="form-group">
+                                    <label for="contestCompany" title="Which evangeler page is this contest about?">Company</label>
+                                    <select id="contestCompany" name="page_id"
+                                            class="text-smaller form-control">
+                                        {% for company in companies %}
+                                            <option value="{{ company.page_id }}">{{ company.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left icon-container">
+                                <i class="media-object fa fa-globe icon-container__icon icon-container__icon--globe"></i>
+                            </div>
+
+                            <div class="media-body">
+                                <div class="form-group">
+                                    <label for="contestWebsiteLink" title="A link to a promotional web page about this contest">
+                                        Website link
+                                    </label>
+                                    <input id="contestWebsiteLink" name="website_link"
+                                            class="text-smaller form-control"
+                                            placeholder="http://www.dunkindonuts.com/">
+
                                 </div>
                             </div>
                         </div>
