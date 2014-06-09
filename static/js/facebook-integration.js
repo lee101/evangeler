@@ -150,8 +150,8 @@ window.facebookWrapper = new (function () {
         var fqlRequest = "SELECT page_id,name,access_token,about,description,categories,keywords,pic,website,page_url  FROM page" +
             " WHERE page_id IN (SELECT page_id FROM page_admin WHERE uid = me())";
         FB.api("/fql", {q: fqlRequest}, function (response) {
-            for (var i = 0; i < callback.data.length; i++) {
-                var page = callback.data[i];
+            for (var i = 0; i < response.data.length; i++) {
+                var page = response.data[i];
 
                 page.website_link = page.website;
                 delete page.website;

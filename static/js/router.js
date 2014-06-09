@@ -116,8 +116,6 @@
                 if (!prerenderedPages[APP.currentView]) {
                     facebookWrapper.ifLoggedInElse(function () {
                             handle();
-                        }, function () {
-                            //TODO login to view this page modal
                         }
                     );
                 }
