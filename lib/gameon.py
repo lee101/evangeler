@@ -172,8 +172,10 @@ class CreateContestHandler(BaseHandler):
         if not contest:
             contest = Contest()
 
+        contest.type = self.request.get('type')
+
         contest.title = self.request.get('title')
-        # TODO ensure url_title is unique
+        contest.about = self.request.get('about')
         contest.url_title = GameOnUtils.urlEncode(contest.title)
 
         contest.description = self.request.get('description')

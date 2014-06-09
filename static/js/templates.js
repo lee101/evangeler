@@ -363,11 +363,11 @@ output += "\" name=\"website_link\">\n                        </div>\n\n        
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "company")),"description", env.autoesc), env.autoesc);
 output += "</textarea>\n                        </div>\n                        ";
 if(runtime.contextOrFrameLookup(context, frame, "creating")) {
-output += "\n                            <button type=\"submit\" class=\"btn btn-lg btn-warning\">Create!</button>\n                        ";
+output += "\n                            <button type=\"submit\" class=\"create-btn btn btn-lg btn-warning\">Create!</button>\n                        ";
 ;
 }
 else {
-output += "\n                            <button type=\"submit\" class=\"btn btn-lg btn-warning\">Save</button>\n                            <button class=\"btn btn-lg btn-primary\" onclick=\"window.history.back();return false;\">\n                                Cancel\n                            </button>\n                        ";
+output += "\n                            <button type=\"submit\" class=\"create-btn btn btn-lg btn-warning\">Save</button>\n                            <button class=\"btn btn-lg btn-primary\" onclick=\"window.history.back();return false;\">\n                                Cancel\n                            </button>\n                        ";
 ;
 }
 output += "\n                    </form>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</div>\n";
@@ -537,7 +537,7 @@ output += "</option>\n                                        ";
 }
 }
 frame = frame.pop();
-output += "\n                                    </select>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"media\">\n                            <div class=\"pull-left icon-container\">\n                                <i class=\"media-object fa fa-globe icon-container__icon icon-container__icon--globe\"></i>\n                            </div>\n\n                            <div class=\"media-body\">\n                                <div class=\"form-group\">\n                                    <label for=\"contestWebsiteLink\" title=\"A link to a promotional web page about this contest\">\n                                        Website link\n                                    </label>\n                                    <input id=\"contestWebsiteLink\" name=\"website_link\"\n                                            class=\"text-smaller form-control\"\n                                            placeholder=\"http://www.dunkindonuts.com/\">\n\n                                </div>\n                            </div>\n                        </div>\n\n\n                        <button type=\"submit\" class=\"btn btn-lg btn-warning\">Next</button>\n                    </form>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</div>\n";
+output += "\n                                    </select>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"media\">\n                            <div class=\"pull-left icon-container\">\n                                <i class=\"media-object fa fa-globe icon-container__icon icon-container__icon--globe\"></i>\n                            </div>\n\n                            <div class=\"media-body\">\n                                <div class=\"form-group\">\n                                    <label for=\"contestWebsiteLink\" title=\"A link to a promotional web page about this contest\">\n                                        Website link\n                                    </label>\n                                    <input id=\"contestWebsiteLink\" name=\"website_link\"\n                                            class=\"text-smaller form-control\"\n                                            placeholder=\"http://www.dunkindonuts.com/\">\n\n                                </div>\n                            </div>\n                        </div>\n\n\n                        <button type=\"submit\" class=\"mm-launch-btn btn btn-lg btn-warning\">Launch!</button>\n                    </form>\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {

@@ -4,19 +4,28 @@ window.evutils = new (function () {
 
     var isfetching = false;
 
+    var loadingElToHtmlMap = {};
+    self.setElementLoading = function($el) {
+        loadingElToHtmlMap[$el] = $el.html();
+        $el.attr('disabled', 'disabled')
+            .html('<i class="fa fa-spinner fa-spin"></i>');
+    };
+    self.setElementDone = function($el) {
+        $el.removeAttr('disabled')
+            .html(loadingElToHtmlMap[$el]);
+        delete loadingElToHtmlMap[$el];
+    };
 
     self.loadmore = function (pathName, templateName) {
         if (!isfetching) {
 
             isfetching = true;
             var $loadMore = $('.load-more');
-            $loadMore.attr('disabled', 'disabled')
-                .html('<i class="fa fa-spinner fa-spin"></i>');
+            self.setElementLoading($loadMore);
             $.ajax({
                 'url': '/' + pathName + '?cursor=' + CURR_CURSOR,
                 'success': function (data) {
-                    $loadMore.removeAttr('disabled')
-                        .html('Load More...');
+                    self.setElementDone($loadMore);
                     a = $('<div></div>');
                     a.html(data);
                     CURR_CURSOR = a.find('#cursor').attr('data-cursor');

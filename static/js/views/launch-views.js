@@ -58,9 +58,23 @@
             });
         },
         createContest: function (evt) {
-            var data = $(evt.target).serializeObject();
-            evutils.formatTags(data);
-            $.extend(data, {type: CONTESTS.RESHARE});
+            var $launchBtn = $('.mm-launch-btn');
+            evutils.setElementLoading($launchBtn);
+
+            var contest = $(evt.target).serializeObject();
+            evutils.formatTags(contest);
+            $.extend(contest, {type: CONTESTS.RESHARE});
+            models.getUser(function (user) {
+                user.createContest(contest, function (data) {
+                    evutils.setElementDone($launchBtn);
+
+                    APP.goto('account');
+                    if (typeof APP.testCallback === 'function') {
+                        APP.testCallback();
+                    }
+                });
+            });
+            return false;
         }
     });
 }());
