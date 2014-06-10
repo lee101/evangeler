@@ -39,7 +39,7 @@
                     user[getFunc](function renderCompanyForm(companies) {
                         self.page = _.where(companies, { url_title: self.company_url_title })[0];
                         if (self.page) {
-                            self.$el.html(evutils.render('templates/shared/..jinja2',
+                            self.$el.html(evutils.render('templates/shared/edit-page.jinja2',
                                 {'company': self.page, 'creating': !self.editing}));
                             window.setTimeout(self.addValidation, 1000);
                         }
@@ -93,12 +93,12 @@
             },
             createCompany: function (evt) {
                 var $createBtn = $('.create-btn');
-                self.setElementLoading($createBtn);
+                evutils.setElementLoading($createBtn);
                 var data = $(evt.target).serializeObject();
                 var company = $.extend(this.page, data);
                 models.getUser(function (user) {
                     user.createCompany(company, function (data) {
-                        self.setElementDone($createBtn);
+                        evutils.setElementDone($createBtn);
 
                         APP.goto('account');
                         if (typeof APP.testCallback === 'function') {
