@@ -76,27 +76,24 @@ class Company(BaseModel):
 
 class Contest(BaseModel):
     url_title = ndb.StringProperty()
+    uid = ndb.StringProperty()
+    type = ndb.IntegerProperty()
+    status = ndb.IntegerProperty()  # draft live deleted finished
 
-    name = ndb.StringProperty()
     title = ndb.StringProperty()
     about = ndb.StringProperty()
 
     description = ndb.StringProperty()
-
-    type = ndb.IntegerProperty()
-
     tags = ndb.StringProperty(repeated=True)
-    status = ndb.IntegerProperty()  # draft live deleted finished
 
-    website_link = ndb.StringProperty()
+    duration = ndb.DateTimeProperty()
+    launched = ndb.DateTimeProperty()
 
     company_key = ndb.KeyProperty(kind=Company)
+    website_link = ndb.StringProperty()
 
     created = ndb.DateTimeProperty(auto_now_add=True)
     updated = ndb.DateTimeProperty(auto_now=True)
-
-    duration = ndb.DateTimeProperty(auto_now=True)
-    launched = ndb.DateTimeProperty(auto_now=True)
 
 
     @classmethod
