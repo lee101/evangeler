@@ -12,7 +12,7 @@ from lib import gameon
 from lib.models import fixtures
 from ws import ws
 from lib.gameon_utils import GameOnUtils
-from lib.models.models import Company
+from lib.models.models import Company, Contest
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -125,8 +125,10 @@ class SitemapHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/xml'
         company_titles = Company.getAllTitles()
+        contest_titles = Contest.getAllTitles()
         template_values = {
-            'company_titles': company_titles
+            'company_titles': company_titles,
+            'contest_titles': contest_titles
         }
         template = JINJA_ENVIRONMENT.get_template('templates/sitemap.xml')
         self.response.write(template.render(template_values))

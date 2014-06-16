@@ -20,7 +20,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-hero pistachio\">\n\n    <h2 class=\"media-heading mm-marketing-text mm-marketing-text--smaller\">\n        <div class=\"icon-container icon-container--white\">\n            <i class=\"fa fa-trophy icon-container__icon\"></i>\n        </div> My Contests.\n    </h2>\n</div>\n<div class=\"contest-thumbs\">\n\n</div>\n<div class=\"mm-grid\">\n\n    <div class=\"row\">\n\n        <div class=\"col-md-6\">\n            <a href=\"/contest-categories\" class=\"mm-grid__section mm-highlighted-new\" title=\"Create a New Contest!\"\n              >\n                <h4 class=\"mm-highlighted-new__text\">New</h4>\n            </a>\n        </div>\n    </div>\n</div>\n\n<div class=\"mm-hero mm-hero--secondary morange\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        <div class=\"icon-container icon-container--white\">\n            <i class=\"fa fa-university icon-container__icon\"></i>\n        </div>\n        My Pages.\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n\n</div>\n\n";
+output += "<div class=\"mm-hero pistachio\">\n\n    <h2 class=\"media-heading mm-marketing-text mm-marketing-text--smaller\">\n        <div class=\"icon-container icon-container--white\">\n            <i class=\"fa fa-trophy icon-container__icon\"></i>\n        </div> My Contests.\n    </h2>\n</div>\n<div class=\"contest-thumbs\">\n\n</div>\n\n\n<div class=\"mm-hero mm-hero--secondary morange\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        <div class=\"icon-container icon-container--white\">\n            <i class=\"fa fa-university icon-container__icon\"></i>\n        </div>\n        My Pages.\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n\n</div>\n\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -330,7 +330,72 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"col-md-6\">\n    <div class=\"mm-grid__section\">\n\n        <h4 class=\"mm-footer__heading\">Social</h4>\n    </div>\n</div>\n";
+output += "<div class=\"mm-grid\">\n    <div class=\"row\">\n\n        ";
+frame = frame.push();
+var t_3 = runtime.contextOrFrameLookup(context, frame, "contests");
+if(t_3) {for(var t_1=0; t_1 < t_3.length; t_1++) {
+var t_4 = t_3[t_1];
+frame.set("contest", t_4);
+output += "\n            ";
+var t_5;
+t_5 = "/contests/" + runtime.memberLookup((t_4),"uid", env.autoesc) + "/" + runtime.memberLookup((t_4),"url_title", env.autoesc);
+frame.set("link", t_5);
+if(!frame.parent) {
+context.setVariable("link", t_5);
+context.addExport("link");
+}
+output += "\n            ";
+if(runtime.memberLookup((t_4),"status", env.autoesc) == runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "fixtures")),"STATUS", env.autoesc)),"DRAFT", env.autoesc)) {
+output += "\n                ";
+t_5 = "/contests/" + runtime.memberLookup((t_4),"uid", env.autoesc) + "/" + runtime.memberLookup((t_4),"url_title", env.autoesc) + "/edit";
+frame.set("link", t_5);
+if(!frame.parent) {
+context.setVariable("link", t_5);
+context.addExport("link");
+}
+output += "\n            ";
+;
+}
+output += "\n            <div class=\"col-md-6\">\n                <div class=\"mm-grid__section\">\n\n                    <div class=\"media\">\n\n                        <a class=\"pull-left\" href=\"";
+output += runtime.suppressValue(t_5, env.autoesc);
+output += "\">\n                            <img class=\"media-object\" src=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"pic", env.autoesc), env.autoesc);
+output += "\" alt=\"";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"title", env.autoesc), env.autoesc);
+output += " Logo\" width=\"100\"\n                                 height=\"100\">\n                        </a>\n\n                        <div class=\"media-body\">\n                            <a class=\"media-heading mm-footer__heading\" href=\"";
+output += runtime.suppressValue(t_5, env.autoesc);
+output += "\"\n                                    >";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"title", env.autoesc), env.autoesc);
+output += "</a>\n\n                            <p class=\"text-smaller\">";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"about", env.autoesc), env.autoesc);
+output += "</p>\n                            ";
+if(runtime.contextOrFrameLookup(context, frame, "showEditButtons")) {
+output += "\n                                <a class=\"btn\" href=\"/contests/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"uid", env.autoesc), env.autoesc);
+output += "/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
+output += "\"\n                                   title=\"View ";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "\">View</a>\n                                |\n                                <a class=\"btn\" href=\"/contests/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"uid", env.autoesc), env.autoesc);
+output += "/";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"url_title", env.autoesc), env.autoesc);
+output += "/edit\"\n                                   title=\"Edit ";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"name", env.autoesc), env.autoesc);
+output += "\"\n                                        >Edit</a>\n                            ";
+;
+}
+output += "\n                        </div>\n                    </div>\n                </div>\n            </div>\n        ";
+;
+}
+}
+frame = frame.pop();
+output += "\n\n        ";
+if(runtime.contextOrFrameLookup(context, frame, "createcontest")) {
+output += "\n            <div class=\"col-md-6\">\n                <a href=\"/contest-categories\" class=\"mm-grid__section mm-highlighted-new\"\n                   title=\"Create a New Contest!\"\n                        >\n                    <h4 class=\"mm-highlighted-new__text\">New</h4>\n                </a>\n            </div>\n        ";
+;
+}
+output += "\n\n    </div>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -522,7 +587,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"mm-hero pistachio\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        <div class=\"icon-container icon-container--white\">\n            <i class=\"fa fa-trophy icon-container__icon\"></i>\n        </div>\n        Contest Details\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n    <div class=\"mm-grid\">\n        <div class=\"row\">\n\n            <div class=\"col-md-12\">\n                <div class=\"mm-grid__section\">\n\n                    <form id=\"contest-details-form\" role=\"form\">\n\n                        <div class=\"form-group\">\n                            <label for=\"contestTitle\"\n                                   title=\"Sell your contest to potential customers, people will see this when your contest is shared on social networks\">Title</label>\n                            <input id=\"contestTitle\" class=\"text-smaller form-control\"\n                                   placeholder=\"Dunkin' Donuts like competition! Win a lifetime supply of donuts!\"\n                                   name=\"title\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"contestAbout\" class=\"sr-only\">About</label>\n                            <textarea id=\"contestAbout\" class=\"text-smaller form-control\"\n                                      rows=\"4\" name=\"about\"\n                                      placeholder=\"Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!\"></textarea>\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"contestDescription\">Description</label>\n                            <textarea id=\"contestDescription\" class=\"text-smaller form-control\"\n                                      rows=\"8\" name=\"description\"\n                                      placeholder=\"Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!\"></textarea>\n                        </div>\n\n                        <div class=\"media\">\n                            <div class=\"pull-left icon-container\">\n                                <i class=\"media-object fa fa-tags icon-container__icon\"></i>\n                            </div>\n\n                            <div class=\"media-body\">\n                                <div class=\"form-group\">\n                                    <label for=\"contestTags\"\n                                           title=\"3+ Keywords to help people find your contest\">Tags</label>\n                                    <input id=\"contestTags\" class=\"text-smaller form-control\"\n                                           placeholder=\"Donuts, confectioneries, sweets, lifetime donut supply, Heaven on Earth\"\n                                           name=\"tags\">\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"media\">\n                            <div class=\"pull-left icon-container\">\n                                <i class=\"media-object fa fa-forward icon-container__icon icon-container__icon--forward\"></i>\n                            </div>\n\n                            <div class=\"media-body\">\n                                <div class=\"form-group\">\n                                    <label for=\"contestDuration\"\n                                           title=\"How long would you like your contest to run for?\">Duration</label>\n                                    <br/>\n                                    <input id=\"contestDuration\" class=\"mm-form-control-inline text-smaller form-control\"\n                                           value=\"12\"\n                                           name=\"duration\"> Days\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"media\">\n                            <div class=\"pull-left icon-container\">\n                                <i class=\"media-object fa fa-university icon-container__icon\"></i>\n                            </div>\n\n                            <div class=\"media-body\">\n                                <div class=\"form-group\">\n                                    <label for=\"contestCompany\" title=\"Which evangeler page is this contest about?\">Company</label>\n                                    <select id=\"contestCompany\" name=\"page_id\"\n                                            class=\"text-smaller form-control\">\n                                        ";
+output += "<div class=\"mm-hero pistachio\">\n    <h2 class=\"mm-marketing-text mm-marketing-text--smaller\">\n        <div class=\"icon-container icon-container--white\">\n            <i class=\"fa fa-trophy icon-container__icon\"></i>\n        </div>\n        Contest Details\n    </h2>\n</div>\n<div class=\"company-thumbs\">\n    <div class=\"mm-grid\">\n        <div class=\"row\">\n\n            <div class=\"col-md-12\">\n                <div class=\"mm-grid__section\">\n\n                    <form id=\"contest-details-form\" role=\"form\">\n\n                        <div class=\"form-group\">\n                            <label for=\"contestTitle\"\n                                   title=\"Sell your contest to potential customers, people will see this when your contest is shared on social networks\">Title</label>\n                            <input id=\"contestTitle\" class=\"text-smaller form-control\"\n                                   placeholder=\"Dunkin' Donuts like competition! Win a lifetime supply of donuts!\"\n                                   name=\"title\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"contestAbout\" class=\"sr-only\">About</label>\n                            <textarea id=\"contestAbout\" class=\"text-smaller form-control\"\n                                      rows=\"4\" name=\"about\"\n                                      placeholder=\"Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!\"></textarea>\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"contestDescription\">Description</label>\n                            <textarea id=\"contestDescription\" class=\"text-smaller form-control\"\n                                      rows=\"8\" name=\"description\"\n                                      placeholder=\"For 1st place Dunkin' Donuts is giving away free donuts for life! People in 2nd and 3rd place will win a $100 Dunkin' Donuts Delicious Donut card!\"></textarea>\n                        </div>\n\n                        <div class=\"media\">\n                            <div class=\"pull-left icon-container\">\n                                <i class=\"media-object fa fa-tags icon-container__icon\"></i>\n                            </div>\n\n                            <div class=\"media-body\">\n                                <div class=\"form-group\">\n                                    <label for=\"contestTags\"\n                                           title=\"3+ Keywords to help people find your contest\">Tags</label>\n                                    <input id=\"contestTags\" class=\"text-smaller form-control\"\n                                           placeholder=\"Donuts, confectioneries, sweets, lifetime donut supply, Heaven on Earth\"\n                                           name=\"tags\">\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"media\">\n                            <div class=\"pull-left icon-container\">\n                                <i class=\"media-object fa fa-forward icon-container__icon icon-container__icon--forward\"></i>\n                            </div>\n\n                            <div class=\"media-body\">\n                                <div class=\"form-group\">\n                                    <label for=\"contestDuration\"\n                                           title=\"How long would you like your contest to run for?\">Duration</label>\n                                    <br/>\n                                    <input id=\"contestDuration\" class=\"mm-form-control-inline text-smaller form-control\"\n                                           value=\"12\"\n                                           name=\"duration\"> Days\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"media\">\n                            <div class=\"pull-left icon-container\">\n                                <i class=\"media-object fa fa-university icon-container__icon\"></i>\n                            </div>\n\n                            <div class=\"media-body\">\n                                <div class=\"form-group\">\n                                    <label for=\"contestCompany\" title=\"Which evangeler page is this contest about?\">Company</label>\n                                    <select id=\"contestCompany\" name=\"page_id\"\n                                            class=\"text-smaller form-control\">\n                                        ";
 frame = frame.push();
 var t_3 = runtime.contextOrFrameLookup(context, frame, "companies");
 if(t_3) {for(var t_1=0; t_1 < t_3.length; t_1++) {

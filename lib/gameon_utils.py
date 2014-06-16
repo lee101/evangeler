@@ -7,6 +7,7 @@ import string
 from time import mktime
 import urllib
 from models.models import BaseModel
+from google.appengine.ext import ndb
 
 class GameOnUtils(object):
     debug = os.environ.get('SERVER_SOFTWARE', '').startswith('Development/')
@@ -35,6 +36,8 @@ class GameOnUtils(object):
                 obj.key = None
                 obj.id = None
                 return obj.to_dict()
+            if isinstance(obj, ndb.Key):
+                return ''
 
             return obj.__dict__ #json.JSONEncoder.default(self, obj.__dict__)
 

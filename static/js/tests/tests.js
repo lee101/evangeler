@@ -30,7 +30,6 @@ describe("lib", function () {
                 description: 'description',
                 facebook_link: 'test',
                 tags: [1, 2, "asdf"],
-                status: STATUS.DRAFT,
                 pic: wordsmashing.pic,
                 about: wordsmashing.about,
 

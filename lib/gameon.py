@@ -209,13 +209,29 @@ class GetCompanyHandler(BaseHandler):
         ids = self.request.get_all('ids[]')
         if ids:
             companies = Company.getCompaniesByIds(ids)
+            get_company_queries = dict()
+            companyToContests = dict()
+            for company in companies:
+                get_company_queries[company.page_id] = Contest.getAsyncByCompanyKey(company.key)
+
+            for company in companies:
+                companyToContests[company.page_id] = get_company_queries[company.page_id].get_result()
+
+            companydicts = []
+            for company in companies:
+                company_to_dict = company.to_dict()
+                company_to_dict['contests'] = companyToContests[company.page_id]
+                companydicts.append(company_to_dict)
+
+            self.response.headers['Content-Type'] = 'application/json'
+            self.response.out.write(json.dumps(companydicts, cls=GameOnUtils.MyEncoder))
+
         else:
             url_title = self.request.get('url_title')
 
-            companies = Company.getByUrlTitle(url_title)
-
-        self.response.headers['Content-Type'] = 'application/json'
-        self.response.out.write(json.dumps(companies, cls=GameOnUtils.MyEncoder))
+            company = Company.getByUrlTitle(url_title)
+            self.response.headers['Content-Type'] = 'application/json'
+            self.response.out.write(json.dumps(company, cls=GameOnUtils.MyEncoder))
 
 class GetContestHandler(BaseHandler):
     def get(self):

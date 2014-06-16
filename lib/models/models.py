@@ -1,5 +1,7 @@
 from google.appengine.ext import ndb
+
 import fixtures
+
 
 class BaseModel(ndb.Model):
     def default(self, o): return o.to_dict()
@@ -67,11 +69,7 @@ class Company(BaseModel):
 
     @classmethod
     def getAllTitles(cls):
-        all_titles = []
-
-        if len(all_titles) <= 0:
-            all_titles = map(lambda x: x.url_title, cls.query().fetch(50000, projection=[cls.url_title]))
-        return all_titles
+        return map(lambda x: x.url_title, cls.query().fetch(50000, projection=[cls.url_title]))
 
 
 class Contest(BaseModel):
@@ -98,7 +96,11 @@ class Contest(BaseModel):
 
     @classmethod
     def getByCompanyKey(cls, id):
-        return cls.query(cls.key == id).fetch()
+        return cls.query(cls.company_key == id).fetch()
+
+    @classmethod
+    def getAsyncByCompanyKey(cls, id):
+        return cls.query(cls.company_key == id).fetch_async()
 
     @classmethod
     def getByUrlTitle(cls, title):
@@ -111,6 +113,10 @@ class Contest(BaseModel):
     @classmethod
     def hardDeleteByCompany(cls, company):
         ndb.delete_multi([m.key for m in cls.query(cls.company_key == company.key).fetch(10000)])
+
+    @classmethod
+    def getAllTitles(cls):
+        return map(lambda x: x.uid + '/' + x.url_title, cls.query().fetch(50000, projection=[cls.url_title, cls.uid]))
 
 
 class User(BaseModel):

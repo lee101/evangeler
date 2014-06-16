@@ -65,7 +65,7 @@
             var contest = $('#contest-details-form').serializeObject();
             evutils.formatTags(contest);
             $.extend(contest, {
-                type: CONTESTS.RESHARE,
+                type: fixtures.CONTESTS.RESHARE,
                 uid: APP.currentReshareUID
             });
             models.getUser(function (user) {
@@ -84,7 +84,7 @@
             var contest = $('#contest-details-form').serializeObject();
             evutils.formatTags(contest);
             $.extend(contest, {
-                type: CONTESTS.RESHARE,
+                type: fixtures.CONTESTS.RESHARE,
                 uid: APP.currentReshareUID,
                 launching: true
             });

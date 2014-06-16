@@ -1,6 +1,49 @@
-<div class="col-md-6">
-    <div class="mm-grid__section">
+<div class="mm-grid">
+    <div class="row">
 
-        <h4 class="mm-footer__heading">Social</h4>
+        {% for contest in contests %}
+            {% set link = '/contests/' + contest.uid + '/' + contest.url_title %}
+            {% if contest.status == fixtures.STATUS.DRAFT %}
+                {% set link = '/contests/' + contest.uid + '/' + contest.url_title + '/edit' %}
+            {% endif %}
+            <div class="col-md-6">
+                <div class="mm-grid__section">
+
+                    <div class="media">
+
+                        <a class="pull-left" href="{{ link }}">
+                            <img class="media-object" src="{{ contest.pic }}" alt="{{ contest.title }} Logo" width="100"
+                                 height="100">
+                        </a>
+
+                        <div class="media-body">
+                            <a class="media-heading mm-footer__heading" href="{{ link }}"
+                                    >{{ contest.title }}</a>
+
+                            <p class="text-smaller">{{ contest.about }}</p>
+                            {% if showEditButtons %}
+                                <a class="btn" href="/contests/{{ contest.uid }}/{{ contest.url_title }}"
+                                   title="View {{ contest.name }}">View</a>
+                                |
+                                <a class="btn" href="/contests/{{ contest.uid }}/{{ contest.url_title }}/edit"
+                                   title="Edit {{ contest.name }}"
+                                        >Edit</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        {% if createcontest %}
+            <div class="col-md-6">
+                <a href="/contest-categories" class="mm-grid__section mm-highlighted-new"
+                   title="Create a New Contest!"
+                        >
+                    <h4 class="mm-highlighted-new__text">New</h4>
+                </a>
+            </div>
+        {% endif %}
+
     </div>
 </div>
