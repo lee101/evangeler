@@ -95,7 +95,10 @@ class CompaniesHandler(BaseHandler):
         url_title = self.request.get('url_title')
 
         curs = Cursor(urlsafe=self.request.get('cursor'))
-        companies, next_curs, more = Company.randomOrder(url_title).fetch_page(60, start_cursor=curs)
+        page_size = 60
+        if ws.debug:
+            page_size = 1
+        companies, next_curs, more = Company.randomOrder(1).fetch_page(page_size, start_cursor=curs)
 
         if more and next_curs:
             next_page_cursor = next_curs.urlsafe()

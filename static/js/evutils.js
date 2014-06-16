@@ -16,7 +16,7 @@ window.evutils = new (function () {
         delete loadingElToHtmlMap[$el];
     };
 
-    self.loadmore = function (pathName, templateName) {
+    self.loadmore = function (pathName) {
         if (!isfetching) {
 
             isfetching = true;
@@ -30,8 +30,7 @@ window.evutils = new (function () {
                     a.html(data);
                     CURR_CURSOR = a.find('#cursor').attr('data-cursor');
                     //append things
-                    var $renderedTemplate = $(nunjucks.render('templates/shared/' + templateName + '.jinja2'));
-                    $('.mm-grid').append($renderedTemplate.find('.mm-grid').html());
+                    $('.mm-grid').first().append(a.find('.mm-grid').html());
                     isfetching = false;
                 },
                 'error': function (data) {

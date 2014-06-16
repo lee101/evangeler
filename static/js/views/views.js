@@ -78,15 +78,7 @@
             return this;
         }
     });
-    APP.Views['/companies'] = Backbone.View.extend({
-        initialize: function (options) {
-        },
 
-        render: function () {
-            this.$el.html(evutils.render('templates/shared/companies.jinja2'));
-            return this;
-        }
-    });
     APP.Views['/companies/:url_title'] = Backbone.View.extend({
         initialize: function (options) {
             this.company_url_title = options.args[0];

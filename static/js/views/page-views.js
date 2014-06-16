@@ -114,5 +114,14 @@
 
     APP.Views['/companies/:url_title/edit'] = editPageViewFactory(true);
 
+    APP.Views['/companies'] = Backbone.View.extend({
+        initialize: function (options) {
+        },
 
+        render: function () {
+            this.$el.html(evutils.render('templates/shared/companies.jinja2'));
+            evutils.loadmore('companies');
+            return this;
+        }
+    });
 }());

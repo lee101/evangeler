@@ -53,7 +53,7 @@ class Company(BaseModel):
         return cls.query(cls.url_title == title).get()
 
     @classmethod
-    def randomOrder(cls, title):
+    def randomOrder(cls, seed):
         return cls.query()
 
 
