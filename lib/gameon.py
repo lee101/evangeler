@@ -2,6 +2,7 @@
 
 import os
 import json
+import datetime
 
 import webapp2
 from webapp2_extras import sessions
@@ -9,6 +10,8 @@ import jinja2
 
 from models.models import *
 from gameon_utils import GameOnUtils
+
+import models.fixtures
 
 
 # application-specific imports
@@ -168,11 +171,25 @@ class CreateCompanyHandler(BaseHandler):
 
 class CreateContestHandler(BaseHandler):
     def get(self):
-        contest = Contest.getByUrlTitle(self.request.get('url_title'))
+        uid = self.request.get('uid')
+        contest = Contest.getByUID(uid)
         if not contest:
             contest = Contest()
+            contest.uid = uid
 
-        contest.type = self.request.get('type')
+        if self.request.get('launching'):
+            contest.launched = datetime.datetime.now()
+            contest.status = fixtures.STATUS['LIVE']
+        contest.duration = int(self.request.get('duration'))
+
+        page_id = self.request.get('page_id')
+        if page_id:
+            contest.company_key = Company.getByPageId(page_id).key
+
+
+        contest.website_link = self.request.get('website_link')
+
+        contest.type = int(self.request.get('type'))
 
         contest.title = self.request.get('title')
         contest.about = self.request.get('about')
@@ -203,9 +220,9 @@ class GetCompanyHandler(BaseHandler):
 class GetContestHandler(BaseHandler):
     def get(self):
 
-        url_title = self.request.get('url_title')
+        uid = self.request.get('uid')
 
-        contest = Contest.getByUrlTitle(url_title)
+        contest = Contest.getByUID(uid)
 
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(contest, cls=GameOnUtils.MyEncoder))

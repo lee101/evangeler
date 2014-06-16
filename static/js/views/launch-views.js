@@ -4,6 +4,9 @@
 
     APP.Views['/launch/reshare'] = Backbone.View.extend({
         initialize: function (options) {
+            if (!APP.currentReshareUID) {
+                APP.currentReshareUID = evutils.uid();
+            }
         },
 
         render: function () {
@@ -20,7 +23,8 @@
             return self;
         },
         events: {
-            'submit #contest-details-form': 'createContest'
+            'submit #contest-details-form': 'createContest',
+            'blur #contest-details-form': 'saveContest'
         },
         addValidation: function () {
 
@@ -57,17 +61,37 @@
                 }
             });
         },
+        saveContest: function (evt) {
+            var contest = $('#contest-details-form').serializeObject();
+            evutils.formatTags(contest);
+            $.extend(contest, {
+                type: CONTESTS.RESHARE,
+                uid: APP.currentReshareUID
+            });
+            models.getUser(function (user) {
+                user.createContest(contest, function (data) {
+//                    if (typeof APP.testCallback === 'function') {
+//                        APP.testCallback();
+//                    }
+                });
+            });
+            return false;
+        },
         createContest: function (evt) {
             var $launchBtn = $('.mm-launch-btn');
             evutils.setElementLoading($launchBtn);
 
-            var contest = $(evt.target).serializeObject();
+            var contest = $('#contest-details-form').serializeObject();
             evutils.formatTags(contest);
-            $.extend(contest, {type: CONTESTS.RESHARE});
+            $.extend(contest, {
+                type: CONTESTS.RESHARE,
+                uid: APP.currentReshareUID,
+                launching: true
+            });
             models.getUser(function (user) {
                 user.createContest(contest, function (data) {
                     evutils.setElementDone($launchBtn);
-
+                    APP.currentReshareUID = null;
                     APP.goto('account');
                     if (typeof APP.testCallback === 'function') {
                         APP.testCallback();

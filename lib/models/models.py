@@ -1,12 +1,12 @@
 from google.appengine.ext import ndb
-
+import fixtures
 
 class BaseModel(ndb.Model):
     def default(self, o): return o.to_dict()
 
 
     # def to_dict(self):
-    #    return dict([(p, unicode(getattr(self, p))) for p in self._properties])
+    # return dict([(p, unicode(getattr(self, p))) for p in self._properties])
 
 
 class Post(BaseModel):
@@ -59,7 +59,7 @@ class Company(BaseModel):
 
     @classmethod
     def deleteTestData(cls):
-        companies =  cls.query(cls.facebook_link == 'test').fetch(1000)
+        companies = cls.query(cls.facebook_link == 'test').fetch(1000)
         for company in companies:
             Contest.hardDeleteByCompany(company)
         ndb.delete_multi([m.key for m in companies])
@@ -78,7 +78,7 @@ class Contest(BaseModel):
     url_title = ndb.StringProperty()
     uid = ndb.StringProperty()
     type = ndb.IntegerProperty()
-    status = ndb.IntegerProperty()  # draft live deleted finished
+    status = ndb.IntegerProperty(default=fixtures.STATUS['DRAFT'])  # draft live deleted finished
 
     title = ndb.StringProperty()
     about = ndb.StringProperty()
@@ -86,7 +86,7 @@ class Contest(BaseModel):
     description = ndb.StringProperty()
     tags = ndb.StringProperty(repeated=True)
 
-    duration = ndb.DateTimeProperty()
+    duration = ndb.IntegerProperty()
     launched = ndb.DateTimeProperty()
 
     company_key = ndb.KeyProperty(kind=Company)
@@ -103,6 +103,10 @@ class Contest(BaseModel):
     @classmethod
     def getByUrlTitle(cls, title):
         return cls.query(cls.url_title == title).get()
+
+    @classmethod
+    def getByUID(cls, uid):
+        return cls.query(cls.uid == uid).get()
 
     @classmethod
     def hardDeleteByCompany(cls, company):

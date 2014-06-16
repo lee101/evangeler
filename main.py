@@ -9,8 +9,8 @@ import jinja2
 
 from Models import *
 from lib import gameon
+from lib.models import fixtures
 from ws import ws
-import fixtures
 from lib.gameon_utils import GameOnUtils
 from lib.models.models import Company
 
