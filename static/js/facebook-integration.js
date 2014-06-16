@@ -180,7 +180,7 @@ window.facebookWrapper = new (function () {
 
     self.getPosts = function (pageid, callback) {
         FB.api(
-            "/" + pageid + "/posts",
+                "/" + pageid + "/posts",
             function (response) {
                 if (response && !response.error) {
                     /* handle the result */

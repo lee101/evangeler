@@ -110,6 +110,7 @@
             }
         });
     }
+
     APP.Views['/new-page/:url_title'] = editPageViewFactory(false);
 
     APP.Views['/companies/:url_title/edit'] = editPageViewFactory(true);

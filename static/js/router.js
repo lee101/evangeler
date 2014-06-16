@@ -30,6 +30,7 @@
     };
 
     var currentView;
+
     function animateTo(view, rightOrLeft) {
         var width = $(document).width();
 

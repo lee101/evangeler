@@ -79,7 +79,7 @@ describe("the site", function () {
         APP.goto('new-page/multiplication-master');
         window.setTimeout(function () {
             $('#create-company-form').submit();
-            APP.testCallback = function() {
+            APP.testCallback = function () {
                 APP.goto('contest-categories');
                 APP.goto('launch/reshare');
 

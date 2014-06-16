@@ -5,12 +5,12 @@ window.evutils = new (function () {
     var isfetching = false;
 
     var loadingElToHtmlMap = {};
-    self.setElementLoading = function($el) {
+    self.setElementLoading = function ($el) {
         loadingElToHtmlMap[$el] = $el.html();
         $el.attr('disabled', 'disabled')
             .html('<i class="fa fa-spinner fa-spin"></i>');
     };
-    self.setElementDone = function($el) {
+    self.setElementDone = function ($el) {
         $el.removeAttr('disabled')
             .html(loadingElToHtmlMap[$el]);
         delete loadingElToHtmlMap[$el];
