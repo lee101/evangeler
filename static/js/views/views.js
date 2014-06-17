@@ -104,10 +104,9 @@
                 user.getCompanies(function (companies) {
                     self.$el.find('.company-thumbs').html(evutils.render('templates/shared/company-thumbs.jinja2',
                         {'companies': companies, 'createcompany': true, 'showEditButtons': true }));
-                    user.getContests(function (contests) {
-                        self.$el.find('.contest-thumbs').html(evutils.render('templates/shared/contest-thumbs.jinja2',
-                            {'contests': contests, 'createcontest': true, 'showEditButtons': true, 'fixtures': fixtures }));
-                    });
+
+                    self.$el.find('.contest-thumbs').html(evutils.render('templates/shared/contest-thumbs.jinja2',
+                        {'companies': companies, 'createcontest': true, 'showEditButtons': true, 'fixtures': fixtures }));
                 });
 
 

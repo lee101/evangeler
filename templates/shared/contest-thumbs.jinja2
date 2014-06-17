@@ -1,38 +1,47 @@
 <div class="mm-grid">
     <div class="row">
+        {% for company in companies %}
+            {% for contest in company.contests %}
+                {% set link = '/contests/' + contest.uid + '/' + contest.url_title %}
+                {% if contest.status == fixtures.STATUS.DRAFT %}
+                    {% set link = '/contests/' + contest.uid + '/' + contest.url_title + '/edit' %}
+                {% endif %}
+                <div class="col-md-6">
+                    <div class="mm-grid__section">
 
-        {% for contest in contests %}
-            {% set link = '/contests/' + contest.uid + '/' + contest.url_title %}
-            {% if contest.status == fixtures.STATUS.DRAFT %}
-                {% set link = '/contests/' + contest.uid + '/' + contest.url_title + '/edit' %}
-            {% endif %}
-            <div class="col-md-6">
-                <div class="mm-grid__section">
+                        <div class="media">
 
-                    <div class="media">
+                            <a class="pull-left" href="{{ link }}">
+                                <img class="media-object" src="{{ company.pic }}" alt="{{ contest.title }} Logo"
+                                     width="100"
+                                     height="100">
+                                {% if contest.status == fixtures.STATUS.DRAFT %}
+                                    <span class="label label-default">Draft</span>
+                                {% elif contest.status == fixtures.STATUS.LIVE %}
+                                    <span class="label label-success">Live</span>
+                                {% elif contest.status == fixtures.STATUS.FINISHED %}
+                                    <span class="label label-primary">Done</span>
+                                {% endif %}
+                            </a>
 
-                        <a class="pull-left" href="{{ link }}">
-                            <img class="media-object" src="{{ contest.pic }}" alt="{{ contest.title }} Logo" width="100"
-                                 height="100">
-                        </a>
+                            <div class="media-body">
+                                <a class="media-heading mm-footer__heading" href="{{ link }}"
+                                        >{{ contest.title }}</a>
 
-                        <div class="media-body">
-                            <a class="media-heading mm-footer__heading" href="{{ link }}"
-                                    >{{ contest.title }}</a>
-
-                            <p class="text-smaller">{{ contest.about }}</p>
-                            {% if showEditButtons %}
-                                <a class="btn" href="/contests/{{ contest.uid }}/{{ contest.url_title }}"
-                                   title="View {{ contest.name }}">View</a>
-                                |
-                                <a class="btn" href="/contests/{{ contest.uid }}/{{ contest.url_title }}/edit"
-                                   title="Edit {{ contest.name }}"
-                                        >Edit</a>
-                            {% endif %}
+                                <p class="text-smaller">{{ contest.about }}</p>
+                                {% if showEditButtons %}
+                                    <a class="btn" href="/contests/{{ contest.uid }}/{{ contest.url_title }}"
+                                       title="View {{ contest.name }}">View</a>
+                                    |
+                                    <a class="btn" href="/contests/{{ contest.uid }}/{{ contest.url_title }}/edit"
+                                       title="Edit {{ contest.name }}"
+                                            >Edit</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         {% endfor %}
 
         {% if createcontest %}

@@ -17,7 +17,7 @@ class Post(BaseModel):
 
 
 class Company(BaseModel):
-    page_id = ndb.StringProperty()
+    page_id = ndb.IntegerProperty()
     name = ndb.StringProperty()
     url_title = ndb.StringProperty()
     description = ndb.StringProperty()
@@ -87,7 +87,8 @@ class Contest(BaseModel):
     duration = ndb.IntegerProperty()
     launched = ndb.DateTimeProperty()
 
-    company_key = ndb.KeyProperty(kind=Company)
+    # company_key = ndb.KeyProperty(kind=Company)
+    page_id = ndb.IntegerProperty()
     website_link = ndb.StringProperty()
 
     created = ndb.DateTimeProperty(auto_now_add=True)
@@ -95,12 +96,12 @@ class Contest(BaseModel):
 
 
     @classmethod
-    def getByCompanyKey(cls, id):
-        return cls.query(cls.company_key == id).fetch()
+    def getByCompany(cls, company):
+        return cls.query(cls.page_id == company.page_id).fetch()
 
     @classmethod
-    def getAsyncByCompanyKey(cls, id):
-        return cls.query(cls.company_key == id).fetch_async()
+    def getAsyncByCompany(cls, company):
+        return cls.query(cls.page_id == company.page_id).fetch_async()
 
     @classmethod
     def getByUrlTitle(cls, title):
@@ -112,7 +113,7 @@ class Contest(BaseModel):
 
     @classmethod
     def hardDeleteByCompany(cls, company):
-        ndb.delete_multi([m.key for m in cls.query(cls.company_key == company.key).fetch(10000)])
+        ndb.delete_multi([m.key for m in cls.query(cls.page_id == company.page_id).fetch(10000)])
 
     @classmethod
     def getAllTitles(cls):

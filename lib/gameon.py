@@ -144,11 +144,12 @@ class SaveAccessTokenHandler(BaseHandler):
 
 class CreateCompanyHandler(BaseHandler):
     def get(self):
-        company = Company.getByPageId(self.request.get('page_id'))
+        page_id = int(self.request.get('page_id'))
+        company = Company.getByPageId(page_id)
         if not company:
             company = Company()
 
-        company.page_id = self.request.get('page_id')
+        company.page_id = page_id
         company.facebook_link = self.request.get('facebook_link')
 
         company.name = self.request.get('name')
@@ -170,6 +171,8 @@ class CreateCompanyHandler(BaseHandler):
 
 
 class CreateContestHandler(BaseHandler):
+
+    # @ndb.transactional(retries=5)
     def get(self):
         uid = self.request.get('uid')
         contest = Contest.getByUID(uid)
@@ -182,9 +185,10 @@ class CreateContestHandler(BaseHandler):
             contest.status = fixtures.STATUS['LIVE']
         contest.duration = int(self.request.get('duration'))
 
-        page_id = self.request.get('page_id')
+        page_id = int(self.request.get('page_id'))
         if page_id:
-            contest.company_key = Company.getByPageId(page_id).key
+            company = Company.getByPageId(page_id)
+            contest.page_id = company.page_id
 
 
         contest.website_link = self.request.get('website_link')
@@ -200,19 +204,20 @@ class CreateContestHandler(BaseHandler):
 
         contest.put()
 
-        self.response.out.write('success')
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps(contest, cls=GameOnUtils.MyEncoder))
 
 
 class GetCompanyHandler(BaseHandler):
     def get(self):
 
-        ids = self.request.get_all('ids[]')
+        ids = map(lambda id: int(id), self.request.get_all('ids[]'))
         if ids:
             companies = Company.getCompaniesByIds(ids)
             get_company_queries = dict()
             companyToContests = dict()
             for company in companies:
-                get_company_queries[company.page_id] = Contest.getAsyncByCompanyKey(company.key)
+                get_company_queries[company.page_id] = Contest.getAsyncByCompany(company)
 
             for company in companies:
                 companyToContests[company.page_id] = get_company_queries[company.page_id].get_result()

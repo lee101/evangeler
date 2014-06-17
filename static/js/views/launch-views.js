@@ -7,6 +7,9 @@
             if (!APP.currentReshareUID) {
                 APP.currentReshareUID = evutils.uid();
             }
+            else {
+
+            }
         },
 
         render: function () {
@@ -23,8 +26,8 @@
             return self;
         },
         events: {
-            'submit #contest-details-form': 'createContest',
-            'blur #contest-details-form': 'saveContest'
+            'submit #contest-details-form': 'createContest'
+//            'blur #contest-details-form': 'saveContest'
         },
         addValidation: function () {
 
@@ -61,22 +64,22 @@
                 }
             });
         },
-        saveContest: function (evt) {
-            var contest = $('#contest-details-form').serializeObject();
-            evutils.formatTags(contest);
-            $.extend(contest, {
-                type: fixtures.CONTESTS.RESHARE,
-                uid: APP.currentReshareUID
-            });
-            models.getUser(function (user) {
-                user.createContest(contest, function (data) {
-//                    if (typeof APP.testCallback === 'function') {
-//                        APP.testCallback();
-//                    }
-                });
-            });
-            return false;
-        },
+//        saveContest: function (evt) {
+//            var contest = $('#contest-details-form').serializeObject();
+//            evutils.formatTags(contest);
+//            $.extend(contest, {
+//                type: fixtures.CONTESTS.RESHARE,
+//                uid: APP.currentReshareUID
+//            });
+//            models.getUser(function (user) {
+//                user.createContest(contest, function (data) {
+////                    if (typeof APP.testCallback === 'function') {
+////                        APP.testCallback();
+////                    }
+//                });
+//            });
+//            return false;
+//        },
         createContest: function (evt) {
             var $launchBtn = $('.mm-launch-btn');
             evutils.setElementLoading($launchBtn);
@@ -89,7 +92,7 @@
                 launching: true
             });
             models.getUser(function (user) {
-                user.createContest(contest, function (data) {
+                user.createContest(contest, function (contest) {
                     evutils.setElementDone($launchBtn);
                     APP.currentReshareUID = null;
                     APP.goto('account');
@@ -101,4 +104,6 @@
             return false;
         }
     });
+
+    
 }());
