@@ -80,11 +80,17 @@ describe("the site", function () {
         window.setTimeout(function () {
             $('#create-company-form').submit();
             APP.testCallback = function () {
+                APP.testCallback = null;
                 APP.goto('contest-categories');
                 APP.goto('launch/reshare');
+                APP.testCallback = function () {
+                    APP.testCallback = null;
 
-                done();
-                APP.testCallback = null;
+                    $('#contestTitle').val('test multiplication master contest');
+                    $('#contestAbout').val('test multiplication master contest');
+                    $('#contest-details-form').submit();
+                    done();
+                };
             };
         }, 2000);
     });

@@ -20,14 +20,17 @@
                                    title="Sell your contest to potential customers, people will see this when your contest is shared on social networks">Title</label>
                             <input id="contestTitle" class="text-smaller form-control"
                                    placeholder="Dunkin' Donuts like competition! Win a lifetime supply of donuts!"
-                                   name="title">
+                                   name="title"
+                                   value="{{ currentContest.title }}">
                         </div>
 
                         <div class="form-group">
                             <label for="contestAbout" class="sr-only">About</label>
                             <textarea id="contestAbout" class="text-smaller form-control"
                                       rows="4" name="about"
-                                      placeholder="Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!"></textarea>
+                                      placeholder="Dunkin' Donuts is giving away free donuts for life! Share this, get the most likes on your share and you'll be rolling in a lifetime supply of delicious Dunkin' Donuts delivered to your door!"
+                                    >{{ currentContest.about }}</textarea>
+
                         </div>
 
                         <div class="form-group">
@@ -35,7 +38,8 @@
                             <textarea id="contestDescription" class="text-smaller form-control"
                                       rows="8" name="description"
                                       placeholder="For 1st place Dunkin' Donuts is giving away free donuts for life! People in 2nd and 3rd place will win a $100 Dunkin' Donuts Delicious Donut card!
-                                      The winner will get the coveted Dunkin' Donuts free donuts card, use it in stores and you can get up to 5 free donuts a day!"></textarea>
+                                      The winner will get the coveted Dunkin' Donuts free donuts card, use it in stores and you can get up to 5 free donuts a day!"
+                                    >{{ currentContest.description }}</textarea>
                         </div>
 
                         <div class="media">
@@ -49,7 +53,8 @@
                                            title="3+ Keywords to help people find your contest">Tags</label>
                                     <input id="contestTags" class="text-smaller form-control"
                                            placeholder="Donuts, confectioneries, sweets, lifetime donut supply, Heaven on Earth"
-                                           name="tags">
+                                           name="tags"
+                                           value="{{ currentContest.tagsString }}">
                                 </div>
                             </div>
                         </div>
@@ -64,8 +69,10 @@
                                            title="How long would you like your contest to run for?">Duration</label>
                                     <br/>
                                     <input id="contestDuration" class="mm-form-control-inline text-smaller form-control"
-                                           value="12"
-                                           name="duration"> Days
+                                           value="{{ currentContest.duration or 12 }}"
+                                           name="duration"
+                                           > Days
+
                                 </div>
                             </div>
                         </div>
@@ -80,7 +87,7 @@
                                     <select id="contestCompany" name="page_id"
                                             class="text-smaller form-control">
                                         {% for company in companies %}
-                                            <option value="{{ company.page_id }}">{{ company.name }}</option>
+                                            <option value="{{ company.page_id }}" {% if company.page_id == currentCompany.page_id %}selected="selected"{% endif %}>{{ company.name }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -98,14 +105,21 @@
                                     </label>
                                     <input id="contestWebsiteLink" name="website_link"
                                             class="text-smaller form-control"
-                                            placeholder="http://www.dunkindonuts.com/">
+                                            placeholder="http://www.dunkindonuts.com/"
+                                            value="{{ currentContest.website_link }}">
 
                                 </div>
                             </div>
                         </div>
 
-
-                        <button type="submit" class="mm-launch-btn btn btn-lg btn-warning">Launch!</button>
+                        {% if creating %}
+                            <button type="submit" class="mm-launch-btn btn btn-lg btn-warning">Launch!</button>
+                        {% else %}
+                            <button type="submit" class="create-btn btn btn-lg btn-warning">Save</button>
+                            <button class="btn btn-lg btn-primary" onclick="window.history.back();return false;">
+                                Cancel
+                            </button>
+                        {% endif %}
                     </form>
                 </div>
 

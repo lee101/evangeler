@@ -163,10 +163,11 @@ app = ndb.toplevel(
                                 # non prerendered pages
                                 ('/account', MainHandler),
                                 ('/new-page', MainHandler),
-                                ('/new-page/(..*)', MainHandler),
+                                ('/new-page/..*', MainHandler),
                                 ('/launch/reshare', MainHandler),
                                 ('/launch/hashtag', MainHandler),
-                                ('/companies/(..*)/edit', MainHandler),
+                                ('/companies/..*/edit', MainHandler),
+                                ('/contests/..*/..*/edit', MainHandler),
 
                                 ('/companies/(..*)', CompanyHandler),
 

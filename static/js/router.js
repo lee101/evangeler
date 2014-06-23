@@ -150,7 +150,8 @@
         'companies/:url_title/edit': 'companies/:url_title/edit',
         'new-page': 'new-page',
         'new-page/:url_title': 'new-page/:url_title',
-        'launch/reshare': 'launch/reshare'
+        'launch/reshare': 'launch/reshare',
+        'contests/:uid/:url_title/edit': 'contests/:uid/:url_title/edit'
     });
 
     var Router = Backbone.Router.extend({
@@ -171,6 +172,7 @@
         'new-page': defaultHandler('/new-page'),
         'new-page/:url_title': defaultHandler('/new-page/:url_title'),
         'launch/reshare': defaultHandler('/launch/reshare'),
+        'contests/:uid/:url_title/edit': defaultHandler('/contests/:uid/:url_title/edit'),
         'account': defaultHandler('/account')
     });
 
