@@ -6,6 +6,7 @@ window.evutils = new (function () {
 
     var loadingElToHtmlMap = {};
     self.setElementLoading = function ($el) {
+        //TODOFIX dont use $el
         loadingElToHtmlMap[$el] = $el.html();
         $el.attr('disabled', 'disabled')
             .html('<i class="fa fa-spinner fa-spin"></i>');
