@@ -24,5 +24,7 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+npm-debug.log
 sellerinfo.py
 

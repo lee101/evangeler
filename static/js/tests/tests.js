@@ -72,27 +72,38 @@ describe("evutils", function () {
 
 
 describe("the site", function () {
+    beforeEach(function () {
+        jasmine.clock().install();
+        jasmine.clock().tick(1001);
+    });
+    afterEach(function () {
+        jasmine.clock().uninstall();
+    });
 
     it('should let you navigate to new page', function (done) {
         APP.goto('account');
-        APP.goto('new-page');
-        APP.goto('new-page/multiplication-master');
-        window.setTimeout(function () {
-            $('#create-company-form').submit();
-            APP.testCallback = function () {
-                APP.testCallback = null;
-                APP.goto('contest-categories');
-                APP.goto('launch/reshare');
-                APP.testCallback = function () {
-                    APP.testCallback = null;
+        jasmine.clock().tick(2001);
 
-                    $('#contestTitle').val('test multiplication master contest');
-                    $('#contestAbout').val('test multiplication master contest');
-                    $('#contest-details-form').submit();
-                    done();
-                };
-            };
-        }, 2000);
+        APP.goto('new-page');
+        jasmine.clock().tick(2001);
+
+        APP.goto('new-page/multiplication-master');
+        jasmine.clock().tick(2001);
+
+        $('#create-company-form').submit();
+        jasmine.clock().tick(2001);
+
+        APP.goto('contest-categories');
+        jasmine.clock().tick(2001);
+
+        APP.goto('launch/reshare');
+        jasmine.clock().tick(2001);
+
+
+        $('#contestTitle').val('test multiplication master contest');
+        $('#contestAbout').val('test multiplication master contest');
+        $('#contest-details-form').submit();
+        done();
     });
 
     it('should have eventually created data', function (done) {

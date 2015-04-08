@@ -101,9 +101,6 @@
                         evutils.setElementDone($createBtn);
 
                         APP.goto('account');
-                        if (typeof APP.testCallback === 'function') {
-                            APP.testCallback();
-                        }
                     });
                 });
                 return false;
