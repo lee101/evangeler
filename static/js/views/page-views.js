@@ -117,6 +117,7 @@
         },
 
         render: function () {
+            CURR_CURSOR = "Nope";
             this.$el.html(evutils.render('templates/shared/companies.jinja2'));
             evutils.loadmore('companies');
             return this;

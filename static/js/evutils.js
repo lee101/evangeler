@@ -23,8 +23,12 @@ window.evutils = new (function () {
             isfetching = true;
             var $loadMore = $('.load-more');
             self.setElementLoading($loadMore);
+            var url = '/' + pathName;
+            if (CURR_CURSOR != "Nope") {
+                url += '?cursor=' + CURR_CURSOR
+            }
             $.ajax({
-                'url': '/' + pathName + '?cursor=' + CURR_CURSOR,
+                'url': url,
                 'success': function (data) {
                     self.setElementDone($loadMore);
                     var a = $('<div></div>');
@@ -36,6 +40,7 @@ window.evutils = new (function () {
                 },
                 'error': function (data) {
                     $loadMore.html('No More Results');
+                    isfetching = false;
                 },
                 cache: false
             });
