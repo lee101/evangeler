@@ -188,8 +188,8 @@
         });
 
         APP.router = new Router();
-        APP.header = new APP.Views.Header({path: location.pathname});
-        APP.footer = new APP.Views.Footer({path: location.pathname});
+        APP.header = new APP.Views.Header();
+        APP.footer = new APP.Views.Footer();
         Backbone.history.start({
             pushState: true
 //            silent: true

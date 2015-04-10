@@ -118,13 +118,12 @@
 
     APP.Views.Header = Backbone.View.extend({
         initialize: function (options) {
-            this.path = options.path;
         },
 
         render: function () {
             var self = this;
             models.getUser(function (user) {
-                self.$el.html(evutils.render('templates/shared/header.jinja2', {'path': self.path, 'user': user}));
+                self.$el.html(evutils.render('templates/shared/header.jinja2', {'user': user}));
 
             });
 
@@ -134,11 +133,10 @@
 
     APP.Views.Footer = Backbone.View.extend({
         initialize: function (options) {
-            this.path = options.path;
         },
 
         render: function () {
-            this.$el.html(evutils.render('templates/shared/footer.jinja2', {'path': this.path}));
+            this.$el.html(evutils.render('templates/shared/footer.jinja2', {}));
             return this;
         }
     });

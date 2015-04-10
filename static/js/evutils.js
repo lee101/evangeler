@@ -126,6 +126,7 @@ window.evutils = new (function () {
         }
         $.extend(opts, {
             url: window.location.href,
+            path: location.pathname,
             urlencode: encodeURIComponent,
             window: window,
             client_side: true
