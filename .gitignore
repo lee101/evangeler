@@ -6,16 +6,7 @@
 # Packages
 *.egg
 *.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
 .installed.cfg
-lib64
 __pycache__
 
 # Installer logs
@@ -33,3 +24,7 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+npm-debug.log
+sellerinfo.py
+

@@ -101,9 +101,6 @@
                         evutils.setElementDone($createBtn);
 
                         APP.goto('account');
-                        if (typeof APP.testCallback === 'function') {
-                            APP.testCallback();
-                        }
                     });
                 });
                 return false;
@@ -120,6 +117,7 @@
         },
 
         render: function () {
+            CURR_CURSOR = "Nope";
             this.$el.html(evutils.render('templates/shared/companies.jinja2'));
             evutils.loadmore('companies');
             return this;

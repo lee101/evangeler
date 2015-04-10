@@ -27,8 +27,8 @@ handlers:
   static_files: static/favicon.ico
   upload: static/favicon.ico
 - url: /apple-touch-icon.png
-  static_files: static/apple-touch-icon.png
-  upload: static/apple-touch-icon.png
+  static_files: static/img/apple-touch-icon.png
+  upload: static/img/apple-touch-icon.png
 - url: /BingSiteAuth.xml
   static_files: static/BingSiteAuth.xml
   upload: static/BingSiteAuth.xml
@@ -78,3 +78,11 @@ pagespeed:
 
 inbound_services:
 - warmup
+
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- ^node_modules.*$

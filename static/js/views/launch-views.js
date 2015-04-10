@@ -28,9 +28,6 @@
                             'currentContest': currentContest
                         }));
                         window.setTimeout(self.addValidation, 1000);
-                        if (typeof APP.testCallback === 'function') {
-                            APP.testCallback();
-                        }
                     });
                 });
                 return self;
@@ -90,9 +87,6 @@
                         evutils.setElementDone($launchBtn);
                         APP.currentReshareUID = null;
                         APP.goto('account');
-                        if (typeof APP.testCallback === 'function') {
-                            APP.testCallback();
-                        }
                     });
                 });
                 return false;
