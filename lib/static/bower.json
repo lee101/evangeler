@@ -10,9 +10,5 @@
     "bootstrap": "~3.3.2",
     "backbone": "~1.1.2",
     "jquery.validation": "~1.13.1"
-  },
-  "resolutions": {
-    "jquery.validation": "~1.13.1",
-    "bootstrap": "~3.3.2"
   }
 }

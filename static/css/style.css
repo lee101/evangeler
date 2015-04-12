@@ -74,6 +74,10 @@ a:focus {
   width: 100px;
   margin-right: 10px;
 }
+.media-left,
+.media > .pull-left {
+  padding-right: 0px;
+}
 body {
   background-repeat: repeat;
   background-position: center 12px;
